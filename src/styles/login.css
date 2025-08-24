@@ -1,0 +1,641 @@
+/* Auto-fill styling override */
+.all-input:-webkit-autofill,
+.all-input:-webkit-autofill:hover,
+.all-input:-webkit-autofill:focus,
+.all-input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #18182a/80 inset !important;
+    -webkit-text-fill-color: #75E8F0 !important;
+    border: 2px solid #FCF551 !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Firefox autofill override */
+.all-input:-moz-autofill {
+    background-color: #18182a/80 !important;
+    color: #75E8F0 !important;
+    border: 2px solid #FCF551 !important;
+}
+
+/* iPad Pro 12.9" Portrait (1536x2048) */
+@media (min-width: 1530px) and (max-width: 1540px) and (min-height: 2040px) and (max-height: 2050px) {
+    .form-login {
+        max-width: 76rem !important;
+        height: 40rem !important;
+    }
+
+    .all-input {
+        padding-top: 1.2rem !important;
+        padding-bottom: 1.2rem !important;
+        font-size: 1.75rem !important;
+    }
+
+    .all-text {
+        font-size: 1.75rem !important;
+    }
+
+    .all-button {
+        width: 30% !important;
+    }
+}
+
+@media (max-width: 360px) and (max-height: 740px) and (orientation: portrait) {
+    .form-login {
+        max-width: 18rem !important;
+        height: 16rem !important;
+    }
+
+    .all-input {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+        font-size: 0.7rem !important;
+    }
+
+    .all-text {
+        font-size: 0.7rem !important;
+    }
+
+    .all-button {
+        width: 50% !important;
+    }
+}
+
+@media (min-width: 911px) and (max-width: 912px) and (min-height: 1367px) and (max-height: 1368px) and (orientation: portrait) {
+    .form-login {
+        max-width: 50rem !important;
+        height: 27rem !important;
+    }
+
+    .all-input {
+        padding-top: 0.8rem !important;
+        padding-bottom: 0.8rem !important;
+        font-size: 1.2rem !important;
+    }
+
+    .all-text {
+        font-size: 1.4rem !important;
+    }
+
+    .all-button {
+        width: 40% !important;
+    }
+
+    .text-container {
+        margin-top: 0.3rem !important;
+    }
+}
+
+@media (min-width: 539px) and (max-width: 540px) and (min-height: 719px) and (max-height: 720px) and (orientation: portrait) {
+    .form-login {
+        max-width: 23rem !important;
+        height: 20.5rem !important;
+    }
+
+    .all-input {
+        padding-top: 0.6rem !important;
+        padding-bottom: 0.6rem !important;
+        font-size: 1rem !important;
+    }
+
+    .all-text {
+        font-size: 1rem !important;
+    }
+
+    .all-button {
+        width: 50% !important;
+    }
+
+    .text-container {
+        margin-top: 1rem !important;
+    }
+}
+
+@media (min-width: 852px) and (max-width: 853px) and (min-height: 1279px) and (max-height: 1280px) and (orientation: portrait) {
+    .form-login {
+        max-width: 48rem !important;
+        height: 26rem !important;
+    }
+
+    .all-input {
+        padding-top: 0.8rem !important;
+        padding-bottom: 0.8rem !important;
+        font-size: 1.2rem !important;
+    }
+
+    .all-text {
+        font-size: 1.4rem !important;
+    }
+
+    .all-button {
+        width: 40% !important;
+    }
+
+    .text-container {
+        margin-top: 0.3rem !important;
+    }
+}
+
+@media (min-width: 1023px) and (max-width: 1024px) and (min-width: 539px) and (max-height: 600px) {
+    .form-login {
+        max-width: 40rem !important;
+        height: 21.5rem !important;
+    }
+
+    .all-input {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+        font-size: 0.8rem !important;
+    }
+
+    .all-text {
+        font-size: 1rem !important;
+    }
+
+    .all-button {
+        width: 45% !important;
+        margin-bottom: -2rem;
+    }
+
+    .text-container {
+        margin-top: 0.8rem !important;
+    }
+}
+
+@media (min-width: 1511px) and (max-width: 1512px) and (min-height: 981px) and (max-height: 982px) {
+    .form-login {
+        max-width: 74.8rem !important;
+        height: 40rem !important;
+    }
+
+    .all-input {
+        padding-top: 1.2rem !important;
+        padding-bottom: 1.2rem !important;
+        font-size: 1.75rem !important;
+    }
+
+    .all-text {
+        font-size: 1.75rem !important;
+    }
+
+    .all-button {
+        width: 30% !important;
+    }
+}
+
+@media (min-width: 1727px) and (max-width: 1728px) and (min-height: 1116px) and (max-height: 1117px) {
+    .form-login {
+        max-width: 74.8rem !important;
+        height: 40rem !important;
+    }
+
+    .all-input {
+        padding-top: 1.2rem !important;
+        padding-bottom: 1.2rem !important;
+        font-size: 1.75rem !important;
+    }
+
+    .all-text {
+        font-size: 1.75rem !important;
+    }
+
+    .all-button {
+        width: 40% !important;
+    }
+
+    .text-container {
+        margin-top: 0.8rem !important;
+    }
+}
+
+@media (min-width: 1899px) and (max-width: 1900px) and (min-height: 1199px) and (max-height: 1200px) {
+    .form-login {
+        max-width: 74.8rem !important;
+        height: 40rem !important;
+    }
+
+    .all-input {
+        padding-top: 1.2rem !important;
+        padding-bottom: 1.2rem !important;
+        font-size: 1.75rem !important;
+    }
+
+    .all-text {
+        font-size: 1.75rem !important;
+    }
+
+    .all-button {
+        width: 40% !important;
+    }
+
+    .text-container {
+        margin-top: 0.8rem !important;
+    }
+}
+
+@media (min-width: 1899px) and (max-width: 1900px) and (min-height: 1919px) and (max-height: 1920px) {
+    .form-login {
+        max-width: 74.8rem !important;
+        height: 40rem !important;
+    }
+
+    .all-input {
+        padding-top: 1.2rem !important;
+        padding-bottom: 1.2rem !important;
+        font-size: 1.75rem !important;
+    }
+
+    .all-text {
+        font-size: 1.75rem !important;
+    }
+
+    .all-button {
+        width: 40% !important;
+    }
+
+    .text-container {
+        margin-top: 0.8rem !important;
+    }
+}
+
+@media (min-width: 1919px) and (max-width: 1920px) and (min-height: 1079px) and (max-height: 1080px) {
+    .form-login {
+        max-width: 74.8rem !important;
+        height: 40rem !important;
+    }
+
+    .all-input {
+        padding-top: 1.2rem !important;
+        padding-bottom: 1.2rem !important;
+        font-size: 1.75rem !important;
+    }
+
+    .all-text {
+        font-size: 1.75rem !important;
+    }
+
+    .all-button {
+        width: 40% !important;
+    }
+
+    .text-container {
+        margin-top: 0.8rem !important;
+    }
+}
+
+@media (min-width: 2559px) and (max-width: 2560px) and (min-height: 1139px) and (max-height: 1140px) {
+    .form-login {
+        max-width: 74.8rem !important;
+        height: 40rem !important;
+    }
+
+    .all-input {
+        padding-top: 1.2rem !important;
+        padding-bottom: 1.2rem !important;
+        font-size: 1.75rem !important;
+    }
+
+    .all-text {
+        font-size: 1.75rem !important;
+    }
+
+    .all-button {
+        width: 40% !important;
+    }
+
+    .text-container {
+        margin-top: 0.8rem !important;
+    }
+}
+
+@media (min-width: 2559px) and (max-width: 2560px) and (min-height: 1599px) and (max-height: 1600px) {
+    .form-login {
+        max-width: 90rem !important;
+        height: 49rem !important;
+    }
+
+    .all-input {
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+        font-size: 1.9rem !important;
+    }
+
+    .all-text {
+        font-size: 1.9rem !important;
+    }
+
+    .all-button {
+        width: 45% !important;
+    }
+
+    .text-container {
+        margin-top: 1rem !important;
+    }
+}
+
+@media (min-width: 2849px) and (max-width: 2850px) and (min-height: 1799px) and (max-height: 1800px) {
+    .form-login {
+        max-width: 112rem !important;
+        height: 60rem !important;
+    }
+
+    .all-input {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+        font-size: 2.5rem !important;
+    }
+
+    .all-text {
+        font-size: 2.5rem !important;
+    }
+
+    .all-button {
+        width: 45% !important;
+    }
+
+    .text-container {
+        margin-bottom: -3rem !important;
+    }
+
+    .account-text {
+        width: 40rem !important;
+    }
+}
+
+@media (min-width: 3839px) and (max-width: 3840px) and (min-height: 2159px) and (max-height: 2160px) {
+    .form-login {
+        max-width: 130rem !important;
+        height: 70rem !important;
+    }
+
+    .all-input {
+        padding-top: 2.8rem !important;
+        padding-bottom: 2.8rem !important;
+        font-size: 3rem !important;
+    }
+
+    .all-text {
+        font-size: 3rem !important;
+    }
+
+    .all-button {
+        width: 42% !important;
+    }
+
+    .text-container {
+        margin-bottom: -3rem !important;
+    }
+
+    .account-text {
+        width: 40rem !important;
+    }
+}
+
+@media (min-width: 1079px) and (max-width: 1080px) and (min-height: 1919px) and (max-height: 1920px) {
+    .form-login {
+        max-width: 56rem !important;
+        height: 30rem !important;
+    }
+
+    .all-input {
+        padding-top: 1.1rem !important;
+        padding-bottom: 1.1rem !important;
+        font-size: 1.3rem !important;
+    }
+
+    .all-text {
+        font-size: 1.3rem !important;
+    }
+
+    .all-button {
+        width: 45% !important;
+    }
+
+    .text-container {
+        margin-top: -0.8rem !important;
+    }
+}
+
+@media (min-width: 479px) and (max-width: 480px) and (min-height: 799px) and (max-height: 800px) {
+    .form-login {
+        max-width: 21.5rem !important;
+        height: 19rem !important;
+    }
+}
+
+@media (min-width: 599px) and (max-width: 600px) and (min-height: 1023px) and (max-height: 1024px) and (orientation: portrait) {
+    .form-login {
+        max-width: 26rem !important;
+        height: 23rem !important;
+    }
+
+    .all-input {
+        padding-top: 0.6rem !important;
+        padding-bottom: 0.6rem !important;
+        font-size: 1rem !important;
+    }
+
+    .all-text {
+        font-size: 1rem !important;
+    }
+
+    .all-button {
+        width: 53% !important;
+    }
+
+    .text-container {
+        margin-top: 1rem !important;
+    }
+}
+
+@media (min-width: 2047px) and (max-width: 2048px) and (min-height: 1157px) and (max-height: 1158px) {
+    .form-login {
+        max-width: 74.8rem !important;
+        height: 40rem !important;
+    }
+
+    .all-input {
+        padding-top: 1.2rem !important;
+        padding-bottom: 1.2rem !important;
+        font-size: 1.75rem !important;
+    }
+
+    .all-text {
+        font-size: 1.75rem !important;
+    }
+
+    .all-button {
+        width: 40% !important;
+    }
+
+    .text-container {
+        margin-top: 0.8rem !important;
+    }
+}
+
+@media (min-width: 763px) and (max-width: 764px) and (min-height: 251px) and (max-height: 252px) and (orientation: landscape) {
+    .form-login {
+        max-width: 32rem !important;
+        height: 17.3rem !important;
+    }
+
+    .all-input {
+        padding-top: 0.3rem !important;
+        padding-bottom: 0.3rem !important;
+        font-size: 0.8rem !important;
+    }
+
+    .all-text {
+        font-size: 0.8rem !important;
+    }
+
+    .all-button {
+        width: 35% !important;
+    }
+
+    .text-container {
+        margin-top: -0.2rem !important;
+    }
+
+    .email-text {
+        margin-bottom: 0.2rem !important;
+    }
+
+    .password-text {
+        margin-bottom: 0.2rem !important;
+    }
+
+    .all-button {
+        margin-top: -1.3rem !important;
+    }
+
+    .account-text {
+        width: 20rem !important;
+        margin-top: 2rem !important;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 770px) and (min-height: 302px) and (max-height: 303px) and (orientation: landscape) {
+    .form-login {
+        max-width: 32rem !important;
+        height: 17.3rem !important;
+    }
+
+    .all-input {
+        padding-top: 0.3rem !important;
+        padding-bottom: 0.3rem !important;
+        font-size: 0.8rem !important;
+    }
+
+    .all-text {
+        font-size: 0.8rem !important;
+    }
+
+    .all-button {
+        width: 35% !important;
+    }
+
+    .text-container {
+        margin-top: -0.2rem !important;
+    }
+
+    .email-text {
+        margin-bottom: 0.2rem !important;
+    }
+
+    .password-text {
+        margin-bottom: 0.2rem !important;
+    }
+
+    .all-button {
+        margin-top: -1.3rem !important;
+    }
+
+    .account-text {
+        width: 20rem !important;
+        margin-top: 2rem !important;
+    }
+}
+
+@media (min-width: 771px) and (max-width: 772px) and (min-height: 302px) and (max-height: 303px) and (orientation: landscape) {
+    .form-login {
+        max-width: 32rem !important;
+        height: 17.3rem !important;
+    }
+
+    .all-input {
+        padding-top: 0.3rem !important;
+        padding-bottom: 0.3rem !important;
+        font-size: 0.8rem !important;
+    }
+
+    .all-text {
+        font-size: 0.8rem !important;
+    }
+
+    .all-button {
+        width: 35% !important;
+    }
+
+    .text-container {
+        margin-top: -0.2rem !important;
+    }
+
+    .email-text {
+        margin-bottom: 0.2rem !important;
+    }
+
+    .password-text {
+        margin-bottom: 0.2rem !important;
+    }
+
+    .all-button {
+        margin-top: -1.3rem !important;
+    }
+
+    .account-text {
+        width: 20rem !important;
+        margin-top: 2rem !important;
+    }
+}
+
+@media (min-width: 822px) and (max-width: 823px) and (min-height: 358px) and (max-height: 359px) and (orientation: landscape) {
+    .form-login {
+        max-width: 32rem !important;
+        height: 17.3rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+
+    .all-input {
+        padding-top: 0.3rem !important;
+        padding-bottom: 0.3rem !important;
+        font-size: 0.8rem !important;
+    }
+
+    .all-text {
+        font-size: 0.8rem !important;
+    }
+
+    .all-button {
+        width: 35% !important;
+    }
+
+    .text-container {
+        margin-top: -0.2rem !important;
+    }
+
+    .email-text {
+        margin-bottom: 0.2rem !important;
+    }
+
+    .password-text {
+        margin-bottom: 0.2rem !important;
+    }
+
+    .all-button {
+        margin-top: -1.3rem !important;
+    }
+
+    .account-text {
+        width: 20rem !important;
+        margin-top: 2rem !important;
+    }
+}

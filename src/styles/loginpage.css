@@ -1,0 +1,465 @@
+@media (min-width: 374px) and (max-width: 375px)and (min-height: 666px) and (max-height: 667px) and (orientation: portrait) {
+    .tangga {
+        bottom: 20% !important;
+    }
+
+    .light {
+        bottom: 24% !important;
+    }
+
+    .murasaki {
+        bottom: 28% !important;
+    }
+
+    .aoi {
+        bottom: 35% !important;
+    }
+}
+
+@media (min-width: 359px) and (max-width: 360px) and (min-height: 739px) and (max-height: 740px) and (orientation: portrait) {
+    .tangga {
+        bottom: 26% !important;
+    }
+}
+
+@media (min-width: 767px) and (max-width: 768px) and (min-height: 1023px) and (max-height: 1024px) and (orientation: portrait) {
+    .tangga {
+        bottom: 18% !important;
+    }
+
+    .light {
+        bottom: 24% !important;
+    }
+}
+
+@media (min-width: 819px) and (max-width: 820px) and (min-height: 1179px) and (max-height: 1180px) {
+    .light-background {
+        bottom: 45% !important;
+    }
+}
+
+@media (min-width: 1023px) and (max-width: 1024px) and (min-height: 1366px) and (max-height: 1367px) and (orientation: portrait) {
+    .tangga {
+        bottom: 21% !important;
+    }
+
+    .light {
+        bottom: 24% !important;
+    }
+
+    .murasaki {
+        bottom: 28% !important;
+    }
+
+    .aoi {
+        bottom: 35% !important;
+    }
+
+    .light-background {
+        bottom: 40% !important;
+    }
+
+    .hollow-purple {
+        bottom: 35% !important;
+    }
+}
+
+@media (min-width: 911px) and (max-width: 912px) and (min-height: 1367px) and (max-height: 1368px) and (orientation: portrait) {
+    .light-background {
+        bottom: 47% !important;
+    }
+}
+
+@media (min-width: 539px) and (max-width: 540px) and (min-height: 719px) and (max-height: 720px) and (orientation: portrait) {
+    .tangga {
+        bottom: 13% !important;
+    }
+
+    .light {
+        bottom: 19% !important;
+    }
+
+    .murasaki {
+        bottom: 25% !important;
+    }
+
+    .aoi {
+        bottom: 30% !important;
+    }
+}
+
+@media (min-width: 852px) and (max-width: 853px) and (min-height: 1279px) and (max-height: 1280px) and (orientation: portrait) {
+    .light-background {
+        bottom: 50% !important;
+    }
+}
+
+@media (min-width: 1365px) and (max-width: 1366px) and (min-width: 1023px) and (max-height: 1024px) {
+    .tangga {
+        bottom: 6% !important;
+    }
+
+    .light {
+        bottom: 15% !important;
+    }
+
+    .murasaki {
+        bottom: 15% !important;
+    }
+
+    .aoi {
+        bottom: 25% !important;
+    }
+
+    .light-background {
+        bottom: 40% !important;
+    }
+
+    .hollow-purple {
+        bottom: 35% !important;
+    }
+}
+
+@media (min-width: 1365px) and (max-width: 1366px) and (min-width: 767px) and (max-height: 768px) {
+    .tangga {
+        bottom: -7% !important;
+    }
+
+    .light {
+        bottom: 5% !important;
+    }
+
+    .murasaki {
+        bottom: 10% !important;
+    }
+
+    .aoi {
+        bottom: 20% !important;
+    }
+
+    .light-background {
+        bottom: 40% !important;
+    }
+
+    .hollow-purple {
+        bottom: 35% !important;
+    }
+}
+
+@media (min-width: 1511px) and (max-width: 1512px) and (min-height: 981px) and (max-height: 982px) {
+    .light-background {
+        bottom: 10% !important;
+    }
+}
+
+@media (min-width: 1537px) and (max-width: 1538px) and (min-height: 2047px) and (max-height: 2048px) {
+    .tangga {
+        bottom: 21% !important;
+    }
+
+    .light {
+        bottom: 24% !important;
+    }
+
+    .murasaki {
+        bottom: 28% !important;
+    }
+
+    .aoi {
+        bottom: 35% !important;
+    }
+
+    .light-background {
+        bottom: 40% !important;
+    }
+
+    .hollow-purple {
+        bottom: 35% !important;
+    }
+}
+
+@media (min-width: 1727px) and (max-width: 1728px) and (min-height: 1116px) and (max-height: 1117px) {
+    .light-background {
+        bottom: 0% !important;
+    }
+
+    .tangga {
+        bottom: -6% !important;
+    }
+}
+
+@media (min-width: 1899px) and (max-width: 1900px) and (min-height: 1199px) and (max-height: 1200px) {
+    .light-background {
+        bottom: -20% !important;
+    }
+
+    .tangga {
+        bottom: -6% !important;
+    }
+}
+
+@media (min-width: 1899px) and (max-width: 1900px) and (min-height: 1919px) and (max-height: 1920px) {
+    .tangga {
+        bottom: 17% !important;
+    }
+
+    .light {
+        bottom: 24% !important;
+    }
+
+    .murasaki {
+        bottom: 25% !important;
+    }
+
+    .aoi {
+        bottom: 33% !important;
+    }
+
+    .light-background {
+        bottom: 35% !important;
+    }
+
+    .hollow-purple {
+        bottom: 35% !important;
+    }
+}
+
+@media (min-width: 2559px) and (max-width: 2560px) and (min-height: 1139px) and (max-height: 1140px) {
+    .tangga {
+        bottom: -14% !important;
+    }
+}
+
+@media (min-width: 1079px) and (max-width: 1080px) and (min-height: 1919px) and (max-height: 1920px) {
+    .tangga {
+        bottom: 21% !important;
+    }
+
+    .light {
+        bottom: 24% !important;
+    }
+
+    .murasaki {
+        bottom: 25% !important;
+    }
+
+    .aoi {
+        bottom: 33% !important;
+    }
+
+    .light-background {
+        bottom: 55% !important;
+    }
+
+    .hollow-purple {
+        bottom: 35% !important;
+    }
+}
+
+@media (min-width: 479px) and (max-width: 480px) and (min-height: 799px) and (max-height: 800px) {
+    .tangga {
+        bottom: 19% !important;
+    }
+
+    .light {
+        bottom: 22% !important;
+    }
+
+    .murasaki {
+        bottom: 25% !important;
+    }
+
+    .aoi {
+        bottom: 30% !important;
+    }
+}
+
+@media (min-width: 599px) and (max-width: 600px) and (min-height: 1023px) and (max-height: 1024px) and (orientation: portrait) {
+    .tangga {
+        bottom: 19% !important;
+    }
+
+    .light {
+        bottom: 22% !important;
+    }
+
+    .murasaki {
+        bottom: 25% !important;
+    }
+
+    .aoi {
+        bottom: 30% !important;
+    }
+
+    .light-background {
+        bottom: 45% !important;
+    }
+
+    .hollow-purple {
+        bottom: 35% !important;
+    }
+}
+
+@media (min-width: 719px) and (max-width: 720px) and (min-height: 1279px) and (max-height: 1280px) and (orientation: portrait) {
+    .tangga {
+        bottom: 22% !important;
+    }
+
+    .murasaki {
+        bottom: 27% !important;
+    }
+
+    .aoi {
+        bottom: 37% !important;
+    }
+
+    .light-background {
+        bottom: 55% !important;
+    }
+}
+
+@media (min-width: 799px) and (max-width: 800px) and (min-height: 1279px) and (max-height: 1280px) and (orientation: portrait) {
+    .tangga {
+        bottom: 22% !important;
+    }
+
+    .murasaki {
+        bottom: 27% !important;
+    }
+
+    .aoi {
+        bottom: 37% !important;
+    }
+
+    .light-background {
+        bottom: 55% !important;
+    }
+}
+
+@media (min-width: 439px) and (max-width: 440px) and (min-height: 955px) and (max-height: 956px) and (orientation: portrait) {
+    .light-background {
+        bottom: 45% !important;
+    }
+}
+
+@media (min-width: 1279px) and (max-width: 1280px) and (min-height: 677px) and (max-height: 678px) and (orientation: landscape) {
+    .tangga {
+        bottom: -13% !important;
+    }
+}
+
+@media (min-width: 1439px) and (max-width: 1440px) and (min-height: 714px) and (max-height: 715px) and (orientation: landscape) {
+    .tangga {
+        bottom: -13% !important;
+    }
+}
+
+@media (min-width: 1535px) and (max-width: 1536px) and (min-height: 790px) and (max-height: 791px) and (orientation: landscape) {
+    .tangga {
+        bottom: -10% !important;
+    }
+}
+
+@media (min-width: 763px) and (max-width: 764px) and (min-height: 251px) and (max-height: 252px) and (orientation: landscape) {
+    .tangga {
+        bottom: -15% !important;
+    }
+
+    .light {
+        bottom: -5% !important;
+    }
+
+    .murasaki {
+        bottom: -5% !important;
+    }
+
+    .aoi {
+        bottom: -5% !important;
+    }
+
+    .light-background {
+        bottom: -5% !important;
+    }
+
+    .hollow-purple {
+        bottom: -5% !important;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 770px) and (min-height: 302px) and (max-height: 303px) and (orientation: landscape) {
+    .tangga {
+        bottom: -15% !important;
+    }
+
+    .light {
+        bottom: -5% !important;
+    }
+
+    .murasaki {
+        bottom: -5% !important;
+    }
+
+    .aoi {
+        bottom: -5% !important;
+    }
+
+    .light-background {
+        bottom: -5% !important;
+    }
+
+    .hollow-purple {
+        bottom: -5% !important;
+    }
+}
+
+@media (min-width: 771px) and (max-width: 772px) and (min-height: 302px) and (max-height: 303px) and (orientation: landscape) {
+    .tangga {
+        bottom: -15% !important;
+    }
+
+    .light {
+        bottom: -5% !important;
+    }
+
+    .murasaki {
+        bottom: -5% !important;
+    }
+
+    .aoi {
+        bottom: -5% !important;
+    }
+
+    .light-background {
+        bottom: -5% !important;
+    }
+
+    .hollow-purple {
+        bottom: -5% !important;
+    }
+}
+
+@media (min-width: 822px) and (max-width: 823px) and (min-height: 358px) and (max-height: 359px) and (orientation: landscape) {
+    .tangga {
+        bottom: -15% !important;
+    }
+
+    .light {
+        bottom: -5% !important;
+    }
+
+    .murasaki {
+        bottom: -5% !important;
+    }
+
+    .aoi {
+        bottom: -5% !important;
+    }
+
+    .light-background {
+        bottom: -5% !important;
+    }
+
+    .hollow-purple {
+        bottom: -5% !important;
+    }
+}

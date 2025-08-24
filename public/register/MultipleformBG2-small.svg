@@ -1,0 +1,22 @@
+<svg width="2148" height="2790" viewBox="0 0 2148 2790" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <foreignObject x="-43.8" y="-43.8" width="2235.6" height="2877.6">
+    <div xmlns="http://www.w3.org/1999/xhtml" 
+         style="backdrop-filter:blur(21.9px);
+                clip-path:url(#bgblur_0_898_2_clip_path);
+                height:100%;
+                width:100%">
+    </div>
+  </foreignObject>
+
+  <path d="M3 2647.03V2787H203.568H1888.22L2145 2395.27V182.195V3H1888.22H203.568L3 360.345V2647.03Z" 
+        fill="none" 
+        stroke="#FCF551" 
+        stroke-width="6" 
+        stroke-miterlimit="10"/>
+        
+  <defs>
+    <clipPath id="bgblur_0_898_2_clip_path" transform="translate(43.8 43.8)">
+      <path d="M3 2647.03V2787H203.568H1888.22L2145 2395.27V182.195V3H1888.22H203.568L3 360.345V2647.03Z"/>
+    </clipPath>
+  </defs>
+</svg>

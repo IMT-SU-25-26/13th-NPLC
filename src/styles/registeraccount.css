@@ -1,0 +1,1649 @@
+.input-field {
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+}
+@media (max-width: 3840px) and (max-height: 2160px) {
+  .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .register-title-text {
+    margin-top: -7.5%;
+    font-size: 5rem;
+  }
+  .register-stairs {
+    bottom: -10%;
+  }
+  .form-register-container {
+    max-width: 45%;
+    height: 70rem;
+  }
+  .form-register {
+    margin-top: 8%;
+  }
+  .input-container {
+    width: 70%;
+  }
+  .input-container label {
+    font-size: 2rem;
+  }
+  .input-field {
+    height: 5.5rem;
+    font-size: 3rem;
+  }
+  .registeraccount-button {
+    width: 40%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3rem;
+  }
+  .question-text {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 2850px) and (max-height: 1800px) {
+  .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .register-stairs {
+  }
+  .form-register-container {
+    max-width: 49%;
+    height: 70rem;
+  }
+  .form-register {
+  }
+  .input-container {
+    width: 80%;
+  }
+  .input-field {
+    height: 5.5rem;
+    font-size: 2rem;
+  }
+  .registeraccount-button {
+    margin-top: 2.5%;
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3rem;
+  }
+  .question-text {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 2560px) and (max-height: 1600px) {
+  .register-title-text {
+    font-size: 2rem;
+    margin-top: 5%;
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .register-stairs {
+  }
+  .form-register-container {
+    max-width: 49%;
+    height: 62rem;
+  }
+  .form-register {
+  }
+  .input-container {
+    width: 80%;
+  }
+  .input-field {
+    height: 5.5rem;
+    font-size: 2rem;
+  }
+  .registeraccount-button {
+    margin-top: 2.5%;
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3rem;
+  }
+  .question-text {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 2560px) and (max-height: 1140px) {
+  .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .register-stairs {
+  }
+  .form-register-container {
+    max-width: 40%;
+    height: 50rem;
+  }
+  .form-register {
+  }
+  .input-container {
+    width: 80%;
+    gap: 0.5rem;
+  }
+  .input-field {
+    height: 4rem;
+    font-size: 2rem;
+  }
+  .register-title-text{
+    font-size: 3rem;
+    margin-top: -8%;
+  }
+  .registeraccount-button {
+    margin-top: 2.5%;
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3rem;
+  }
+  .question-text {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 2048px) and (max-height: 1158px) {
+  .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .register-stairs {
+  }
+  .form-register-container {
+    max-width: 42.5%;
+    height: 42rem;
+  }
+  .form-register {
+  }
+  .input-container {
+    width: 80%;
+    gap: 0.5rem;
+  }
+  .input-field {
+    height: 3rem;
+    font-size: 2rem;
+  }
+  .register-title-text{
+    font-size: 2.5rem;
+    margin-top: -8%;
+  }
+  .registeraccount-button {
+    margin-top: 2.5%;
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3rem;
+  }
+  .question-text {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 1920px) and (max-height: 1080px) {
+  .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .register-stairs {
+  }
+  .form-register-container {
+    max-width: 45%;
+    height: 45rem;
+  }
+  .form-register {
+    margin-top: 10%;
+  }
+  .input-container {
+    width: 80%;
+  }
+    .input-container  label{
+    font-size: 1.5rem;
+  }
+  .input-field {
+    height: 3.5rem;
+    font-size: 1.5rem;
+  }
+  .registeraccount-button {
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3rem;
+  }
+  .question-text {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 1900px) and (max-height: 1920px) {
+  .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .register-stairs {
+  }
+  .form-register-container {
+    max-width: 60%;
+    height: 60rem;
+  }
+  .form-register {
+    margin-top: 10%;
+  }
+  .register-title-text{
+    font-size: 3rem;
+    margin-top: -10%;
+  }
+  .input-container {
+    width: 80%;
+  }
+    .input-container  label{
+    font-size: 2rem;
+  }
+  .input-field {
+    height: 4.5rem;
+    font-size: 1.5rem;
+  }
+  .registeraccount-button {
+    margin-top: 2.5%;
+    width: 35%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3rem;
+  }
+  .question-text {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 1900px) and (max-height: 1200px) {
+  .main-bg {
+  }
+
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+   
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .register-stairs {
+  }
+  .form-register-container {
+    max-width: 45.5%;
+    height: 42.5rem;
+  }
+  .form-register {
+    margin-top: 8%;
+  }
+  .input-container {
+    width: 80%;
+  }
+  .input-container label{
+    font-size: 1.5rem;
+  }
+  .input-field {
+    height: 3rem;
+    font-size: 1.5rem;
+  }
+  .registeraccount-button {
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3rem;
+  }
+  .question-text {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 1728px) and (max-height: 1117px) {
+  .main-bg {
+    min-height: 100vh;
+  }
+  .register-title-text {
+    font-size: 2rem;
+    margin-top: -10%;
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .register-stairs {
+  }
+  .form-register-container {
+    max-width: 42.5%;
+    height: 38rem;
+  }
+  .form-register {
+    margin-top: 12%;
+  }
+  .input-container {
+    gap: 0.5rem;
+    width: 80%;
+  }
+  .input-field {
+    height: 2.5rem;
+    font-size: 1.5rem;
+  }
+  .registeraccount-button {
+    width: 40%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3rem;
+  }
+  .question-text {
+    font-size: 1.25rem;
+  }
+}
+@media (max-width: 1728px) and (max-height: 869px) {
+  .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .register-stairs {
+  }
+  .form-register-container {
+    max-width: 68%;
+    height: 70rem;
+  }
+  .form-register {
+    margin-top: 14%;
+  }
+  .input-container {
+    width: 80%;
+  }
+  .input-field {
+    height: 5rem;
+    font-size: 1.5rem;
+  }
+  .registeraccount-button {
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3rem;
+  }
+  .question-text {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 1538px) and (max-height: 2048px) {
+  .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .register-title-text{
+    font-size: 4rem;
+  }
+  .form-wrapper {
+  }
+  .register-stairs {
+  }
+  .form-register-container {
+    max-width: 78%;
+    height: 60rem;
+  }
+  .form-register {
+    margin-top: 8%;
+  }
+  .input-container {
+    width: 80%;
+  }
+  .input-field {
+    height: 5rem;
+    font-size: 1.5rem;
+  }
+  .registeraccount-button {
+    margin-top: 2.5%;
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3rem;
+  }
+  .question-text {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 1536px) and (max-height: 864px) {
+  .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .register-title-text{
+    font-size: 2rem;
+    margin-top: 0;
+  }
+  .form-wrapper {
+  }
+  .register-stairs {
+  }
+  .form-register-container {
+    max-width: 45%;
+    height: 35rem;
+  }
+  .form-register {
+    margin-top: 1.5%;
+  }
+  .input-container {
+    width: 80%;
+  }
+  .input-container label{
+    font-size: 1.25rem;
+  }
+  .input-field {
+    height: 3rem;
+    font-size: 1.5rem;
+  }
+  .registeraccount-button {
+    margin-top: 2.5%;
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3rem;
+  }
+  .question-text {
+    font-size: 1.25rem;
+  }
+}
+@media (max-width: 1536px) and (max-height: 730px) {
+  .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .register-title-text{
+    font-size: 2rem;
+  }
+  .form-register-container {
+    max-width: 40%;
+    height: 30rem;
+  }
+  .form-register {
+    margin-top: 0%;
+  }
+  .input-container {
+    width: 80%;
+    gap: 0.5rem;
+  }
+  .input-container label{
+    font-size: 1.25rem;
+  }
+  .input-field {
+    height: 2.25rem;
+    font-size: 1.25rem;
+  }
+  .registeraccount-button {
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3rem;
+  }
+  .question-text {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 1512px) and (max-height: 982px) {
+  .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .register-title-text
+  {
+    font-size: 2.5rem;
+  }
+  .form-register-container {
+    max-width: 45%;
+    height: 34.5rem;
+  } 
+  .form-register {
+    margin-top: 10%;
+  }
+  .input-container {
+    width: 80%;
+    gap: 0.5rem;
+  }
+  .input-container label{
+    font-size: 1.25rem;
+  }
+  .input-field {
+    height: 2.5rem;
+    font-size: 1.25rem;
+  }
+  .registeraccount-button {
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3rem;
+  }
+  .question-text {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 1512px) and (max-height: 865px) {
+  .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .register-title-text
+  {
+    font-size: 1.5rem;
+  }
+  .form-register-container {
+    max-width: 35%;
+    height: 26.5rem;
+  } 
+  .form-register {
+    margin-top: 10%;
+  }
+  .input-container {
+    width: 80%;
+    gap: 0.5rem;
+  }
+  .input-container label{
+    font-size: 1rem;
+  }
+  .input-field {
+    height: 1.75rem;
+    font-size: 1rem;
+  }
+  .registeraccount-button {
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3rem;
+  }
+  .question-text {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 1440px) and (max-height: 812px) {
+    .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .register-title-text
+  {
+    font-size: 2rem;
+  }
+  .form-register-container {
+    max-width: 45%;
+    height: 33rem;
+  } 
+  .form-register {
+    margin-top: 0%;
+  }
+  .input-container {
+    width: 80%;
+    gap: 0.5rem;
+  }
+  .input-container label{
+    font-size: 1.25rem;
+  }
+  .input-field {
+    height: 2.5rem;
+    font-size: 1.25rem;
+  }
+  .registeraccount-button {
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3rem;
+  }
+  .question-text {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 1366px) and (max-height: 1024px) {
+  .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .register-title-text{
+    font-size: 3rem;
+  }
+  .form-register-container {
+    max-width: 55%;
+    height: 39rem;
+  }
+  .form-register {
+    margin-top: 10%;
+  }
+  .input-container {
+    width: 80%;
+    gap: 0.5rem;
+  }
+  .input-container label{
+    font-size: 1.5rem;
+  }
+  .input-field {
+    height: 3rem;
+    font-size: 1.5rem;
+  }
+  .registeraccount-button {
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3rem;
+  }
+  .question-text {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 1310px) and (max-height: 791px) {
+    .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .register-title-text{
+    font-size: 2rem;
+  }
+  .form-register-container {
+    max-width: 50%;
+    height: 32.5rem;
+  }
+  .form-register {
+    margin-top: 0%;
+  }
+  .input-container {
+    width: 80%;
+    gap: 0.5rem;
+  }
+  .input-container label
+  {
+    font-size: 1rem;
+  }
+  .input-field {
+    height: 3rem;
+    font-size: 1rem;
+  }
+  .registeraccount-button {
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3rem;
+  }
+  .question-text {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 1280px) and (max-height: 800px) {
+     .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .register-title-text{
+    font-size: 2rem;
+  }
+  .form-register-container {
+    max-width: 50%;
+    height: 32.5rem;
+  }
+  .form-register {
+    margin-top: 0%;
+  }
+  .input-container {
+    width: 80%;
+    gap: 0.5rem;
+  }
+  .input-container label
+  {
+    font-size: 1rem;
+  }
+  .input-field {
+    height: 3rem;
+    font-size: 1rem;
+  }
+  .registeraccount-button {
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3rem;
+  }
+  .question-text {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 1280px) and (max-height: 551px) {
+   .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .register-title-text{
+    font-size: 2rem;
+  }
+  .form-register-container {
+    max-width: 50%;
+    height: 32.5rem;
+  }
+  .form-register {
+    margin-top: 0%;
+  }
+  .input-container {
+    width: 80%;
+    gap: 0.5rem;
+  }
+  .input-container label
+  {
+    font-size: 1rem;
+  }
+  .input-field {
+    height: 3rem;
+    font-size: 1rem;
+  }
+  .registeraccount-button {
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3rem;
+  }
+  .question-text {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 1180px) and (max-height: 820px) {
+}
+@media (max-width: 1024px) and (max-height: 1366px) and (orientation: portrait) {
+  .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .register-title-text{
+    font-size: 2rem;
+  }
+  .form-register-container {
+    max-width: 80%;
+    height: 40.5rem;
+  }
+  .form-register {
+    margin-top: 7.5%;
+  }
+  .input-container {
+    width: 90%;
+    gap: 0.5rem;
+  }
+  .input-container label{
+    font-size: 1.5rem;
+  }
+  .input-field {
+    height: 3rem;
+    font-size: 1.5rem;
+  }
+  .registeraccount-button {
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3.5rem;
+  }
+  .question-text {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 1024px) and (max-height: 768px) and (orientation: landscape) {
+}
+@media (max-width: 1024px) and (max-height: 600px) {
+  .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .form-register-container {
+    max-width: 46.5%;
+    height: 24rem;
+  }
+  .register-title-text{
+    font-size: 1.5rem;
+  }
+  .form-register {
+    margin-top: 0%;
+  }
+  .input-container {
+    width: 90%;
+    gap: 0.5rem;
+  }
+  .input-container label {
+    font-size: 0.8rem;
+  }
+  .input-field {
+    height: 1.75rem;
+    font-size: 0.75rem;
+  }
+  .registeraccount-button {
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3rem;
+  }
+  .question-text {
+    font-size: 0.75rem;
+  }
+}
+@media (max-width: 956px) and (max-height: 440px) and (orientation: landscape) {
+}
+@media (max-width: 932px) and (max-height: 430px) {
+}
+@media (max-width: 912px) and (max-height: 1368px) and (orientation: portrait) {
+  .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .register-title-text{
+    font-size: 2rem;
+  }
+  .form-register-container {
+    max-width: 90%;
+    height: 40.5rem;
+  }
+  .form-register {
+    margin-top: 7.5%;
+  }
+  .input-container {
+    width: 90%;
+    gap: 0.5rem;
+  }
+  .input-container label{
+    font-size: 1.5rem;
+  }
+  .input-field {
+    height: 3rem;
+    font-size: 1.5rem;
+  }
+  .registeraccount-button {
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3.5rem;
+  }
+  .question-text {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 853px) and (max-height: 1280px) and (orientation: portrait) {
+  .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .form-register-container {
+    max-width: 85%;
+    height: 35rem;
+  }
+  .register-title-text{
+    font-size: 2rem;
+  }
+  .form-register {
+    margin-top: 10%;
+  }
+  .input-container {
+    width: 70%;
+    gap: 0.5rem;
+  }
+  .input-container label{
+    font-size: 1rem;
+  }
+  .input-field {
+    height: 3rem;
+    font-size: 1rem;
+  }
+  .registeraccount-button {
+    width: 40%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3.5rem;
+  }
+  .question-text {
+    font-size: 1.25rem;
+  }
+}
+@media (max-width: 844px) and (max-height: 390px) {
+}
+@media (max-width: 820px) and (max-height: 1180px) {
+}
+@media (max-width: 768px) and (max-height: 1024px) and (orientation: portrait) {
+    .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .form-register-container {
+    max-width: 85%;
+    height: 32.5rem;
+  }
+  .register-title-text{
+    font-size: 2rem;
+  }
+  .form-register {
+    margin-top: 10%;
+  }
+  .input-container {
+    width: 70%;
+    gap: 0.5rem;
+  }
+  .input-container label{
+    font-size: 1rem;
+  }
+  .input-field {
+    height: 3rem;
+    font-size: 1rem;
+  }
+  .registeraccount-button {
+    width: 40%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3.5rem;
+  }
+  .question-text {
+    font-size: 1.25rem;
+  }
+}
+@media (max-width: 740px) and (max-height: 360px) and (orientation: landscape) {
+}
+@media (max-width: 720px) and (max-height: 540px) and (orientation: landscape) {
+}
+@media (max-width: 540px) and (max-height: 720px) and (orientation: portrait) {
+  .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .form-register-container {
+    max-width: 80%;
+    height: 32.5rem;
+  }
+  .form-register {
+    margin-top: 0%;
+  }
+  .input-container {
+    width: 90%;
+    gap: 0.5rem;
+  }
+  .input-field {
+    height: 2.5rem;
+    font-size: 0.8rem;
+  }
+  .registeraccount-button {
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3.5rem;
+  }
+  .question-text {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 459px) and (max-height: 841px) and (orientation: portrait) {
+}
+@media (max-width: 440px) and (max-height: 956px) and (orientation: portrait) {
+}
+@media (max-width: 430px) and (max-height: 932px) and (orientation: portrait) {
+  .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .form-register-container {
+    max-width: 100%;
+    height: 31.5rem;
+  }
+  .form-register {
+    margin-top: 10%;
+  }
+  .input-container {
+    width: 90%;
+    gap: 0.5rem;
+  }
+  .input-field {
+    height: 2.5rem;
+    font-size: 1rem;
+  }
+  .registeraccount-button {
+    width: 50%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3.5rem;
+  }
+  .question-text {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 414px) and (max-height: 915px) and (orientation: portrait) {
+  .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .form-register-container {
+    max-width: 95%;
+    height: 20.5rem;
+  }
+  .form-register {
+    margin-top: 10%;
+  }
+  .input-container {
+    width: 90%;
+    gap: 0.5rem;
+  }
+  .input-field {
+    height: 1.75rem;
+    font-size: 0.8rem;
+  }
+  .registeraccount-button {
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3.5rem;
+  }
+  .question-text {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 414px) and (max-height: 914px) and (orientation: portrait) {
+  .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .form-register-container {
+    max-width: 95%;
+    height: 20.5rem;
+  }
+  .form-register {
+    margin-top: 10%;
+  }
+  .input-container {
+    width: 90%;
+    gap: 0.5rem;
+  }
+  .input-field {
+    height: 1.5rem;
+    font-size: 0.8rem;
+  }
+  .registeraccount-button {
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3.5rem;
+  }
+  .question-text {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 414px) and (max-height: 896px) and (orientation: portrait) {
+   .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .form-register-container {
+    max-width: 100%;
+    height: 30.5rem;
+  }
+  .form-register {
+    margin-top: 10%;
+  }
+  .input-container label{
+    font-size: 1rem;
+  }
+  .register-title-text{
+    font-size: 1.5rem;
+  }
+  .input-container {
+    width: 90%;
+    gap: 0.1rem;
+  }
+  .input-field {
+    height: 2.5rem;
+    font-size: 0.8rem;
+  }
+  .registeraccount-button {
+    margin-top: 5%;
+    width: 50%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3.5rem;
+  }
+  .question-text {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 412px) and (max-height: 915px) and (orientation: portrait) {
+    .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .form-register-container {
+    max-width: 100%;
+    height: 30.5rem;
+  }
+  .form-register {
+    margin-top: 10%;
+  }
+  .input-container label{
+    font-size: 1rem;
+  }
+  .register-title-text{
+    font-size: 1.5rem;
+  }
+  .input-container {
+    width: 90%;
+    gap: 0.1rem;
+  }
+  .input-field {
+    height: 2.5rem;
+    font-size: 0.8rem;
+  }
+  .registeraccount-button {
+    margin-top: 5%;
+    width: 50%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3.5rem;
+  }
+  .question-text {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 393px) and (max-height: 873px) and (orientation: portrait) {
+}
+@media (max-width: 390px) and (max-height: 844px) and (orientation: portrait) {
+  .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .form-register-container {
+    max-width: 100%;
+    height: 28.5rem;
+  }
+  .form-register {
+    margin-top: 0%;
+  }
+  .input-container {
+    width: 80%;
+    gap: 0.5rem;
+  }
+  .input-field {
+    height: 2rem;
+    font-size: 1rem;
+  }
+  .registeraccount-button {
+    width: 50%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3.5rem;
+  }
+  .question-text {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 375px) and (max-height: 667px) and (orientation: portrait) {
+      .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .form-register-container {
+    max-width: 100%;
+    height: 27.5rem;
+  }
+  .form-register {
+    margin-top: 0%;
+  }
+  .input-container label{
+    font-size: 0.8rem;
+  }
+  .register-title-text{
+    font-size: 1.5rem;
+  }
+  .input-container {
+    width: 80%;
+    gap: 0.1rem;
+  }
+  .input-field {
+    height: 2.25rem;
+    font-size: 0.8rem;
+  }
+  .registeraccount-button {
+    margin-top: 5%;
+    width: 50%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3.5rem;
+  }
+  .question-text {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 360px) and (max-height: 740px) and (orientation: portrait) {
+    .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .form-register-container {
+    max-width: 100%;
+    height: 25.5rem;
+  }
+  .form-register {
+    margin-top: 0%;
+  }
+  .input-container label{
+    font-size: 0.8rem;
+  }
+  .register-title-text{
+    font-size: 1.5rem;
+  }
+  .input-container {
+    width: 90%;
+    gap: 0.1rem;
+  }
+  .input-field {
+    height: 2.25rem;
+    font-size: 0.8rem;
+  }
+  .registeraccount-button {
+    margin-top: 5%;
+    width: 50%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3.5rem;
+  }
+  .question-text {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 344px) and (max-height: 882px) and (orientation: portrait) {
+    .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .form-register-container {
+    max-width: 100%;
+    height: 25.5rem;
+  }
+  .form-register {
+    margin-top: 10%;
+  }
+  .input-container label{
+    font-size: 0.8rem;
+  }
+  .register-title-text{
+    font-size: 1.5rem;
+  }
+  .input-container {
+    width: 90%;
+    gap: 0.1rem;
+  }
+  .input-field {
+    height: 2.25rem;
+    font-size: 0.8rem;
+  }
+  .registeraccount-button {
+    margin-top: 5%;
+    width: 50%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3.5rem;
+  }
+  .question-text {
+    font-size: 0.8rem;
+  }
+}

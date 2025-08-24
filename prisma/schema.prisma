@@ -1,0 +1,158 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Competition {
+  id           String                    @id @default(cuid())
+  name         String
+  is_started   Boolean                   @default(false)
+  is_paused    Boolean                   @default(false)
+  Registration CompetitionRegistration[]
+}
+
+model Question {
+  id                String       @id @default(cuid())
+  question          String
+  time_constraint   String
+  memory_constraint String
+  Answers           Answer[]
+  Constraints       Constraint[]
+  Examples          Example[]
+  TestCases         TestCase[]
+}
+
+model Answer {
+  id                String   @id @default(cuid())
+  question_id       String
+  user_id           String
+  answer            String
+  time_constraint   String
+  memory_constraint String
+  question          Question @relation(fields: [question_id], references: [id])
+  user              User     @relation(fields: [user_id], references: [id])
+}
+
+model Example {
+  id          String   @id @default(cuid())
+  question_id String
+  explanation String
+  output      String
+  input       String
+  question    Question @relation(fields: [question_id], references: [id])
+}
+
+model Constraint {
+  id          String   @id @default(cuid())
+  constraint  String
+  question_id String
+  question    Question @relation(fields: [question_id], references: [id])
+}
+
+model TestCase {
+  id             String           @id @default(cuid())
+  question_id    String
+  name           String
+  question       Question         @relation(fields: [question_id], references: [id])
+  TestCaseAnswer TestCaseAnswer[]
+}
+
+model TestCaseAnswer {
+  id           String   @id @default(cuid())
+  test_case_id String
+  test_case    TestCase @relation(fields: [test_case_id], references: [id])
+}
+
+model User {
+  id                         String                    @id @default(cuid())
+  name                       String
+  email                      String                    @unique
+  emailVerified              Boolean
+  image                      String?
+  createdAt                  DateTime
+  updatedAt                  DateTime
+  nomor_induk_siswa_nasional String?                   @unique
+  role                       Roles                     @default(viewer)
+  Answer                     Answer[]
+  CompetitionRegistration    CompetitionRegistration[]
+  accounts                   Account[]
+  sessions                   Session[]
+
+  @@map("user")
+}
+
+model CompetitionRegistration {
+  id                          String             @id @default(cuid())
+  team_name                   String
+  link_twiboon                String
+  school_name                 String
+  contact_person_number       String
+  competition_id              String
+  user_id                     String
+  submission_link             String?
+  is_paid                     Boolean            @default(false)
+  registration_status         RegistrationStatus @default(pending)
+  registration_midtrans_token String?
+  competition                 Competition        @relation(fields: [competition_id], references: [id])
+  user                        User               @relation(fields: [user_id], references: [id])
+}
+
+model Session {
+  id        String   @id
+  expiresAt DateTime
+  token     String   @unique
+  createdAt DateTime
+  updatedAt DateTime
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("session")
+}
+
+model Account {
+  id                    String    @id
+  accountId             String
+  providerId            String
+  userId                String
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime
+  updatedAt             DateTime
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("account")
+}
+
+model Verification {
+  id         String    @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime?
+  updatedAt  DateTime?
+
+  @@map("verification")
+}
+
+enum Roles {
+  admin
+  participant
+  viewer
+}
+
+enum RegistrationStatus {
+  pending
+  accepted
+  failed
+}

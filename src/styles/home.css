@@ -1,0 +1,4238 @@
+.competition-tab-container{
+  height: 40rem;
+  width: 65%;
+  gap: 1rem;
+}
+.competition-tab-title{
+  margin-top: 11%;
+  font-size: 3.75rem;
+  line-height: 1;
+  width: 90%;
+}
+.competition-tab-description{
+  font-size: 1.875rem;
+  width: 90%;
+  line-height: 1.2;
+}
+
+
+@media (max-width: 3840px) and (max-height: 2160px) {
+  .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -18%;
+  }
+  .gradient-light-bg {
+    bottom: -10%;
+  }
+  .light-middle {
+    bottom: 5%;
+  }
+  
+  .timeline-container {
+    margin-top: 10%;
+  }
+  .timeline-text {
+    margin-top: 2.5%;
+    width: 70rem;
+  }
+  .timeline {
+    width: 140rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 110vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+
+
+  .tab-button-grid {
+    gap: 6rem;
+    margin-top: 2.5%;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 5%;
+    width: 65%;
+    height: 65rem;
+  }
+  .competition-tab-title {
+    margin-top: 5%;
+    font-size: 6.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 3.25rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: 0;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 2560px) and (max-height: 1600px) {
+  .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -16%;
+  }
+  .gradient-light-bg {
+    bottom: -10%;
+  }
+  .light-middle {
+    bottom: 5%;
+  }
+  
+  .timeline-container {
+    margin-top: 10%;
+  }
+  .timeline-text {
+    margin-top: 2.5%;
+    width: 50rem;
+  }
+  .timeline {
+    width: 110rem;
+  }
+  .down-container {
+    background-position: center 10%;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+
+
+  .tab-button-grid {
+    gap: 6rem;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 5%;
+    width: 65%;
+    height: 50rem;
+  }
+  .competition-tab-title {
+    margin-top: 7.5%;
+    font-size: 5rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 2.5rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: 0;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 2850px) and (max-height: 1800px) {
+  .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -16%;
+  }
+  .gradient-light-bg {
+    bottom: -10%;
+  }
+  .light-middle {
+    bottom: 5%;
+  }
+  
+  .timeline-container {
+    margin-top: 10%;
+  }
+  .timeline-text {
+    margin-top: 2.5%;
+    width: 50rem;
+  }
+  .timeline {
+    width: 110rem;
+  }
+  .down-container {
+    background-position: center 10%;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+
+
+  .tab-button-grid {
+    gap: 6rem;
+    margin-top: 2.5%;
+  }
+ 
+  .tab-button-container {
+
+  }
+  .competition-tab-container {
+    margin-top: 5%;
+    width: 65%;
+    height: 50rem;
+  }
+  .competition-tab-title {
+    margin-top: 5%;
+    font-size: 6rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 3rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: 0;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 2560px) and (max-height: 1600px) {
+  .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -16%;
+  }
+  .gradient-light-bg {
+    bottom: -10%;
+  }
+  .light-middle {
+    bottom: 5%;
+  }
+  
+  .timeline-container {
+    margin-top: 10%;
+  }
+  .timeline-text {
+    margin-top: 2.5%;
+    width: 50rem;
+  }
+  .timeline {
+    width: 110rem;
+  }
+  .down-container {
+    background-position: center 10%;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+
+
+  .tab-button-grid {
+    gap: 6rem;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 5%;
+    width: 65%;
+    height: 50rem;
+  }
+  .competition-tab-title {
+    margin-top: 7.5%;
+    font-size: 5rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 2.5rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: 0;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 2560px) and (max-height: 1140px) {
+  .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -70%;
+  }
+  .gradient-light-bg {
+    bottom: -10%;
+  }
+  .light-middle {
+    bottom: 5%;
+  }
+  
+  .timeline-container {
+    margin-top: 30%;
+  }
+  .timeline-text {
+    margin-top: -15.5%;
+    width: 50rem;
+  }
+  .timeline {
+    width: 110rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 145vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+
+
+  .tab-button-grid {
+    margin-top: 2.5%;
+    gap: 6rem;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 5%;
+    width: 65%;
+    height: 50rem;
+  }
+  .competition-tab-title {
+    margin-top: 7.5%;
+    font-size: 5rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 2.5rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: 0;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 2048px) and (max-height: 1158px) {
+  .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -27%;
+  }
+  .gradient-light-bg {
+    bottom: -8%;
+  }
+  .light-middle {
+    bottom: 12.5%;
+  }
+  
+  .timeline-container {
+    margin-top: 15%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 30rem;
+  }
+  .timeline {
+    width: 70rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 100vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+
+
+  .tab-button-grid {
+    margin-top: 2.5%;
+    gap: 6rem;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 0%;
+    width: 65%;
+    height: 40rem;
+  }
+  .competition-tab-title {
+    margin-top: 9%;
+    font-size: 3.75rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.875rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -5%;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1920px) and (max-height: 1080px) {
+  .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -27%;
+  }
+  .gradient-light-bg {
+    bottom: -8%;
+  }
+  .light-middle {
+    bottom: 12.5%;
+  }
+  .timeline-container {
+    margin-top: 15%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 30rem;
+  }
+  .timeline {
+    width: 70rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 100vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .tab-button-grid {
+    margin-top: 2.5%;
+    gap: 6rem;
+  }
+  .competition-tab-container {
+    margin-top: 0%;
+    width: 65%;
+    height: 40rem;
+  }
+  .competition-tab-title {
+    margin-top: 9%;
+    font-size: 3.75rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.875rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -5%;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1900px) and (max-height: 1920px) {
+  .up-container {
+    min-height: 55vh;
+  }
+  .dimensional-rift {
+    top: -27%;
+  }
+  .gradient-light-bg {
+    bottom: -12%;
+  }
+  .light-middle {
+    bottom: 14.5%;
+  }
+  .front-light-gradient {
+    bottom: 14.5%;
+  }
+  .timeline-container {
+    margin-top: 15%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 30rem;
+  }
+  .timeline {
+    width: 70rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 55vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .stairs {
+    top: -30.5%;
+  }
+
+  .tab-button-grid {
+    margin-top: 0%;
+    gap: 6rem;
+  }
+  .competition-tab-container {
+    margin-top: 0%;
+    width: 65%;
+    height: 40rem;
+  }
+  .competition-tab-title {
+    margin-top: 9%;
+    font-size: 3.75rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.875rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -5%;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1900px) and (max-height: 1200px) {
+  .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -26%;
+  }
+  .gradient-light-bg {
+    bottom: -3%;
+  }
+  .light-middle {
+    bottom: 17.5%;
+  }
+  .timeline-container {
+    margin-top: 15%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 30rem;
+  }
+  .timeline {
+    width: 70rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 90vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .tab-button-grid {
+    margin-top: 2.5%;
+    gap: 6rem;
+  }
+  .competition-tab-container {
+    margin-top: 0%;
+    width: 65%;
+    height: 40rem;
+  }
+  .competition-tab-title {
+    margin-top: 9%;
+    font-size: 3.75rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.875rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -5%;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1728px) and (max-height: 1117px) {
+  .dimensional-rift {
+    top: -23%;
+  }
+  .gradient-light-bg {
+    bottom: 0%;
+  }
+  .light-middle {
+    bottom: 17.5%;
+  }
+  .timeline-container {
+    margin-top: 15%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 30rem;
+  }
+  .timeline {
+    width: 70rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 90vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .tab-button-grid {
+    margin-top: 2.5%;
+    gap: 6rem;
+  }
+  .competition-tab-container {
+    margin-top: 0%;
+    width: 65%;
+    height: 40rem;
+  }
+  .competition-tab-title {
+    margin-top: 9%;
+    font-size: 3.75rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.875rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -10%;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1728px) and (max-height: 992px) {
+  .dimensional-rift {
+    top: -26%;
+  }
+  .gradient-light-bg {
+    bottom: 0%;
+  }
+  .light-middle {
+    bottom: 17.5%;
+  }
+  .timeline-container {
+    margin-top: 15%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 30rem;
+  }
+  .timeline {
+    width: 70rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 100vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .tab-button-grid {
+    margin-top: 0%;
+    gap: 6rem;
+  }
+  .competition-tab-container {
+    margin-top: 0%;
+    width: 65%;
+    height: 40rem;
+  }
+  .competition-tab-title {
+    margin-top: 10%;
+    font-size: 3.75rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.875rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -10%;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1728px) and (max-height: 869px) {
+  .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -35%;
+  }
+  .gradient-light-bg {
+    bottom: 0%;
+  }
+  .light-middle {
+    bottom: 17.5%;
+  }
+  .timeline-container {
+    margin-top: 17.5%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 30rem;
+  }
+  .timeline {
+    width: 60rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 120vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .stairs {
+    top: -23%;
+  }
+
+  .tab-button-grid {
+    margin-top: 2.5%;
+    gap: 6rem;
+  }
+  .competition-tab-container {
+    margin-top: 0%;
+    width: 65%;
+    height: 40rem;
+  }
+  .competition-tab-title {
+    margin-top: 9%;
+    font-size: 3.75rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.875rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: 0;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1728px) and (max-height: 858px) {
+  .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -35%;
+  }
+  .gradient-light-bg {
+    bottom: 0%;
+  }
+  .light-middle {
+    bottom: 17.5%;
+  }
+  .timeline-container {
+    margin-top: 17.5%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 30rem;
+  }
+  .timeline {
+    width: 60rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 120vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .stairs {
+    top: -23%;
+  }
+
+  .tab-button-grid {
+    margin-top: 2.5%;
+    gap: 6rem;
+  }
+  .competition-tab-container {
+    margin-top: 0%;
+    width: 65%;
+    height: 40rem;
+  }
+  .competition-tab-title {
+    margin-top: 9%;
+    font-size: 3.75rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.875rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: 0;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1708px) and (max-height: 792px) {
+  .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -38%;
+  }
+  .gradient-light-bg {
+    bottom: 0%;
+  }
+  .light-middle {
+    bottom: 17.5%;
+  }
+  .timeline-container {
+    margin-top: 17.5%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 30rem;
+  }
+  .timeline {
+    width: 60rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 120vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .stairs {
+    top: -23%;
+  }
+
+  .tab-button-grid {
+    margin-top: 2.5%;
+    gap: 6rem;
+  }
+  .competition-tab-container {
+    margin-top: 0%;
+    width: 65%;
+    height: 40rem;
+  }
+  .competition-tab-title {
+    margin-top: 9%;
+    font-size: 3.75rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.875rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -10%;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1538px) and (max-height: 2048px) {
+  .up-container {
+    min-height: 48vh;
+  }
+  .dimensional-rift {
+    top: -23%;
+  }
+  .gradient-light-bg {
+    bottom: 0%;
+  }
+  .light-middle {
+    bottom: 17.5%;
+  }
+  .timeline-container {
+    margin-top: 15%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 30rem;
+  }
+  .timeline {
+    width: 70rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 48vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .tab-button-grid {
+    width: 70%;
+    margin-top: 2.5%;
+    gap: 3rem;
+  }
+  .competition-tab-container {
+    margin-top: -2.5%;
+    width: 70%;
+    height: 40rem;
+  }
+  .competition-tab-title {
+    margin-top: 11%;
+    font-size: 3.75rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.875rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -10%;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1536px) and (max-height: 864px) {
+  .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -27%;
+  }
+  .gradient-light-bg {
+    bottom: 0%;
+  }
+  .light-middle {
+    bottom: 17.5%;
+  }
+  .timeline-container {
+    margin-top: 15%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 30rem;
+  }
+  .timeline {
+    width: 60rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 48vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .tab-button-grid {
+    width: 65%;
+    margin-top: 2.5%;
+    gap: 3rem;
+  }
+  /* .tab-button-container{
+        padding-bottom: 5rem;
+    } */
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 65%;
+    height: 29rem;
+    margin-bottom: 10rem;
+  }
+  .competition-tab-title {
+    margin-top: 3%;
+    font-size: 3rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.675rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -5.5%;
+    width: 30%;
+    height: auto;
+  }
+}
+
+@media (max-width: 1512px) and (max-height: 982px) {
+  .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -23%;
+  }
+  .gradient-light-bg {
+    bottom: 0%;
+  }
+  .light-middle {
+    bottom: 17.5%;
+  }
+  
+  .timeline-container {
+    margin-top: 15%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 30rem;
+  }
+  .timeline {
+    width: 70rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 100vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+  }
+  .light-waves {
+  }
+  .stairs {
+    top: -23%;
+  }
+
+  .tab-button-grid {
+    width: 70%;
+    margin-top: 4%;
+    gap: 3rem;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 70%;
+    height: 30rem;
+  }
+  .competition-tab-title {
+    margin-top: 1.5%;
+    font-size: 3.75rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.875rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: 0;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1512px) and (max-height: 865px) {
+  .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -26%;
+  }
+  .gradient-light-bg {
+    bottom: 0%;
+  }
+  .light-middle {
+    bottom: 17.5%;
+  }
+  
+  .timeline-container {
+    margin-top: 15%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 30rem;
+  }
+  .timeline {
+    width: 70rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 100vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+  }
+  .light-waves {
+  }
+  .stairs {
+    top: -23%;
+  }
+
+  .tab-button-grid {
+    width: 70%;
+    margin-top: 4%;
+    gap: 3rem;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 70%;
+    height: 30rem;
+    margin-bottom: 15%;
+  }
+  .competition-tab-title {
+    margin-top: 3.5%;
+    font-size: 3.75rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.875rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -2.5%;
+    width: 40%;
+    height: auto;
+  }
+}
+@media (max-width: 1470px) and (max-height: 769px) {
+   .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -30%;
+  }
+  .gradient-light-bg {
+    bottom: 0%;
+  }
+  .light-middle {
+    bottom: 17.5%;
+  }
+  
+  .timeline-container {
+    margin-top: 15%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 25rem;
+  }
+  .timeline {
+    margin-top: -2.5%;
+    width: 50rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 100vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+  }
+  .light-waves {
+  }
+  .stairs {
+    top: -23%;
+  }
+
+  .tab-button-grid {
+    width: 70%;
+    margin-top: 4%;
+    gap: 3rem;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 70%;
+    height: 30rem;
+  }
+  .competition-tab-title {
+    margin-top: 5.5%;
+    font-size: 3.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.5rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -5%;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1440px) and (max-height: 812px) {
+  .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -30%;
+  }
+  .gradient-light-bg {
+    bottom: 0%;
+  }
+  .light-middle {
+    bottom: 17.5%;
+  }
+  
+  .timeline-container {
+    margin-top: 15%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 25rem;
+  }
+  .timeline {
+    margin-top: -2.5%;
+    width: 50rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 100vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+  }
+  .light-waves {
+  }
+  .stairs {
+    top: -23%;
+  }
+
+  .tab-button-grid {
+    width: 70%;
+    margin-top: 4%;
+    gap: 3rem;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 70%;
+    height: 30rem;
+  }
+  .competition-tab-title {
+    margin-top: 5.5%;
+    font-size: 3rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.5rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -5%;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1440px) and (max-height: 715px) {
+  .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -30%;
+  }
+  .gradient-light-bg {
+    bottom: 0%;
+  }
+  .light-middle {
+    bottom: 17.5%;
+  }
+  
+  .timeline-container {
+    margin-top: 15%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 25rem;
+  }
+  .timeline {
+    margin-top: -2.5%;
+    width: 50rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 100vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+  }
+  .light-waves {
+  }
+  .stairs {
+    top: -23%;
+  }
+
+  .tab-button-grid {
+    width: 70%;
+    margin-top: 4%;
+    gap: 3rem;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 70%;
+    height: 30rem;
+  }
+  .competition-tab-title {
+    margin-top: 5.5%;
+    font-size: 3.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.5rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -5%;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1430px) and (max-height: 769px) {
+  .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -28%;
+  }
+  .gradient-light-bg {
+    bottom: 0%;
+  }
+  .light-middle {
+    bottom: 17.5%;
+  }
+  
+  .timeline-container {
+    margin-top: 15%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 25rem;
+  }
+  .timeline {
+    margin-top: -2.5%;
+    width: 50rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 100vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+  }
+  .light-waves {
+  }
+  .stairs {
+    top: -23%;
+  }
+
+  .tab-button-grid {
+    width: 70%;
+    margin-top: 4%;
+    gap: 3rem;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 70%;
+    height: 30rem;
+  }
+  .competition-tab-title {
+    margin-top: 5.5%;
+    font-size: 3.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.5rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -5%;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1382px) and (max-height: 793px) {
+    .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -27%;
+  }
+  .gradient-light-bg {
+    bottom: 0%;
+  }
+  .light-middle {
+    bottom: 17.5%;
+  }
+  
+  .timeline-container {
+    margin-top: 15%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 25rem;
+  }
+  .timeline {
+    margin-top: -2.5%;
+    width: 50rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 100vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+  }
+  .light-waves {
+  }
+  .stairs {
+    top: -23%;
+  }
+
+  .tab-button-grid {
+    width: 70%;
+    margin-top: 4%;
+    gap: 3rem;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 70%;
+    height: 30rem;
+  }
+  .competition-tab-title {
+    margin-top: 5.5%;
+    font-size: 3.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.5rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -5%;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1366px) and (max-height: 1024px) {
+  .up-container {
+    min-height: 80vh;
+  }
+  .dimensional-rift {
+    top: -27%;
+  }
+  .gradient-light-bg {
+    bottom: 0%;
+  }
+  .light-middle {
+    bottom: 17.5%;
+  }
+  
+  .timeline-container {
+    margin-top: 15%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 25rem;
+  }
+  .timeline {
+    margin-top: -2.5%;
+    width: 50rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 90vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+  }
+  .light-waves {
+  }
+  .stairs {
+    top: -23%;
+  }
+
+  .tab-button-grid {
+    width: 70%;
+    margin-top: 4%;
+    gap: 3rem;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 70%;
+    height: 30rem;
+  }
+  .competition-tab-title {
+    margin-top: 5%;
+    font-size: 3.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.5rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -5%;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1366px) and (max-height: 768px) {
+  .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -27%;
+  }
+  .gradient-light-bg {
+    bottom: 0%;
+  }
+  .light-middle {
+    bottom: 17.5%;
+  }
+  
+  .timeline-container {
+    margin-top: 15%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 25rem;
+  }
+  .timeline {
+    margin-top: -2.5%;
+    width: 50rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 100vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+  }
+  .light-waves {
+  }
+  .stairs {
+    top: -23%;
+  }
+
+  .tab-button-grid {
+    width: 70%;
+    margin-top: 4%;
+    gap: 3rem;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 70%;
+    height: 30rem;
+  }
+  .competition-tab-title {
+    margin-top: 5.5%;
+    font-size: 3.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.5rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -5%;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1328px) and (max-height: 992px) {
+  .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -27%;
+  }
+  .gradient-light-bg {
+    bottom: 0%;
+  }
+  .light-middle {
+    bottom: 17.5%;
+  }
+  
+  .timeline-container {
+    margin-top: 15%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 25rem;
+  }
+  .timeline {
+    margin-top: -2.5%;
+    width: 50rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 100vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+  }
+  .light-waves {
+  }
+  .stairs {
+    top: -23%;
+  }
+
+  .tab-button-grid {
+    width: 70%;
+    margin-top: 4%;
+    gap: 3rem;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 70%;
+    height: 30rem;
+  }
+  .competition-tab-title {
+    margin-top: 5.5%;
+    font-size: 3.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.5rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -10%;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1280px) and (max-height: 800px) {
+  .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -24%;
+  }
+  .gradient-light-bg {
+    bottom: 0%;
+  }
+  .light-middle {
+    bottom: 14.5%;
+  }
+  
+  .timeline-container {
+    margin-top: 15%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 30rem;
+  }
+  .timeline {
+    width: 50rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 90vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+
+
+  .tab-button-grid {
+    margin-top: 2.5%;
+    gap: 3rem;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 0%;
+    width: 65%;
+    height: 30rem;
+  }
+  .competition-tab-title {
+    margin-top: 8.5%;
+    font-size: 3rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.475rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -10%;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1280px) and (max-height: 678px) {
+  .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -30%;
+  }
+  .gradient-light-bg {
+    bottom: 0%;
+  }
+  .light-middle {
+    bottom: 14.5%;
+  }
+  
+  .timeline-container {
+    margin-top: 15%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 30rem;
+  }
+  .timeline {
+    width: 50rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 90vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+
+
+  .tab-button-grid {
+    margin-top: 2.5%;
+    gap: 3rem;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 0%;
+    width: 65%;
+    height: 30rem;
+  }
+  .competition-tab-title {
+    margin-top: 8.5%;
+    font-size: 3rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.475rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -10%;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1280px) and (max-height: 551px) {
+    .up-container {
+    min-height: 140vh;
+  }
+  .dimensional-rift {
+    top: -25%;
+  }
+  .gradient-light-bg {
+    bottom: 0%;
+  }
+  .light-middle {
+    bottom: 14.5%;
+  }
+  
+  .timeline-container {
+    margin-top: 15%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 30rem;
+  }
+  .timeline {
+    width: 50rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 90vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+
+
+  .tab-button-grid {
+    margin-top: 2.5%;
+    gap: 3rem;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 0%;
+    width: 65%;
+    height: 30rem;
+  }
+  .competition-tab-title {
+    margin-top: 8.5%;
+    font-size: 3rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1.475rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -10%;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1180px) and (max-height: 820px) {
+  .up-container {
+    min-height: 90vh;
+  }
+  .dimensional-rift {
+    top: -35%;
+  }
+  .gradient-light-bg {
+    height: 30rem;
+    bottom: 68%;
+  }
+  .light-middle {
+    bottom: 20%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 30rem;
+  }
+  .timeline {
+    width: 50rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -25%;
+  }
+  .tab-button-grid {
+    margin-top: 10%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 75%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container {
+    padding-bottom: 7.5rem;
+  }
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 80%;
+    height: 25rem;
+  }
+  .competition-tab-title {
+    margin-top: 5.5%;
+    font-size: 2.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 0%;
+    font-size: 1.3rem;
+    width: 85%;
+  }
+  .register-button {
+    margin-top: 0;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1090px) and (max-height: 686px) {
+  .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -35%;
+  }
+  .gradient-light-bg {
+    height: 30rem;
+    bottom: 70%;
+  }
+  .light-middle {
+    bottom: 20%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 30rem;
+  }
+  .timeline {
+    width: 50rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -20%;
+  }
+  .tab-button-grid {
+    margin-top: 10%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 75%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container {
+    padding-bottom: 7.5rem;
+  }
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 80%;
+    height: 25rem;
+  }
+  .competition-tab-title {
+    margin-top: 5.5%;
+    font-size: 2.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 0%;
+    font-size: 1.3rem;
+    width: 85%;
+  }
+  .register-button {
+    margin-top: 0;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1080px) and (max-height: 1920px) {
+  .up-container {
+    min-height: 50vh;
+  }
+  .dimensional-rift {
+    top: -105%;
+  }
+  .gradient-light-bg {
+    height: 50rem;
+    bottom: 40%;
+  }
+  .light-middle {
+    bottom: 20%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 30rem;
+  }
+  .timeline {
+    width: 50rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -25%;
+  }
+  .tab-button-grid {
+    margin-top: 10%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 75%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container {
+    padding-bottom: 7.5rem;
+  }
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 80%;
+    height: 25rem;
+  }
+  .competition-tab-title {
+    margin-top: 5.5%;
+    font-size: 2.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 0%;
+    font-size: 1.3rem;
+    width: 85%;
+  }
+  .register-button {
+    margin-top: 0;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1071px) and (max-height: 869px) {
+  .up-container {
+    min-height: 90vh;
+  }
+  .dimensional-rift {
+    top: -35%;
+  }
+  .gradient-light-bg {
+    height: 30rem;
+    bottom: 68%;
+  }
+  .light-middle {
+    bottom: 20%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 30rem;
+  }
+  .timeline {
+    width: 50rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -25%;
+  }
+  .tab-button-grid {
+    margin-top: 10%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 75%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container {
+    padding-bottom: 7.5rem;
+  }
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 80%;
+    height: 25rem;
+  }
+  .competition-tab-title {
+    margin-top: 5.5%;
+    font-size: 2.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 0%;
+    font-size: 1.3rem;
+    width: 85%;
+  }
+  .register-button {
+    margin-top: 0;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 1024px) and (max-height: 1366px) and (orientation: portrait) {
+  .up-container {
+    min-height: 50vh;
+  }
+  .dimensional-rift {
+    top: -35%;
+  }
+  .gradient-light-bg {
+    height: 30rem;
+    bottom: 60%;
+  }
+  .light-middle {
+    bottom: 20%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 30rem;
+  }
+  .timeline {
+    width: 50rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -20%;
+  }
+
+  .tab-button-grid {
+    margin-top: 10%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 75%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container {
+    padding-bottom: 7.5rem;
+  }
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 75%;
+    height: 20rem;
+  }
+  .competition-tab-title {
+    margin-top: 2.5%;
+    font-size: 2.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 0%;
+    font-size: 1.1rem;
+    width: 85%;
+  }
+  .register-button {
+    margin-top: -5%;
+    width: 45%;
+    height: auto;
+  }
+}
+@media (max-width: 1024px) and (max-height: 768px) and (orientation: landscape) {
+}
+@media (max-width: 1024px) and (max-height: 600px) {
+  .up-container {
+    min-height: 100vh;
+  }
+  .dimensional-rift {
+    top: -18%;
+  }
+  .gradient-light-bg {
+    height: 40rem;
+    bottom: 10%;
+  }
+  .light-middle {
+    bottom: 10.5%;
+  }
+  
+  .timeline-container {
+    margin-top: 10%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 20rem;
+  }
+  .timeline {
+    width: 40rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 60vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+  }
+  .light-waves {
+  }
+  .stairs {
+    top: -23%;
+  }
+
+  .tab-button-grid {
+    margin-top: 5%;
+    width: 70%;
+    gap: 2rem;
+  }
+  .tab-button-container{
+    padding-bottom: 0;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 70%;
+    height: 20rem;
+  }
+  .competition-tab-title {
+    margin-top: 2.5%;
+    font-size: 2.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: 0;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 956px) and (max-height: 440px) and (orientation: landscape) {
+}
+@media (max-width: 932px) and (max-height: 430px) {
+}
+@media (max-width: 912px) and (max-height: 1368px) and (orientation: portrait) {
+  .up-container {
+    min-height: 50vh;
+  }
+  .dimensional-rift {
+    top: -35%;
+    display: none;
+  }
+  .gradient-light-bg {
+    height: 30rem;
+    bottom: 60%;
+  }
+  .light-middle {
+    bottom: 20%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 30rem;
+  }
+  .timeline {
+    width: 45rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -20%;
+  }
+
+  .tab-button-grid {
+    margin-top: 10%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 75%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container {
+    padding-bottom: 7.5rem;
+  }
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 75%;
+    height: 20rem;
+  }
+  .competition-tab-title {
+    margin-top: 3.5%;
+    font-size: 2.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 0%;
+    font-size: 1rem;
+    width: 85%;
+  }
+  .register-button {
+    margin-top: -7.5%;
+    width: 40%;
+    height: auto;
+  }
+}
+@media (max-width: 869px) and (max-height: 869px) {
+  .up-container {
+    min-height: 65vh;
+  }
+  .dimensional-rift {
+    top: -40%;
+  }
+  .gradient-light-bg {
+    bottom: 50%;
+  }
+  .light-middle {
+    bottom: 10.5%;
+  }
+  
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 20rem;
+  }
+  .timeline {
+    width: 35rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 35vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+  }
+  .light-waves {
+  }
+  .stairs {
+    top: -25%;
+  }
+
+  .tab-button-grid {
+    margin-top: 15%;
+    width: 70%;
+    gap: 2rem;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 0%;
+    width: 70%;
+    height: 20rem;
+  }
+  .competition-tab-title {
+    margin-top: 10%;
+    font-size: 2.25rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 1rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: 0;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 853px) and (max-height: 1280px) and (orientation: portrait) {
+  .up-container {
+    min-height: 45vh;
+  }
+  .dimensional-rift {
+    top: -40%;
+  }
+  .gradient-light-bg {
+    bottom: 50%;
+  }
+  .light-middle {
+    bottom: 10.5%;
+  }
+  
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 20rem;
+  }
+  .timeline {
+    width: 35rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 35vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+  }
+  .light-waves {
+  }
+  .stairs {
+    top: -25%;
+  }
+
+  .tab-button-grid {
+    margin-top: 12%;
+    width: 70%;
+    gap: 2rem;
+  }
+  .tab-button {
+    padding-bottom: 0rem;
+  }
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 70%;
+    height: 16rem;
+  }
+  .competition-tab-title {
+    margin-top: 0%;
+    font-size: 1.75rem;
+  }
+  .competition-tab-description {
+    margin-top: 0%;
+    font-size: 0.9rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -5%;
+    width: 40%;
+    height: auto;
+  }
+}
+@media (max-width: 844px) and (max-height: 390px) {
+}
+@media (max-width: 823px) and (max-height: 359px) {
+  .up-container {
+    min-height: 150vh;
+  }
+  .dimensional-rift {
+    top: -35%;
+  }
+  .gradient-light-bg {
+    height: 30rem;
+    bottom: 50%;
+  }
+  .light-middle {
+    bottom: 20%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 20rem;
+  }
+  .timeline {
+    width: 35rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -20%;
+  }
+
+  .tab-button-grid {
+    margin-top: 10%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 75%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container {
+    padding-bottom: 5rem;
+  }
+  .competition-tab-container {
+    margin-top: 0%;
+    width: 75%;
+    height: 18rem;
+  }
+  .competition-tab-title {
+    margin-top: 2.5%;
+    font-size: 2rem;
+  }
+  .competition-tab-description {
+    margin-top: 0%;
+    font-size: 1.25rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -7.5%;
+    width: 40%;
+    height: auto;
+  }
+}
+@media (max-width: 820px) and (max-height: 1180px) {
+  .up-container {
+    min-height: 50vh;
+  }
+  .dimensional-rift {
+    top: -35%;
+  }
+  .gradient-light-bg {
+    height: 30rem;
+    bottom: 50%;
+  }
+  .light-middle {
+    bottom: 20%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 20rem;
+  }
+  .timeline {
+    width: 35rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -20%;
+  }
+
+  .tab-button-grid {
+    margin-top: 10%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 75%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container {
+    padding-bottom: 5rem;
+  }
+  .competition-tab-container {
+    margin-top: 0%;
+    width: 75%;
+    height: 18rem;
+  }
+  .competition-tab-title {
+    margin-top: 2.5%;
+    font-size: 2rem;
+  }
+  .competition-tab-description {
+    margin-top: 0%;
+    font-size: 1rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -7.5%;
+    width: 40%;
+    height: auto;
+  }
+}
+@media (max-width: 820px) and (max-height: 740px) {
+  .up-container {
+    min-height: 70vh;
+  }
+  .dimensional-rift {
+    top: -35%;
+  }
+  .gradient-light-bg {
+    height: 30rem;
+    bottom: 50%;
+  }
+  .light-middle {
+    bottom: 20%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 20rem;
+  }
+  .timeline {
+    width: 35rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -20%;
+  }
+
+  .tab-button-grid {
+    margin-top: 10%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 75%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container {
+    padding-bottom: 4rem;
+  }
+  .competition-tab-container {
+    margin-top: 0%;
+    width: 75%;
+    height: 20rem;
+  }
+  .competition-tab-title {
+    margin-top: 10.5%;
+    font-size: 1.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 0%;
+    font-size: 1rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: 0;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 823px) and (max-height: 359px) {
+  .up-container {
+    min-height: 175vh;
+  }
+  .dimensional-rift {
+    top: -35%;
+  }
+  .gradient-light-bg {
+    height: 30rem;
+    bottom: 50%;
+  }
+  .light-middle {
+    bottom: 20%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 20rem;
+  }
+  .timeline {
+    width: 35rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -19%;
+  }
+
+  .tab-button-grid {
+    margin-top: 10%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 75%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container {
+    padding-bottom: 4rem;
+  }
+  .competition-tab-container {
+    margin-top: 0%;
+    width: 75%;
+    height: 20rem;
+  }
+  .competition-tab-title {
+    margin-top: 10.5%;
+    font-size: 1.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 0%;
+    font-size: 1rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -10%;
+    width: 45%;
+    height: auto;
+  }
+}
+@media (max-width: 770px) and (max-height: 303px) {
+  .up-container {
+    min-height: 200vh;
+  }
+  .dimensional-rift {
+    display: none;
+    top: -46%;
+  }
+  .gradient-light-bg {
+    height: 35rem;
+    bottom: 40%;
+  }
+  .light-middle {
+    bottom: 20%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 20rem;
+  }
+  .timeline {
+    width: 35rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -20%;
+  }
+
+  .tab-button-grid {
+    margin-top: 10%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 75%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container {
+    padding-bottom: 0rem;
+  }
+  .competition-tab-container {
+    margin-top: 0%;
+    width: 75%;
+    height: 18rem;
+  }
+  .competition-tab-title {
+    margin-top: 5%;
+    font-size: 1.75rem;
+  }
+  .competition-tab-description {
+    margin-top: 0%;
+    font-size: 1.05rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -10%;
+    width: 45%;
+    height: auto;
+  }
+}
+@media (max-width: 768px) and (max-height: 1024px) and (orientation: portrait) {
+  .up-container {
+    min-height: 50vh;
+  }
+  .dimensional-rift {
+    top: -35%;
+  }
+  .gradient-light-bg {
+    height: 30rem;
+    bottom: 40%;
+  }
+  .light-middle {
+    bottom: 20%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 20rem;
+  }
+  .timeline {
+    width: 35rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -20%;
+  }
+
+  .tab-button-grid {
+    margin-top: 10%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 75%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container {
+    padding-bottom: 5rem;
+  }
+  .competition-tab-container {
+    margin-top: 0%;
+    width: 75%;
+    height: 18rem;
+  }
+  .competition-tab-title {
+    margin-top: 5%;
+    font-size: 1.75rem;
+  }
+  .competition-tab-description {
+    margin-top: 0%;
+    font-size: 0.9rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -10%;
+    width: 45%;
+    height: auto;
+  }
+}
+@media (max-width: 764px) and (max-height: 252px) {
+  .up-container {
+    min-height: 200vh;
+  }
+  .dimensional-rift {
+    top: -46%;
+  }
+  .gradient-light-bg {
+    height: 30rem;
+    bottom: 40%;
+  }
+  .light-middle {
+    bottom: 20%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 20rem;
+  }
+  .timeline {
+    width: 35rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -20%;
+  }
+
+  .tab-button-grid {
+    margin-top: 10%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 75%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container {
+    padding-bottom: 5rem;
+  }
+  .competition-tab-container {
+    margin-top: 0%;
+    width: 75%;
+    height: 18rem;
+  }
+  .competition-tab-title {
+    margin-top: 5%;
+    font-size: 1.75rem;
+  }
+  .competition-tab-description {
+    margin-top: 0%;
+    font-size: 1.05rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -10%;
+    width: 45%;
+    height: auto;
+  }
+}
+@media (max-width: 740px) and (max-height: 740px) {
+  .up-container {
+    min-height: 70vh;
+  }
+  .dimensional-rift {
+    top: -35%;
+  }
+  .gradient-light-bg {
+    height: 30rem;
+    bottom: 50%;
+  }
+  .light-middle {
+    bottom: 20%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 20rem;
+  }
+  .timeline {
+    width: 35rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -20%;
+  }
+
+  .tab-button-grid {
+    margin-top: 10%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 75%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container {
+    padding-bottom: 4rem;
+  }
+  .competition-tab-container {
+    margin-top: 0%;
+    width: 75%;
+    height: 20rem;
+  }
+  .competition-tab-title {
+    margin-top: 10.5%;
+    font-size: 1.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 0%;
+    font-size: 1rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: 0;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 740px) and (max-height: 360px) and (orientation: landscape) {
+}
+@media (max-width: 720px) and (max-height: 540px) and (orientation: landscape) {
+}
+@media (max-width: 540px) and (max-height: 720px) and (orientation: portrait) {
+  .up-container {
+    min-height: 50vh;
+  }
+  .dimensional-rift {
+    top: -35%;
+  }
+  .gradient-light-bg {
+    height: 30rem;
+    bottom: 40%;
+  }
+  .light-middle {
+    bottom: 20%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 15rem;
+  }
+  .timeline {
+    width: 25rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -15%;
+  }
+
+  .tab-button-grid {
+    margin-top: 15%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 75%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container {
+    padding-bottom: 0rem;
+  }
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 75%;
+    height: 20rem;
+  }
+  .competition-tab-title {
+    margin-top: 2.5%;
+    font-size: 2rem;
+  }
+  .competition-tab-description {
+    margin-top: 0%;
+    font-size: 0.8rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -7.5%;
+    width: 60%;
+    height: auto;
+  }
+}
+@media (max-width: 480px) and (max-height: 800px) and (orientation: portrait) {
+  .up-container {
+    min-height: 50vh;
+  }
+  .dimensional-rift {
+    display: none;
+    top: -35%;
+  }
+  .gradient-light-bg {
+    height: 22.5rem;
+    bottom: 40%;
+  }
+  .light-middle {
+    bottom: 40%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 15rem;
+  }
+  .timeline {
+    width: 25rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -20%;
+  }
+
+  .tab-button-grid {
+    margin-top: 5%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 75%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container {
+    padding-bottom: 4rem;
+  }
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 75%;
+    height: 20rem;
+  }
+  .competition-tab-title {
+    margin-top: 10.5%;
+    font-size: 1.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 0%;
+    font-size: 1rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: 0;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 459px) and (max-height: 841px) and (orientation: portrait) {
+  .up-container {
+    min-height: 50vh;
+  }
+  .dimensional-rift {
+    display: none;
+    top: -35%;
+  }
+  .gradient-light-bg {
+    height: 22.5rem;
+    bottom: 40%;
+  }
+  .light-middle {
+    bottom: 40%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 15rem;
+  }
+  .timeline {
+    width: 25rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -15%;
+  }
+
+  .tab-button-grid {
+    margin-top: 5%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 75%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container {
+    padding-bottom: 4rem;
+  }
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 75%;
+    height: 20rem;
+  }
+  .competition-tab-title {
+    margin-top: 10.5%;
+    font-size: 1.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 0%;
+    font-size: 1rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: 0;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 457px) and (max-height: 874px) and (orientation: portrait) {
+  .up-container {
+    min-height: 50vh;
+  }
+  .dimensional-rift {
+    display: none;
+    top: -15%;
+  }
+  .gradient-light-bg {
+    height: 25rem;
+    bottom: 30%;
+  }
+  .light-middle {
+    bottom: 50%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 15rem;
+  }
+  .timeline {
+    width: 25rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -20%;
+  }
+
+  .tab-button-grid {
+    margin-top: 5%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 75%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container {
+    padding-bottom: 4rem;
+  }
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 75%;
+    height: 18rem;
+  }
+  .competition-tab-title {
+    margin-top: 5%;
+    font-size: 1.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 0%;
+    font-size: 0.9rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -15%;
+    width: 60%;
+    height: auto;
+  }
+}
+@media (max-width: 440px) and (max-height: 956px) and (orientation: portrait) {
+  .up-container {
+    min-height: 40vh;
+  }
+  .dimensional-rift {
+    display: none;
+  }
+  .gradient-light-bg {
+    bottom: 10%;
+  }
+  .light-middle {
+    bottom: 30.5%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 15rem;
+  }
+  .timeline {
+    width: 22.5rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 40vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 25%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -14%;
+  }
+
+  .tab-button-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 10%;
+    width: 85%;
+    gap: 1rem;
+  }
+  .tab-button-container {
+    padding-bottom: 5rem;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 0%;
+    width: 85%;
+    height: 20rem;
+  }
+  .competition-tab-title {
+    margin-top: 7.5%;
+    font-size: 2rem;
+  }
+  .competition-tab-description {
+    margin-top: -2%;
+    font-size: 0.9rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -15%;
+    width: 60%;
+    height: auto;
+  }
+}
+@media (max-width: 430px) and (max-height: 932px) and (orientation: portrait) {
+  .up-container {
+    min-height: 40vh;
+  }
+  .dimensional-rift {
+    display: none;
+  }
+  .gradient-light-bg {
+    bottom: 10%;
+  }
+  .light-middle {
+    bottom: 40.5%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 15rem;
+  }
+  .timeline {
+    width: 22.5rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 40vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 25%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -14%;
+  }
+
+  .tab-button-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 15%;
+    width: 85%;
+    gap: 1rem;
+  }
+  .tab-button-container {
+    padding-bottom: 6.5rem;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 85%;
+    height: 18rem;
+  }
+  .competition-tab-title {
+    margin-top: 2.5%;
+    font-size: 1.5rem;
+  }
+  .competition-tab-description {
+    margin-top: -2%;
+    font-size: 0.8rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -10%;
+    width: 60%;
+    height: auto;
+  }
+}
+@media (max-width: 430px) and (max-height: 745px) {
+  .up-container {
+    min-height: 45vh;
+  }
+  .dimensional-rift {
+    display: none;
+  }
+  .gradient-light-bg {
+    bottom: 17.5%;
+  }
+  .light-middle {
+    bottom: 40.5%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 15rem;
+  }
+  .timeline {
+    width: 22.5rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 25%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -14%;
+  }
+
+  .tab-button-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 10%;
+    width: 85%;
+    gap: 1rem;
+  }
+  .tab-button-container {
+    padding-bottom: 3rem;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 85%;
+    height: 18rem;
+    margin-bottom: 0;
+  }
+  .competition-tab-title {
+    margin-top: 2.5%;
+    font-size: 1.5rem;
+  }
+  .competition-tab-description {
+    margin-top: -2%;
+    font-size: 1rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -10%;
+    width: 60%;
+    height: auto;
+  }
+}
+@media (max-width: 414px) and (max-height: 896px) and (orientation: portrait) {
+  .up-container {
+    min-height: 40vh;
+  }
+  .dimensional-rift {
+    display: none;
+  }
+  .gradient-light-bg {
+    height: 22.5rem;
+    bottom: 25%;
+  }
+  .light-middle {
+    bottom: 45%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 15rem;
+  }
+  .timeline {
+    width: 20.5rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .waves2 {
+    display: inline-block;
+    bottom: 45%;
+  }
+  .light-waves2 {
+    display: inline-block;
+    bottom: 20%;
+    opacity: 30%;
+  }
+  .stairs {
+    top: -13%;
+  }
+
+  .tab-button-grid {
+    margin-top: 15%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 85%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container {
+    padding-bottom: 5rem;
+  }
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 85%;
+    height: 18rem;
+    margin-bottom: 0;
+  }
+  .competition-tab-title {
+    margin-top: 2.5%;
+    font-size: 1.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 0%;
+    font-size: 0.8rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -15%;
+    width: 60%;
+    height: auto;
+  }
+}
+@media (max-width: 412px) and (max-height: 915px) and (orientation: portrait) {
+  .up-container {
+    min-height: 40vh;
+  }
+  .dimensional-rift {
+    display: none;
+  }
+  .gradient-light-bg {
+    height: 22.5rem;
+    bottom: 25%;
+  }
+  .light-middle {
+    bottom: 40.5%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 15rem;
+  }
+  .timeline {
+    width: 20.5rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: -1rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .waves2 {
+    display: inline-block;
+    bottom: 45%;
+  }
+  .light-waves2 {
+    display: inline-block;
+    bottom: 20%;
+    opacity: 30%;
+  }
+  .stairs {
+    top: -15%;
+  }
+
+  .tab-button-grid {
+    margin-top: 10%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 85%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container {
+    padding-bottom: 2rem;
+  }
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 85%;
+    height: 18rem;
+  }
+  .competition-tab-title {
+    margin-top: 0%;
+    font-size: 1.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 0%;
+    font-size: 0.85rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -10%;
+    width: 50%;
+    height: auto;
+  }
+}
+@media (max-width: 393px) and (max-height: 873px) and (orientation: portrait) {
+  .up-container {
+    min-height: 40vh;
+  }
+  .dimensional-rift {
+    display: none;
+  }
+  .gradient-light-bg {
+    height: 22.5rem;
+    bottom: 25%;
+  }
+  .light-middle {
+    bottom: 30.5%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 15rem;
+  }
+  .timeline {
+    width: 20.5rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -13%;
+  }
+
+  .tab-button-grid {
+    margin-top: 15%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 85%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container {
+    padding-bottom: 5rem;
+  }
+  .competition-tab-container {
+    margin-top: 0%;
+    width: 85%;
+    height: 18rem;
+  }
+  .competition-tab-title {
+    margin-top: 5%;
+    font-size: 1.5rem;
+  }
+  .competition-tab-description {
+    margin-top: 0%;
+    font-size: 1rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -15%;
+    width: 60%;
+    height: auto;
+  }
+}
+@media (max-width: 390px) and (max-height: 844px) and (orientation: portrait) {
+  .up-container {
+    min-height: 45vh;
+  }
+  .dimensional-rift {
+    display: none;
+  }
+  .gradient-light-bg {
+    bottom: 30%;
+  }
+  .light-middle {
+    bottom: 50.5%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 10%;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 15rem;
+  }
+  .timeline {
+    width: 20.5rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -17%;
+  }
+
+  .tab-button-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 5%;
+    width: 85%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container{
+    padding-bottom: 3rem;
+  }
+  .competition-tab-container {
+    margin-top: 2.5%;
+    width: 85%;
+    height: 18rem;
+  }
+  .competition-tab-title {
+    margin-top: 5%;
+    font-size: 1.5rem;
+  }
+  .competition-tab-description {
+    margin-top: -2%;
+    font-size: 0.75rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -15%;
+    width: 60%;
+    height: auto;
+  }
+}
+@media (max-width: 375px) and (max-height: 667px) and (orientation: portrait) {
+  .up-container {
+    min-height: 50vh;
+  }
+  .dimensional-rift {
+    display: none;
+  }
+  .gradient-light-bg {
+    bottom: 20%;
+  }
+  .light-middle {
+    bottom: 45.5%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 15rem;
+  }
+  .timeline {
+    width: 20.5rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -10%;
+  }
+
+  .tab-button-grid {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 15%;
+    width: 60%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container{
+    padding-bottom: 5rem;
+  }
+  .competition-tab-container {
+    margin-top: 0%;
+    padding-bottom: 0rem;
+    margin-bottom: 0;
+    width: 85%;
+    height: 18rem;
+  }
+  .competition-tab-title {
+    margin-top: 10%;
+    font-size: 1.5rem;
+  }
+  .competition-tab-description {
+    margin-top: -2%;
+    font-size: 0.65rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -15%;
+    width: 60%;
+    height: auto;
+  }
+}
+@media (max-width: 360px) and (max-height: 740px) and (orientation: portrait) {
+    .up-container {
+    min-height: 50vh;
+  }
+  .dimensional-rift {
+    display: none;
+  }
+  .gradient-light-bg {
+    bottom: 22.5%;
+  }
+  .light-middle {
+    bottom: 45.5%;
+  }
+  .blue-building {
+    bottom: 10%;
+  }
+  .purple-building {
+    bottom: 7.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 15rem;
+  }
+  .timeline {
+    width: 20.5rem;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -15%;
+  }
+
+  .tab-button-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 10%;
+    width: 85%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container {
+    padding-bottom: 2.5rem;
+  }
+  .competition-tab-container {
+    margin-top: 5%;
+    width: 85%;
+    height: 16rem;
+    margin-bottom: 0;
+  }
+  .competition-tab-title {
+    margin-top: 0%;
+    font-size: 1.25rem;
+  }
+  .competition-tab-description {
+    margin-top: -2%;
+    font-size: 0.7rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -15%;
+    width: 60%;
+    height: auto;
+  }
+}
+@media (max-width: 344px) and (max-height: 882px) and (orientation: portrait) {
+  .up-container {
+    min-height: 50vh;
+  }
+  .dimensional-rift {
+    display: none;
+  }
+  .gradient-light-bg {
+    bottom: 35%;
+  }
+  .light-middle {
+    bottom: 10.5%;
+  }
+  .blue-building {
+    bottom: 20%;
+  }
+  .purple-building {
+    bottom: 5.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+    gap: 1rem;
+  }
+  .timeline-text {
+    margin-top: 10%;
+    width: 15rem;
+  }
+  .timeline {
+    width: 18.5rem;
+    display: none;
+  }
+  .timeline-mobile {
+    width: 15.5rem;
+    display: inline-block;
+  }
+  .down-container {
+    background-position: center 10%;
+    min-height: 30vh;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .waves2 {
+    display: inline-block;
+    bottom: 50%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .light-waves2 {
+    display: inline-block;
+    bottom: 50%;
+  }
+  .stairs {
+    top: -10%;
+  }
+
+  .tab-button-grid {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 15%;
+    width: 65%;
+    gap: 1rem;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 5%;
+    width: 85%;
+    height: 13rem;
+  }
+  .competition-tab-title {
+    margin-top: 0%;
+    font-size: 1.25rem;
+  }
+  .competition-tab-description {
+    margin-top: -2%;
+    font-size: 0.6rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -10%;
+    width: 60%;
+    height: auto;
+  }
+}
