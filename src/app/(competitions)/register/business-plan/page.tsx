@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CompetitiveProgrammingForm from "@/components/competition/business-plan/RegistrationForm";
+import BusinessPlanRegistrationForm from "@/components/competition/business-plan/RegistrationForm";
 import "@/styles/competitive-programming.css";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth/auth";
@@ -63,9 +63,10 @@ export default async function Page() {
             height={1000}
             alt="Competition Text"
           />
-          <CompetitiveProgrammingForm
-            competitionId={competitionId}
+          <BusinessPlanRegistrationForm
             competitionTitle="Business Plan"
+            competitionId={competitionId}
+            userId={session.user.id}
            />
         </div>
 

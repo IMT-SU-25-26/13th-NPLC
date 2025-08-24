@@ -17,7 +17,7 @@ interface CompetitiveProgrammingFormProps {
   userId: string;
 }
 
-export default function CompetitiveProgrammingForm({
+export default function BusinessPlanRegistrationForm({
   competitionId,
   competitionTitle,
   userId,
