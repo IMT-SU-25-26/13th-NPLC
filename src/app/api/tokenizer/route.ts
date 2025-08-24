@@ -1,7 +1,7 @@
 import Midtrans from "midtrans-client"
 import { NextResponse } from "next/server"
 
-let snap = new Midtrans.Snap({
+const snap = new Midtrans.Snap({
   isProduction: false,
   serverKey: process.env.MID_TRANS_SECRET || "",
   clientKey: process.env.NEXT_PUBLIC_MID_TRANS_CLIENT || ""
@@ -10,7 +10,7 @@ let snap = new Midtrans.Snap({
 export async function POST(request: Request){
   const {id, productName, price, quantity} = await request.json()
 
-  let parameter = {
+  const parameter = {
     item_details: {
         name: productName,
         price: price,

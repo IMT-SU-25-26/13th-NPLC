@@ -2,7 +2,7 @@
 "use server";
 
 import { registerForACompetition as registerServerSide } from "@/lib/user";
-export async function registerForCompetition(formData: FormData, competitionId: string, competitionTitle: string) {
+export async function registerForCompetition(formData: FormData, competitionId: string) {
   try {
     // Convert form fields from fullname1, nisn1 format to arrays
     const newFormData = new FormData();

@@ -16,11 +16,11 @@ export default function RegistrationDetail({
   const handleShowPayment = () => {
     if (token && typeof window !== "undefined" && window.snap) {
       window.snap.pay(token, {
-        onSuccess: async function (result) {
+        onSuccess: async function () {
           /* Anda dapat menambahkan logika di sini, misalnya redirect atau menampilkan pesan sukses */
           await updateIsPaid(registration_id, true);
         },
-        onError: async function (result) {
+        onError: async function () {
           /* Logika jika terjadi error */
           await updateIsPaid(registration_id, false);
         },

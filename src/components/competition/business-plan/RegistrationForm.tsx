@@ -32,7 +32,7 @@ export default function CompetitiveProgrammingForm({
       const form = e.target as HTMLFormElement;
       const formData = new FormData(form);
 
-      await registerForCompetition(formData, competitionId, competitionTitle);
+      await registerForCompetition(formData, competitionId);
       const registration_id = (await getRegistrationIdByCompetitionAndUser(
         competitionId,
         userId
@@ -70,19 +70,19 @@ export default function CompetitiveProgrammingForm({
       }
       // Panggil snap.pay dengan callbacks
       window.snap.pay(requestData.token, {
-        onSuccess: async function (result) {
+        onSuccess: async function () {
           /* Anda dapat menambahkan logika di sini, misalnya redirect atau menampilkan pesan sukses */
           await updateIsPaid(registration_id, true);
           toast.success("Payment successful!");
           form.reset(); // Reset form setelah pembayaran berhasil
           // Contoh: window.location.href = '/dashboard/payment/success';
         },
-        onPending: function (result) {
+        onPending: function () {
           /* Logika untuk status pembayaran pending */
           toast.info("Waiting for your payment...");
           form.reset(); // Reset form karena pembayaran sudah diproses
         },
-        onError: async function (result) {
+        onError: async function () {
           /* Logika jika terjadi error */
           await updateIsPaid(registration_id, false);
 
