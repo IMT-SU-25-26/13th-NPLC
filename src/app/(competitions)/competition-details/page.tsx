@@ -1,8 +1,11 @@
 import React from "react";
 import { auth } from "@/lib/auth/auth";
 import { headers } from "next/headers";
-import RegistrationDetail from "@/components/competition/RegistrationDetail";
+// import RegistrationDetail from "@/components/competition/RegistrationDetail";
 import prisma from "@/lib/prisma"; // or wherever your PrismaClient is exported
+import "@/styles/home.css"
+// import Image from "next/image";
+// import TabButtonContainer from "@/components/utils/TabButtonContainer";
 
 export default async function Page() {
   // Get current session
@@ -17,22 +20,18 @@ export default async function Page() {
   // Fetch all registrations for this user
   const registrations = await prisma.competitionRegistration.findMany({
     where: { user_id: session.user.id },
-    // include: { competition: true }, // if you want competition details
+    include: { competition: true }, // if you want competition details
   });
 
 
+  // Generate stars on client side only to avoid hydration mismatch
+  
+  // Initialize starsRef.current as an arra
+
   return (
-    <div className="min-h-screen w-screen overflow-hidden flex flex-col items-center justify-center bg-gradient-to-b from-[#111114] to-[#090A1E] p-4">
-      <h1 className="text-2xl font-bold mb-4">Your Registrations</h1>
-      {registrations.length === 0 ? (
-        <div>No registrations found.</div>
-      ) : (
-        <div className="flex flex-col gap-4">
-          {registrations.map((reg) => (
-            <RegistrationDetail key={reg.id} registrationStatus={reg.registration_status} registration_id={reg.id} token={reg.registration_midtrans_token ?? ""} />
-          ))}
-        </div>
-      )}
+    <div className="overflow-hidden">
+      <div className="min-h-screen w-screen overflow-hidden bg-gradient-to-b from-[#111114] to-[#090A1E]">
+       </div>
     </div>
   );
 }
