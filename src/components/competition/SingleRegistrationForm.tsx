@@ -4,7 +4,11 @@ import React, { useState } from "react";
 import { toast } from "sonner";
 import { registerForCompetition } from "@/lib/server-actions/competition";
 import "@/styles/single-regis.css";
-import { getRegistrationIdByCompetitionAndUser, updateRegistrationMidtransToken, updateIsPaid } from "@/lib/competition";
+import {
+  getRegistrationIdByCompetitionAndUser,
+  updateRegistrationMidtransToken,
+  updateIsPaid,
+} from "@/lib/competition";
 
 interface SingleRegistrationFormProps {
   competitionId: string;
@@ -37,6 +41,9 @@ export default function SingleRegistrationForm({
         toast.error("Failed to get registration ID.");
         return;
       }
+
+      const team_name = formData.get("team_name") as string;
+
       const data = {
         id: registration_id,
         productName: competitionTitle + "Registration",
@@ -57,7 +64,7 @@ export default function SingleRegistrationForm({
         setPending(false); // Matikan status pending
         return;
       }
-      await updateRegistrationMidtransToken(registration_id, token);
+      await updateRegistrationMidtransToken(team_name , competitionId, token);
       if (window.snap === undefined) {
         toast.error("Payment gateway is not loaded. Please try again later.");
         setPending(false);
@@ -238,6 +245,16 @@ export default function SingleRegistrationForm({
                                 placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
                 placeholder={`Enter NISN`}
                 required={i === 1} // Only first member is required
+                onKeyDown={(e) => {
+                  if (
+                    e.key === "e" ||
+                    e.key === "E" ||
+                    e.key === "+" ||
+                    e.key === "-"
+                  ) {
+                    e.preventDefault();
+                  }
+                }}
               />
             </div>
           </div>

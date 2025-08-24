@@ -58,7 +58,7 @@ export async function signUp(prevState: State, formData: FormData) {
     if (error instanceof APIError) {
       switch (error.status) {
         case "UNPROCESSABLE_ENTITY":
-          return { errorMessage: "User already exists!", success: false };
+          return { errorMessage: "User already with the same email or fullname or NISN already exist!", success: false };
         case "BAD_REQUEST":
           return { errorMessage: "Invalid Email", success: false };
         default:

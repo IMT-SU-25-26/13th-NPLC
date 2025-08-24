@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import { useEffect, useState } from 'react';
-import "@/styles/home.css"
+import { useEffect, useState } from "react";
+import "@/styles/home.css";
 import Image from "next/image";
 import TabButtonContainer from "@/components/utils/TabButtonContainer";
 import UseBuildingParallax from "@/components/animations/UseBuildingParallax";
@@ -12,17 +12,18 @@ const generateStars = (count: number) => {
     left: `${Math.random() * 98}%`,
     top: `${Math.random() * 35}%`, // Keep stars in upper part
     size: 0.1 + Math.random() * 0.7, // Random size between 0.1% and 0.8%
-    opacity: 0.5 + Math.random() * 0.1 // Random opacity
+    opacity: 0.5 + Math.random() * 0.1, // Random opacity
   }));
 };
 
 export default function Home() {
   // Generate stars on client side only to avoid hydration mismatch
   const [stars, setStars] = useState<Star[]>([]);
-  
+
   // Get the refs from our parallax hook
-  const { blueRef, purpleRef, stairsRef, wavesRef, lightWavesRef, starsRef } = UseBuildingParallax();
-  
+  const { blueRef, purpleRef, stairsRef, wavesRef, lightWavesRef, starsRef } =
+    UseBuildingParallax();
+
   // Initialize starsRef.current as an array
   useEffect(() => {
     if (starsRef.current === undefined || !Array.isArray(starsRef.current)) {
@@ -39,13 +40,16 @@ export default function Home() {
         {stars.map((star, index) => (
           <Image
             key={`star-${index}`}
-            ref={el => { if (starsRef.current) (starsRef.current as (HTMLImageElement | null)[])[index] = el; }}
+            ref={(el) => {
+              if (starsRef.current)
+                (starsRef.current as (HTMLImageElement | null)[])[index] = el;
+            }}
             className="star absolute z-[1] h-auto will-change-transform"
             style={{
               left: star.left,
               top: star.top,
               width: `${star.size}%`,
-              opacity: star.opacity
+              opacity: star.opacity,
             }}
             src={"/backgrounds/Star.svg"}
             width={100}
@@ -53,7 +57,7 @@ export default function Home() {
             alt={`star-${index}`}
           />
         ))}
-        
+
         {/* Remove the old single star */}
         {/* <Image
             className="star absolute z-[1] w-[2.5%] top-[0%] h-auto"
@@ -77,7 +81,7 @@ export default function Home() {
             height={1000}
             alt="background-gradient"
           />
-          
+
           <Image
             className="light-middle absolute z-[2] w-full bottom-[20%] h-auto"
             src={"/backgrounds/LightTengah.webp"}
@@ -133,43 +137,43 @@ export default function Home() {
           </div>
         </div>
         <div className="mt-[-10%] relative z-10 down-container w-full bg-[#090A1E] min-h-screen">
-           <Image
-          className="upmost-ground absolute w-screen z-[11] bottom-[0rem] h-auto"
-          src={"/backgrounds/UpmostGround.svg"}
-          width={1000}
-          height={1000}
-          alt="background-gradient"
-        />
-         <Image
-          ref={wavesRef} // Add ref here
-          className="waves absolute w-screen z-[9] bottom-[0rem] h-auto will-change-transform"
-          src={"/home/bg-waves.webp"}
-          width={1000}
-          height={1000}
-          alt="background-gradient"
-        />
-        <Image
-          className="hidden waves2 absolute w-screen z-[9] bottom-[0rem] h-auto"
-          src={"/home/bg-waves.webp"}
-          width={1000}
-          height={1000}
-          alt="background-gradient"
-        />
-        <Image
-          ref={lightWavesRef} // Add ref here
-          className="light-waves absolute w-screen z-[8] bottom-[0rem] h-auto will-change-transform"
-          src={"/home/Lights.svg"}
-          width={1000}
-          height={1000}
-          alt="background-gradient"
-        />
-        <Image
-          className="hidden light-waves2 absolute w-screen z-[8] bottom-[0rem] h-auto"
-          src={"/home/Lights2.svg"}
-          width={1000}
-          height={1000}
-          alt="background-gradient"
-        />
+          <Image
+            className="upmost-ground absolute w-screen z-[11] bottom-[0rem] h-auto"
+            src={"/backgrounds/UpmostGround.svg"}
+            width={1000}
+            height={1000}
+            alt="background-gradient"
+          />
+          <Image
+            ref={wavesRef} // Add ref here
+            className="waves absolute w-screen z-[9] bottom-[0rem] h-auto will-change-transform"
+            src={"/home/bg-waves.webp"}
+            width={1000}
+            height={1000}
+            alt="background-gradient"
+          />
+          <Image
+            className="hidden waves2 absolute w-screen z-[9] bottom-[0rem] h-auto"
+            src={"/home/bg-waves.webp"}
+            width={1000}
+            height={1000}
+            alt="background-gradient"
+          />
+          <Image
+            ref={lightWavesRef} // Add ref here
+            className="light-waves absolute w-screen z-[8] bottom-[0rem] h-auto will-change-transform"
+            src={"/home/Lights.svg"}
+            width={1000}
+            height={1000}
+            alt="background-gradient"
+          />
+          <Image
+            className="hidden light-waves2 absolute w-screen z-[8] bottom-[0rem] h-auto"
+            src={"/home/Lights2.svg"}
+            width={1000}
+            height={1000}
+            alt="background-gradient"
+          />
           <Image
             ref={stairsRef}
             className="stairs absolute z-[0] w-full top-[-26%] h-auto will-change-transform"

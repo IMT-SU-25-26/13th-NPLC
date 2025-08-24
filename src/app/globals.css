@@ -74,14 +74,12 @@ body {
   font-style: normal;
 }
 
-.panel {
-  cursor: pointer;
-  --button-left-border: #98E8F0;
-  --button-right-border: #FCF5C5;
-  background-image: linear-gradient(90deg, #272930 0%, #502E5E 50%, #5D190F 100%),
-    radial-gradient(circle at top left, var(--button-left-border), var(--button-right-border));
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-  transition:  --button-left-gradient 300ms,  --button-right-gradient 300ms;
-
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
 }

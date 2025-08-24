@@ -86,6 +86,16 @@ export default function SignUpForm() {
               type="number"
               name="nisn"
             required
+            onKeyDown={(e) => {
+              if (
+                e.key === 'e' ||
+                e.key === 'E' ||
+                e.key === '+' ||
+                e.key === '-'
+              ) {
+                e.preventDefault();
+              }
+            }}
             className="cursor-target input-field w-full bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
               text-sm sm:text-base md:text-base lg:text-base
               text-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 

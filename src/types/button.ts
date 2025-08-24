@@ -8,4 +8,5 @@ export interface TabButtonProps {
     buttonName: string;
     isActive?: boolean;
     onClick: () => void;
+    compeittion_id?: string;
 }

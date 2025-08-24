@@ -41,12 +41,13 @@ export async function getRegistrationIdByCompetitionAndUser(
 }
 
 export async function updateRegistrationMidtransToken(
-  registrationId: string,
+  team_name: string,
+  competition_id: string,
   mid_token: string
 ) {
   try {
-    await prisma.competitionRegistration.update({
-      where: { id: registrationId },
+    await prisma.competitionRegistration.updateMany({
+      where: { team_name: team_name, competition_id: competition_id },
       data: {
         registration_midtrans_token: mid_token,
         registration_status: "pending",

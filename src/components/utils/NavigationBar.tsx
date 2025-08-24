@@ -19,11 +19,11 @@ export default function NavigationBar() {
   return (
     <>
       <TargetCursor spinDuration={5} hideDefaultCursor={true} />
-      <div className="fixed z-[50] px-4 sm:px-8 bg-transparent md:px-12 flex w-screen h-[8vh] sm:h-[12vh] justify-between gap-2 sm:gap-4 items-center">
+      <div className="pointer-events-none fixed z-[50] px-4 sm:px-8 bg-transparent md:px-12 flex w-screen h-[8vh] sm:h-[12vh] justify-between gap-2 sm:gap-4 items-center">
         <Link href="/">
           <Image
             src="/Logos/NPLCLogo.webp"
-            className="cursor-target w-[4rem] sm:w-[4rem] md:w-[6rem] lg:w-[8rem] xl:w-[12rem]"
+            className="pointer-events-auto cursor-target w-[4rem] sm:w-[4rem] md:w-[6rem] lg:w-[8rem] xl:w-[12rem]"
             alt="Logo"
             width={200}
             height={200}
@@ -32,14 +32,14 @@ export default function NavigationBar() {
 
         {/* Hamburger Icon for Mobile */}
         <button
-          className="sm:hidden z-[60]"
+          className="sm:hidden pointer-events-auto z-[60]"
           onClick={() => setMenuOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
           {menuOpen ? (
             <Image
               src="/buttons/hamburger-open.svg"
-              className="w-10 h-auto"
+              className="w-10 pointer-events-auto h-auto"
               alt="Logo"
               width={200}
               height={200}
@@ -47,7 +47,7 @@ export default function NavigationBar() {
           ) : (
             <Image
               src="/buttons/hamburger-idle.svg"
-              className="w-10 h-auto"
+              className="w-10 pointer-events-auto h-auto"
               alt="Logo"
               width={100}
               height={200}
@@ -59,7 +59,7 @@ export default function NavigationBar() {
         <div className="hidden sm:flex justify-end items-center gap-1 xs:gap-2 sm:gap-4">
           {/* Home Link */}
           <div className="flex w-fit">
-            <Link className="cursor-target w-full flex items-center" href="/">
+            <Link className="cursor-target w-full pointer-events-auto flex items-center" href="/">
               <span className="relative group inline-block">
                 {/* <svg
                 width="100%"
@@ -177,7 +177,7 @@ export default function NavigationBar() {
           {/* Competition Link */}
           <div className="flex w-fit">
             <Link
-              className="cursor-target w-full flex items-center"
+              className="cursor-target pointer-events-auto w-full flex items-center"
               href="/competition-details"
             >
               <span className="relative group inline-block">
@@ -291,7 +291,7 @@ export default function NavigationBar() {
           </div>
           {isLoading ? (
             <div
-              className="cursor-target animate-pulse bg-[#FCF551]/40 w-16 sm:w-20 md:w-24 lg:w-[7rem] xl:w-[10rem] h-8 sm:h-8 md:h-12 lg:h-[2rem] xl:h-[4rem] motion-reduce:animate-none"
+              className="cursor-target pointer-events-auto animate-pulse bg-[#FCF551]/40 w-16 sm:w-20 md:w-24 lg:w-[7rem] xl:w-[10rem] h-8 sm:h-8 md:h-12 lg:h-[2rem] xl:h-[4rem] motion-reduce:animate-none"
               style={{
                 animation: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
               }}
@@ -303,7 +303,7 @@ export default function NavigationBar() {
                 {!isLoggedIn ? (
                   <Link
                     href="/login"
-                    className="cursor-target group flex items-center justify-center w-full"
+                    className="cursor-target pointer-events-auto group flex items-center justify-center w-full"
                   >
                     <svg
                       width="100%"
@@ -314,6 +314,18 @@ export default function NavigationBar() {
                       xmlns="http://www.w3.org/2000/svg"
                       className="w-16 sm:w-20 md:w-24 lg:w-[7rem] xl:w-[10rem]"
                     >
+                      <foreignObject x="0" y="0" width="100%" height="100%">
+                        <div
+                          style={{
+                            backdropFilter: "blur(10px)",
+                            WebkitBackdropFilter: "blur(10px)",
+                            clipPath: "url(#bgblur_0_1190_15_clip_path)",
+                            height: "100%",
+                            width: "100%",
+                          }}
+                        ></div>
+                      </foreignObject>
+                      <path d="M5.17285 50.248L4.83496 49.9092L1.15527 46.2227V23.6738L5.45703 19.3721L5.7959 19.0342V1.15527H163.766V17.5391L160.472 20.833L160.133 21.1709V48.2637L163.997 52.1279V66.4248H5.17285V50.248Z" fill="#3D3D3D" fillOpacity="0.31" stroke="#FCF551" strokeWidth="2.31"/>
                       <path
                         d="M5.48892 0.230103V18.7855L0.848145 23.4263V46.9303L4.86554 50.9554V67.81H166V51.879L162.136 48.0155V21.8794L165.769 18.2468V0.230103H5.48892Z"
                         fill="transparent"
@@ -333,6 +345,9 @@ export default function NavigationBar() {
                       >
                         Login
                       </text>
+                       <defs>
+                      <clipPath id="bgblur_0_1190_15_clip_path"><path d="M5.17285 50.248L4.83496 49.9092L1.15527 46.2227V23.6738L5.45703 19.3721L5.7959 19.0342V1.15527H163.766V17.5391L160.472 20.833L160.133 21.1709V48.2637L163.997 52.1279V66.4248H5.17285V50.248Z"/>
+                      </clipPath></defs>
                     </svg>
                   </Link>
                 ) : (
@@ -349,19 +364,19 @@ export default function NavigationBar() {
         {menuOpen && (
           <div className="fixed top-0 left-0 w-full h-full bg-[#090A1E]/95 z-[55] flex flex-col items-center justify-center gap-8 sm:hidden transition-all">
             <Link href="/" onClick={() => setMenuOpen(false)}>
-              <span className="text-2xl text-[#FCF551] font-bold">Home</span>
+              <span className="text-2xl pointer-events-auto text-[#FCF551] font-bold">Home</span>
             </Link>
             <Link
               href="/competition-details"
               onClick={() => setMenuOpen(false)}
             >
-              <span className="text-2xl text-[#FCF551] font-bold">
+              <span className="text-2xl pointer-events-auto text-[#FCF551] font-bold">
                 Competition Details
               </span>
             </Link>
             {!isLoggedIn ? (
               <Link href="/login" onClick={() => setMenuOpen(false)}>
-                <span className="text-2xl text-[#FCF551] font-bold">Login</span>
+                <span className="text-2xl pointer-events-auto text-[#FCF551] font-bold">Login</span>
               </Link>
             ) : (
               <div>

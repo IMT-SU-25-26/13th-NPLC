@@ -1,11 +1,11 @@
 import React from "react";
 import { auth } from "@/lib/auth/auth";
 import { headers } from "next/headers";
-// import RegistrationDetail from "@/components/competition/RegistrationDetail";
-import prisma from "@/lib/prisma"; // or wherever your PrismaClient is exported
-import "@/styles/home.css"
-// import Image from "next/image";
-// import TabButtonContainer from "@/components/utils/TabButtonContainer";
+import prisma from "@/lib/prisma";
+import "@/styles/competition-detail.css";
+import Restrictions from "@/components/utils/Restrictions";
+import { Team } from "@/types/competition";
+import CompetitionDetail from "@/components/competition/CompetitionDetail";
 
 export default async function Page() {
   // Get current session
@@ -14,24 +14,53 @@ export default async function Page() {
   });
 
   if (!session?.user?.id) {
-    return <div className="min-h-screen w-screen flex items-center justify-center">Not logged in</div>;
+    return (
+      <Restrictions restrictionDescription="You must be logged in to view this page." />
+    );
   }
 
-  // Fetch all registrations for this user
-  const registrations = await prisma.competitionRegistration.findMany({
+  // 1. Dapatkan semua pendaftaran untuk pengguna saat ini
+  const currentUserRegistrations = await prisma.competitionRegistration.findMany({
     where: { user_id: session.user.id },
-    include: { competition: true }, // if you want competition details
   });
 
+  // 2. Untuk setiap pendaftaran, cari semua anggota tim
+  // Kita menggunakan Promise.all untuk menjalankan semua kueri secara paralel agar lebih cepat
+  const userTeams: Team[] = await Promise.all(
+    currentUserRegistrations.map(async (registration): Promise<Team> => { // Tambahkan tipe return di sini
+      const teamMembers = await prisma.competitionRegistration.findMany({
+        where: {
+          competition_id: registration.competition_id,
+          team_name: registration.team_name,
+        },
+        include: {
+          user: {
+            select: {
+              id: true, // [cite: 4]
+              name: true, // [cite: 7]
+              nomor_induk_siswa_nasional: true, // [cite: 7]
+            },
+          },
+        },
+      });
 
-  // Generate stars on client side only to avoid hydration mismatch
-  
-  // Initialize starsRef.current as an arra
-
+      return {
+        competition_id: registration.competition_id,
+        team_name: registration.team_name,
+        members: teamMembers,
+      };
+    })
+  );
   return (
     <div className="overflow-hidden">
-      <div className="min-h-screen w-screen overflow-hidden bg-gradient-to-b from-[#111114] to-[#090A1E]">
-       </div>
+      {/* 4. Tambahkan pengecekan di sini */}
+      {userTeams.length > 0 ? (
+        // Jika ada tim, tampilkan datanya
+        <CompetitionDetail teams={userTeams} /> 
+      ) : (
+        // Jika tidak ada tim, tampilkan pesan
+        <Restrictions restrictionDescription="  Register to a competition to view this page!" />
+      )}
     </div>
   );
 }
