@@ -73,11 +73,12 @@ export default function CompetitiveProgrammingForm({
       // Panggil snap.pay dengan callbacks
       window.snap.pay(requestData.token, {
         onSuccess: async function () {
-          /* Anda dapat menambahkan logika di sini, misalnya redirect atau menampilkan pesan sukses */
-          await updateIsPaid(registration_id, true);
-          toast.success("Payment successful!");
-          form.reset(); // Reset form setelah pembayaran berhasil
-          // Contoh: window.location.href = '/dashboard/payment/success';
+            /* Anda dapat menambahkan logika di sini, misalnya redirect atau menampilkan pesan sukses */
+            await updateIsPaid(competitionId, team_name, true);
+            toast.success("Payment successful!");
+            form.reset(); // Reset form setelah pembayaran berhasil
+            window.location.href = "/competition-details"
+            // Contoh: window.location.href = '/dashboard/payment/success';
         },
         onPending: function () {
           /* Logika untuk status pembayaran pending */
@@ -86,7 +87,7 @@ export default function CompetitiveProgrammingForm({
         },
         onError: async function () {
           /* Logika jika terjadi error */
-          await updateIsPaid(registration_id, false);
+          await updateIsPaid(competitionId, team_name, false);
 
           toast.error("Payment failed. Please try again.");
           form.reset(); // Reset form karena pembayaran sudah diproses
@@ -96,6 +97,7 @@ export default function CompetitiveProgrammingForm({
             "Payment pending please complete your payment within 24 hours"
           );
           form.reset(); // Reset form karena pembayaran sudah diproses
+          window.location.href = "/competition-details"
         },
       });
     } catch (error) {

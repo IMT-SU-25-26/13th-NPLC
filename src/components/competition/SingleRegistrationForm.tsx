@@ -74,7 +74,7 @@ export default function SingleRegistrationForm({
       window.snap.pay(requestData.token, {
         onSuccess: async function () {
           /* Anda dapat menambahkan logika di sini, misalnya redirect atau menampilkan pesan sukses */
-          await updateIsPaid(registration_id, true);
+          await updateIsPaid(competitionId, team_name, true);
           toast.success("Payment successful!");
           form.reset(); // Reset form setelah pembayaran berhasil
           // Contoh: window.location.href = '/dashboard/payment/success';
@@ -86,7 +86,7 @@ export default function SingleRegistrationForm({
         },
         onError: async function () {
           /* Logika jika terjadi error */
-          await updateIsPaid(registration_id, false);
+         await updateIsPaid(competitionId, team_name, false);
 
           toast.error("Payment failed. Please try again.");
           form.reset(); // Reset form karena pembayaran sudah diproses

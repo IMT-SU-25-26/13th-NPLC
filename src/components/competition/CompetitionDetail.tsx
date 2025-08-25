@@ -14,7 +14,7 @@ const generateStars = (count: number) => {
   }));
 };
 
-export default function CompetitionDetail({ teams }: { teams: Team[] }) {
+export default function CompetitionDetail({ teams, is_paid }: { teams: Team[]; is_paid: boolean }) {
   const [stars, setStars] = useState<Star[]>([]);
   const [activeTab, setActiveTab] = useState("Competitive Programming");
 
@@ -163,6 +163,7 @@ export default function CompetitionDetail({ teams }: { teams: Team[] }) {
         <CompetitionDetailsForm
           competitionTitle={activeTab}
           teams={activeTeam} // <-- Kirim satu objek `team` dalam array `teams`
+          is_paid={is_paid}
         />
       ) : (
         // Jika tidak ada tim (pengguna tidak terdaftar), tampilkan pesan

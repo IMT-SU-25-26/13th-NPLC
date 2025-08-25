@@ -1,5 +1,6 @@
 import Image from "next/image";
 import BusinessPlanRegistrationForm from "@/components/competition/business-plan/RegistrationForm";
+import { checkCompetitionPageAccess } from "@/lib/user";
 import "@/styles/competitive-programming.css";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth/auth";
@@ -10,9 +11,14 @@ export default async function Page() {
   const session = await auth.api.getSession({
       headers: await headers(),
     });
-  
+
     if (!session) {
       redirect("/register/not-logged-in");
+    }
+
+    const alreadyRegisteredForBusinessPlan = await checkCompetitionPageAccess(session.user.id, competitionId);
+    if(alreadyRegisteredForBusinessPlan){
+      redirect("/register/already-registered");
     }
 
   return (

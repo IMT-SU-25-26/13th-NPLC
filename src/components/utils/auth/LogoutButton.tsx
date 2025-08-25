@@ -20,7 +20,7 @@ export default function AuthButtonClient() {
   return (
     <button
       onClick={handleLogout}
-      className="cursor-target cursor-target group flex items-center justify-center w-full"
+      className="cursor-target pointer-events-auto cursor-target group flex items-center justify-center w-full"
     >
       <svg
         width="100%"

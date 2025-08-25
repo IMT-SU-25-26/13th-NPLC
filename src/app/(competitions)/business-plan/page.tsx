@@ -73,7 +73,7 @@ export default async function page() {
                 alt="front-light"
               />
 
-              <div className="cp-regis-form-container relative mt-30 z-20 flex gap-4 flex-col items-center justify-start min-h-[92vh] sm:min-h-[88vh] w-dvw">
+              <div className="cp-regis-form-container relative mt-30 z-10 flex gap-4 flex-col items-center justify-start min-h-[92vh] sm:min-h-[88vh] w-dvw">
                 <div className='w-full flex flex-col items-center justify-center h-[60vh]'>
                   <Image
                     className="cp-competition-text z-[10] w-[60%] sm:w-1/3 h-auto"

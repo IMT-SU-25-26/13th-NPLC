@@ -59,11 +59,11 @@ export async function updateRegistrationMidtransToken(
   }
 }
 
-export async function updateIsPaid(registrationId: string, is_paid: boolean) {
+export async function updateIsPaid(competition_id: string, team_name: string, is_paid: boolean) {
   if (is_paid) {
     try {
-      await prisma.competitionRegistration.update({
-        where: { id: registrationId },
+      await prisma.competitionRegistration.updateMany({
+        where: { team_name: team_name, competition_id: competition_id },
         data: { is_paid: is_paid, registration_status: "accepted" },
       });
     } catch (error) {
@@ -72,8 +72,8 @@ export async function updateIsPaid(registrationId: string, is_paid: boolean) {
     }
   } else {
     try {
-      await prisma.competitionRegistration.update({
-        where: { id: registrationId },
+      await prisma.competitionRegistration.updateMany({
+        where: { team_name: team_name, competition_id: competition_id },
         data: { is_paid: is_paid, registration_status: "failed" },
       });
     } catch (error) {
@@ -83,10 +83,10 @@ export async function updateIsPaid(registrationId: string, is_paid: boolean) {
   }
 }
 
-export async function cancelRegistration(registrationId: string) {
+export async function cancelRegistration(competition_id: string, user_id: string) {
   try {
     await prisma.competitionRegistration.deleteMany({
-      where: { id: registrationId },
+      where: { competition_id: competition_id, user_id: user_id },
     });
   } catch (error) {
     console.error("Error canceling registration:", error);

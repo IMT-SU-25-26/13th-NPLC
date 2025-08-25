@@ -1,12 +1,9 @@
 'use client'
 import React from 'react'
-import TargetCursor from "@/components/utils/TargetCursor/TargetCursor";
 
 const ClientPageSubmission = () => {
     return (
         <>
-            {/* Optional content overlay */}
-            <TargetCursor spinDuration={5} hideDefaultCursor={true} />
             <div className="absolute inset-0 flex flex-col items-center justify-center md:justify-start p-8 px-13 text-center">
             <h1 className="text-white text-[2.8em] font-ropasans-regular">Business Plan</h1>
             <div className='flex flex-col items-center gap-5 md:gap-6 w-full'>

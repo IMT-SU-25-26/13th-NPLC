@@ -15,12 +15,14 @@ interface CompetitiveProgrammingFormProps {
   competitionId: string;
   competitionTitle: string;
   userId: string;
+  is_paid: boolean;
 }
 
 export default function BusinessPlanRegistrationForm({
   competitionId,
   competitionTitle,
   userId,
+  is_paid,
 }: CompetitiveProgrammingFormProps) {
   const [pending, setPending] = useState<boolean>(false);
 
@@ -75,7 +77,7 @@ export default function BusinessPlanRegistrationForm({
       window.snap.pay(requestData.token, {
         onSuccess: async function () {
           /* Anda dapat menambahkan logika di sini, misalnya redirect atau menampilkan pesan sukses */
-          await updateIsPaid(registration_id, true);
+          await updateIsPaid(competitionId,  team_name, true);
           toast.success("Payment successful!");
           form.reset(); // Reset form setelah pembayaran berhasil
           // Contoh: window.location.href = '/dashboard/payment/success';
@@ -87,7 +89,7 @@ export default function BusinessPlanRegistrationForm({
         },
         onError: async function () {
           /* Logika jika terjadi error */
-          await updateIsPaid(registration_id, false);
+          await updateIsPaid(competitionId, team_name, false);
 
           toast.error("Payment failed. Please try again.");
           form.reset(); // Reset form karena pembayaran sudah diproses
