@@ -79,7 +79,7 @@ const [stars, setStars] = useState<Star[]>([]);
               <h1 className={styles.title}>This page is restricted</h1>
               <p className={styles.text}>{restrictionDescription}</p>
             </div>
-            <Link href="/" className={styles.btn}>
+            <Link href="/" className={styles.btn + " group"}>
               <svg
                 width="100%"
                 height="100%"
