@@ -16,14 +16,12 @@ interface CompetitiveProgrammingFormProps {
   competitionId: string;
   competitionTitle: string;
   userId: string;
-  is_paid: boolean;
 }
 
 export default function BusinessPlanRegistrationForm({
   competitionId,
   competitionTitle,
   userId,
-  is_paid,
 }: CompetitiveProgrammingFormProps) {
   const [pending, setPending] = useState<boolean>(false);
 

@@ -17,6 +17,7 @@ export default async function Page() {
     }
 
     const alreadyRegisteredForBusinessPlan = await checkCompetitionPageAccess(session.user.id, competitionId);
+      
     if(alreadyRegisteredForBusinessPlan){
       redirect("/register/already-registered");
     }
