@@ -54,136 +54,146 @@
 /* CUSTOM MEDIA QUERY */
 @media (max-width: 3841px) and (max-height: 2161px) {
     .outcontainer {
-        height: 38rem;
-        width: 60rem;
+        height: 19rem;
+        width: 30rem;
+        display: flex;
+        align-items: center;
     }
 
     .title {
-        font-size: 4.5rem;
-        margin-top: -1rem;
+        font-size: 2.4rem;
+        margin-top: 1rem;
         width: 120%;
     }
 
     .text {
-        font-size: 3rem;
-        line-height: 5rem;
-        margin-top: 3rem;
-        margin-bottom: 20px;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        margin-top: 1rem;
+        margin-bottom: 0px;
     }
 
     .btn {
-        width: 20rem;
+        width: 10rem;
         height: 8rem;
-        margin-top: -80px;
-        margin-bottom: 30px;
+        margin-top: 1rem;
+        margin-bottom: 5rem;
     }
 }
 
 @media (max-width: 2851px) and (max-height: 1801px) {
     .outcontainer {
-        height: 38rem;
-        width: 60rem;
+        height: 19rem;
+        width: 30rem;
+        display: flex;
+        align-items: center;
     }
 
     .title {
-        font-size: 4.5rem;
-        margin-top: -1rem;
+        font-size: 2.4rem;
+        margin-top: 1rem;
         width: 120%;
     }
 
     .text {
-        font-size: 3rem;
-        line-height: 5rem;
-        margin-top: 3rem;
-        margin-bottom: 20px;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        margin-top: 1rem;
+        margin-bottom: 0px;
     }
 
     .btn {
-        width: 20rem;
+        width: 10rem;
         height: 8rem;
-        margin-top: -80px;
-        margin-bottom: 30px;
+        margin-top: 1rem;
+        margin-bottom: 5rem;
     }
 }
 
 @media (max-width: 2561px) and (max-height: 1601px) {
     .outcontainer {
-        height: 38rem;
-        width: 60rem;
+        height: 19rem;
+        width: 30rem;
+        display: flex;
+        align-items: center;
     }
 
     .title {
-        font-size: 4.5rem;
-        margin-top: -1rem;
+        font-size: 2.4rem;
+        margin-top: 1rem;
         width: 120%;
     }
 
     .text {
-        font-size: 3rem;
-        line-height: 5rem;
-        margin-top: 3rem;
-        margin-bottom: 20px;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        margin-top: 1rem;
+        margin-bottom: 0px;
     }
 
     .btn {
-        width: 20rem;
+        width: 10rem;
         height: 8rem;
-        margin-top: -80px;
-        margin-bottom: 30px;
+        margin-top: 1rem;
+        margin-bottom: 5rem;
     }
 }
 
 @media (max-width: 2561px) and (max-height: 1141px) {
     .outcontainer {
-        height: 38rem;
-        width: 60rem;
+        height: 19rem;
+        width: 30rem;
+        display: flex;
+        align-items: center;
     }
 
     .title {
-        font-size: 4.5rem;
-        margin-top: -1rem;
+        font-size: 2.4rem;
+        margin-top: 1rem;
         width: 120%;
     }
 
     .text {
-        font-size: 3rem;
-        line-height: 3rem;
-        margin-top: 3rem;
-        margin-bottom: 10px;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        margin-top: 1rem;
+        margin-bottom: 0px;
     }
 
     .btn {
-        width: 20rem;
+        width: 10rem;
         height: 8rem;
-        margin-top: -80px;
-        margin-bottom: 50px;
+        margin-top: 1rem;
+        margin-bottom: 5rem;
     }
 }
 
 @media (max-width: 1921px) and (max-height: 1081px) {
     .outcontainer {
-        height: 38rem;
-        width: 60rem;
+        height: 19rem;
+        width: 30rem;
+        display: flex;
+        align-items: center;
     }
 
     .title {
-        font-size: 4.5rem;
-        margin-top: -1rem;
+        font-size: 2.4rem;
+        margin-top: 1rem;
         width: 120%;
     }
 
     .text {
-        font-size: 3rem;
-        line-height: 3rem;
-        margin-top: 3rem;
-        margin-bottom: 10px;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        margin-top: 1rem;
+        margin-bottom: 0px;
     }
 
     .btn {
-        width: 20rem;
+        width: 10rem;
         height: 8rem;
-        margin-top: -80px;
-        margin-bottom: 50px;
+        margin-top: 1rem;
+        margin-bottom: 5rem;
     }
 }
 
