@@ -9,6 +9,7 @@ import {
   getRegistrationIdByCompetitionAndUser,
   updateRegistrationMidtransToken,
 } from "@/lib/competition";
+import { useSession } from "@/lib/auth/auth_client"; // 1. Impor useSession
 
 interface CompetitiveProgrammingFormProps {
   competitionId: string;
@@ -22,7 +23,12 @@ export default function CompetitiveProgrammingForm({
   userId,
 }: CompetitiveProgrammingFormProps) {
   const [pending, setPending] = useState<boolean>(false);
+  const { data: session } = useSession(); // 2. Panggil hook useSession
 
+  if (!session?.user?.email) {
+    toast.error("You must be logged in to register.");
+    return;
+  }
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -43,12 +49,18 @@ export default function CompetitiveProgrammingForm({
       }
 
       const team_name = formData.get("team_name") as string;
-      
+
       const data = {
         id: registration_id,
-        productName: competitionTitle + "Registration",
+        productName: `${competitionTitle} - Registration`,
         price: 40000,
         quantity: 1,
+        customer_details: {
+          // Masukkan nama gabungan ke field first_name
+          first_name: competitionTitle,
+          last_name: team_name,
+          email: session.user.email, // 4. Masukkan email dari sesi
+        },
       };
 
       const response = await fetch(`/api/tokenizer`, {
@@ -64,7 +76,7 @@ export default function CompetitiveProgrammingForm({
         setPending(false); // Matikan status pending
         return;
       }
-       await updateRegistrationMidtransToken(team_name ,competitionId, token);
+      await updateRegistrationMidtransToken(team_name, competitionId, token);
       if (window.snap === undefined) {
         toast.error("Payment gateway is not loaded. Please try again later.");
         setPending(false);
@@ -73,12 +85,12 @@ export default function CompetitiveProgrammingForm({
       // Panggil snap.pay dengan callbacks
       window.snap.pay(requestData.token, {
         onSuccess: async function () {
-            /* Anda dapat menambahkan logika di sini, misalnya redirect atau menampilkan pesan sukses */
-            await updateIsPaid(competitionId, team_name, true);
-            toast.success("Payment successful!");
-            form.reset(); // Reset form setelah pembayaran berhasil
-            window.location.href = "/competition-details"
-            // Contoh: window.location.href = '/dashboard/payment/success';
+          /* Anda dapat menambahkan logika di sini, misalnya redirect atau menampilkan pesan sukses */
+          await updateIsPaid(competitionId, team_name, true);
+          toast.success("Payment successful!");
+          form.reset(); // Reset form setelah pembayaran berhasil
+          window.location.href = "/competition-details";
+          // Contoh: window.location.href = '/dashboard/payment/success';
         },
         onPending: function () {
           /* Logika untuk status pembayaran pending */
@@ -97,7 +109,7 @@ export default function CompetitiveProgrammingForm({
             "Payment pending please complete your payment within 24 hours"
           );
           form.reset(); // Reset form karena pembayaran sudah diproses
-          window.location.href = "/competition-details"
+          window.location.href = "/competition-details";
         },
       });
     } catch (error) {
@@ -248,16 +260,16 @@ export default function CompetitiveProgrammingForm({
                                 placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
                   placeholder={`Enter NISN ${i}`}
                   required={i === 1} // Only first member is required
-                   onKeyDown={(e) => {
-                  if (
-                    e.key === 'e' ||
-                    e.key === 'E' ||
-                    e.key === '+' ||
-                    e.key === '-'
-                  ) {
-                    e.preventDefault();
-                  }
-                }}
+                  onKeyDown={(e) => {
+                    if (
+                      e.key === "e" ||
+                      e.key === "E" ||
+                      e.key === "+" ||
+                      e.key === "-"
+                    ) {
+                      e.preventDefault();
+                    }
+                  }}
                 />
               </div>
             </div>

@@ -99,6 +99,7 @@ model CompetitionRegistration {
   registration_midtrans_token String?
   competition                 Competition        @relation(fields: [competition_id], references: [id])
   user                        User               @relation(fields: [user_id], references: [id])
+  createdAt                  DateTime @default(now())
 }
 
 model Session {

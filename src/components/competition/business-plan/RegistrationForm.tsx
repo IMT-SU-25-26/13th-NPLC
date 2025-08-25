@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { registerForCompetition } from "@/lib/server-actions/competition";
 import TargetCursor from "../../utils/TargetCursor/TargetCursor";
 import "@/styles/multiple-regis.css";
+import { useSession } from "@/lib/auth/auth_client";
 //deploy
 import {
   getRegistrationIdByCompetitionAndUser,
@@ -24,6 +25,7 @@ export default function BusinessPlanRegistrationForm({
   userId,
 }: CompetitiveProgrammingFormProps) {
   const [pending, setPending] = useState<boolean>(false);
+  const { data: session } = useSession(); // 2. Panggil hook useSession
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,6 +45,11 @@ export default function BusinessPlanRegistrationForm({
         toast.error("Failed to get registration ID.");
         return;
       }
+
+        if (!session?.user?.email) {
+          toast.error("You must be logged in to register.");
+          return;
+        }
       
       const team_name = formData.get("team_name") as string;
 
@@ -51,6 +58,12 @@ export default function BusinessPlanRegistrationForm({
         productName: competitionTitle + "Registration",
         price: 40000,
         quantity: 1,
+        customer_details: {
+        // Masukkan nama gabungan ke field first_name
+        first_name: competitionTitle,
+        last_name: team_name,
+        email: session.user.email, // 4. Masukkan email dari sesi
+        },
       };
 
       const response = await fetch(`/api/tokenizer`, {

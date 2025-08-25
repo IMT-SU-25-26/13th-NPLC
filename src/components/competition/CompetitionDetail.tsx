@@ -161,6 +161,7 @@ export default function CompetitionDetail({ teams, is_paid }: { teams: Team[]; i
          {activeTeam ? (
         // Jika tim untuk tab ini ada, render form dengan data tim tersebut
         <CompetitionDetailsForm
+          competition_id={activeTeam.competition_id}
           competitionTitle={activeTab}
           teams={activeTeam} // <-- Kirim satu objek `team` dalam array `teams`
           is_paid={is_paid}

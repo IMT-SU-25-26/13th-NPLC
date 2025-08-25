@@ -1,22 +1,43 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "@/styles/competitive-programming-multiple-regis.css";
 import { Team } from "@/types/competition";
 import { updateIsPaid, cancelRegistration } from "@/lib/competition";
 import { useSession } from "@/lib/auth/auth_client";
+import { toast } from "sonner";
 
 export default function CompetitionDetailsDisplay({
   teams, // Properti 'teams' di sini adalah sebuah objek tunggal (Team), bukan array (Team[]), sesuai desain awal.
   competitionTitle,
   is_paid,
+  competition_id,
 }: {
   teams: Team; // Tipe data tidak diubah, tetap objek tunggal.
   competitionTitle: string;
   is_paid: boolean;
+  competition_id: string;
 }) {
   const { data: session } = useSession();
   const isLoggedIn = !!session;
+  const [registrationStatus, setRegistrationStatus] = useState<string | null>(null);
+  useEffect(() => {
+    const fetchStatus = async () => {
+      try {
+        const response = await fetch(`/api/check_payment_status?competitionId=${competition_id}&t_name=${teams.members[0].team_name}`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch status");
+        }
+        const data = await response.json();
+        setRegistrationStatus(data.status);
+      } catch (error) {
+        console.error(error);
+        toast.error("Could not check your registration status.");
+      }
+    };
+
+    fetchStatus();
+  }, [competitionTitle])
 
   if (!isLoggedIn) {
     return (
@@ -100,26 +121,26 @@ export default function CompetitionDetailsDisplay({
         <h2 className="competition-detail-competition-title font-RopoSans-Regular text-2xl md:text-3xl font-bold text-center text-white">
           {competitionTitle}
         </h2>
-        <div className="competition-detail-registration-status w-full md:w-3/4 lg:w-1/2 flex flex-col">
-          <div
-            className={`px-4 competition-detail-registration-status-border rounded-2xl text-lg md:text-xl py-2 bg-[#18182a]/80 border-2 text-center
-              ${
-                is_paid
-                  ? "border-[#4ADE80] text-[#4ADE80]"
-                  : teams.members[0].registration_midtrans_token
-                  ? "border-[#FBBF24] text-[#FBBF24]"
-                  : "border-[#EF4444] text-[#EF4444]"
-              }
-              [text-shadow:_0_0_20px_rgba(0,255,255,0.5)] 
-              overflow-x-auto whitespace-nowrap`}
-          >
-            {is_paid
-              ? "Registration Success"
-              : teams.members[0].registration_midtrans_token
-              ? "Registration Pending"
-              : "Not Paid"}
-          </div>
-        </div>
+       <div
+        className={`px-4 competition-detail-registration-status-border rounded-2xl text-lg md:text-xl py-2 bg-[#18182a]/80 border-2 text-center
+          ${
+            is_paid
+              ? "border-[#4ADE80] text-[#4ADE80]" // Green for Success
+              : registrationStatus === "PENDING"
+              ? "border-[#FBBF24] text-[#FBBF24]" // Yellow for Pending
+              : "border-[#EF4444] text-[#EF4444]" // Red for Expired or Not Paid
+          }
+          [text-shadow:_0_0_20px_rgba(0,255,255,0.5)] 
+          overflow-x-auto whitespace-nowrap`}
+      >
+        {is_paid
+          ? "Registration Success"
+          : registrationStatus === "PENDING"
+          ? "Registration Pending"
+          : registrationStatus === "EXPIRED"
+          ? "Registration Expired"
+          : "Not Paid"}
+      </div>
 
         <div className="gap-4 flex flex-col justify-center items-center w-full">
           <div className="flex flex-col w-full">
@@ -210,11 +231,13 @@ export default function CompetitionDetailsDisplay({
               </div>
             </div>
           ))}
-          <div className="details-button-container flex flex-col sm:flex-row items-center sm:gap-4 w-full mt-4">
+          <div className="details-button-container flex flex-col justify-center items-center sm:flex-row items-center sm:gap-4 w-full mt-4">
             {is_paid ? (
               <></>
             ) : (
               <>
+              {registrationStatus === "PENDING" && (
+                <>
                 <svg
                   width="332"
                   height="81"
@@ -354,7 +377,80 @@ export default function CompetitionDetailsDisplay({
                     fill="#75E8F0"
                   />
                 </svg>
-              </>
+                </>
+              )}
+              {registrationStatus === "EXPIRED" && (
+                 <svg
+                  width="332"
+                  height="81"
+                  viewBox="0 0 332 81"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="cursor-target group w-full max-w-[332px]"
+                  onClick={deleteRegistration}
+                >
+                  <path
+                    d="M0 68.3936H32.8861L0 56.6147V68.3936Z"
+                    fill="#661109"
+                  />
+                  <path
+                    opacity="0.25"
+                    d="M322.577 2.5V43.8066L246.309 65.8936H51.6289L2.5 48.293V24.585L78.7686 2.5H322.577Z"
+                    fill="#D9D9D9"
+                    stroke="#661109"
+                    strokeWidth="5"
+                  />
+                  <path
+                    d="M6.92285 73.7244H39.8089L6.92285 61.9414V73.7244Z"
+                    fill="#FCF551"
+                  />
+                  <path
+                    d="M330.5 6.83105V49.8896L253.371 72.2246H58.3789L8.42285 54.3281V29.1611L85.542 6.83105H330.5Z"
+                    fill="#2F2E2E"
+                    fillOpacity="1"
+                    stroke="#FCF551"
+                    strokeWidth="3"
+                    className="group-hover:fill-[#FCF551]"
+                  />
+                  <text
+                    x="172.5"
+                    y="42.5"
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    fill="currentColor"
+                    fontSize="18"
+                    fontWeight="500"
+                    className="text-[#D787DF] text-5xl sm:text-5xl md:text-5xl lg:text-4xl font-rubik-glitch group-hover:text-[#D787DF]"
+                  >
+                    Remove_
+                  </text>
+                  <text
+                    x="175"
+                    y="40"
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    fill="currentColor"
+                    fontSize="18"
+                    fontWeight="500"
+                    className="text-[#FCF551] text-5xl sm:text-5xl md:text-5xl lg:text-4xl font-rubik-glitch group-hover:text-[#D787DF]"
+                  >
+                    Remove_
+                  </text>
+                  <path
+                    d="M57.833 77.3337H216.509V80.1763H57.833"
+                    fill="#FCF551"
+                  />
+                  <path
+                    d="M6.81738 77.3337H39.7035V80.1763H6.81738"
+                    fill="#FCF551"
+                  />
+                  <path
+                    d="M328.036 5.33105V50.8877V52.1631L332 51.0169V50.8877V5.33105H328.036Z"
+                    fill="#75E8F0"
+                  />
+                </svg>
+              )}
+             </>
             )}
           </div>
         </div>

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { toast } from "sonner";
 import { registerForCompetition } from "@/lib/server-actions/competition";
 import "@/styles/single-regis.css";
+import { useSession } from "@/lib/auth/auth_client"; // 1. Impor useSession
 import {
   getRegistrationIdByCompetitionAndUser,
   updateRegistrationMidtransToken,
@@ -22,6 +23,7 @@ export default function SingleRegistrationForm({
   userId,
 }: SingleRegistrationFormProps) {
   const [pending, setPending] = useState<boolean>(false);
+  const { data: session } = useSession(); // 2. Panggil hook useSession
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,6 +44,11 @@ export default function SingleRegistrationForm({
         return;
       }
 
+      if (!session?.user?.email) {
+        toast.error("You must be logged in to register.");
+        return;
+      }
+
       const team_name = formData.get("team_name") as string;
 
       const data = {
@@ -49,6 +56,12 @@ export default function SingleRegistrationForm({
         productName: competitionTitle + "Registration",
         price: 25000,
         quantity: 1,
+        customer_details: {
+          // Masukkan nama gabungan ke field first_name
+          first_name: competitionTitle,
+          last_name: team_name,
+          email: session.user.email, // 4. Masukkan email dari sesi
+        },
       };
 
       const response = await fetch(`/api/tokenizer`, {

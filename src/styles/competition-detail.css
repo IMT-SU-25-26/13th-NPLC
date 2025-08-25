@@ -50,6 +50,20 @@
         padding: 2rem
     }
 }
+@media (max-width: 1728px) and (max-height: 992px) {
+    .top-container{
+        height: 100vh;
+    }
+    .competition-glitch-text{
+        margin-top: 10%;
+    }
+    .details-tab-button-container{
+        width: 50%;
+        border-width: 4px;
+        gap: 24px;
+        padding: 2rem
+    }
+}
 @media (max-width: 1538px) and (max-height: 2048px) {
     .top-container{
         height: 50vh;
