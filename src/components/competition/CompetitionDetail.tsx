@@ -58,8 +58,8 @@ export default function CompetitionDetail({ teams, is_paid }: { teams: Team[]; i
             alt={`star-${index}`}
           />
         ))}
-        <div className="z-[5] absolute w-full h-screen bg-gradient-to-b from-[0%] from-[#2a0335]/50 via-[43%] via-[#6258D1]/50 to-[100%] to-[#00CBC1]/50 blue-light-top"></div>
-        <div className="absolute bottom-[-5rem] bg-[#97156A] w-[1100px] h-[900px] rounded-full blur-[100px] z-[0]"></div>
+        <div className="z-[5] absolute w-full h-full bg-gradient-to-b from-[0%] from-[#2a0335]/50 via-[43%] via-[#6258D1]/50 to-[100%] to-[#00CBC1]/50 blue-light-top"></div>
+        <div className="competition-detail-purple-light-middle absolute bottom-[-5rem] bg-[#97156A] w-[1100px] h-[900px] rounded-full blur-[100px] z-[0]"></div>
         <Image
           src={"backgrounds/BangunanBelakangBiru.svg"}
           alt="Background"
@@ -115,7 +115,7 @@ export default function CompetitionDetail({ teams, is_paid }: { teams: Team[]; i
           />
         </div>
       </div>
-      <div className="relative overflow-hidden ottom-container  bg-[#090A1E] w-screen flex flex-col justify-center items-center">
+      <div className="relative overflow-hidden bottom-container  bg-[#090A1E] w-screen flex flex-col justify-center items-center">
         <Image
           className="upmost-ground absolute w-screen z-[11] bottom-[0rem] h-auto"
           src={"/backgrounds/UpmostGround.svg"}
@@ -124,35 +124,35 @@ export default function CompetitionDetail({ teams, is_paid }: { teams: Team[]; i
           alt="background-gradient"
         />
         <Image
-          className="waves absolute w-screen z-[9] bottom-[0rem] h-auto will-change-transform"
+          className="competition-detail-waves absolute w-screen z-[9] bottom-[0rem] h-auto will-change-transform"
           src={"/home/bg-waves.webp"}
           width={1000}
           height={1000}
           alt="background-gradient"
         />
         <Image
-          className="hidden waves2 absolute w-screen z-[9] bottom-[0rem] h-auto"
+          className="hidden competition-detail-waves2 absolute w-screen z-[9] bottom-[0rem] h-auto"
           src={"/home/bg-waves.webp"}
           width={1000}
           height={1000}
           alt="background-gradient"
         />
         <Image
-          className="light-waves absolute w-screen z-[8] bottom-[0rem] h-auto will-change-transform"
+          className="competition-detail-light-waves absolute w-screen z-[8] bottom-[0rem] h-auto will-change-transform"
           src={"/home/Lights.svg"}
           width={1000}
           height={1000}
           alt="background-gradient"
         />
         <Image
-          className="hidden light-waves2 absolute w-screen z-[8] bottom-[0rem] h-auto"
+          className="hidden competition-detail-light-waves2 absolute w-screen z-[8] bottom-[0rem] h-auto"
           src={"/home/Lights2.svg"}
           width={1000}
           height={1000}
           alt="background-gradient"
         />
         <Image
-          className="stairs absolute z-[0] w-full top-[-26%] h-auto will-change-transform"
+          className="competition-detail-stairs absolute z-[0] w-full top-[-26%] h-auto will-change-transform"
           src={"/backgrounds/Stairs.svg"}
           width={1000}
           height={1000}
@@ -167,11 +167,11 @@ export default function CompetitionDetail({ teams, is_paid }: { teams: Team[]; i
         />
       ) : (
         // Jika tidak ada tim (pengguna tidak terdaftar), tampilkan pesan
-        <div className="mt-[7.5%] mb-[10%] relative z-10 backdrop-blur-2xl flex w-[45%] flex-col items-center justify-center gap-6 p-12 rounded-xl shadow-lg border-[8px] border-[#FCE551]">
+        <div className="mt-[7.5%] mb-[10%] relative z-10 backdrop-blur-2xl flex w-[80%] sm:w-[45%] flex-col items-center justify-center gap-6 p-12 rounded-xl shadow-lg border-[4px] md:border-[8px] border-[#FCE551]">
           <h2 className="font-RopoSans-Regular text-3xl font-bold text-center text-white">
             {activeTab}
           </h2>
-          <p className="text-white text-xl">
+          <p className="text-white text-xl text-center">
             You are not registered for this competition.
           </p>
         </div>

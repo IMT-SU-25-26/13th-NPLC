@@ -6,14 +6,12 @@ import { Team } from "@/types/competition";
 import { updateIsPaid, cancelRegistration } from "@/lib/competition";
 import { useSession } from "@/lib/auth/auth_client";
 
-// Interface baru untuk props, berisi semua data yang akan ditampilkan
-
 export default function CompetitionDetailsDisplay({
-  teams,
+  teams, // Properti 'teams' di sini adalah sebuah objek tunggal (Team), bukan array (Team[]), sesuai desain awal.
   competitionTitle,
   is_paid,
 }: {
-  teams: Team;
+  teams: Team; // Tipe data tidak diubah, tetap objek tunggal.
   competitionTitle: string;
   is_paid: boolean;
 }) {
@@ -43,21 +41,16 @@ export default function CompetitionDetailsDisplay({
     if (teams.members[0].registration_midtrans_token === null) {
       return;
     }
-    // Panggil snap.pay dengan callbacks
     window.snap.pay(teams.members[0].registration_midtrans_token, {
       onSuccess: async function () {
-        /* Anda dapat menambahkan logika di sini, misalnya redirect atau menampilkan pesan sukses */
         await updateIsPaid(
           teams.members[0].competition_id,
           teams.members[0].team_name,
           true
         );
       },
-      onPending: function () {
-        /* Logika untuk status pembayaran pending */
-      },
+      onPending: function () {},
       onError: async function () {
-        /* Logika jika terjadi error */
         await updateIsPaid(
           teams.members[0].competition_id,
           teams.members[0].team_name,
@@ -74,11 +67,10 @@ export default function CompetitionDetailsDisplay({
     );
 
     if (!isConfirmed) {
-      return; // Batalkan jika pengguna tidak setuju
+      return;
     }
 
     try {
-      // Panggil fungsi server dengan argumen yang benar
       if (!teams.members[0].id) {
         return;
       }
@@ -92,33 +84,29 @@ export default function CompetitionDetailsDisplay({
         }
       }
 
-      // Berikan feedback ke pengguna dan refresh halaman
       alert("Registration cancelled successfully!");
-      window.location.reload(); // Ini akan me-refresh data server dan me-render ulang komponen
+      window.location.reload();
     } catch (error) {
       console.error(error);
       alert("Failed to cancel registration. Please try again.");
     }
   };
-  // useState dan handler tidak diperlukan lagi karena komponen ini hanya untuk menampilkan data
+
   return (
     <>
-      <div className="mt-[5%] mb-[10%] relative z-[10] backdrop-blur-2xl flex w-[45%] flex-col items-center justify-center gap-1.5 sm:gap-2 md:gap-2 lg:gap-6 p-12 rounded-xl shadow-lg border-[8px] border-[#FCE551]">
-        <h2 className="font-RopoSans-Regular text-lg md:text-3xl lg:text-3xl font-bold text-center text-white">
+      <div className="competition-detail-form-container mt-[5%] mb-[10%] relative z-[10] backdrop-blur-2xl flex w-[80%] md:w-[70%] lg:w-[70%] xl:w-[45%] flex-col items-center justify-center gap-4 lg:gap-6 p-6 lg:p-12 rounded-xl shadow-lg border-[8px] border-[#FCE551]">
+        <h2 className="competition-detail-competition-title font-RopoSans-Regular text-2xl md:text-3xl font-bold text-center text-white">
           {competitionTitle}
         </h2>
-        <div className="w-[35%] flex flex-col">
-          {/* <label className="text-left w-full font-ropasans-regular text-2xl">
-            Registration Stauts
-          </label> */}
+        <div className="competition-detail-registration-status w-full md:w-3/4 lg:w-1/2 flex flex-col">
           <div
-            className={`px-[2.5%] rounded-2xl text-2xl py-2 bg-[#18182a]/80 border-2 text-center
+            className={`px-4 competition-detail-registration-status-border rounded-2xl text-lg md:text-xl py-2 bg-[#18182a]/80 border-2 text-center
               ${
                 is_paid
-                  ? "border-[#4ADE80] text-[#4ADE80]" // green for success
+                  ? "border-[#4ADE80] text-[#4ADE80]"
                   : teams.members[0].registration_midtrans_token
-                  ? "border-[#FBBF24] text-[#FBBF24]" // yellow for pending
-                  : "border-[#EF4444] text-[#EF4444]" // red for not paid
+                  ? "border-[#FBBF24] text-[#FBBF24]"
+                  : "border-[#EF4444] text-[#EF4444]"
               }
               [text-shadow:_0_0_20px_rgba(0,255,255,0.5)] 
               overflow-x-auto whitespace-nowrap`}
@@ -131,15 +119,13 @@ export default function CompetitionDetailsDisplay({
           </div>
         </div>
 
-        <div className="gap-2 sm:gap-4 flex flex-col justify-center items-center w-[90%]">
-          {/* Setiap pasangan label-input diubah menjadi label-div */}
+        <div className="gap-4 flex flex-col justify-center items-center w-full">
           <div className="flex flex-col w-full">
-            <label className="text-left w-full font-ropasans-regular text-2xl">
+            <label className="competition-detail-label text-left w-full font-ropasans-regular text-md md:text-2xl">
               Team Name
             </label>
-            {/* <input> diubah menjadi <div> untuk menampilkan data */}
             <div
-              className="px-[2.5%] text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+              className="competition-detail-data px-[2.5%] text-md md:text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
                 text-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                 overflow-x-auto whitespace-nowrap"
             >
@@ -147,11 +133,11 @@ export default function CompetitionDetailsDisplay({
             </div>
           </div>
           <div className="flex flex-col w-full">
-            <label className="text-left w-full font-ropasans-regular text-2xl">
+            <label className="competition-detail-label text-left w-full font-ropasans-regular text-md md:text-2xl">
               School Name
             </label>
             <div
-              className="px-[2.5%] text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+              className="competition-detail-data px-[2.5%] text-md md:text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
                 text-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                 overflow-x-auto whitespace-nowrap"
             >
@@ -159,11 +145,11 @@ export default function CompetitionDetailsDisplay({
             </div>
           </div>
           <div className="flex flex-col w-full">
-            <label className="text-left w-full font-ropasans-regular text-2xl">
+            <label className="competition-detail-label text-left w-full font-ropasans-regular text-md md:text-2xl">
               Contact Person Number
             </label>
             <div
-              className="px-[2.5%] text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+              className="competition-detail-data px-[2.5%] text-md md:text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
                 text-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                 overflow-x-auto whitespace-nowrap"
             >
@@ -171,11 +157,11 @@ export default function CompetitionDetailsDisplay({
             </div>
           </div>
           <div className="flex flex-col w-full">
-            <label className="text-left w-full font-ropasans-regular text-2xl">
+            <label className="competition-detail-label text-left w-full font-ropasans-regular text-md md:text-2xl">
               Twibon Link
             </label>
             <div
-              className="px-[2.5%] text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+              className="competition-detail-data px-[2.5%] text-md md:text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
                 text-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                 overflow-x-auto whitespace-nowrap"
             >
@@ -190,18 +176,17 @@ export default function CompetitionDetailsDisplay({
             </div>
           </div>
 
-          {/* Melakukan mapping pada data 'members' yang diterima dari props */}
           {teams.members.map((member, index) => (
             <div
               key={index}
-              className="flex w-full justify-center gap-1 sm:gap-4"
+              className="flex w-full flex-col sm:flex-row justify-center gap-4"
             >
               <div className="flex flex-col w-full">
-                <label className="text-left w-full font-ropasans-regular text-2xl">
+                <label className="competition-detail-label text-left w-full font-ropasans-regular text-md md:text-2xl">
                   Full Name {index + 1}
                 </label>
                 <div
-                  className="px-[2.5%] text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                  className="competition-detail-data px-[2.5%] text-md md:text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
                 text-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                   overflow-x-auto whitespace-nowrap"
                 >
@@ -210,11 +195,11 @@ export default function CompetitionDetailsDisplay({
               </div>
 
               <div className="flex flex-col w-full">
-                <label className="text-left w-full font-ropasans-regular text-2xl">
+                <label className="competition-detail-label text-left w-full font-ropasans-regular text-md md:text-2xl">
                   NISN {index + 1}
                 </label>
                 <div
-                  className="px-[2.5%] text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                  className="competition-detail-data px-[2.5%] text-md md:text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
                 text-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                   overflow-x-auto whitespace-nowrap"
                 >
@@ -223,8 +208,7 @@ export default function CompetitionDetailsDisplay({
               </div>
             </div>
           ))}
-
-          <div className="details-button-container flex gap-4 w-[95%]">
+          <div className="details-button-container flex flex-col sm:flex-row items-center sm:gap-4 w-full mt-4">
             {is_paid ? (
               <></>
             ) : (
@@ -235,7 +219,7 @@ export default function CompetitionDetailsDisplay({
                   viewBox="0 0 332 81"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="cursor-target group"
+                  className="cursor-target group w-full max-w-[332px]"
                   onClick={handlePay}
                 >
                   <path
@@ -305,7 +289,7 @@ export default function CompetitionDetailsDisplay({
                   viewBox="0 0 332 81"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="cursor-target group"
+                  className="cursor-target group w-full max-w-[332px]"
                   onClick={deleteRegistration}
                 >
                   <path
@@ -371,8 +355,6 @@ export default function CompetitionDetailsDisplay({
               </>
             )}
           </div>
-
-          {/* Tombol submit dihapus karena tidak diperlukan lagi */}
         </div>
       </div>
     </>
