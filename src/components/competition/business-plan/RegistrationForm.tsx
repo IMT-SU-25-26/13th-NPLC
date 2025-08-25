@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { registerForCompetition } from "@/lib/server-actions/competition";
 import TargetCursor from "../../utils/TargetCursor/TargetCursor";
 import "@/styles/multiple-regis.css";
+//deploy
 import {
   getRegistrationIdByCompetitionAndUser,
   updateRegistrationMidtransToken,
