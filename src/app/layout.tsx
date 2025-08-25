@@ -30,8 +30,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
          <Script
-          src="https://app.sandbox.midtrans.com/snap/snap.js"
+          src="https://app.midtrans.com/snap/snap.js"
           data-client-key={process.env.NEXT_PUBLIC_MID_TRANS_CLIENT}
+          // data-server-key={process.env.MID_TRANS_SECRET}
           strategy="afterInteractive"
         />
         <NavigationBar />
