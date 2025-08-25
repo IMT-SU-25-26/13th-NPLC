@@ -66,6 +66,7 @@ export async function updateIsPaid(competition_id: string, team_name: string, is
         where: { team_name: team_name, competition_id: competition_id },
         data: { is_paid: is_paid, registration_status: "accepted" },
       });
+      
     } catch (error) {
       console.error("Error updating is_paid:", error);
       throw error;

@@ -37,7 +37,7 @@ export default function CompetitionDetailsDisplay({
     };
 
     fetchStatus();
-  }, [competitionTitle])
+  }, [competition_id, teams.members]);
 
   if (!isLoggedIn) {
     return (
