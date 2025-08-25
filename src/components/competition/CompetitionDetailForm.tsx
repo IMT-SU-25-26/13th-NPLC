@@ -48,6 +48,8 @@ export default function CompetitionDetailsDisplay({
           teams.members[0].team_name,
           true
         );
+
+        window.location.href = "/competition-details";
       },
       onPending: function () {},
       onError: async function () {

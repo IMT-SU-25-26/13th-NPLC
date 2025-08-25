@@ -49,7 +49,7 @@ export default function BusinessPlanRegistrationForm({
       const data = {
         id: registration_id,
         productName: competitionTitle + "Registration",
-        price: 10000,
+        price: 40000,
         quantity: 1,
       };
 

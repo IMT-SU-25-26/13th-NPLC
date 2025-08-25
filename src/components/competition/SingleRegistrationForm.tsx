@@ -47,7 +47,7 @@ export default function SingleRegistrationForm({
       const data = {
         id: registration_id,
         productName: competitionTitle + "Registration",
-        price: 10000,
+        price: 25000,
         quantity: 1,
       };
 
