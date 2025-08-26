@@ -169,7 +169,7 @@ export default function CompetitionDetailsDisplay({
           </div>
           <div className="flex flex-col w-full">
             <label className="competition-detail-label text-left w-full font-ropasans-regular text-md md:text-2xl">
-              Contact Person Number
+              Contact Person Line ID
             </label>
             <div
               className="competition-detail-data px-[2.5%] text-md md:text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
