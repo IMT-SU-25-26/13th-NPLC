@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import "@/styles/restriction-page.css";
+import styles from "@/styles/restrictions.module.css";
 import { useEffect, useState } from "react";
 import { Star } from "@/types/misc";
 
@@ -25,7 +25,7 @@ const [stars, setStars] = useState<Star[]>([]);
       }, []);
   return (
     <div className="min-h-screen w-screen overflow-hidden bg-gradient-to-b from-[#111114] to-[#090A1E]">
-      <div className="restriction-top-container relative flex lg:gap-8 flex-col justify-start items-center w-full h-screen">
+      <div className="top-container relative flex lg:gap-8 flex-col justify-start items-center w-full h-screen">
         {stars.map((star, index) => (
           <Image
             key={`star-${index}`}
@@ -43,41 +43,43 @@ const [stars, setStars] = useState<Star[]>([]);
           />
         ))}
         <div className="z-[5] absolute w-full h-full bg-gradient-to-b from-[0%] from-[#2a0335]/50 via-[43%] via-[#6258D1]/50 to-[100%] to-[#00CBC1]/50 blue-light-top"></div>
-        <div className="restriction-detail-purple-light-middle absolute bottom-[-5rem] bg-[#97156A] w-[1100px] h-[900px] rounded-full blur-[100px] z-[0]"></div>
+        <div className="competition-detail-purple-light-middle absolute bottom-[-5rem] bg-[#97156A] w-[1100px] h-[900px] rounded-full blur-[100px] z-[0]"></div>
         <Image
           src={"/backgrounds/BangunanBelakangBiru.svg"}
           alt="Background"
           width={100}
           height={100}
-          className="z-[1] restriction-blue-building absolute w-screen h-auto bottom-[0rem]"
+          className="z-[1] details-blue-building absolute w-screen h-auto bottom-[0rem]"
         />
         <Image
           src={"/backgrounds/BangunanDepanUngu.svg"}
           alt="Background"
           width={100}
           height={100}
-          className="z-[2] restriction-purple-building absolute w-screen h-auto bottom-[0rem]"
+          className="z-[2] details-purple-building absolute w-screen h-auto bottom-[0rem]"
         />
         <Image
           src={"/backgrounds/Stairs.svg"}
           alt="Stairs"
           width={100}
           height={100}
-          className="z-[10] restriction-stairs absolute w-screen h-auto bottom-[-1rem]"
+          className="z-[10] details-stairs absolute w-screen h-auto bottom-[-1rem]"
         />
 
-        <div className="restriction-middle-container relative z-20 flex gap-6 flex-col items-center justify-center min-h-screen w-full px-4">
+        <div className="relative z-20 flex gap-6 flex-col items-center justify-center min-h-screen w-full px-4">
           <Image
-            className="restriction-warning-text w-1/2 sm:w-1/4 h-auto"
+            className="w-1/2 sm:w-1/4 h-auto"
             src={"/restrictions/WarningText.webp"}
             width={1000}
             height={1000}
             alt="background-gradient"
           />
-          <div className="font-RopaSans-Regular gap-4 flex backdrop-blur-lg flex-col justify-center items-center restriction-out-container bg-[url('/restrictions/restricted-mobile.svg')] sm:bg-[url('/restrictions/page-restriction-bg.svg')] bg-contain bg-center bg-no-repeat">
-            <h1 className="text-center restriction-title">This page is restricted</h1>
-            <p className="text-center restriction-description">{restrictionDescription}</p>
-            <Link href="/" className="restriction-btn h-auto group">
+          <div className={styles.outcontainer}>
+            <div className={styles.incontainer}>
+              <h1 className={styles.title}>This page is restricted</h1>
+              <p className={styles.text}>{restrictionDescription}</p>
+            </div>
+            <Link href="/" className={styles.btn + " group"}>
               <svg
                 width="100%"
                 height="100%"
@@ -144,7 +146,6 @@ const [stars, setStars] = useState<Star[]>([]);
           </div>
         </div>
       </div>
-      <div className="bg-[#090A1E] absolute bottom-0 w-full h-full"></div>
     </div>
   );
 }
