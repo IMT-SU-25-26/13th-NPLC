@@ -9,7 +9,7 @@ const prisma = new PrismaClient();
 export const auth = betterAuth({
   trustedOrigins: [
     "http://localhost:3000",
-    "http://localhost:3001", // tambahkan ini
+    process.env.VERCEL_URL || "https://nplc.vercel.app" // Add this line
   ],
   session: {
     cookieCache: {
