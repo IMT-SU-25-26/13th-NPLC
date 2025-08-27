@@ -11,18 +11,18 @@ export default function Restrictions({
   restrictionDescription: string;
 }) {
   const generateStars = (count: number) => {
-  return Array.from({ length: count }, () => ({
-    left: `${Math.random() * 98}%`,
-    top: `${Math.random() * 35}%`, // Keep stars in upper part
-    size: 0.1 + Math.random() * 0.7, // Random size between 0.1% and 0.8%
-    opacity: 0.5 + Math.random() * 0.1, // Random opacity
-  }));
-};
-const [stars, setStars] = useState<Star[]>([]);
-    useEffect(() => {
-        // Generate between 15-30 stars
-        setStars(generateStars(20 + Math.floor(Math.random() * 10)));
-      }, []);
+    return Array.from({ length: count }, () => ({
+      left: `${Math.random() * 98}%`,
+      top: `${Math.random() * 35}%`, // Keep stars in upper part
+      size: 0.1 + Math.random() * 0.7, // Random size between 0.1% and 0.8%
+      opacity: 0.5 + Math.random() * 0.1, // Random opacity
+    }));
+  };
+  const [stars, setStars] = useState<Star[]>([]);
+  useEffect(() => {
+    // Generate between 15-30 stars
+    setStars(generateStars(20 + Math.floor(Math.random() * 10)));
+  }, []);
   return (
     <div className="min-h-screen w-screen overflow-hidden bg-gradient-to-b from-[#111114] to-[#090A1E]">
       <div className="restriction-top-container relative flex lg:gap-8 flex-col justify-start items-center w-full h-screen">
@@ -75,8 +75,12 @@ const [stars, setStars] = useState<Star[]>([]);
             alt="background-gradient"
           />
           <div className="font-RopaSans-Regular gap-4 flex backdrop-blur-lg flex-col justify-center items-center restriction-out-container bg-[url('/restrictions/restricted-mobile.svg')] sm:bg-[url('/restrictions/page-restriction-bg.svg')] bg-contain bg-center bg-no-repeat">
-            <h1 className="text-center restriction-title">This page is restricted</h1>
-            <p className="text-center restriction-description">{restrictionDescription}</p>
+            <h1 className="text-center restriction-title">
+              This page is restricted
+            </h1>
+            <p className="text-center restriction-description">
+              {restrictionDescription}
+            </p>
             <Link href="/" className="restriction-btn h-auto group">
               <svg
                 width="100%"
