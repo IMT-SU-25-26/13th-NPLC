@@ -1,13 +1,12 @@
 import Midtrans from "midtrans-client"
 import { NextResponse } from "next/server"
 
-const snap = new Midtrans.Snap({
+export async function POST(request: Request){
+  const snap = new Midtrans.Snap({
   isProduction: true,
   serverKey: process.env.MID_TRANS_SECRET || "",
   clientKey: process.env.NEXT_PUBLIC_MID_TRANS_CLIENT || "Mid-client-upoz3oMJm2XwHG5u"
 })
-
-export async function POST(request: Request){
  try {
     const { id, productName, price, quantity, customer_details } = await request.json();
 

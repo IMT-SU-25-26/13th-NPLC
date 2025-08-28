@@ -69,6 +69,13 @@ export default function CompetitiveProgrammingForm({
         body: JSON.stringify(data),
       });
 
+      if (!response.ok) {
+        const errorData = await response.json();
+        // This throws an error that your `catch` block will grab
+        throw new Error(errorData.details || 'Failed to get payment token.');
+      }
+
+
       const requestData = await response.json();
       const token = requestData.token as string;
       if (!token) {
