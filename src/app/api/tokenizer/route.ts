@@ -2,7 +2,7 @@ import Midtrans from "midtrans-client"
 import { NextResponse } from "next/server"
 
 const snap = new Midtrans.Snap({
-  isProduction: process.env.NODE_ENV === 'production', 
+  isProduction: true,
   serverKey: process.env.MID_TRANS_SECRET || "",
   clientKey: process.env.NEXT_PUBLIC_MID_TRANS_CLIENT || "Mid-client-upoz3oMJm2XwHG5u"
 })
