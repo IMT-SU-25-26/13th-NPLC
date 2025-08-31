@@ -178,6 +178,9 @@ export default function SingleRegistrationForm({
             required
           />
         </div>
+         <div
+            className="single-regis-name-nisn-container flex w-full justify-center gap-1 sm:gap-4"
+          >
         <div className="flex flex-col w-full">
           <label
             className="regis-label text-left w-full font-ropasans-regular text-2xl"
@@ -215,6 +218,7 @@ export default function SingleRegistrationForm({
             placeholder="Enter Twibon link"
             required
           />
+        </div>
         </div>
         {[1].map((i) => (
           <div
@@ -272,6 +276,25 @@ export default function SingleRegistrationForm({
             </div>
           </div>
         ))}
+        <div className="flex flex-col w-full">
+            <label
+              className="regis-label text-left w-full font-ropasans-regular text-2xl"
+              htmlFor="bukti_transfer"
+            >
+              Upload Payment Proof
+            </label>
+            <input
+              id="bukti_transfer"
+              type="file"
+              name="bukti_transfer"
+              accept="image/*,application/pdf"
+              className="cursor-target px-[2.5%] w-full multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                text-sm sm:text-base md:text-base lg:text-base
+                text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
+                placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
+              required
+            />
+          </div>
         <button
           type="submit"
           className="single-regis-button group flex 

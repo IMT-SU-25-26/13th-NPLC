@@ -40,17 +40,17 @@ export default function BusinessPlanRegistrationForm({
         competitionId,
         userId
       )) as string;
-      
+
       if (!registration_id) {
         toast.error("Failed to get registration ID.");
         return;
       }
 
-        if (!session?.user?.email) {
-          toast.error("You must be logged in to register.");
-          return;
-        }
-      
+      if (!session?.user?.email) {
+        toast.error("You must be logged in to register.");
+        return;
+      }
+
       const team_name = formData.get("team_name") as string;
 
       const data = {
@@ -59,10 +59,10 @@ export default function BusinessPlanRegistrationForm({
         price: 40000,
         quantity: 1,
         customer_details: {
-        // Masukkan nama gabungan ke field first_name
-        first_name: competitionTitle,
-        last_name: team_name,
-        email: session.user.email, // 4. Masukkan email dari sesi
+          // Masukkan nama gabungan ke field first_name
+          first_name: competitionTitle,
+          last_name: team_name,
+          email: session.user.email, // 4. Masukkan email dari sesi
         },
       };
 
@@ -79,7 +79,7 @@ export default function BusinessPlanRegistrationForm({
         setPending(false); // Matikan status pending
         return;
       }
-      await updateRegistrationMidtransToken(team_name ,competitionId, token);
+      await updateRegistrationMidtransToken(team_name, competitionId, token);
       if (window.snap === undefined) {
         toast.error("Payment gateway is not loaded. Please try again later.");
         setPending(false);
@@ -89,7 +89,7 @@ export default function BusinessPlanRegistrationForm({
       window.snap.pay(requestData.token, {
         onSuccess: async function () {
           /* Anda dapat menambahkan logika di sini, misalnya redirect atau menampilkan pesan sukses */
-          await updateIsPaid(competitionId,  team_name, true);
+          await updateIsPaid(competitionId, team_name, true);
           toast.success("Payment successful!");
           form.reset(); // Reset form setelah pembayaran berhasil
           // Contoh: window.location.href = '/dashboard/payment/success';
@@ -183,43 +183,45 @@ export default function BusinessPlanRegistrationForm({
               required
             />
           </div>
-          <div className="flex flex-col w-full">
-            <label
-              className="regis-label text-left w-full font-ropasans-regular text-2xl"
-              htmlFor="contact_person_number"
-            >
-              Contact Person Line ID
-            </label>
-            <input
-              id="contact_person_number"
-              type="text"
-              name="contact_person_number"
-              className="cursor-target px-[2.5%] w-full bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+          <div className="multiple-regis-name-nisn-container flex w-full justify-center gap-1 sm:gap-4">
+            <div className="flex flex-col w-full">
+              <label
+                className="regis-label text-left w-full font-ropasans-regular text-2xl"
+                htmlFor="contact_person_number"
+              >
+                Contact Person Line ID
+              </label>
+              <input
+                id="contact_person_number"
+                type="text"
+                name="contact_person_number"
+                className="cursor-target px-[2.5%] w-full bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
               text-sm sm:text-base md:text-base lg:text-base
               text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                             placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
-              placeholder="Enter contact person line ID"
-              required
-            />
-          </div>
-          <div className="flex flex-col w-full">
-            <label
-              className="regis-label text-left w-full font-ropasans-regular text-2xl"
-              htmlFor="link_twiboon"
-            >
-              Twibon Link
-            </label>
-            <input
-              id="link_twiboon"
-              type="url"
-              name="link_twiboon"
-              className="cursor-target px-[2.5%] w-full bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                placeholder="Enter contact person line ID"
+                required
+              />
+            </div>
+            <div className="flex flex-col w-full">
+              <label
+                className="regis-label text-left w-full font-ropasans-regular text-2xl"
+                htmlFor="link_twiboon"
+              >
+                Twibon Link
+              </label>
+              <input
+                id="link_twiboon"
+                type="url"
+                name="link_twiboon"
+                className="cursor-target px-[2.5%] w-full bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
                   text-sm sm:text-base md:text-base lg:text-base
                   text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                                 placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
-              placeholder="Enter Twibon link"
-              required
-            />
+                placeholder="Enter Twibon link"
+                required
+              />
+            </div>
           </div>
           {[1, 2, 3, 4].map((i) => (
             <div
@@ -277,6 +279,25 @@ export default function BusinessPlanRegistrationForm({
               </div>
             </div>
           ))}
+          <div className="flex flex-col w-full">
+            <label
+              className="regis-label text-left w-full font-ropasans-regular text-2xl"
+              htmlFor="bukti_transfer"
+            >
+              Upload Payment Proof
+            </label>
+            <input
+              id="bukti_transfer"
+              type="file"
+              name="bukti_transfer"
+              accept="image/*,application/pdf"
+              className="cursor-target px-[2.5%] w-full multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                text-sm sm:text-base md:text-base lg:text-base
+                text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
+                placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
+              required
+            />
+          </div>
           <button
             type="submit"
             className="multiple-regis-button group flex 

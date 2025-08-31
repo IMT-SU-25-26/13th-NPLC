@@ -72,9 +72,8 @@ export default function CompetitiveProgrammingForm({
       if (!response.ok) {
         const errorData = await response.json();
         // This throws an error that your `catch` block will grab
-        throw new Error(errorData.details || 'Failed to get payment token.');
+        throw new Error(errorData.details || "Failed to get payment token.");
       }
-
 
       const requestData = await response.json();
       const token = requestData.token as string;
@@ -187,43 +186,45 @@ export default function CompetitiveProgrammingForm({
               required
             />
           </div>
-          <div className="flex flex-col w-full">
-            <label
-              className="regis-label text-left w-full font-ropasans-regular text-2xl"
-              htmlFor="contact_person_number"
-            >
-              Contact Person Line ID
-            </label>
-            <input
-              id="contact_person_number"
-              type="text"
-              name="contact_person_number"
-              className="cursor-target px-[2.5%] w-full multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+          <div className="multiple-regis-name-nisn-container flex w-full justify-center gap-1 sm:gap-4">
+            <div className="flex flex-col w-full">
+              <label
+                className="regis-label text-left w-full font-ropasans-regular text-2xl"
+                htmlFor="contact_person_number"
+              >
+                Contact Person Line ID
+              </label>
+              <input
+                id="contact_person_number"
+                type="text"
+                name="contact_person_number"
+                className="cursor-target px-[2.5%] w-full multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
               text-sm sm:text-base md:text-base lg:text-base
               text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                             placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
-              placeholder="Enter contact person line ID"
-              required
-            />
-          </div>
-          <div className="flex flex-col w-full">
-            <label
-              className="regis-label text-left w-full font-ropasans-regular tefxt-2xl"
-              htmlFor="link_twiboon"
-            >
-              Twibon Link
-            </label>
-            <input
-              id="link_twiboon"
-              type="url"
-              name="link_twiboon"
-              className="cursor-target px-[2.5%] w-full multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                placeholder="Enter contact person line ID"
+                required
+              />
+            </div>
+            <div className="flex flex-col w-full">
+              <label
+                className="regis-label text-left w-full font-ropasans-regular tefxt-2xl"
+                htmlFor="link_twiboon"
+              >
+                Twibon Link
+              </label>
+              <input
+                id="link_twiboon"
+                type="url"
+                name="link_twiboon"
+                className="cursor-target px-[2.5%] w-full multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
                   text-sm sm:text-base md:text-base lg:text-base
                   text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                                 placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
-              placeholder="Enter Twibon link"
-              required
-            />
+                placeholder="Enter Twibon link"
+                required
+              />
+            </div>
           </div>
           {[1, 2, 3].map((i) => (
             <div
@@ -281,6 +282,25 @@ export default function CompetitiveProgrammingForm({
               </div>
             </div>
           ))}
+          <div className="flex flex-col w-full">
+            <label
+              className="regis-label text-left w-full font-ropasans-regular text-2xl"
+              htmlFor="bukti_transfer"
+            >
+              Upload Payment Proof
+            </label>
+            <input
+              id="bukti_transfer"
+              type="file"
+              name="bukti_transfer"
+              accept="image/*,application/pdf"
+              className="cursor-target px-[2.5%] w-full multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                text-sm sm:text-base md:text-base lg:text-base
+                text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
+                placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
+              required
+            />
+          </div>
           <button
             type="submit"
             className="multiple-regis-button group flex 
