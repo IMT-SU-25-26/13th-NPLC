@@ -40,24 +40,24 @@ export async function getRegistrationIdByCompetitionAndUser(
   }
 }
 
-export async function updateRegistrationMidtransToken(
-  team_name: string,
-  competition_id: string,
-  mid_token: string
-) {
-  try {
-    await prisma.competitionRegistration.updateMany({
-      where: { team_name: team_name, competition_id: competition_id },
-      data: {
-        registration_midtrans_token: mid_token,
-        registration_status: "pending",
-      },
-    });
-  } catch (error) {
-    console.error("Error updating registration Midtrans token:", error);
-    throw error;
-  }
-}
+// export async function updateRegistrationMidtransToken(
+//   team_name: string,
+//   competition_id: string,
+//   mid_token: string
+// ) {
+//   try {
+//     await prisma.competitionRegistration.updateMany({
+//       where: { team_name: team_name, competition_id: competition_id },
+//       data: {
+//         registration_midtrans_token: mid_token,
+//         registration_status: "pending",
+//       },
+//     });
+//   } catch (error) {
+//     console.error("Error updating registration Midtrans token:", error);
+//     throw error;
+//   }
+// }
 
 export async function updateIsPaid(competition_id: string, team_name: string, is_paid: boolean) {
   if (is_paid) {

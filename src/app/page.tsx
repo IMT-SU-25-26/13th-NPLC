@@ -129,7 +129,7 @@ export default function Home() {
             />
             <Image
               className="hidden timeline-mobile z-[12] w-[70rem] h-auto backdrop-blur-lg"
-              src={"/home/TimelineMobile.svg"}
+              src={"/home/TimelineMobile.webp"}
               width={2000}
               height={2000}
               alt="time-line-text"

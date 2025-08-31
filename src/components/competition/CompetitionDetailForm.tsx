@@ -56,32 +56,32 @@ export default function CompetitionDetailsDisplay({
   }
 
   const handlePay = () => {
-    if (window.snap === undefined) {
-      return;
-    }
-    if (teams.members[0].registration_midtrans_token === null) {
-      return;
-    }
-    window.snap.pay(teams.members[0].registration_midtrans_token, {
-      onSuccess: async function () {
-        await updateIsPaid(
-          teams.members[0].competition_id,
-          teams.members[0].team_name,
-          true
-        );
+    // if (window.snap === undefined) {
+    //   return;
+    // }
+    // if (teams.members[0].registration_midtrans_token === null) {
+    //   return;
+    // }
+    // window.snap.pay(teams.members[0].registration_midtrans_token, {
+    //   onSuccess: async function () {
+    //     await updateIsPaid(
+    //       teams.members[0].competition_id,
+    //       teams.members[0].team_name,
+    //       true
+    //     );
 
-        window.location.href = "/competition-details";
-      },
-      onPending: function () {},
-      onError: async function () {
-        await updateIsPaid(
-          teams.members[0].competition_id,
-          teams.members[0].team_name,
-          false
-        );
-      },
-      onClose: async function () {},
-    });
+    //     window.location.href = "/competition-details";
+    //   },
+    //   onPending: function () {},
+    //   onError: async function () {
+    //     await updateIsPaid(
+    //       teams.members[0].competition_id,
+    //       teams.members[0].team_name,
+    //       false
+    //     );
+    //   },
+    //   onClose: async function () {},
+    // });
   };
 
   const deleteRegistration = async () => {
@@ -280,7 +280,7 @@ export default function CompetitionDetailsDisplay({
                     fontWeight="500"
                     className="text-[#D787DF] text-5xl sm:text-5xl md:text-5xl lg:text-4xl font-rubik-glitch group-hover:text-[#D787DF]"
                   >
-                    Pay_
+                    Submit_
                   </text>
                   <text
                     x="175"
@@ -292,7 +292,7 @@ export default function CompetitionDetailsDisplay({
                     fontWeight="500"
                     className="text-[#FCF551] text-5xl sm:text-5xl md:text-5xl lg:text-4xl font-rubik-glitch group-hover:text-[#D787DF]"
                   >
-                    Pay_
+                    Submit_
                   </text>
                   <path
                     d="M57.833 77.3337H216.509V80.1763H57.833"
