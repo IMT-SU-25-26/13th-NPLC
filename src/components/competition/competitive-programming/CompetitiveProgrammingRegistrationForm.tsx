@@ -235,7 +235,7 @@ export default function CompetitiveProgrammingForm({
             }}
             folder="payment-proofs"
             allowedFormats={["jpg", "jpeg", "png"]}
-            label="Upload your payment proof - Transfer via Blu by BCA - 008674351649 -  Chrisensia Abigail Gani"
+            label="Upload your payment proof (Rp.40,000,00) - Transfer via Blu by BCA - 008674351649 -  Chrisensia Abigail Gani"
             name="bukti_transfer"
             required={true}
           />
