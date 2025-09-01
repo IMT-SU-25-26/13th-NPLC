@@ -236,7 +236,7 @@ export default function BusinessPlanRegistrationForm({
             }}
             folder="payment-proofs"
             allowedFormats={["jpg", "jpeg", "png"]}
-            label="Upload Payment Proof"
+            label="Upload your payment proof - Transfer via Blu by BCA - 008674351649 -  Chrisensia Abigail Gani"
             name="bukti_transfer"
             required={true}
           />

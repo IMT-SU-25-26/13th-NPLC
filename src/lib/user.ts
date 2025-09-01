@@ -60,9 +60,19 @@ export async function registerForACompetition(
     imageUrl,
     imagePublicId,
   } = rawFormData;
+
+  const trimmedFullnames = (rawFormData.fullname as string[]).map((name) => name.replace(/\s/g, ''));
+  const trimmedNisns = (rawFormData.nisn as string[]).map((nisn) => nisn.replace(/\s/g, ''));
+  const trimmedLinkTwiboon = link_twiboon.replace(/\s/g, '');
+  const trimmedSchoolName = school_name.replace(/\s/g, '');
+  const trimmedContactPersonNumber = contact_person_number.replace(/\s/g, '');
+  const trimmedTeamName = team_name.replace(/\s/g, '');
+  const trimmedImageUrl = imageUrl.replace(/\s/g, '');
+  const trimmedImagePublicId = imagePublicId.replace(/\s/g, '');
+
   // Normalize inputs to arrays
-  const nisnArr = Array.isArray(nisns) ? nisns : [nisns];
-  const fullnameArr = Array.isArray(fullnames) ? fullnames : [fullnames];
+  const nisnArr = Array.isArray(trimmedNisns) ? trimmedNisns : [trimmedNisns];
+  const fullnameArr = Array.isArray(trimmedFullnames) ? trimmedFullnames : [trimmedFullnames];
 
   // Cek semua user dan validasi sebelum update
   const users = await Promise.all(

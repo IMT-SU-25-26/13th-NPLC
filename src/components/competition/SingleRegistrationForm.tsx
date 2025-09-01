@@ -72,7 +72,7 @@ export default function SingleRegistrationForm({
       }
     } finally {
       setPending(false);
-       window.location.href = "/competition-details";
+      window.location.href = "/competition-details";
     }
   };
 
@@ -220,11 +220,15 @@ export default function SingleRegistrationForm({
             </div>
           </div>
         ))}
-        
+
         {/* Hidden inputs for file upload data */}
         <input type="hidden" name="imageUrl" value={uploadedFileUrl} />
-        <input type="hidden" name="imagePublicId" value={uploadedFilePublicId} />
-        
+        <input
+          type="hidden"
+          name="imagePublicId"
+          value={uploadedFilePublicId}
+        />
+
         <UploadWidget
           onUploadSuccess={(url, publicId) => {
             setUploadedFileUrl(url);
@@ -234,16 +238,26 @@ export default function SingleRegistrationForm({
           }}
           folder="payment-proofs"
           allowedFormats={["jpg", "jpeg", "png"]}
-          label="Upload Payment Proof"
+          label="Upload your payment proof - Transfer via Blu by BCA - 008674351649 -  Chrisensia Abigail Gani"
           name="bukti_transfer"
           required={true}
         />
-        
+
         {/* Show upload status */}
         {uploadedFileUrl && (
           <div className="text-[#75E8F0] text-sm mt-2 flex items-center gap-2">
-            <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            <svg
+              className="w-5 h-5 text-green-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 13l4 4L19 7"
+              />
             </svg>
             Payment proof uploaded successfully
           </div>
