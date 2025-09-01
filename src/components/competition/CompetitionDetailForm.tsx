@@ -71,35 +71,38 @@ export default function CompetitionDetailsDisplay({
   }
 
   const handlePay = async (e: React.FormEvent) => {
-      e.preventDefault();
-  
-      // Validate that a file has been uploaded
-      if (!uploadedFileUrl) {
-        toast.error("Please upload a payment proof before submitting.");
-        return;
+    e.preventDefault();
+
+    // Validate that a file has been uploaded
+    if (!uploadedFileUrl) {
+      toast.error("Please upload a payment proof before submitting.");
+      return;
+    }
+
+    try {
+      await updatePaymentProof(
+        competition_id,
+        teams.members[0].team_name,
+        uploadedFileUrl
+      );
+    } catch (error) {
+      console.error(error);
+
+      // Display the specific error message
+      if (error instanceof Error) {
+        toast.error(error.message, {
+          duration: 5000,
+          description: "Please check your registration details and try again.",
+        });
+      } else {
+        toast.error("Registration failed. Please try again.", {
+          duration: 5000,
+        });
       }
-  
-      try {
-        await updatePaymentProof(competition_id, teams.members[0].team_name, uploadedFileUrl);
-      } catch (error) {
-        console.error(error);
-  
-        // Display the specific error message
-        if (error instanceof Error) {
-          toast.error(error.message, {
-            duration: 5000,
-            description: "Please check your registration details and try again.",
-          });
-        } else {
-          toast.error("Registration failed. Please try again.", {
-            duration: 5000,
-          });
-        }
-      }
-      finally{
-        window.location.reload();
-      }
-    };
+    } finally {
+      window.location.reload();
+    }
+  };
 
   const deleteRegistration = async () => {
     const isConfirmed = window.confirm(
@@ -153,7 +156,10 @@ export default function CompetitionDetailsDisplay({
 
   return (
     <>
-      <form onSubmit={handlePay} className="competition-detail-form-container mt-[5%] mb-[10%] relative z-[10] backdrop-blur-2xl flex w-[80%] md:w-[70%] lg:w-[70%] xl:w-[45%] flex-col items-center justify-center gap-4 lg:gap-6 p-6 lg:p-12 rounded-xl shadow-lg border-[8px] border-[#FCE551]">
+      <form
+        onSubmit={handlePay}
+        className="competition-detail-form-container mt-[5%] mb-[10%] relative z-[10] backdrop-blur-2xl flex w-[80%] md:w-[70%] lg:w-[70%] xl:w-[45%] flex-col items-center justify-center gap-4 lg:gap-6 p-6 lg:p-12 rounded-xl shadow-lg border-[8px] border-[#FCE551]"
+      >
         <h2 className="competition-detail-competition-title font-RopoSans-Regular text-2xl md:text-3xl font-bold text-center text-white">
           {competitionTitle}
         </h2>
@@ -177,31 +183,45 @@ export default function CompetitionDetailsDisplay({
           {teams.members.map((member, index) => (
             <div
               key={index}
-              className="flex w-full flex-col sm:flex-row justify-center gap-4"
+              className="flex w-full flex-col justify-center gap-4"
             >
               <div className="flex flex-col w-full">
                 <label className="competition-detail-label text-left w-full font-ropasans-regular text-md md:text-2xl">
-                  Full Name {index + 1}
+                  Link Twibbon
                 </label>
                 <div
                   className="competition-detail-data px-[2.5%] text-md md:text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
                 text-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                   overflow-x-auto whitespace-nowrap"
                 >
-                  {member.user.name || "-"}
+                  {member.link_twiboon || "-"}
                 </div>
               </div>
+              <div className="flex w-full flex-col sm:flex-row justify-center gap-4">
+                <div className="flex flex-col w-full">
+                  <label className="competition-detail-label text-left w-full font-ropasans-regular text-md md:text-2xl">
+                    Full Name {index + 1}
+                  </label>
+                  <div
+                    className="competition-detail-data px-[2.5%] text-md md:text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                  text-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
+                    overflow-x-auto whitespace-nowrap"
+                  >
+                    {member.user.name || "-"}
+                  </div>
+                </div>
 
-              <div className="flex flex-col w-full">
-                <label className="competition-detail-label text-left w-full font-ropasans-regular text-md md:text-2xl">
-                  NISN {index + 1}
-                </label>
-                <div
-                  className="competition-detail-data px-[2.5%] text-md md:text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
-                text-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
-                  overflow-x-auto whitespace-nowrap"
-                >
-                  {member.user.nomor_induk_siswa_nasional || "-"}
+                <div className="flex flex-col w-full">
+                  <label className="competition-detail-label text-left w-full font-ropasans-regular text-md md:text-2xl">
+                    NISN {index + 1}
+                  </label>
+                  <div
+                    className="competition-detail-data px-[2.5%] text-md md:text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                  text-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
+                    overflow-x-auto whitespace-nowrap"
+                  >
+                    {member.user.nomor_induk_siswa_nasional || "-"}
+                  </div>
                 </div>
               </div>
             </div>
@@ -303,7 +323,7 @@ export default function CompetitionDetailsDisplay({
                       </text>
                     </svg>
                   </button>
-                 <button
+                  <button
                     onClick={deleteRegistration}
                     className="multiple-regis-button group flex 
               w-[60%] sm:w-[45%] lg:w-[40%] sm:mt-[-1rem] md:mt-[0rem] lg:mt-[0rem]"
@@ -373,6 +393,7 @@ export default function CompetitionDetailsDisplay({
                     </svg>
                   </button>
                 </div>
+                <h1 className="text-center text-xl sm:text-2xl font-bold text-[#75E8F0] [text-shadow:_0_0_15px_rgba(117,232,240,0.8)] mb-2">Click pay now to update your payment proof</h1>
               </div>
             )}
           </div>

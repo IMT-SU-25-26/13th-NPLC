@@ -1,11 +1,11 @@
 import React from "react";
-import { auth } from "@/lib/auth/auth";
-import { headers } from "next/headers";
 import prisma from "@/lib/prisma";
 import "@/styles/competition-detail.css";
 import Restrictions from "@/components/utils/Restrictions";
 import { Team } from "@/types/competition";
 import CompetitionDetail from "@/components/competition/CompetitionDetail";
+import { auth } from "@/lib/auth/auth";
+import { headers } from "next/headers";
 
 export default async function Page() {
   // Get current session

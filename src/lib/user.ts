@@ -197,3 +197,11 @@ export async function checkCompetitionPageAccess(
 
   return competitionRegistrationData;
 }
+
+export async function checkRoleAccess(userId: string, acceptedRole: string) {
+  const user = await prisma.user.findUnique({
+    where: { id: userId },
+  });
+
+  return user?.role === acceptedRole;
+}

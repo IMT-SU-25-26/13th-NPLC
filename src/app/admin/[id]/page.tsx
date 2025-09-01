@@ -4,6 +4,10 @@ import { getCompetitionRegistrationById } from "@/lib/admin";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import StatusUpdateButton from "@/app/admin/[id]/StatusUpdateButton";
+import { auth } from "@/lib/auth/auth";
+import { headers } from "next/headers";
+import { checkRoleAccess } from "@/lib/user";
+import Restrictions from "@/components/utils/Restrictions";
 
 interface RegistrationDetailProps {
   params: Promise<{
@@ -14,7 +18,25 @@ interface RegistrationDetailProps {
 export default async function RegistrationDetail({
   params,
 }: RegistrationDetailProps) {
+  const session = await auth.api.getSession({
+      headers: await headers(),
+    });
+  
+    if (!session?.user?.id) {
+      return (
+        <Restrictions restrictionDescription="You must be logged in to view this page." />
+      );
+    }
+  
+    const hasAccess = await checkRoleAccess(session.user.id, "admin");
+    if (!hasAccess) {
+      return (
+        <Restrictions restrictionDescription="You do not have permission to view this page." />
+      );
+    }
+
   const { id } = await params;
+  
   const registration = await getCompetitionRegistrationById(id);
 
   if (!registration) {
