@@ -16,7 +16,7 @@ export default async function Page() {
     redirect("/already-logged-in");
   }
   return (
-    <div className="rg-regis-main-wrapper-container overflow-hidden min-h-screen w-screen">
+    <div className="rg-regis-main-wrapper-container overflow-hidden min-h-screen">
       <MobileWaves className="top-0 w-screen h-auto z-[3]"/>
       <div className="rg-regis-background-img-container w-full bg-gradient-to-b from-[#111114] to-[#090A1E] relative">
         <Image

@@ -94,6 +94,8 @@ model CompetitionRegistration {
   competition_id              String
   user_id                     String
   submission_link             String?
+  imageUrl                    String
+  imagePublicId               String
   is_paid                     Boolean            @default(false)
   registration_status         RegistrationStatus @default(pending)
   // registration_midtrans_token String?

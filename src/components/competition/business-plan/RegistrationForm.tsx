@@ -6,12 +6,11 @@ import { registerForCompetition } from "@/lib/server-actions/competition";
 import TargetCursor from "../../utils/TargetCursor/TargetCursor";
 import "@/styles/multiple-regis.css";
 import { useSession } from "@/lib/auth/auth_client";
-//deploy
 import {
   getRegistrationIdByCompetitionAndUser,
   // updateRegistrationMidtransToken,
-  updateIsPaid,
 } from "@/lib/competition";
+import { UploadWidget } from "@/components/CloudinaryWidget";
 
 interface CompetitiveProgrammingFormProps {
   competitionId: string;
@@ -25,10 +24,18 @@ export default function BusinessPlanRegistrationForm({
   userId,
 }: CompetitiveProgrammingFormProps) {
   const [pending, setPending] = useState<boolean>(false);
+  const [uploadedFileUrl, setUploadedFileUrl] = useState<string>("");
+  const [uploadedFilePublicId, setUploadedFilePublicId] = useState<string>("");
   const { data: session } = useSession(); // 2. Panggil hook useSession
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validate that a file has been uploaded
+    if (!uploadedFileUrl) {
+      toast.error("Please upload a payment proof before submitting.");
+      return;
+    }
 
     try {
       setPending(true);
@@ -51,20 +58,20 @@ export default function BusinessPlanRegistrationForm({
         return;
       }
 
-      const team_name = formData.get("team_name") as string;
+      // const team_name = formData.get("team_name") as string;
 
-      const data = {
-        id: registration_id,
-        productName: competitionTitle + "Registration",
-        price: 40000,
-        quantity: 1,
-        customer_details: {
-          // Masukkan nama gabungan ke field first_name
-          first_name: competitionTitle,
-          last_name: team_name,
-          email: session.user.email, // 4. Masukkan email dari sesi
-        },
-      };
+      // const data = {
+      //   id: registration_id,
+      //   productName: competitionTitle + "Registration",
+      //   price: 40000,
+      //   quantity: 1,
+      //   customer_details: {
+      //     // Masukkan nama gabungan ke field first_name
+      //     first_name: competitionTitle,
+      //     last_name: team_name,
+      //     email: session.user.email, // 4. Masukkan email dari sesi
+      //   },
+      // };
 
       // const response = await fetch(`/api/tokenizer`, {
       //   method: "POST",
@@ -279,25 +286,35 @@ export default function BusinessPlanRegistrationForm({
               </div>
             </div>
           ))}
-          <div className="flex flex-col w-full">
-            <label
-              className="regis-label text-left w-full font-ropasans-regular text-2xl"
-              htmlFor="bukti_transfer"
-            >
-              Upload Payment Proof
-            </label>
-            <input
-              id="bukti_transfer"
-              type="file"
-              name="bukti_transfer"
-              accept="image/*,application/pdf"
-              className="cursor-target px-[2.5%] w-full multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
-                text-sm sm:text-base md:text-base lg:text-base
-                text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
-                placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
-              required
-            />
-          </div>
+          
+          {/* Hidden inputs for file upload data */}
+          <input type="hidden" name="imageUrl" value={uploadedFileUrl} />
+          <input type="hidden" name="imagePublicId" value={uploadedFilePublicId} />
+          
+          <UploadWidget
+            onUploadSuccess={(url, publicId) => {
+              setUploadedFileUrl(url);
+              setUploadedFilePublicId(publicId || "");
+              toast.success("Payment proof uploaded successfully!");
+              console.log("File uploaded:", url, publicId);
+            }}
+            folder="payment-proofs"
+            allowedFormats={["jpg", "jpeg", "png"]}
+            label="Upload Payment Proof"
+            name="bukti_transfer"
+            required={true}
+          />
+          
+          {/* Show upload status */}
+          {uploadedFileUrl && (
+            <div className="text-[#75E8F0] text-sm mt-2 flex items-center gap-2">
+              <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              Payment proof uploaded successfully
+            </div>
+          )}
+          
           <button
             type="submit"
             className="multiple-regis-button group flex 

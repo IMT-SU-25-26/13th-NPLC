@@ -46,6 +46,8 @@ export async function registerForACompetition(
     school_name: formData.get("school_name") as string,
     contact_person_number: formData.get("contact_person_number") as string,
     team_name: formData.get("team_name") as string,
+    imageUrl: formData.get("imageUrl") as string,
+    imagePublicId: formData.get("imagePublicId") as string,
   };
 
   const {
@@ -55,6 +57,8 @@ export async function registerForACompetition(
     school_name,
     contact_person_number,
     team_name,
+    imageUrl,
+    imagePublicId,
   } = rawFormData;
   // Normalize inputs to arrays
   const nisnArr = Array.isArray(nisns) ? nisns : [nisns];
@@ -165,6 +169,8 @@ export async function registerForACompetition(
             school_name: school_name,
             link_twiboon: link_twiboon,
             contact_person_number: contact_person_number,
+            imageUrl: imageUrl || null,
+            imagePublicId: imagePublicId || null,
           },
         });
       })

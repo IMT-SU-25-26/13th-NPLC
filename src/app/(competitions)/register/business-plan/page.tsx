@@ -5,22 +5,26 @@ import "@/styles/competitive-programming.css";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth/auth";
 import { headers } from "next/headers";
+
 export default async function Page() {
   const competitionId = "cmegpbi5m0001hke9buhvhrw4";
 
   const session = await auth.api.getSession({
-      headers: await headers(),
-    });
+    headers: await headers(),
+  });
 
-    if (!session) {
-      redirect("/register/not-logged-in");
-    }
+  if (!session) {
+    redirect("/register/not-logged-in");
+  }
 
-    const alreadyRegisteredForBusinessPlan = await checkCompetitionPageAccess(session.user.id, competitionId);
-      
-    if(alreadyRegisteredForBusinessPlan){
-      redirect("/register/already-registered");
-    }
+  const alreadyRegisteredForBusinessPlan = await checkCompetitionPageAccess(
+    session.user.id,
+    competitionId
+  );
+
+  if (alreadyRegisteredForBusinessPlan) {
+    redirect("/register/already-registered");
+  }
 
   return (
     <div className="overflow-hidden">
@@ -61,7 +65,6 @@ export default async function Page() {
           alt="front-light"
         />
 
-
         <div className=" relative z-20 flex gap-4 flex-col items-center justify-center min-h-screen w-dvw">
           <Image
             className=" z-[10] w-[60%] sm:w-1/3 mt-0 sm:mt-15 md:mt-23 lg:mt-25 xl:mt-30 h-auto"
@@ -74,11 +77,10 @@ export default async function Page() {
             competitionTitle="Business Plan"
             competitionId={competitionId}
             userId={session.user.id}
-           />
+          />
         </div>
 
-
-      <div className="under-stair bg-[#090A1E] absolute w-dvw h-[20rem] bottom-[-10%] z-[9]"></div>
+        <div className="under-stair bg-[#090A1E] absolute w-dvw h-[20rem] bottom-[-10%] z-[9]"></div>
         <Image
           className="cp-regis-stairs absolute z-[10] w-full bottom-[28%] sm:bottom-[20%] lg:bottom-[-8%] h-auto"
           src={"/backgrounds/Stairs.svg"}

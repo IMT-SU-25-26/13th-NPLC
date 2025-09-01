@@ -1,6 +1,5 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
-// If your Prisma file is located elsewhere, you can change the path
 import { PrismaClient } from "@prisma/client";
 import { nextCookies } from "better-auth/next-js";
 
@@ -9,6 +8,7 @@ const prisma = new PrismaClient();
 export const auth = betterAuth({
   trustedOrigins: [
     "http://localhost:3000",
+    "https://nplc.ciputra.ac.id",
     process.env.VERCEL_URL || "https://nplc.vercel.app" // Add this line
   ],
   session: {

@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import "@/styles/competitive-programming-multiple-regis.css";
 import { Team } from "@/types/competition";
-import { updateIsPaid, cancelRegistration } from "@/lib/competition";
+import { cancelRegistration } from "@/lib/competition";
 import { useSession } from "@/lib/auth/auth_client";
 import { toast } from "sonner";
 
