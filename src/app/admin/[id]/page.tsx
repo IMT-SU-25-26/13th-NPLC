@@ -55,7 +55,7 @@ export default async function RegistrationDetail({
   };
 
   return (
-    <div className="min-h-screen bg-[#090A1E] text-white p-6 pt-[7vh] overflow-hidden">
+    <div className="min-h-screen bg-[#090A1E] text-white p-6 pt-[10vh] overflow-hidden">
       {/* Header */}
       <div className="mb-8">
         <Link
