@@ -56,7 +56,7 @@ export default async function Page() {
       {/* 4. Tambahkan pengecekan di sini */}
       {userTeams.length > 0 ? (
         // Jika ada tim, tampilkan datanya
-        <CompetitionDetail teams={userTeams} is_paid={userTeams[0].members[0].is_paid} />
+        <CompetitionDetail teams={userTeams} />
       ) : (
         // Jika tidak ada tim, tampilkan pesan
         <Restrictions restrictionDescription="  Register to a competition to view this page!" />

@@ -24,9 +24,7 @@ interface TeamMember {
   competition_id: string;
   user_id: string;
   submission_link: string | null;
-  is_paid: boolean;
   registration_status: RegistrationStatus;
-  registration_midtrans_token: string | null;
   user: MemberUser; // Menggunakan interface yang kita definisikan sebelumnya
 }
 export interface Team {

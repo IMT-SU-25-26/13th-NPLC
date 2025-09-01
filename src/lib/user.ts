@@ -169,8 +169,8 @@ export async function registerForACompetition(
             school_name: school_name,
             link_twiboon: link_twiboon,
             contact_person_number: contact_person_number,
-            imageUrl: imageUrl || null,
-            imagePublicId: imagePublicId || null,
+            imageUrl: imageUrl,
+            imagePublicId: imagePublicId,
           },
         });
       })
@@ -192,7 +192,7 @@ export async function checkCompetitionPageAccess(
   competitionId: string
 ) {
   const competitionRegistrationData = await prisma.competitionRegistration.findFirst({
-    where: { user_id: userId, competition_id: competitionId, is_paid: true },
+    where: { user_id: userId, competition_id: competitionId },
   });
 
   return competitionRegistrationData;

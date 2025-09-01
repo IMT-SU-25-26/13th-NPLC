@@ -18,7 +18,7 @@ export default async function AdminDashboard() {
 
   return (
     <>
-    <div className=""></div>
+    <div className="pt-[7vh] overflow-hidden">
       <div className="min-h-screen bg-[#090A1E] text-white p-6">
         {/* Header */}
         <div className="mb-8">
@@ -144,6 +144,7 @@ export default async function AdminDashboard() {
             </div>
           )}
         </div>
+      </div>
       </div>
     </>
   );

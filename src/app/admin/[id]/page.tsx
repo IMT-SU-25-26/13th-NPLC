@@ -144,21 +144,6 @@ export default async function RegistrationDetail({
               </span>
             </div>
             
-            <div className="flex flex-col">
-              <label className="text-[#FCF551] text-sm font-semibold mb-2">
-                Payment Status
-              </label>
-              <span
-                className={`inline-flex w-fit px-4 py-2 rounded-lg text-sm font-semibold ${
-                  registration.is_paid
-                    ? "text-green-400 bg-green-400/20 border border-green-400"
-                    : "text-red-400 bg-red-400/20 border border-red-400"
-                }`}
-              >
-                {registration.is_paid ? "PAID" : "UNPAID"}
-              </span>
-            </div>
-            
             <div className="pt-4 border-t border-[#FCF551]/20">
               <label className="text-[#FCF551] text-sm font-semibold mb-3 block">
                 Update Status

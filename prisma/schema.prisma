@@ -96,7 +96,7 @@ model CompetitionRegistration {
   submission_link             String?
   imageUrl                    String
   imagePublicId               String
-  is_paid                     Boolean            @default(false)
+  // is_paid                     Boolean            @default(false)
   registration_status         RegistrationStatus @default(pending)
   // registration_midtrans_token String?
   competition                 Competition        @relation(fields: [competition_id], references: [id])

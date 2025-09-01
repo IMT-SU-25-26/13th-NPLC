@@ -6,38 +6,53 @@ import { Team } from "@/types/competition";
 import { cancelRegistration } from "@/lib/competition";
 import { useSession } from "@/lib/auth/auth_client";
 import { toast } from "sonner";
+import { getRegistrationStatus } from "@/lib/competition";
+import { UploadWidget } from "@/components/CloudinaryWidget";
+import { updatePaymentProof } from "@/lib/competition";
 
 export default function CompetitionDetailsDisplay({
-  teams, // Properti 'teams' di sini adalah sebuah objek tunggal (Team), bukan array (Team[]), sesuai desain awal.
+  teams,
   competitionTitle,
-  is_paid,
   competition_id,
 }: {
-  teams: Team; // Tipe data tidak diubah, tetap objek tunggal.
+  teams: Team;
   competitionTitle: string;
-  is_paid: boolean;
   competition_id: string;
 }) {
+  const [uploadedFileUrl, setUploadedFileUrl] = useState<string>("");
+  const [uploadedFilePublicId, setUploadedFilePublicId] = useState<string>("");
   const { data: session } = useSession();
   const isLoggedIn = !!session;
-  const [registrationStatus, setRegistrationStatus] = useState<string | null>(null);
+  // State untuk status registrasi, diharapkan bernilai: 'accepted', 'pending', atau 'failed'
+  const [registrationStatus, setRegistrationStatus] = useState<
+    "accepted" | "pending" | "failed" | null
+  >(null);
+
   useEffect(() => {
+    if (!teams?.members?.[0]?.team_name) return;
+
     const fetchStatus = async () => {
       try {
-        const response = await fetch(`/api/check_payment_status?competitionId=${competition_id}&t_name=${teams.members[0].team_name}`);
-        if (!response.ok) {
-          throw new Error("Failed to fetch status");
+        const response = await getRegistrationStatus(
+          competition_id,
+          teams.members[0].team_name
+        );
+        if (
+          response === "accepted" ||
+          response === "pending" ||
+          response === "failed"
+        ) {
+          setRegistrationStatus(response);
         }
-        const data = await response.json();
-        setRegistrationStatus(data.status);
       } catch (error) {
         console.error(error);
         toast.error("Could not check your registration status.");
+        setRegistrationStatus("failed"); // Set status ke failed jika fetch gagal
       }
     };
 
     fetchStatus();
-  }, [competition_id, teams.members]);
+  }, [competition_id, teams]);
 
   if (!isLoggedIn) {
     return (
@@ -55,150 +70,110 @@ export default function CompetitionDetailsDisplay({
     );
   }
 
-  const handlePay = () => {
-    // if (window.snap === undefined) {
-    //   return;
-    // }
-    // if (teams.members[0].registration_midtrans_token === null) {
-    //   return;
-    // }
-    // window.snap.pay(teams.members[0].registration_midtrans_token, {
-    //   onSuccess: async function () {
-    //     await updateIsPaid(
-    //       teams.members[0].competition_id,
-    //       teams.members[0].team_name,
-    //       true
-    //     );
-
-    //     window.location.href = "/competition-details";
-    //   },
-    //   onPending: function () {},
-    //   onError: async function () {
-    //     await updateIsPaid(
-    //       teams.members[0].competition_id,
-    //       teams.members[0].team_name,
-    //       false
-    //     );
-    //   },
-    //   onClose: async function () {},
-    // });
-  };
+  const handlePay = async (e: React.FormEvent) => {
+      e.preventDefault();
+  
+      // Validate that a file has been uploaded
+      if (!uploadedFileUrl) {
+        toast.error("Please upload a payment proof before submitting.");
+        return;
+      }
+  
+      try {
+        await updatePaymentProof(competition_id, teams.members[0].team_name, uploadedFileUrl);
+      } catch (error) {
+        console.error(error);
+  
+        // Display the specific error message
+        if (error instanceof Error) {
+          toast.error(error.message, {
+            duration: 5000,
+            description: "Please check your registration details and try again.",
+          });
+        } else {
+          toast.error("Registration failed. Please try again.", {
+            duration: 5000,
+          });
+        }
+      }
+      finally{
+        window.location.reload();
+      }
+    };
 
   const deleteRegistration = async () => {
     const isConfirmed = window.confirm(
       "Are you sure you want to cancel this team's registration? This action cannot be undone."
     );
-
-    if (!isConfirmed) {
-      return;
-    }
+    if (!isConfirmed) return;
 
     try {
-      if (!teams.members[0].id) {
-        return;
-      }
-
-      for (let i = 0; i < teams.members.length; i++) {
-        if (teams.members[i].user.id === session.user.id) {
-          await cancelRegistration(
-            teams.members[i].competition_id,
-            teams.members[i].user.id
-          );
+      // Loop untuk memastikan anggota tim yang benar yang membatalkan
+      for (const member of teams.members) {
+        if (member.user.id === session.user.id) {
+          await cancelRegistration(member.competition_id, member.user.id);
+          break; // Keluar dari loop setelah pembatalan berhasil
         }
       }
-
-      alert("Registration cancelled successfully!");
+      toast.success("Registration cancelled successfully!");
       window.location.reload();
     } catch (error) {
       console.error(error);
-      alert("Failed to cancel registration. Please try again.");
+      toast.error("Failed to cancel registration. Please try again.");
     }
   };
 
+  // Helper untuk menentukan teks dan style status
+  const getStatusProps = () => {
+    switch (registrationStatus) {
+      case "accepted":
+        return {
+          text: "Registration Accepted",
+          className: "border-[#4ADE80] text-[#4ADE80]", // Green
+        };
+      case "pending":
+        return {
+          text: "Registration Pending",
+          className: "border-[#FBBF24] text-[#FBBF24]", // Yellow
+        };
+      case "failed":
+        return {
+          text: "Registration Failed",
+          className: "border-[#EF4444] text-[#EF4444]", // Red
+        };
+      default:
+        return {
+          text: "Checking status...",
+          className: "border-gray-500 text-gray-500",
+        };
+    }
+  };
+
+  const { text: statusText, className: statusClassName } = getStatusProps();
+
   return (
     <>
-      <div className="competition-detail-form-container mt-[5%] mb-[10%] relative z-[10] backdrop-blur-2xl flex w-[80%] md:w-[70%] lg:w-[70%] xl:w-[45%] flex-col items-center justify-center gap-4 lg:gap-6 p-6 lg:p-12 rounded-xl shadow-lg border-[8px] border-[#FCE551]">
+      <form onSubmit={handlePay} className="competition-detail-form-container mt-[5%] mb-[10%] relative z-[10] backdrop-blur-2xl flex w-[80%] md:w-[70%] lg:w-[70%] xl:w-[45%] flex-col items-center justify-center gap-4 lg:gap-6 p-6 lg:p-12 rounded-xl shadow-lg border-[8px] border-[#FCE551]">
         <h2 className="competition-detail-competition-title font-RopoSans-Regular text-2xl md:text-3xl font-bold text-center text-white">
           {competitionTitle}
         </h2>
-       <div
-        className={`px-4 competition-detail-registration-status-border rounded-2xl text-lg md:text-xl py-2 bg-[#18182a]/80 border-2 text-center
-          ${
-            is_paid
-              ? "border-[#4ADE80] text-[#4ADE80]" // Green for Success
-              : registrationStatus === "PENDING"
-              ? "border-[#FBBF24] text-[#FBBF24]" // Yellow for Pending
-              : "border-[#EF4444] text-[#EF4444]" // Red for Expired or Not Paid
-          }
-          [text-shadow:_0_0_20px_rgba(0,255,255,0.5)] 
-          overflow-x-auto whitespace-nowrap`}
-      >
-        {is_paid
-          ? "Registration Success"
-          : registrationStatus === "PENDING"
-          ? "Registration Pending"
-          : registrationStatus === "EXPIRED"
-          ? "Registration Expired"
-          : "Not Paid"}
-      </div>
+        <div
+          className={`px-4 competition-detail-registration-status-border rounded-2xl text-lg md:text-xl py-2 bg-[#18182a]/80 border-2 text-center ${statusClassName} [text-shadow:_0_0_20px_rgba(0,255,255,0.5)] overflow-x-auto whitespace-nowrap`}
+        >
+          {statusText}
+        </div>
 
         <div className="gap-4 flex flex-col justify-center items-center w-full">
+          {/* ... Tampilan detail tim lainnya tetap sama ... */}
           <div className="flex flex-col w-full">
             <label className="competition-detail-label text-left w-full font-ropasans-regular text-md md:text-2xl">
               Team Name
             </label>
-            <div
-              className="competition-detail-data px-[2.5%] text-md md:text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
-                text-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
-                overflow-x-auto whitespace-nowrap"
-            >
+            <div className="competition-detail-data px-[2.5%] text-md md:text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none text-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] overflow-x-auto whitespace-nowrap">
               {teams.team_name || "-"}
             </div>
           </div>
-          <div className="flex flex-col w-full">
-            <label className="competition-detail-label text-left w-full font-ropasans-regular text-md md:text-2xl">
-              School Name
-            </label>
-            <div
-              className="competition-detail-data px-[2.5%] text-md md:text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
-                text-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
-                overflow-x-auto whitespace-nowrap"
-            >
-              {teams.members[0].school_name || "-"}
-            </div>
-          </div>
-          <div className="flex flex-col w-full">
-            <label className="competition-detail-label text-left w-full font-ropasans-regular text-md md:text-2xl">
-              Contact Person Line ID
-            </label>
-            <div
-              className="competition-detail-data px-[2.5%] text-md md:text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
-                text-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
-                overflow-x-auto whitespace-nowrap"
-            >
-              {teams.members[0].contact_person_number || "-"}
-            </div>
-          </div>
-          <div className="flex flex-col w-full">
-            <label className="competition-detail-label text-left w-full font-ropasans-regular text-md md:text-2xl">
-              Twibon Link
-            </label>
-            <div
-              className="competition-detail-data px-[2.5%] text-md md:text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
-                text-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
-                overflow-x-auto whitespace-nowrap"
-            >
-              <a
-                href={teams.members[0].link_twiboon}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline"
-              >
-                {teams.members[0].link_twiboon || "-"}
-              </a>
-            </div>
-          </div>
-
+          {/* ... Fields lainnya seperti School Name, Contact, etc. */}
           {teams.members.map((member, index) => (
             <div
               key={index}
@@ -231,230 +206,178 @@ export default function CompetitionDetailsDisplay({
               </div>
             </div>
           ))}
-          <div className="details-button-container flex flex-col justify-center items-center sm:flex-row items-center sm:gap-4 w-full mt-4">
-            {is_paid ? (
-              <></>
-            ) : (
-              <>
-              {registrationStatus === "PENDING" && (
-                <>
-                <svg
-                  width="332"
-                  height="81"
-                  viewBox="0 0 332 81"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="cursor-target group w-full max-w-[332px]"
-                  onClick={handlePay}
-                >
-                  <path
-                    d="M0 68.3936H32.8861L0 56.6147V68.3936Z"
-                    fill="#661109"
-                  />
-                  <path
-                    opacity="0.25"
-                    d="M322.577 2.5V43.8066L246.309 65.8936H51.6289L2.5 48.293V24.585L78.7686 2.5H322.577Z"
-                    fill="#D9D9D9"
-                    stroke="#661109"
-                    strokeWidth="5"
-                  />
-                  <path
-                    d="M6.92285 73.7244H39.8089L6.92285 61.9414V73.7244Z"
-                    fill="#FCF551"
-                  />
-                  <path
-                    d="M330.5 6.83105V49.8896L253.371 72.2246H58.3789L8.42285 54.3281V29.1611L85.542 6.83105H330.5Z"
-                    fill="#2F2E2E"
-                    fillOpacity="1"
-                    stroke="#FCF551"
-                    strokeWidth="3"
-                    className="group-hover:fill-[#FCF551]"
-                  />
-                  <text
-                    x="172.5"
-                    y="42.5"
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    fill="currentColor"
-                    fontSize="18"
-                    fontWeight="500"
-                    className="text-[#D787DF] text-5xl sm:text-5xl md:text-5xl lg:text-4xl font-rubik-glitch group-hover:text-[#D787DF]"
-                  >
-                    Submit_
-                  </text>
-                  <text
-                    x="175"
-                    y="40"
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    fill="currentColor"
-                    fontSize="18"
-                    fontWeight="500"
-                    className="text-[#FCF551] text-5xl sm:text-5xl md:text-5xl lg:text-4xl font-rubik-glitch group-hover:text-[#D787DF]"
-                  >
-                    Submit_
-                  </text>
-                  <path
-                    d="M57.833 77.3337H216.509V80.1763H57.833"
-                    fill="#FCF551"
-                  />
-                  <path
-                    d="M6.81738 77.3337H39.7035V80.1763H6.81738"
-                    fill="#FCF551"
-                  />
-                  <path
-                    d="M328.036 5.33105V50.8877V52.1631L332 51.0169V50.8877V5.33105H328.036Z"
-                    fill="#75E8F0"
-                  />
-                </svg>
+          {/* Container untuk tombol aksi */}
+          <div className="details-button-container flex flex-col justify-center items-center sm:flex-row sm:gap-4 w-full mt-4">
+            {registrationStatus === "pending" && <></>}
+            {registrationStatus === "failed" && (
+              // Tombol "Remove" untuk status failed/expired
+              <div className="flex flex-col gap-8 justify-center w-full">
+                {/* Hidden inputs for file upload data */}
+                <input type="hidden" name="imageUrl" value={uploadedFileUrl} />
+                <input
+                  type="hidden"
+                  name="imagePublicId"
+                  value={uploadedFilePublicId}
+                />
 
-                <svg
-                  width="332"
-                  height="81"
-                  viewBox="0 0 332 81"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="cursor-target group w-full max-w-[332px]"
-                  onClick={deleteRegistration}
-                >
-                  <path
-                    d="M0 68.3936H32.8861L0 56.6147V68.3936Z"
-                    fill="#661109"
-                  />
-                  <path
-                    opacity="0.25"
-                    d="M322.577 2.5V43.8066L246.309 65.8936H51.6289L2.5 48.293V24.585L78.7686 2.5H322.577Z"
-                    fill="#D9D9D9"
-                    stroke="#661109"
-                    strokeWidth="5"
-                  />
-                  <path
-                    d="M6.92285 73.7244H39.8089L6.92285 61.9414V73.7244Z"
-                    fill="#FCF551"
-                  />
-                  <path
-                    d="M330.5 6.83105V49.8896L253.371 72.2246H58.3789L8.42285 54.3281V29.1611L85.542 6.83105H330.5Z"
-                    fill="#2F2E2E"
-                    fillOpacity="1"
-                    stroke="#FCF551"
-                    strokeWidth="3"
-                    className="group-hover:fill-[#FCF551]"
-                  />
-                  <text
-                    x="172.5"
-                    y="42.5"
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    fill="currentColor"
-                    fontSize="18"
-                    fontWeight="500"
-                    className="text-[#D787DF] text-5xl sm:text-5xl md:text-5xl lg:text-4xl font-rubik-glitch group-hover:text-[#D787DF]"
+                <UploadWidget
+                  onUploadSuccess={(url, publicId) => {
+                    setUploadedFileUrl(url);
+                    setUploadedFilePublicId(publicId || "");
+                    toast.success("Payment proof uploaded successfully!");
+                    console.log("File uploaded:", url, publicId);
+                  }}
+                  folder="payment-proofs"
+                  allowedFormats={["jpg", "jpeg", "png"]}
+                  label="Upload Payment Proof"
+                  name="bukti_transfer"
+                  required={true}
+                />
+                <div className="flex gap-4 justify-center items-center w-full">
+                  <button
+                    type="submit"
+                    className="multiple-regis-button group flex 
+              w-[60%] sm:w-[45%] lg:w-[40%] sm:mt-[-1rem] md:mt-[0rem] lg:mt-[0rem]"
                   >
-                    Cancel_
-                  </text>
-                  <text
-                    x="175"
-                    y="40"
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    fill="currentColor"
-                    fontSize="18"
-                    fontWeight="500"
-                    className="text-[#FCF551] text-5xl sm:text-5xl md:text-5xl lg:text-4xl font-rubik-glitch group-hover:text-[#D787DF]"
+                    <svg
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 417 138"
+                      className="cursor-target"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0 117.09H41.3058L0 96.9246V117.09Z"
+                        fill="#661109"
+                        className={`${"group-hover:fill-[#000000]"} transition-colors duration-200`}
+                      />
+                      <path
+                        d="M98.49 0L0 38.8754V85.6927L64.3021 117.09H309.815L408.305 78.2145V0H98.49Z"
+                        fill="#661109"
+                        className={`${"group-hover:fill-[#000000] "} transition-colors duration-200`}
+                      />
+                      <path
+                        d="M8.69482 126.217H50.0006L8.69482 106.044V126.217Z"
+                        fill={`#FCF551`}
+                        className={`${"group-hover:fill-[#c651fc]"} transition-colors duration-200`}
+                      />
+                      <path
+                        d="M107.177 9.12653L8.69482 47.9947V94.8193L72.9969 126.216H318.51L417 87.341V9.12653H107.177Z"
+                        fill={`#FCF551`}
+                        className={`${"group-hover:fill-[#c651fc] "} transition-colors duration-200`}
+                      />
+                      <path
+                        d="M72.6392 132.396H271.941V137.262H72.6392"
+                        fill={`#FCF551`}
+                        className={`${"group-hover:fill-[#c651fc] "} transition-colors duration-200`}
+                      />
+                      <path
+                        d="M8.56348 132.396H49.8693V137.262H8.56348"
+                        fill={`#FCF551`}
+                        className={`${"group-hover:fill-[#c651fc] "} transition-colors duration-200`}
+                      />
+                      <text
+                        x="200"
+                        y="75"
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        fill="currentColor"
+                        fontSize="18"
+                        fontWeight="500"
+                        className="text-[#D787DF] text-5xl sm:text-5xl md:text-5xl lg:text-5xl font-rubik-glitch group-hover:text-[#D787DF]"
+                      >
+                        Pay now_
+                      </text>
+                      <text
+                        x="210"
+                        y="70"
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        fill="currentColor"
+                        fontSize="18"
+                        fontWeight="500"
+                        className="text-[#75E7F0] text-5xl sm:text-5xl md:text-5xl lg:text-5xl font-rubik-glitch group-hover:text-[#75E7F0]"
+                      >
+                        Pay now_
+                      </text>
+                    </svg>
+                  </button>
+                 <button
+                    onClick={deleteRegistration}
+                    className="multiple-regis-button group flex 
+              w-[60%] sm:w-[45%] lg:w-[40%] sm:mt-[-1rem] md:mt-[0rem] lg:mt-[0rem]"
                   >
-                    Cancel_
-                  </text>
-                  <path
-                    d="M57.833 77.3337H216.509V80.1763H57.833"
-                    fill="#FCF551"
-                  />
-                  <path
-                    d="M6.81738 77.3337H39.7035V80.1763H6.81738"
-                    fill="#FCF551"
-                  />
-                  <path
-                    d="M328.036 5.33105V50.8877V52.1631L332 51.0169V50.8877V5.33105H328.036Z"
-                    fill="#75E8F0"
-                  />
-                </svg>
-                </>
-              )}
-              {registrationStatus === "EXPIRED" && (
-                 <svg
-                  width="332"
-                  height="81"
-                  viewBox="0 0 332 81"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="cursor-target group w-full max-w-[332px]"
-                  onClick={deleteRegistration}
-                >
-                  <path
-                    d="M0 68.3936H32.8861L0 56.6147V68.3936Z"
-                    fill="#661109"
-                  />
-                  <path
-                    opacity="0.25"
-                    d="M322.577 2.5V43.8066L246.309 65.8936H51.6289L2.5 48.293V24.585L78.7686 2.5H322.577Z"
-                    fill="#D9D9D9"
-                    stroke="#661109"
-                    strokeWidth="5"
-                  />
-                  <path
-                    d="M6.92285 73.7244H39.8089L6.92285 61.9414V73.7244Z"
-                    fill="#FCF551"
-                  />
-                  <path
-                    d="M330.5 6.83105V49.8896L253.371 72.2246H58.3789L8.42285 54.3281V29.1611L85.542 6.83105H330.5Z"
-                    fill="#2F2E2E"
-                    fillOpacity="1"
-                    stroke="#FCF551"
-                    strokeWidth="3"
-                    className="group-hover:fill-[#FCF551]"
-                  />
-                  <text
-                    x="172.5"
-                    y="42.5"
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    fill="currentColor"
-                    fontSize="18"
-                    fontWeight="500"
-                    className="text-[#D787DF] text-5xl sm:text-5xl md:text-5xl lg:text-4xl font-rubik-glitch group-hover:text-[#D787DF]"
-                  >
-                    Remove_
-                  </text>
-                  <text
-                    x="175"
-                    y="40"
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    fill="currentColor"
-                    fontSize="18"
-                    fontWeight="500"
-                    className="text-[#FCF551] text-5xl sm:text-5xl md:text-5xl lg:text-4xl font-rubik-glitch group-hover:text-[#D787DF]"
-                  >
-                    Remove_
-                  </text>
-                  <path
-                    d="M57.833 77.3337H216.509V80.1763H57.833"
-                    fill="#FCF551"
-                  />
-                  <path
-                    d="M6.81738 77.3337H39.7035V80.1763H6.81738"
-                    fill="#FCF551"
-                  />
-                  <path
-                    d="M328.036 5.33105V50.8877V52.1631L332 51.0169V50.8877V5.33105H328.036Z"
-                    fill="#75E8F0"
-                  />
-                </svg>
-              )}
-             </>
+                    <svg
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 417 138"
+                      className="cursor-target"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0 117.09H41.3058L0 96.9246V117.09Z"
+                        fill="#661109"
+                        className={`${"group-hover:fill-[#000000]"} transition-colors duration-200`}
+                      />
+                      <path
+                        d="M98.49 0L0 38.8754V85.6927L64.3021 117.09H309.815L408.305 78.2145V0H98.49Z"
+                        fill="#661109"
+                        className={`${"group-hover:fill-[#000000] "} transition-colors duration-200`}
+                      />
+                      <path
+                        d="M8.69482 126.217H50.0006L8.69482 106.044V126.217Z"
+                        fill={`#FCF551`}
+                        className={`${"group-hover:fill-[#c651fc]"} transition-colors duration-200`}
+                      />
+                      <path
+                        d="M107.177 9.12653L8.69482 47.9947V94.8193L72.9969 126.216H318.51L417 87.341V9.12653H107.177Z"
+                        fill={`#FCF551`}
+                        className={`${"group-hover:fill-[#c651fc] "} transition-colors duration-200`}
+                      />
+                      <path
+                        d="M72.6392 132.396H271.941V137.262H72.6392"
+                        fill={`#FCF551`}
+                        className={`${"group-hover:fill-[#c651fc] "} transition-colors duration-200`}
+                      />
+                      <path
+                        d="M8.56348 132.396H49.8693V137.262H8.56348"
+                        fill={`#FCF551`}
+                        className={`${"group-hover:fill-[#c651fc] "} transition-colors duration-200`}
+                      />
+                      <text
+                        x="200"
+                        y="75"
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        fill="currentColor"
+                        fontSize="18"
+                        fontWeight="500"
+                        className="text-[#D787DF] text-5xl sm:text-5xl md:text-5xl lg:text-5xl font-rubik-glitch group-hover:text-[#D787DF]"
+                      >
+                        Cancel_
+                      </text>
+                      <text
+                        x="210"
+                        y="70"
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        fill="currentColor"
+                        fontSize="18"
+                        fontWeight="500"
+                        className="text-[#75E7F0] text-5xl sm:text-5xl md:text-5xl lg:text-5xl font-rubik-glitch group-hover:text-[#75E7F0]"
+                      >
+                        Cancel_
+                      </text>
+                    </svg>
+                  </button>
+                </div>
+              </div>
             )}
           </div>
         </div>
-      </div>
+      </form>
     </>
   );
 }

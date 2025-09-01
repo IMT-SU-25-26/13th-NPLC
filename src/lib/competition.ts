@@ -59,12 +59,42 @@ export async function getRegistrationIdByCompetitionAndUser(
 //   }
 // }
 
+export async function getRegistrationStatus(competition_id: string, team_name: string) {
+  try {
+    const registration = await prisma.competitionRegistration.findFirst({
+      where: {
+        competition_id: competition_id,
+        team_name: team_name,
+      },
+      select: {
+        registration_status: true,
+      },
+    });
+    return registration ? registration.registration_status : null;
+  } catch (error) {
+    console.error("Error fetching registration status:", error);
+    throw error;
+  }
+}
+
+export async function updatePaymentProof(competition_id: string, team_name: string, payment_proof: string) {
+  try {
+    await prisma.competitionRegistration.updateMany({
+      where: { team_name: team_name, competition_id: competition_id },
+      data: { imageUrl: payment_proof, registration_status: "pending" },
+    });
+  } catch (error) {
+    console.error("Error updating payment proof:", error);
+    throw error;
+  }
+}
+
 export async function updateIsPaid(competition_id: string, team_name: string, is_paid: boolean) {
   if (is_paid) {
     try {
       await prisma.competitionRegistration.updateMany({
         where: { team_name: team_name, competition_id: competition_id },
-        data: { is_paid: is_paid, registration_status: "accepted" },
+        data: { registration_status: "accepted" },
       });
       
     } catch (error) {
@@ -75,7 +105,7 @@ export async function updateIsPaid(competition_id: string, team_name: string, is
     try {
       await prisma.competitionRegistration.updateMany({
         where: { team_name: team_name, competition_id: competition_id },
-        data: { is_paid: is_paid, registration_status: "failed" },
+        data: { registration_status: "failed" },
       });
     } catch (error) {
       console.error("Error updating is_paid:", error);

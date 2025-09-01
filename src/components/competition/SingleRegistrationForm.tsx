@@ -56,69 +56,6 @@ export default function SingleRegistrationForm({
         toast.error("You must be logged in to register.");
         return;
       }
-
-      // const team_name = formData.get("team_name") as string;
-
-      // const data = {
-      //   id: registration_id,
-      //   productName: competitionTitle + "Registration",
-      //   price: 25000,
-      //   quantity: 1,
-      //   customer_details: {
-      //     // Masukkan nama gabungan ke field first_name
-      //     first_name: competitionTitle,
-      //     last_name: team_name,
-      //     email: session.user.email, // 4. Masukkan email dari sesi
-      //   },
-      // };
-
-      // const response = await fetch(`/api/tokenizer`, {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify(data),
-      // });
-
-      // const requestData = await response.json();
-      // const token = requestData.token as string;
-      // if (!token) {
-      //   toast.error("Failed to get payment token.");
-      //   setPending(false); // Matikan status pending
-      //   return;
-      // }
-      // await updateRegistrationMidtransToken(team_name , competitionId, token);
-      // if (window.snap === undefined) {
-      //   toast.error("Payment gateway is not loaded. Please try again later.");
-      //   setPending(false);
-      //   return;
-      // }
-      // // Panggil snap.pay dengan callbacks
-      // window.snap.pay(requestData.token, {
-      //   onSuccess: async function () {
-      //     /* Anda dapat menambahkan logika di sini, misalnya redirect atau menampilkan pesan sukses */
-      //     await updateIsPaid(competitionId, team_name, true);
-      //     toast.success("Payment successful!");
-      //     form.reset(); // Reset form setelah pembayaran berhasil
-      //     // Contoh: window.location.href = '/dashboard/payment/success';
-      //   },
-      //   onPending: function () {
-      //     /* Logika untuk status pembayaran pending */
-      //     toast.info("Waiting for your payment...");
-      //     form.reset(); // Reset form karena pembayaran sudah diproses
-      //   },
-      //   onError: async function () {
-      //     /* Logika jika terjadi error */
-      //    await updateIsPaid(competitionId, team_name, false);
-
-      //     toast.error("Payment failed. Please try again.");
-      //     form.reset(); // Reset form karena pembayaran sudah diproses
-      //   },
-      //   onClose: async function () {
-      //     toast.warning(
-      //       "Payment pending please complete your payment within 24 hours"
-      //     );
-      //     form.reset(); // Reset form karena pembayaran sudah diproses
-      //   },
-      // });
     } catch (error) {
       console.error(error);
 
@@ -135,6 +72,7 @@ export default function SingleRegistrationForm({
       }
     } finally {
       setPending(false);
+       window.location.href = "/competition-details";
     }
   };
 
