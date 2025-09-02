@@ -228,6 +228,7 @@ export default function BusinessPlanRegistrationForm({
           <input type="hidden" name="imagePublicId" value={uploadedFilePublicId} />
           
           <UploadWidget
+            useDefaultClass = {false}
             onUploadSuccess={(url, publicId) => {
               setUploadedFileUrl(url);
               setUploadedFilePublicId(publicId || "");
