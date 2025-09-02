@@ -15,7 +15,9 @@ export default function UseBuildingParallax() {
   const stairsRef = useRef(null)
   const wavesRef = useRef(null)
   const lightWavesRef = useRef(null)
-  const starsRef = useRef([])
+  // starsRef sekarang akan merujuk ke kontainer/elemen parent dari bintang
+  // Namun, karena bintang dibuat dinamis, kita akan tetap menggunakan array.
+  const starsRef = useRef<(HTMLImageElement | null)[]>([])
   
   useEffect(() => {
     // Skip animation if user prefers reduced motion
@@ -25,32 +27,45 @@ export default function UseBuildingParallax() {
       
     if (prefersReducedMotion) return
     
+    // PENJELASAN PERUBAHAN UTAMA:
+    // Kita membuat satu timeline utama yang akan dikontrol oleh satu ScrollTrigger.
+    // Semua animasi yang dipicu oleh scroll pada ".up-container" akan masuk ke sini.
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.up-container', // Perbaikan: Gunakan trigger yang sudah ada
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 1.5, // Scrub akan diwarisi oleh semua animasi di timeline ini
+      }
+    });
+    
     const ctx = gsap.context(() => {
-      // Blue building parallax
-      gsap.to(blueRef.current, {
-        scrollTrigger: {
-          trigger: '.up-container',
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 1.5,
-        },
-        y: '20%',
-        ease: 'none'
-      })
+      // Tambahkan animasi gedung ke timeline utama.
+      // Posisi '<' berarti semua animasi ini dimulai bersamaan saat timeline mulai.
+      tl.to(blueRef.current, { y: '20%', ease: 'none' }, '<')
+        .to(purpleRef.current, { y: '25%', ease: 'none' }, '<');
       
-      // Purple building parallax
-      gsap.to(purpleRef.current, {
-        scrollTrigger: {
-          trigger: '.up-container',
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 1.2,
-        },
-        y: '25%',
-        ease: 'none'
-      })
+      // PERBAIKAN UTAMA PADA ANIMASI BINTANG:
+      // Kita loop melalui ref bintang dan menambahkan animasi mereka ke timeline yang SAMA.
+      // GSAP sangat efisien dalam menangani banyak target dalam satu timeline.
+      starsRef.current.forEach((star, index) => {
+        if (!star) return; // Lewati jika elemen ref null
+        
+        const depth = 1 + (Math.random() * 3); 
+        const direction = index % 2 === 0 ? -1 : 1;
+        
+        // Tambahkan animasi untuk setiap bintang ke timeline yang sudah ada
+        tl.to(star, {
+          y: `${direction * depth * 25}%`,
+          x: `${direction * depth * 15}%`,
+          rotation: index % 3 === 0 ? 15 * direction : 0,
+          scale: 1 + (Math.random() * 0.3),
+          ease: 'sine.inOut'
+        }, '<'); // '<' memastikan semua bintang bergerak bersamaan dengan gedung
+      });
       
-      // Stairs parallax
+      // Animasi untuk elemen di ".down-container" tetap menggunakan ScrollTrigger terpisah
+      // karena pemicu (trigger) dan timing-nya berbeda. Ini sudah benar.
       gsap.to(stairsRef.current, {
         scrollTrigger: {
           trigger: '.down-container',
@@ -60,9 +75,8 @@ export default function UseBuildingParallax() {
         },
         y: '15%',
         ease: 'power1.out' 
-      })
+      });
       
-      // Waves parallax effect
       gsap.to(wavesRef.current, {
         scrollTrigger: {
           trigger: '.down-container',
@@ -72,9 +86,8 @@ export default function UseBuildingParallax() {
         },
         y: '8%',
         ease: 'sine.inOut'
-      })
+      });
       
-      // Light waves parallax effect
       gsap.to(lightWavesRef.current, {
         scrollTrigger: {
           trigger: '.down-container',
@@ -84,33 +97,16 @@ export default function UseBuildingParallax() {
         },
         y: '12%',
         ease: 'sine.inOut'
-      })
-      
-      starsRef.current.forEach((star, index) => {
-        const depth = 1 + (Math.random() * 3); 
-        const direction = index % 2 === 0 ? -1 : 1;
-        
-        gsap.to(star, {
-          scrollTrigger: {
-        trigger: '.up-container',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 0.8, // Random scrub speed
-          },
-          y: `${direction * depth * 25}%`, // Much larger vertical movement
-          x: `${direction * depth * 15}%`, // Larger horizontal movement
-          rotation: index % 3 === 0 ? 15 * direction : 0, // Add rotation to some stars
-          scale: 1 + (Math.random() * 0.3), // Slight scaling effect
-          ease: 'sine.inOut'
-        });
       });
-    })
+    });
     
     // Cleanup
     return () => {
-      ctx.revert()
+      ctx.revert();
     }
-  }, [])
+    // Tambahkan dependensi `starsRef.current.length` agar animasi di-refresh
+    // jika jumlah bintang berubah (meskipun dalam kasus ini tidak).
+  }, [starsRef.current.length]);
   
   return {
     blueRef,
@@ -118,6 +114,6 @@ export default function UseBuildingParallax() {
     stairsRef,
     wavesRef,
     lightWavesRef,
-    starsRef // Return the stars ref array
+    starsRef
   }
 }
