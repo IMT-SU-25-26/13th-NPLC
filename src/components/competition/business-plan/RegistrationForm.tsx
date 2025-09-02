@@ -80,7 +80,7 @@ export default function BusinessPlanRegistrationForm({
     <>
       <form
         onSubmit={handleSubmit}
-        className="w-[21rem] sm:w-[30rem] md:w-[40rem] lg:w-[40rem] xl:w-[35rem] 2xl:w-[40rem] p-2 py-8 md:py-[6rem] sm:py-auto sm:p-5 md:p-5 lg:p-10 xl:p-10 flex backdrop-blur-lg flex-col items-center justify-center gap-1.5 sm:gap-2 md:gap-2 lg:gap-6 rounded-xl shadow-lg bg-[url('/register/MultipleformBG2-extrasmall.svg')] sm:bg-[url('/register/MultipleformBG2-small.svg')] md:bg-[url('/register/MultipleformBG2.svg')] bg-contain bg-center bg-no-repeat
+        className="w-[21rem] sm:w-[30rem] md:w-[40rem] lg:w-[40rem] xl:w-[35rem] 2xl:w-[40rem] p-2 py-16 md:py-[6rem] sm:py-auto sm:p-5 md:p-5 lg:p-10 xl:p-10 flex backdrop-blur-lg flex-col items-center justify-center gap-1.5 sm:gap-2 md:gap-2 lg:gap-6 rounded-xl shadow-lg bg-[url('/register/MultipleformBG2-extraSmall.svg')] sm:bg-[url('/register/MultipleformBG2-small.svg')] md:bg-[url('/register/MultipleformBG2.svg')] bg-contain bg-center bg-no-repeat
         "
       >
         <h2 className="font-RopoSans-Regular text-lg md:text-3xl lg:text-3xl font-bold text-center text-white">
