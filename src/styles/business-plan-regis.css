@@ -323,21 +323,18 @@
     }
 }
 @media (max-width: 1728px) and (max-height: 992px) {
-    .register-title-text{
-        
-    }
-    .cp-regis-main-wrapper-container{
-        min-height: 180vh;
+.cp-regis-main-wrapper-container{
+        min-height: 150vh;
     }
     .cp-regis-background-img-container{
 
     }
     .cp-competition-text{
         margin-top: 10%;
-        width: 35%;
+        width: 25%;
     }
     .cp-regis-gradient-light-bg{
-         bottom: -10%;
+         bottom: -14%;
     }
     .cp-regis-front-light-gradient{
         bottom: -25%;
@@ -346,19 +343,19 @@
         bottom: -25%;
     }
     .cp-regis-blue-building{
-        bottom: -15%;
+        bottom: -25%;
     }
     .cp-regis-purple-building{
-        bottom: -15%;
+        bottom: -30%;
     }
     .cp-regis-form-container{
 
     }
     .cp-regis-stairs{
-        bottom: -15%;
+        bottom: -25%;
     }
     .under-stair{
-        bottom: -55%;
+        bottom: -45%;
     }
 }
 @media (max-width: 1728px) and (max-height: 792px) {
