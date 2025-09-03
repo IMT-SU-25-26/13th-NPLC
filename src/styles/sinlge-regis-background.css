@@ -327,7 +327,7 @@
         
     }
     .cp-regis-main-wrapper-container{
-        min-height: 130vh;
+        min-height: 150vh;
     }
     .cp-regis-background-img-container{
 
@@ -620,45 +620,9 @@
         bottom: -55%;
     }
 }
-@media (max-width: 1366px) and (max-height: 768px) {
-     .cp-regis-main-wrapper-container{
-        min-height: 140vh;
-    }
-    .cp-regis-background-img-container{
-    }
-    .cp-competition-text{
-        margin-top: 10%;
-        width: 40%;
-    }
-    .cp-regis-gradient-light-bg{
-        height: 60rem;
-         bottom: 5%;
-    }
-    .cp-regis-front-light-gradient{
-        bottom: -15%;
-    }
-    .cp-regis-light-middle{
-        bottom: -25%;
-    }
-    .cp-regis-blue-building{
-        bottom: -25%;
-    }
-    .cp-regis-purple-building{
-        bottom: -25%;
-    }
-    .cp-regis-form-container{
-
-    }
-    .cp-regis-stairs{
-        bottom: -25%;
-    }
-    .under-stair{
-        bottom: -45%;
-    }
-}
 @media (max-width: 1366px) and (max-height: 791px) {
      .cp-regis-main-wrapper-container{
-        min-height: 120vh;
+        min-height: 140vh;
     }
     .cp-regis-background-img-container{
     }
