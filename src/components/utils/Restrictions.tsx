@@ -23,6 +23,15 @@ export default function Restrictions({
     // Generate between 15-30 stars
     setStars(generateStars(20 + Math.floor(Math.random() * 10)));
   }, []);
+
+  // --- START: Added Logic ---
+  const isLoginRestriction =
+    restrictionDescription === "You are not logged in into an account!";
+
+  const buttonText = isLoginRestriction ? "Login_" : "Home_";
+  const buttonLink = isLoginRestriction ? "/login" : "/";
+  // --- END: Added Logic ---
+
   return (
     <div className="min-h-screen w-screen overflow-hidden bg-gradient-to-b from-[#111114] to-[#090A1E]">
       <div className="restriction-top-container relative flex lg:gap-8 flex-col justify-start items-center w-full h-screen">
@@ -81,7 +90,8 @@ export default function Restrictions({
             <p className="text-center restriction-description">
               {restrictionDescription}
             </p>
-            <Link href="/" className="restriction-btn h-auto group">
+            {/* Use the dynamic 'buttonLink' variable for the href */}
+            <Link href={buttonLink} className="restriction-btn h-auto group">
               <svg
                 width="100%"
                 height="100%"
@@ -129,7 +139,8 @@ export default function Restrictions({
                   fontWeight="500"
                   className="cursor-target text-[#D787DF] text-5xl sm:text-2xl md:text-4xl lg:text-5xl font-rubik-glitch group-hover:text-[#D787DF]"
                 >
-                  Home_
+                  {/* Use the dynamic 'buttonText' variable */}
+                  {buttonText}
                 </text>
                 <text
                   x="210"
@@ -141,7 +152,8 @@ export default function Restrictions({
                   fontWeight="500"
                   className="cursor-target text-[#75E7F0] text-5xl sm:text-2xl md:text-4xl lg:text-5xl font-rubik-glitch group-hover:text-[#75E7F0]"
                 >
-                  Home_
+                  {/* Use the dynamic 'buttonText' variable */}
+                  {buttonText}
                 </text>
               </svg>
             </Link>
