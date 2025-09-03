@@ -1,9 +1,6 @@
 @media (max-width: 3840px) and (max-height: 2160px) {
     .rg-regis-main-wrapper-container{
-        min-height: 100vh;
-    }
-    .rg-regis-background-img-container{
-
+        min-height: 110vh;
     }
     .rg-competition-text{
         margin-top: 0%;
@@ -18,28 +15,10 @@
     .rg-regis-light-middle{
         bottom: -25%;
     }
-    .rg-regis-blue-building{
-        bottom: -25%;
-    }
-    .rg-regis-purple-building{
-        bottom: -30%;
-    }
-    .rg-regis-form-container{
-
-    }
-    .rg-regis-stairs{
-        bottom: -10%;
-    }
-    .rg-under-stair{
-        bottom: -30%;
-    }
 }
 @media (max-width: 2850px) and (max-height: 1800px) {
     .rg-regis-main-wrapper-container{
-        min-height: 100vh;
-    }
-    .rg-regis-background-img-container{
-
+        min-height: 110vh;
     }
     .rg-competition-text{
         margin-top: 0%;
@@ -53,30 +32,12 @@
     }
     .rg-regis-light-middle{
         bottom: -25%;
-    }
-    .rg-regis-blue-building{
-        bottom: -25%;
-    }
-    .rg-regis-purple-building{
-        bottom: -30%;
-    }
-    .rg-regis-form-container{
-
-    }
-    .rg-regis-stairs{
-        bottom: -10%;
-    }
-    .under-stair{
-        bottom: -30%;
     }
 }
 @media (max-width: 2560px) and (max-height: 1600px) {
     .rg-regis-main-wrapper-container{
         min-height: 100vh;
     }
-    .rg-regis-background-img-container{
-
-    }
     .rg-competition-text{
         margin-top: 0%;
         width: 25%;
@@ -90,28 +51,12 @@
     .rg-regis-light-middle{
         bottom: -25%;
     }
-    .rg-regis-blue-building{
-        bottom: -25%;
-    }
-    .rg-regis-purple-building{
-        bottom: -30%;
-    }
-    .rg-regis-form-container{
-
-    }
-    .rg-regis-stairs{
-        bottom: -10%;
-    }
-    .under-stair{
-        bottom: -30%;
-    }
 }
+
+/* SESUAIKAN CLASS NAME DENGAN YANG DIATAS */
 @media (max-width: 2560px) and (max-height: 1140px) {
     .rg-regis-main-wrapper-container{
         min-height: 120vh;
-    }
-    .rg-regis-background-img-container{
-
     }
     .rg-competition-text{
         margin-top: 0%;
@@ -123,31 +68,10 @@
     .rg-regis-front-light-gradient{
         bottom: -15%;
     }
-    .rg-regis-light-middle{
-        bottom: -25%;
-    }
-    .rg-regis-blue-building{
-        bottom: -25%;
-    }
-    .rg-regis-purple-building{
-        bottom: -30%;
-    }
-    .rg-regis-form-container{
-
-    }
-    .rg-regis-stairs{
-        bottom: -25%;
-    }
-    .rg-under-stair{
-        bottom: -40%;
-    }
 }
 @media (max-width: 2048px) and (max-height: 1158px) {
     .rg-regis-main-wrapper-container{
         min-height: 120vh;
-    }
-    .rg-regis-background-img-container{
-
     }
     .rg-competition-text{
         margin-top: 10%;
@@ -162,28 +86,10 @@
     .rg-regis-light-middle{
         bottom: -25%;
     }
-    .rg-regis-blue-building{
-        bottom: -25%;
-    }
-    .rg-regis-purple-building{
-        bottom: -30%;
-    }
-    .rg-regis-form-container{
-
-    }
-    .rg-regis-stairs{
-        bottom: -30%;
-    }
-    .rg-under-stair{
-        bottom: -40%;
-    }
 }
 @media (max-width: 1920px) and (max-height: 1080px) {
     .rg-regis-main-wrapper-container{
         min-height: 120vh;
-    }
-    .rg-regis-background-img-container{
-
     }
     .rg-competition-text{
         margin-top: 10%;
@@ -198,28 +104,10 @@
     .rg-regis-light-middle{
         bottom: -25%;
     }
-    .rg-regis-blue-building{
-        bottom: -25%;
-    }
-    .rg-regis-purple-building{
-        bottom: -30%;
-    }
-    .rg-regis-form-container{
-
-    }
-    .rg-regis-stairs{
-        bottom: -30%;
-    }
-    .rg-under-stair{
-        bottom: -45%;
-    }
 }
 @media (max-width: 1900px) and (max-height: 1920px) {
     .rg-regis-main-wrapper-container{
         min-height: 100vh;
-    }
-    .rg-regis-background-img-container{
-
     }
     .rg-competition-text{
         margin-top: 0%;
@@ -236,28 +124,10 @@
         bottom: -25%;
         height: 125rem;
     }
-    .rg-regis-blue-building{
-        bottom: -5%;
-    }
-    .rg-regis-purple-building{
-        bottom: -5%;
-    }
-    .rg-regis-form-container{
-
-    }
-    .rg-regis-stairs{
-        bottom: 0%;
-    }
-    .rg-under-stair{
-        bottom: -10%;
-    }
 }
 @media (max-width: 1900px) and (max-height: 1200px) {
    .rg-regis-main-wrapper-container{
         min-height: 130vh;
-    }
-    .rg-regis-background-img-container{
-
     }
     .rg-competition-text{
         margin-top: 10%;
@@ -274,28 +144,10 @@
         bottom: -45%;
         height: 100rem;
     }
-    .rg-regis-blue-building{
-        bottom: -25%;
-    }
-    .rg-regis-purple-building{
-        bottom: -30%;
-    }
-    .rg-regis-form-container{
-
-    }
-    .rg-regis-stairs{
-        bottom: -30%;
-    }
-    .rg-under-stair{
-        bottom: -45%;
-    }
 }
 @media (max-width: 1728px) and (max-height: 1117px) {
     .rg-regis-main-wrapper-container{
         min-height: 120vh;
-    }
-    .rg-regis-background-img-container{
-
     }
     .rg-competition-text{
         margin-top: 10%;
@@ -310,31 +162,10 @@
     .rg-regis-light-middle{
         bottom: -25%;
     }
-    .rg-regis-blue-building{
-        bottom: -25%;
-    }
-    .rg-regis-purple-building{
-        bottom: -30%;
-    }
-    .rg-regis-form-container{
-
-    }
-    .rg-regis-stairs{
-        bottom: -25%;
-    }
-    .rg-under-stair{
-        bottom: -45%;
-    }
 }
 @media (max-width: 1728px) and (max-height: 992px) {
-    .register-title-text{
-        
-    }
     .rg-regis-main-wrapper-container{
         min-height: 130vh;
-    }
-    .rg-regis-background-img-container{
-
     }
     .rg-competition-text{
         margin-top: 10%;
@@ -346,31 +177,10 @@
     .rg-regis-front-light-gradient{
         bottom: -25%;
     }
-    .rg-regis-light-middle{
-        bottom: -45%;
-    }
-    .rg-regis-blue-building{
-        bottom: -25%;
-    }
-    .rg-regis-purple-building{
-        bottom: -30%;
-    }
-    .rg-regis-form-container{
-
-    }
-    .rg-regis-stairs{
-        bottom: -35%;
-    }
-    .rg-under-stair{
-        bottom: -55%;
-    }
 }
 @media (max-width: 1538px) and (max-height: 2048px) {
     .rg-regis-main-wrapper-container{
         min-height: 100vh;
-    }
-    .rg-regis-background-img-container{
-
     }
     .rg-competition-text{
         margin-top: 5%;
@@ -387,29 +197,11 @@
         height: 100rem;
         bottom: -10%;
     }
-    .rg-regis-blue-building{
-        bottom: 2.5%;
-    }
-    .rg-regis-purple-building{
-        bottom:  2.5%;
-    }
-    .rg-regis-form-container{
-
-    }
-    .rg-regis-stairs{
-        bottom: 0%;
-    }
-    .rg-under-stair{
-        bottom: -10%;
-    }
 }
 /* tambahan 1*/
 @media (max-width: 1536px) and (max-height: 864px) {
     .rg-regis-main-wrapper-container{
         min-height: 120vh;
-    }
-    .rg-regis-background-img-container{
-
     }
     .rg-competition-text{
         margin-top: 10%;
@@ -425,28 +217,10 @@
     .rg-regis-light-middle{
         bottom: -65%;
     }
-    .rg-regis-blue-building{
-        bottom: -25%;
-    }
-    .rg-regis-purple-building{
-        bottom: -25%;
-    }
-    .rg-regis-form-container{
-
-    }
-    .rg-regis-stairs{
-        bottom: -25%;
-    }
-    .rg-under-stair{
-        bottom: -45%;
-    }
 }
 @media (max-width: 1536px) and (max-height: 730px) {
     .rg-regis-main-wrapper-container{
         min-height: 130vh;
-    }
-    .rg-regis-background-img-container{
-
     }
     .rg-competition-text{
         margin-top: 10%;
@@ -465,25 +239,10 @@
     .rg-regis-blue-building{
         bottom: -30%;
     }
-    .rg-regis-purple-building{
-        bottom: -30%;
-    }
-    .rg-regis-form-container{
-
-    }
-    .rg-regis-stairs{
-        bottom: -35%;
-    }
-    .rg-under-stair{
-        bottom: -65%;
-    }
 }
 @media (max-width: 1512px) and (max-height: 982px) {
     .rg-regis-main-wrapper-container{
         min-height: 120vh;
-    }
-    .rg-regis-background-img-container{
-
     }
     .rg-competition-text{
         margin-top: 10%;
@@ -499,28 +258,10 @@
     .rg-regis-light-middle{
         bottom: -25%;
     }
-    .rg-regis-blue-building{
-        bottom: -25%;
-    }
-    .rg-regis-purple-building{
-        bottom: -25%;
-    }
-    .rg-regis-form-container{
-
-    }
-    .rg-regis-stairs{
-        bottom: -25%;
-    }
-    .rg-under-stair{
-        bottom: -45%;
-    }
 }
 @media (max-width: 1512px) and (max-height: 865px) {
     .rg-regis-main-wrapper-container{
         min-height: 100vh;
-    }
-    .rg-regis-background-img-container{
-
     }
     .rg-competition-text{
         margin-top: 0%;
@@ -535,30 +276,12 @@
     }
     .rg-regis-light-middle{
         bottom: -75%;
-    }
-    .rg-regis-blue-building{
-        bottom: -25%;
-    }
-    .rg-regis-purple-building{
-        bottom: -25%;
-    }
-    .rg-regis-form-container{
-
-    }
-    .rg-regis-stairs{
-        bottom: -10%;
-    }
-    .rg-under-stair{
-        bottom: -45%;
     }
 }
 @media (max-width: 1440px) and (max-height: 812px) {
     .rg-regis-main-wrapper-container{
         min-height: 110vh;
     }
-    .rg-regis-background-img-container{
-
-    }
     .rg-competition-text{
         margin-top: 0%;
         width: 35%;
@@ -572,30 +295,12 @@
     }
     .rg-regis-light-middle{
         bottom: -75%;
-    }
-    .rg-regis-blue-building{
-        bottom: -25%;
-    }
-    .rg-regis-purple-building{
-        bottom: -25%;
-    }
-    .rg-regis-form-container{
-
-    }
-    .rg-regis-stairs{
-        bottom: -20%;
-    }
-    .rg-under-stair{
-        bottom: -45%;
     }
 }
 @media (max-width: 1440px) and (max-height: 715px) {
     .rg-regis-main-wrapper-container{
         min-height: 120vh;
     }
-    .rg-regis-background-img-container{
-
-    }
     .rg-competition-text{
         margin-top: 0%;
         width: 35%;
@@ -610,27 +315,10 @@
     .rg-regis-light-middle{
         bottom: -75%;
     }
-    .rg-regis-blue-building{
-        bottom: -25%;
-    }
-    .rg-regis-purple-building{
-        bottom: -25%;
-    }
-    .rg-regis-form-container{
-
-    }
-    .rg-regis-stairs{
-        bottom: -30%;
-    }
-    .rg-under-stair{
-        bottom: -65%;
-    }
 }
 @media (max-width: 1366px) and (max-height: 1024px) {
     .rg-regis-main-wrapper-container{
         min-height: 100vh;
-    }
-    .rg-regis-background-img-container{
     }
     .rg-competition-text{
         margin-top: 0%;
@@ -646,27 +334,10 @@
     .rg-regis-light-middle{
         bottom: -55%;
     }
-    .rg-regis-blue-building{
-        bottom: -5%;
-    }
-    .rg-regis-purple-building{
-        bottom: -5%;
-    }
-    .rg-regis-form-container{
-
-    }
-    .rg-regis-stairs{
-        bottom: -5%;
-    }
-    .rg-under-stair{
-        bottom: -55%;
-    }
 }
 @media (max-width: 1310px) and (max-height: 791px) {
      .rg-regis-main-wrapper-container{
         min-height: 120vh;
-    }
-    .rg-regis-background-img-container{
     }
     .rg-competition-text{
         margin-top: 10%;
@@ -682,27 +353,10 @@
     .rg-regis-light-middle{
         bottom: -85%;
     }
-    .rg-regis-blue-building{
-        bottom: -25%;
-    }
-    .rg-regis-purple-building{
-        bottom: -25%;
-    }
-    .rg-regis-form-container{
-
-    }
-    .rg-regis-stairs{
-        bottom: -25%;
-    }
-    .rg-under-stair{
-        bottom: -55%;
-    }
 }
 @media (max-width: 1280px) and (max-height: 800px) {
      .rg-regis-main-wrapper-container{
         min-height: 130vh;
-    }
-    .rg-regis-background-img-container{
     }
     .rg-competition-text{
         margin-top: 15%;
@@ -718,28 +372,10 @@
     .rg-regis-light-middle{
         bottom: -25%;
     }
-    .rg-regis-blue-building{
-        bottom: -25%;
-    }
-    .rg-regis-purple-building{
-        bottom: -25%;
-    }
-    .rg-regis-form-container{
-        margin-top: 0;
-
-    }
-    .rg-regis-stairs{
-        bottom: -25%;
-    }
-    .rg-under-stair{
-        bottom: -55%;
-    }
 }
 @media (max-width: 1280px) and (max-height: 678px) {
      .rg-regis-main-wrapper-container{
         min-height: 120vh;
-    }
-    .rg-regis-background-img-container{
     }
     .rg-competition-text{
         margin-top: 7.5%;
@@ -755,28 +391,10 @@
     .rg-regis-light-middle{
         bottom: -25%;
     }
-    .rg-regis-blue-building{
-        bottom: -25%;
-    }
-    .rg-regis-purple-building{
-        bottom: -25%;
-    }
-    .rg-regis-form-container{
-        margin-top: 0;
-
-    }
-    .rg-regis-stairs{
-        bottom: -25%;
-    }
-    .rg-under-stair{
-        bottom: -55%;
-    }
 }
 @media (max-width: 1280px) and (max-height: 551px) {
     .rg-regis-main-wrapper-container{
         min-height: 170vh;
-    }
-    .rg-regis-background-img-container{
     }
     .rg-competition-text{
         margin-top: 10%;
@@ -791,21 +409,6 @@
     }
     .rg-regis-light-middle{
         bottom: -25%;
-    }
-    .rg-regis-blue-building{
-        bottom: -25%;
-    }
-    .rg-regis-purple-building{
-        bottom: -25%;
-    }
-    .rg-regis-form-container{
-
-    }
-    .rg-regis-stairs{
-        bottom: -25%;
-    }
-    .rg-under-stair{
-        bottom: -55%;
     }
 }
 @media (max-width: 1180px) and (max-height: 820px) {
@@ -828,22 +431,6 @@
         height: 50rem;
         bottom: -10%;
     }
-    .rg-regis-blue-building{
-        bottom: 3.5%;
-    }
-    .rg-regis-purple-building{
-        bottom: 2.5%;
-    }
-    .rg-regis-form-container{
-        margin-top: 0%;
-        margin-bottom: 0%;
-    }
-    .rg-regis-stairs{
-        bottom: 2.5%;
-    }
-    .rg-under-stair{
-        bottom: -15.5%;
-    }
 }
 @media (max-width: 1024px) and (max-height: 768px) and (orientation: landscape) {
     
@@ -851,8 +438,6 @@
 @media (max-width: 1024px) and (max-height: 600px) {
     .rg-regis-main-wrapper-container{
         min-height: 100vh;
-    }
-    .rg-regis-background-img-container{
     }
     .rg-competition-text{
         margin-top: 2.5%;
@@ -869,22 +454,6 @@
         bottom: -75%;
         height: 70rem;
     }
-    .rg-regis-blue-building{
-        bottom: -15%;
-    }
-    .rg-regis-purple-building{
-        bottom: -15%;
-    }
-    .rg-regis-form-container{
-        margin-top: 0;
-
-    }
-    .rg-regis-stairs{
-        bottom: -15%;
-    }
-    .rg-under-stair{
-        bottom: -55%;
-    }
 }
 @media (max-width: 956px) and (max-height: 440px) and (orientation: landscape) {
 }
@@ -893,8 +462,6 @@
 @media (max-width: 912px) and (max-height: 1368px) and (orientation: portrait) {
     .rg-regis-main-wrapper-container{
         min-height: 10vh;
-    }
-    .rg-regis-background-img-container{
     }
     .rg-regis-front-light-gradient{
         bottom: 0;
@@ -907,28 +474,10 @@
         height: 50rem;
         bottom: -10%;
     }
-    .rg-regis-blue-building{
-        bottom: 3.5%;
-    }
-    .rg-regis-purple-building{
-        bottom: 2.5%;
-    }
-    .rg-regis-form-container{
-        margin-top: 0%;
-        margin-bottom: 0%;
-    }
-    .rg-regis-stairs{
-        bottom: 2.5%;
-    }
-    .rg-under-stair{
-        bottom: -15%;
-    }
 }
 @media (max-width: 853px) and (max-height: 1280px) and (orientation: portrait) {
     .rg-regis-main-wrapper-container{
         min-height: 10vh;
-    }
-    .rg-regis-background-img-container{
     }
     .rg-regis-front-light-gradient{
         bottom: 5%;
@@ -941,22 +490,6 @@
         height: 50rem;
         bottom: -10%;
     }
-    .rg-regis-blue-building{
-        bottom: 3.5%;
-    }
-    .rg-regis-purple-building{
-        bottom: 2.5%;
-    }
-    .rg-regis-form-container{
-        margin-top: 0%;
-        margin-bottom: 0%;
-    }
-    .rg-regis-stairs{
-        bottom: 2.5%;
-    }
-    .rg-under-stair{
-        bottom: -17.5%;
-    }
 }
 @media (max-width: 844px) and (max-height: 390px) {
 }
@@ -966,8 +499,6 @@
     }
     .rg-competition-text{
         width: 60%;
-    }
-    .rg-regis-background-img-container{
     }
     .rg-regis-front-light-gradient{
         bottom: 0;
@@ -980,28 +511,10 @@
         height: 50rem;
         bottom: -10%;
     }
-    .rg-regis-blue-building{
-        bottom: 5.5%;
-    }
-    .rg-regis-purple-building{
-        bottom: 5%;
-    }
-    .rg-regis-form-container{
-        margin-top: 0%;
-        margin-bottom: 0%;
-    }
-    .rg-regis-stairs{
-        bottom: 0%;
-    }
-    .rg-under-stair{
-        bottom: -20%;
-    }
 }
 @media (max-width: 768px) and (max-height: 1024px) and (orientation: portrait) {
     .rg-regis-main-wrapper-container{
         min-height: 10vh;
-    }
-    .rg-regis-background-img-container{
     }
     .rg-competition-text{
         width: 60%;
@@ -1017,22 +530,6 @@
     .rg-regis-light-middle{
         height: 50rem;
         bottom: -10%;
-    }
-    .rg-regis-blue-building{
-        bottom: 5%;
-    }
-    .rg-regis-purple-building{
-        bottom: 0%;
-    }
-    .rg-regis-form-container{
-        margin-top: 0%;
-        margin-bottom: 0%;
-    }
-    .rg-regis-stairs{
-        bottom: 0%;
-    }
-    .rg-under-stair{
-        bottom: -25%;
     }
 }
 @media (max-width: 740px) and (max-height: 360px) and (orientation: landscape) {
@@ -1057,22 +554,6 @@
         height: 50rem;
         bottom: -20%;
     }
-    .rg-regis-blue-building{
-        bottom: -4%;
-    }
-    .rg-regis-purple-building{
-        bottom: -7.5%;
-    }
-    .rg-regis-form-container{
-        margin-top: 0%;
-        margin-bottom: 0%;
-    }
-    .rg-regis-stairs{
-        bottom: -10%;
-    }
-    .rg-under-stair{
-        bottom: -60.5%;
-    }
 }
 @media(max-width: 459px) and (max-height: 841px) and (orientation: portrait){
 }
@@ -1080,8 +561,6 @@
     .rg-regis-main-wrapper-container{
         min-height: 10vh;
     }
-    .rg-regis-background-img-container{
-    }
     .rg-competition-text{
         width: 60%;
         margin-top: 0%;
@@ -1096,30 +575,12 @@
     .rg-regis-light-middle{
         height: 50rem;
         bottom: -10%;
-    }
-    .rg-regis-blue-building{
-        bottom: 3.5%;
-    }
-    .rg-regis-purple-building{
-        bottom: 2.5%;
-    }
-    .rg-regis-form-container{
-        margin-top: 0%;
-        margin-bottom: 0%;
-    }
-    .rg-regis-stairs{
-        bottom: 2.5%;
-    }
-    .rg-under-stair{
-        bottom: -30%;
     }
 }
 @media (max-width: 430px) and (max-height: 932px) and (orientation: portrait) {
     .rg-regis-main-wrapper-container{
         min-height: 10vh;
     }
-    .rg-regis-background-img-container{
-    }
     .rg-competition-text{
         width: 60%;
         margin-top: 0%;
@@ -1135,28 +596,10 @@
         height: 50rem;
         bottom: -10%;
     }
-    .rg-regis-blue-building{
-        bottom: 3.5%;
-    }
-    .rg-regis-purple-building{
-        bottom: 2.5%;
-    }
-    .rg-regis-form-container{
-        margin-top: 0%;
-        margin-bottom: 0%;
-    }
-    .rg-regis-stairs{
-        bottom: 2.5%;
-    }
-    .rg-under-stair{
-        bottom: -30%;
-    }
 }
 @media (max-width: 414px) and (max-height: 915px) and (orientation: portrait){
     .rg-regis-main-wrapper-container{
         min-height: 10vh;
-    }
-    .rg-regis-background-img-container{
     }
     .rg-regis-front-light-gradient{
         bottom: 0;
@@ -1168,30 +611,12 @@
     .rg-regis-light-middle{
         height: 50rem;
         bottom: -10%;
-    }
-    .rg-regis-blue-building{
-        bottom: 3.5%;
-    }
-    .rg-regis-purple-building{
-        bottom: 2.5%;
-    }
-    .rg-regis-form-container{
-        margin-top: 0%;
-        margin-bottom: 0%;
-    }
-    .rg-regis-stairs{
-        bottom: 2.5%;
-    }
-    .rg-under-stair{
-        bottom: -30%;
     }
 }
 @media (max-width: 414px) and (max-height: 896px) and (orientation: portrait){
     .rg-regis-main-wrapper-container{
         min-height: 100vh;
     }
-    .rg-regis-background-img-container{
-    }
     .rg-regis-front-light-gradient{
         bottom: 2.5%;
     }
@@ -1205,30 +630,12 @@
     .rg-regis-light-middle{
         height: 50rem;
         bottom: -20%;
-    }
-    .rg-regis-blue-building{
-        bottom: -2.5%;
-    }
-    .rg-regis-purple-building{
-        bottom: -2.5%;
-    }
-    .rg-regis-form-container{
-        margin-top: 0%;
-        margin-bottom: 0%;
-    }
-    .rg-regis-stairs{
-        bottom: 0%;
-    }
-    .rg-under-stair{
-        bottom: -18rem;
     }
 }
 @media (max-width: 412px) and (max-height: 915px) and (orientation: portrait){
     .rg-regis-main-wrapper-container{
         min-height: 100vh;
     }
-    .rg-regis-background-img-container{
-    }
     .rg-regis-front-light-gradient{
         bottom: 2.5%;
     }
@@ -1243,28 +650,10 @@
         height: 50rem;
         bottom: -20%;
     }
-    .rg-regis-blue-building{
-        bottom: -2.5%;
-    }
-    .rg-regis-purple-building{
-        bottom: -2.5%;
-    }
-    .rg-regis-form-container{
-        margin-top: 0%;
-        margin-bottom: 0%;
-    }
-    .rg-regis-stairs{
-        bottom: 0%;
-    }
-    .rg-under-stair{
-        bottom: -18rem;
-    }
 }
 @media (max-width: 390px) and (max-height: 844px) and (orientation: portrait) {
     .rg-regis-main-wrapper-container{
         min-height: 10vh;
-    }
-    .rg-regis-background-img-container{
     }
     .rg-regis-front-light-gradient{
         bottom: 5%;
@@ -1277,29 +666,10 @@
         height: 50rem;
         bottom: -10%;
     }
-    .rg-regis-blue-building{
-        bottom: 3.5%;
-    }
-    .rg-regis-purple-building{
-        bottom: 2.5%;
-    }
-    .rg-regis-form-container{
-        margin-top: 0%;
-        margin-bottom: 0%;
-        min-height: 90vh;
-    }
-    .rg-regis-stairs{
-        bottom: 2.5%;
-    }
-    .rg-under-stair{
-        bottom: -33.5%;
-    }
 }
 @media (max-width: 375px) and (max-height: 667px) and (orientation: portrait) {
     .rg-regis-main-wrapper-container{
         min-height: 10vh;
-    }
-    .rg-regis-background-img-container{
     }
     .rg-regis-front-light-gradient{
         bottom: 5%;
@@ -1311,23 +681,6 @@
     .rg-regis-light-middle{
         height: 50rem;
         bottom: -10%;
-    }
-    .rg-regis-blue-building{
-        bottom: 5%;
-    }
-    .rg-regis-purple-building{
-        bottom: 4%;
-    }
-    .rg-regis-form-container{
-        margin-top: 0%;
-        margin-bottom: 0%;
-        min-height: 90vh;
-    }
-    .rg-regis-stairs{
-        bottom: 5%;
-    }
-    .rg-under-stair{
-        bottom: -38.5%;
     }
 }
 @media (max-width: 360px) and (max-height: 740px) and (orientation: portrait) {
@@ -1338,8 +691,6 @@
         margin-top: 45%;
         width: 75%;
     }
-    .rg-regis-background-img-container{
-    }
     .rg-regis-front-light-gradient{
         bottom: 2.5%;
     }
@@ -1354,29 +705,10 @@
     .rg-competition-text{
         margin-top: 0;
     }
-    .rg-regis-blue-building{
-        bottom: 3.5%;
-    }
-    .rg-regis-purple-building{
-        bottom: 1.5%;
-    }
-    .rg-regis-form-container{
-        margin-top: 0%;
-        margin-bottom: 0%;
-        min-height: 90vh;
-    }
-    .rg-regis-stairs{
-        bottom: 2.5%;
-    }
-    .rg-under-stair{
-        bottom: -38.5%;
-    }
 }
 @media (max-width: 344px) and (max-height: 882px) and (orientation: portrait) {
      .rg-regis-main-wrapper-container{
         min-height: 100vh;
-    }
-    .rg-regis-background-img-container{
     }
     .rg-regis-front-light-gradient{
         bottom: 2.5%;
@@ -1391,21 +723,5 @@
     .rg-regis-light-middle{
         height: 50rem;
         bottom: -20%;
-    }
-    .rg-regis-blue-building{
-        bottom: -2.5%;
-    }
-    .rg-regis-purple-building{
-        bottom: -2.5%;
-    }
-    .rg-regis-form-container{
-        margin-top: 0%;
-        margin-bottom: 0%;
-    }
-    .rg-regis-stairs{
-        bottom: 0%;
-    }
-    .rg-under-stair{
-        bottom: -18rem;
     }
 }
