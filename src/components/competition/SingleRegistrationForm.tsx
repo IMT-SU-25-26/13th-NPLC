@@ -72,7 +72,9 @@ export default function SingleRegistrationForm({
       }
     } finally {
       setPending(false);
-      window.location.href = "/competition-details";
+      setTimeout(() => {
+        window.location.href = "/competition-details";
+      }, 3000);
     }
   };
 

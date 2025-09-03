@@ -4,6 +4,7 @@ import "@/styles/sinlge-regis-background.css";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth/auth";
 import { headers } from "next/headers";
+import { checkCompetitionPageAccess } from "@/lib/user";
 
 export default async function Page() {
   const competitionId = "cmegpd01h0003hke91ea54m7c";
@@ -13,6 +14,21 @@ export default async function Page() {
 
   if (!session) {
     redirect("/register/not-logged-in");
+  }
+
+  const alreadyRegistered = await checkCompetitionPageAccess(
+    session.user.id,
+    competitionId
+  );
+  
+  const alreadyRegisteredForCompetitiveProgramming = await checkCompetitionPageAccess(session.user.id, "cmegpb4cl0000hke9j8b2vg3f");
+  
+  if (alreadyRegisteredForCompetitiveProgramming) {
+    redirect("/registered/already-registered-at-competitive-programming");
+  }
+
+  if (alreadyRegistered) {
+    redirect("/register/already-registered");
   }
   return (
     <div className="overflow-hidden">

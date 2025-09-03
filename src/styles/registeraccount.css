@@ -703,6 +703,54 @@
     font-size: 1rem;
   }
 }
+@media (max-width: 1470px) and (max-height: 769px) {
+    .main-bg {
+  }
+  .register-gradientlightbg {
+  }
+  .register-lighttengah {
+  }
+  .register-bangunanbelakangbiru {
+  }
+  .register-bangunandepanungu {
+  }
+  .register-frontgradientlightbg {
+  }
+  .form-wrapper {
+  }
+  .register-title-text
+  {
+    font-size: 2rem;
+  }
+  .form-register-container {
+    max-width: 45%;
+    height: 33rem;
+  } 
+  .form-register {
+    margin-top: 0%;
+  }
+  .input-container {
+    width: 80%;
+    gap: 0.5rem;
+  }
+  .input-container label{
+    font-size: 1.25rem;
+  }
+  .input-field {
+    height: 2.5rem;
+    font-size: 1.25rem;
+  }
+  .registeraccount-button {
+    width: 30%;
+    height: auto;
+  }
+  .svg-text {
+    font-size: 3rem;
+  }
+  .question-text {
+    font-size: 1rem;
+  }
+}
 @media (max-width: 1440px) and (max-height: 812px) {
     .main-bg {
   }
