@@ -36,7 +36,7 @@
 }
 @media (max-width: 2560px) and (max-height: 1600px) {
     .rg-regis-main-wrapper-container{
-        min-height: 100vh;
+        min-height: 115vh;
     }
     .rg-competition-text{
         margin-top: 0%;
@@ -56,7 +56,7 @@
 /* SESUAIKAN CLASS NAME DENGAN YANG DIATAS */
 @media (max-width: 2560px) and (max-height: 1140px) {
     .rg-regis-main-wrapper-container{
-        min-height: 120vh;
+        min-height: 125vh;
     }
     .rg-competition-text{
         margin-top: 0%;
@@ -67,6 +67,9 @@
     }
     .rg-regis-front-light-gradient{
         bottom: -15%;
+    }
+    .rg-regis-light-middle{
+        bottom: -50%;
     }
 }
 @media (max-width: 2048px) and (max-height: 1158px) {
@@ -201,7 +204,7 @@
 /* tambahan 1*/
 @media (max-width: 1536px) and (max-height: 864px) {
     .rg-regis-main-wrapper-container{
-        min-height: 120vh;
+        min-height: 123vh;
     }
     .rg-competition-text{
         margin-top: 10%;
@@ -220,7 +223,7 @@
 }
 @media (max-width: 1536px) and (max-height: 730px) {
     .rg-regis-main-wrapper-container{
-        min-height: 130vh;
+        min-height: 133vh;
     }
     .rg-competition-text{
         margin-top: 10%;
@@ -261,7 +264,7 @@
 }
 @media (max-width: 1512px) and (max-height: 865px) {
     .rg-regis-main-wrapper-container{
-        min-height: 100vh;
+        min-height: 110vh;
     }
     .rg-competition-text{
         margin-top: 0%;
@@ -280,7 +283,7 @@
 }
 @media (max-width: 1440px) and (max-height: 812px) {
     .rg-regis-main-wrapper-container{
-        min-height: 110vh;
+        min-height: 115vh;
     }
     .rg-competition-text{
         margin-top: 0%;
@@ -299,7 +302,7 @@
 }
 @media (max-width: 1440px) and (max-height: 715px) {
     .rg-regis-main-wrapper-container{
-        min-height: 120vh;
+        min-height: 123vh;
     }
     .rg-competition-text{
         margin-top: 0%;
@@ -318,7 +321,7 @@
 }
 @media (max-width: 1366px) and (max-height: 1024px) {
     .rg-regis-main-wrapper-container{
-        min-height: 100vh;
+        min-height: 105vh;
     }
     .rg-competition-text{
         margin-top: 0%;
@@ -375,7 +378,7 @@
 }
 @media (max-width: 1280px) and (max-height: 678px) {
      .rg-regis-main-wrapper-container{
-        min-height: 120vh;
+        min-height: 130vh;
     }
     .rg-competition-text{
         margin-top: 7.5%;
@@ -412,6 +415,23 @@
     }
 }
 @media (max-width: 1180px) and (max-height: 820px) {
+    .rg-regis-main-wrapper-container{
+        min-height: 130vh;
+    }
+    .rg-competition-text{
+        margin-top: 10%;
+        width: 30%;
+    }
+    .rg-regis-gradient-light-bg{
+        height: 50rem;
+        bottom: 5%;
+    }
+    .rg-regis-front-light-gradient{
+        bottom: -15%;
+    }
+    .rg-regis-light-middle{
+        bottom: -25%;
+    }
 }
 @media (max-width: 1024px) and (max-height: 1366px) and (orientation: portrait) {
     .rg-regis-main-wrapper-container{
@@ -437,7 +457,7 @@
 }
 @media (max-width: 1024px) and (max-height: 600px) {
     .rg-regis-main-wrapper-container{
-        min-height: 100vh;
+        min-height: 120vh;
     }
     .rg-competition-text{
         margin-top: 2.5%;
@@ -456,6 +476,9 @@
     }
 }
 @media (max-width: 956px) and (max-height: 440px) and (orientation: landscape) {
+    .rg-regis-main-wrapper-container{
+        min-height: 150vh;
+    }
 }
 @media (max-width: 932px) and (max-height: 430px) {
 }
@@ -492,6 +515,9 @@
     }
 }
 @media (max-width: 844px) and (max-height: 390px) {
+    .rg-regis-main-wrapper-container{
+        min-height: 170vh;
+    }
 }
 @media (max-width: 820px) and (max-height: 1180px) {
     .rg-regis-main-wrapper-container{
@@ -533,8 +559,14 @@
     }
 }
 @media (max-width: 740px) and (max-height: 360px) and (orientation: landscape) {
+    .rg-regis-main-wrapper-container{
+        min-height: 200vh;
+    }
 }
 @media (max-width: 720px) and (max-height: 540px) and (orientation: landscape) {
+    .rg-regis-main-wrapper-container{
+        min-height: 120vh;
+    }
 }
 @media (max-width: 540px) and (max-height: 720px) and (orientation: portrait) {
     .rg-regis-main-wrapper-container{
@@ -725,3 +757,4 @@
         bottom: -20%;
     }
 }
+
