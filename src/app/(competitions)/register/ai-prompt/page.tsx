@@ -39,7 +39,6 @@ export default async function Page() {
       <div className="cp-regis-main-wrapper-container relative flex lg:gap-8 flex-col justify-start items-center w-full min-h-screen">
         <div className="z-[5] absolute w-full h-full bg-gradient-to-b from-[0%] from-[#2a0335]/50 via-[43%] via-[#6258D1]/50 to-[100%] to-[#00CBC1]/50 blue-light-top"></div>
         <div className="home-purple-light-middle absolute bottom-[-5rem] bg-[#97156A] w-[300px] h-[500px] md:w-[600px] md:h-[600px] xl:w-[1100px] xl:h-[900px] rounded-full blur-[100px] z-[0]"></div>
-        <div className="under-stair bg-[#090A1E] absolute w-screen h-[20rem] bottom-[-10%] z-[12]"></div>
         <Image
           src={"/backgrounds/BangunanBelakangBiru.svg"}
           alt="Background"
@@ -67,7 +66,7 @@ export default async function Page() {
           <SingleRegistrationForm
             userId={session.user.id}
             competitionId={competitionId}
-            competitionTitle="Prompt GPT"
+            competitionTitle="AI Prompt"
           />
         </div>
         <Image

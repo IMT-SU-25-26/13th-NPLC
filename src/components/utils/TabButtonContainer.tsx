@@ -21,10 +21,10 @@ const tabData = {
       "A competitive event that assesses participants' skills in creating a structured business proposal, covering market analysis, marketing strategy, financial planning, and sustainability. The goal is to evaluate the creativity, innovation, and feasibility of the proposed business idea.",
     registerLink: "/register/business-plan",
   },
-  "Prompt GPT": {
+  "AI Prompt": {
     description:
-      "Compete individually in the timed Prompt GPT Competition, where you'll use Gemini to solve creative and logical challenges and be judged on your prompt's creativity, logic, and impact. Just be sure to bring your own laptop.",
-    registerLink: "/register/prompt-gpt",
+      "Compete individually in the timed AI Prompt Competition, where you'll use Gemini to solve creative and logical challenges and be judged on your prompt's creativity, logic, and impact. Just be sure to bring your own laptop.",
+    registerLink: "/register/ai-prompt",
   },
 };
 
@@ -49,9 +49,9 @@ function TabButtonContainer() {
           onClick={() => handleTabClick("Business Plan")}
         />
         <TabButton
-          buttonName="Prompt GPT"
-          isActive={activeTab === "Prompt GPT"}
-          onClick={() => handleTabClick("Prompt GPT")}
+          buttonName="AI Prompt"
+          isActive={activeTab === "AI Prompt"}
+          onClick={() => handleTabClick("AI Prompt")}
         />
         <TabButton
           buttonName="Typeracer"
