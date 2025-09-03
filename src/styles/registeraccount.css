@@ -3,20 +3,6 @@
   padding-right: 2.5%;
 }
 @media (max-width: 3840px) and (max-height: 2160px) {
-  .main-bg {
-  }
-  .register-gradientlightbg {
-  }
-  .register-lighttengah {
-  }
-  .register-bangunanbelakangbiru {
-  }
-  .register-bangunandepanungu {
-  }
-  .register-frontgradientlightbg {
-  }
-  .form-wrapper {
-  }
   .register-title-text {
     margin-top: -7.5%;
     font-size: 5rem;
