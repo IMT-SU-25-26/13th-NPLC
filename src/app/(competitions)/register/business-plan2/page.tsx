@@ -1,14 +1,13 @@
 import Image from "next/image";
-import BusinessPlanRegistrationForm from "@/components/competition/business-plan/RegistrationForm";
-import { checkCompetitionPageAccess } from "@/lib/user";
-import "@/styles/business-plan-regis.css";
+import BusinessPlanForm from "@/components/competition/business-plan/RegistrationForm2";
+import "@/styles/competitive-programming.css";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth/auth";
 import { headers } from "next/headers";
+import { checkCompetitionPageAccess } from "@/lib/user";
 
 export default async function Page() {
   const competitionId = "cmegpbi5m0001hke9buhvhrw4";
-
   const session = await auth.api.getSession({
     headers: await headers(),
   });
@@ -17,25 +16,23 @@ export default async function Page() {
     redirect("/register/not-logged-in");
   }
 
-  const alreadyRegisteredForBusinessPlan = await checkCompetitionPageAccess(
+  const alreadyRegistered = await checkCompetitionPageAccess(
     session.user.id,
     competitionId
   );
-
-  const alreadyRegisteredForCompetitiveProgramming =
+  const alreadyRegisteredForBusinessPlan =
     await checkCompetitionPageAccess(
       session.user.id,
-      "cmegpb4cl0000hke9j8b2vg3f"
+      competitionId
     );
 
-  if (alreadyRegisteredForCompetitiveProgramming) {
-    redirect("/register/already-registered-at-competitive-programming");
+  if (alreadyRegisteredForBusinessPlan) {
+    redirect("/register/already-registered-at-business-plan");
   }
 
-  if (alreadyRegisteredForBusinessPlan) {
+  if (alreadyRegistered) {
     redirect("/register/already-registered");
   }
-
   return (
     <div className="overflow-hidden">
       <div className="cp-regis-main-wrapper-container relative flex lg:gap-8 flex-col justify-start items-center w-full min-h-screen">
@@ -65,10 +62,10 @@ export default async function Page() {
             height={1000}
             alt="background-gradient"
           />
-          <BusinessPlanRegistrationForm
-            competitionTitle="Business Plan"
+          <BusinessPlanForm
             competitionId={competitionId}
             userId={session.user.id}
+            competitionTitle="Business Plan"
           />
         </div>
         <Image

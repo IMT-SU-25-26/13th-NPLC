@@ -3,30 +3,35 @@
 import React, { useState } from "react";
 import { toast } from "sonner";
 import { registerForCompetition } from "@/lib/server-actions/competition";
-import "@/styles/multiple-regis.css";
-import { useSession } from "@/lib/auth/auth_client";
+import "@/styles/competitive-programming-multiple-regis.css";
+// import { updateIsPaid } from "@/lib/competition";
 import {
   getRegistrationIdByCompetitionAndUser,
   // updateRegistrationMidtransToken,
 } from "@/lib/competition";
+import { useSession } from "@/lib/auth/auth_client"; // 1. Impor useSession
 import { UploadWidget } from "@/components/CloudinaryWidget";
 
-interface CompetitiveProgrammingFormProps {
+interface BusinessPlanProps {
   competitionId: string;
   competitionTitle: string;
   userId: string;
 }
 
-export default function BusinessPlanRegistrationForm({
+export default function BusinessPlanForm({
   competitionId,
   competitionTitle,
   userId,
-}: CompetitiveProgrammingFormProps) {
+}: BusinessPlanProps) {
   const [pending, setPending] = useState<boolean>(false);
   const [uploadedFileUrl, setUploadedFileUrl] = useState<string>("");
   const [uploadedFilePublicId, setUploadedFilePublicId] = useState<string>("");
   const { data: session } = useSession(); // 2. Panggil hook useSession
 
+  if (!session?.user?.email) {
+    toast.error("You must be logged in to register.");
+    return;
+  }
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -49,11 +54,6 @@ export default function BusinessPlanRegistrationForm({
 
       if (!registration_id) {
         toast.error("Failed to get registration ID.");
-        return;
-      }
-
-      if (!session?.user?.email) {
-        toast.error("You must be logged in to register.");
         return;
       }
     } catch (error) {
@@ -83,14 +83,13 @@ export default function BusinessPlanRegistrationForm({
     <>
       <form
         onSubmit={handleSubmit}
-        className="w-[21rem] sm:w-[30rem] md:w-[40rem] lg:w-[40rem] xl:w-[35rem] 2xl:w-[40rem] md:mb-30 lg:mb-40 p-2 py-16 md:py-[6rem] sm:py-auto sm:p-5 md:p-5 lg:p-10 xl:p-10 flex backdrop-blur-lg flex-col items-center justify-center gap-1.5 sm:gap-2 md:gap-2 lg:gap-6 rounded-xl shadow-lg bg-[url('/register/MultipleformBG2-extraSmall.svg')] sm:bg-[url('/register/MultipleformBG2-small.svg')] md:bg-[url('/register/MultipleformBG2.svg')] lg:bg-[url('/register/MultipleformBG2.svg')] bg-contain bg-center bg-no-repeat
-        "
+        className="py-0 xl:py-5 flex backdrop-blur-lg flex-col items-center justify-center gap-1.5 sm:gap-2 md:gap-2 lg:gap-6 rounded-xl shadow-lg bg-[url('/register/BusinessPlanFormBG.svg')] sm:bg-[url('/register/BusinessPlanFormBG.svg')] bg-contain bg-center bg-no-repeat"
       >
-        <h2 className="font-RopoSans-Regular text-lg md:text-3xl lg:text-3xl font-bold text-center text-white">
+        <h2 className="font-RopoSans-Regular multiple-regis-title text-lg md:text-3xl lg:text-3xl font-bold text-center text-white">
           {competitionTitle}
         </h2>
 
-        <div className="gap-2 sm:gap-4 flex flex-col justify-center items-center w-[85%]">
+        <div className=" gap-2 sm:gap-4 flex flex-col justify-center items-center w-[85%]">
           <div className="flex flex-col w-full">
             <label
               className="regis-label text-left w-full font-ropasans-regular text-2xl"
@@ -102,7 +101,7 @@ export default function BusinessPlanRegistrationForm({
               id="team_name"
               type="text"
               name="team_name"
-              className="cursor-target px-[2.5%] w-full bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+              className="cursor-target px-[2.5%] w-full multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
               text-sm sm:text-base md:text-base lg:text-base
               text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                             placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
@@ -121,7 +120,7 @@ export default function BusinessPlanRegistrationForm({
               id="school_name"
               type="text"
               name="school_name"
-              className="cursor-target px-[2.5%] w-full  bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+              className="cursor-target px-[2.5%] w-full multiple-all-input  bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
               text-sm sm:text-base md:text-base lg:text-base
               text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                             placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
@@ -141,7 +140,7 @@ export default function BusinessPlanRegistrationForm({
                 id="contact_person_number"
                 type="text"
                 name="contact_person_number"
-                className="cursor-target px-[2.5%] w-full bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                className="cursor-target px-[2.5%] w-full multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
               text-sm sm:text-base md:text-base lg:text-base
               text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                             placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
@@ -151,7 +150,7 @@ export default function BusinessPlanRegistrationForm({
             </div>
             <div className="flex flex-col w-full">
               <label
-                className="regis-label text-left w-full font-ropasans-regular text-2xl"
+                className="regis-label text-left w-full font-ropasans-regular tefxt-2xl"
                 htmlFor="link_twiboon"
               >
                 Twibon Link
@@ -160,7 +159,7 @@ export default function BusinessPlanRegistrationForm({
                 id="link_twiboon"
                 type="url"
                 name="link_twiboon"
-                className="cursor-target px-[2.5%] w-full bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                className="cursor-target px-[2.5%] w-full multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
                   text-sm sm:text-base md:text-base lg:text-base
                   text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                                 placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
@@ -185,7 +184,7 @@ export default function BusinessPlanRegistrationForm({
                   id={`fullname${i}`}
                   type="text"
                   name={`fullname${i}`}
-                  className="cursor-target px-[2.5%] bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                  className="cursor-target px-[2.5%] multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
                   text-sm w-full sm:text-base md:text-base lg:text-base
                   text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                                 placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
@@ -205,7 +204,7 @@ export default function BusinessPlanRegistrationForm({
                   id={`nisn${i}`}
                   type="number"
                   name={`nisn${i}`}
-                  className="cursor-target px-[2.5%] bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                  className="cursor-target px-[2.5%] multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
                   text-sm w-full sm:text-base md:text-base lg:text-base
                   text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                                 placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
@@ -235,7 +234,6 @@ export default function BusinessPlanRegistrationForm({
           />
 
           <UploadWidget
-            useDefaultClass = {false}
             onUploadSuccess={(url, publicId) => {
               setUploadedFileUrl(url);
               setUploadedFilePublicId(publicId || "");
