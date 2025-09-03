@@ -639,3 +639,38 @@
         margin-top: 2rem !important;
     }
 }
+
+@media (min-width: 1279px) and (max-width: 1280px) and (min-height: 549px) and (max-height: 551px) {
+    .form-login {
+        max-width: 40rem !important;
+        height: 21.5rem !important;
+    }
+
+    .all-input {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+        font-size: 0.8rem !important;
+    }
+
+    .all-text {
+        font-size: 1rem !important;
+    }
+
+    .all-button {
+        width: 45% !important;
+        margin-top: -0.5rem;
+    }
+
+    .text-container {
+        margin-top: 0.8rem !important;
+    }
+
+    .account-text {
+        width: 20rem !important;
+        margin-top: 2rem !important;
+    }
+
+    .text-container {
+        margin-top: -0.8rem !important;
+    }
+}
