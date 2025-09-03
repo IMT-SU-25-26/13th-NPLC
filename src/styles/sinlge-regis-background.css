@@ -1,6 +1,6 @@
 @media (max-width: 3840px) and (max-height: 2160px) {
     .cp-regis-main-wrapper-container{
-        min-height: 100vh;
+        min-height: 120vh;
     }
     .cp-regis-background-img-container{
 
@@ -108,7 +108,7 @@
 }
 @media (max-width: 2560px) and (max-height: 1140px) {
     .cp-regis-main-wrapper-container{
-        min-height: 140vh;
+        min-height: 160vh;
     }
     .cp-regis-background-img-container{
 
@@ -180,7 +180,7 @@
 }
 @media (max-width: 1920px) and (max-height: 1080px) {
     .cp-regis-main-wrapper-container{
-        min-height: 120vh;
+        min-height: 140vh;
     }
     .cp-regis-background-img-container{
 
@@ -252,7 +252,7 @@
 }
 @media (max-width: 1900px) and (max-height: 1200px) {
    .cp-regis-main-wrapper-container{
-        min-height: 100vh;
+        min-height: 130vh;
     }
     .cp-regis-background-img-container{
 
@@ -280,7 +280,7 @@
 
     }
     .cp-regis-stairs{
-        bottom: -30%;
+        bottom: -40%;
     }
     .under-stair{
         bottom: -45%;
@@ -288,7 +288,7 @@
 }
 @media (max-width: 1728px) and (max-height: 1117px) {
     .cp-regis-main-wrapper-container{
-        min-height: 100vh;
+        min-height: 130vh;
     }
     .cp-regis-background-img-container{
 
@@ -438,7 +438,7 @@
 }
 @media (max-width: 1536px) and (max-height: 730px) {
     .cp-regis-main-wrapper-container{
-        min-height: 170vh;
+        min-height: 180vh;
     }
     .cp-regis-background-img-container{
 
@@ -475,7 +475,7 @@
 }
 @media (max-width: 1512px) and (max-height: 982px) {
     .cp-regis-main-wrapper-container{
-        min-height: 120vh;
+        min-height: 130vh;
     }
     .cp-regis-background-img-container{
 

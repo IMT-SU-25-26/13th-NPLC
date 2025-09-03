@@ -7,7 +7,7 @@ interface UploadWidgetProps {
   onUploadSuccess: (url: string, publicId?: string) => void;
   folder: string;
   allowedFormats: string[];
-  label?: string;
+  label?: React.ReactNode;
   name?: string;
   required?: boolean;
   useDefaultClass?: boolean;
@@ -22,13 +22,24 @@ export function UploadWidget({
   useDefaultClass = true,
 }: UploadWidgetProps) {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col gap-4 w-full">
+      <div>
       <label
         className="regis-label text-left w-full font-ropasans-regular text-2xl"
         htmlFor={name}
       >
+        Details
+      </label>
+      <label
+        className={twMerge(`px-[1.5%] w-full h-0 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                text-sm sm:text-base md:text-base lg:text-base
+                text-[#75E8F0] placeholder-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
+                placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)]
+                py-[3em] flex items-center justify-center text-center gap-2 hover:bg-[#18182a]/90`, useDefaultClass && "single-all-input multiple-all-input" )}
+      >
         {label}
       </label>
+      </div>
       <CldUploadWidget
         uploadPreset={process.env.NEXT_PUBLIC_UPLOAD_PRESET || "ml_default"}
         options={{
@@ -56,7 +67,7 @@ export function UploadWidget({
                 text-sm sm:text-base md:text-base lg:text-base
                 text-[#75E8F0] placeholder-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                 placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors
-                py-[0.95em] flex items-center justify-center gap-2 hover:bg-[#18182a]/90`, useDefaultClass && "multiple-all-input" )}
+                py-[0.95em] flex items-center justify-center gap-2 hover:bg-[#18182a]/90`, useDefaultClass && "single-all-input multiple-all-input" )}
           >
             <svg
               className="w-5 h-5 text-[#75E8F0]"

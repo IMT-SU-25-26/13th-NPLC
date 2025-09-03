@@ -238,13 +238,20 @@ export default function SingleRegistrationForm({
             setUploadedFilePublicId(publicId || "");
             toast.success("Payment proof uploaded successfully!");
             console.log("File uploaded:", url, publicId);
-          }}
-          folder="payment-proofs"
-          allowedFormats={["jpg", "jpeg", "png"]}
-          label="Upload your payment proof (Rp.40,000,00) - Format : Team Name_CompetitionName - Transfer via Blu by BCA - 008674351649 -  Chrisensia Abigail Gani"
-          name="bukti_transfer"
-          required={true}
-        />
+            }}
+            folder="payment-proofs"
+            allowedFormats={["jpg", "jpeg", "png"]}
+            label={
+            <>
+              Price: Rp 25.000<br />
+              Transfer to 008674351649 (Blu by BCA)<br />
+              a/n Chrisensia Abigail Gani<br />
+              Berita: (Team Name_CompetitionName)
+            </>
+            }
+            name="bukti_transfer"
+            required={true}
+          />
 
         {/* Show upload status */}
         {uploadedFileUrl && (
