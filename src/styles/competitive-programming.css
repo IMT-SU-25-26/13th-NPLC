@@ -1,6 +1,6 @@
 @media (max-width: 3840px) and (max-height: 2160px) {
     .cp-regis-main-wrapper-container{
-        min-height: 110vh;
+        min-height: 130vh;
     }
     .cp-regis-background-img-container{
 
@@ -36,7 +36,7 @@
 }
 @media (max-width: 2850px) and (max-height: 1800px) {
     .cp-regis-main-wrapper-container{
-        min-height: 110vh;
+        min-height: 130vh;
     }
     .cp-regis-background-img-container{
 
@@ -72,7 +72,7 @@
 }
 @media (max-width: 2560px) and (max-height: 1600px) {
     .cp-regis-main-wrapper-container{
-        min-height: 110vh;
+        min-height: 140vh;
     }
     .cp-regis-background-img-container{
 
@@ -108,7 +108,7 @@
 }
 @media (max-width: 2560px) and (max-height: 1140px) {
     .cp-regis-main-wrapper-container{
-        min-height: 140vh;
+        min-height: 170vh;
     }
     .cp-regis-background-img-container{
 
@@ -144,7 +144,7 @@
 }
 @media (max-width: 2048px) and (max-height: 1158px) {
     .cp-regis-main-wrapper-container{
-        min-height: 150vh;
+        min-height: 180vh;
     }
     .cp-regis-background-img-container{
 
@@ -180,7 +180,7 @@
 }
 @media (max-width: 1920px) and (max-height: 1080px) {
     .cp-regis-main-wrapper-container{
-        min-height: 150vh;
+        min-height: 170vh;
     }
     .cp-regis-background-img-container{
 
@@ -252,7 +252,7 @@
 }
 @media (max-width: 1900px) and (max-height: 1200px) {
    .cp-regis-main-wrapper-container{
-        min-height: 130vh;
+        min-height: 150vh;
     }
     .cp-regis-background-img-container{
 
@@ -288,7 +288,7 @@
 }
 @media (max-width: 1728px) and (max-height: 1117px) {
     .cp-regis-main-wrapper-container{
-        min-height: 130vh;
+        min-height: 150vh;
     }
     .cp-regis-background-img-container{
 
@@ -327,7 +327,7 @@
         
     }
     .cp-regis-main-wrapper-container{
-        min-height: 130vh;
+        min-height: 180vh;
     }
     .cp-regis-background-img-container{
 
@@ -401,7 +401,7 @@
 /* tambahan 1*/
 @media (max-width: 1536px) and (max-height: 864px) {
     .cp-regis-main-wrapper-container{
-        min-height: 150vh;
+        min-height: 170vh;
     }
     .cp-regis-background-img-container{
 
@@ -438,7 +438,7 @@
 }
 @media (max-width: 1536px) and (max-height: 730px) {
     .cp-regis-main-wrapper-container{
-        min-height: 170vh;
+        min-height: 200vh;
     }
     .cp-regis-background-img-container{
 
@@ -475,7 +475,7 @@
 }
 @media (max-width: 1512px) and (max-height: 982px) {
     .cp-regis-main-wrapper-container{
-        min-height: 120vh;
+        min-height: 150vh;
     }
     .cp-regis-background-img-container{
 
@@ -512,7 +512,7 @@
 }
 @media (max-width: 1512px) and (max-height: 865px) {
     .cp-regis-main-wrapper-container{
-        min-height: 150vh;
+        min-height: 170vh;
     }
     .cp-regis-background-img-container{
 
@@ -547,7 +547,7 @@
         bottom: -45%;
     }
 }
-@media (max-width: 1440px) and (max-height: 715px) {
+@media (max-width: 1440px) and (max-height: 812px) {
     .cp-regis-main-wrapper-container{
         min-height: 180vh;
     }
@@ -584,9 +584,46 @@
         bottom: -45%;
     }
 }
+@media (max-width: 1440px) and (max-height: 715px) {
+    .cp-regis-main-wrapper-container{
+        min-height: 200vh;
+    }
+    .cp-regis-background-img-container{
+
+    }
+    .cp-competition-text{
+        margin-top: 10%;
+        width: 40%;
+    }
+    .cp-regis-gradient-light-bg{
+        height: 70rem;
+         bottom: 0%;
+    }
+    .cp-regis-front-light-gradient{
+        bottom: -15%;
+    }
+    .cp-regis-light-middle{
+        bottom: -25%;
+    }
+    .cp-regis-blue-building{
+        bottom: -25%;
+    }
+    .cp-regis-purple-building{
+        bottom: -25%;
+    }
+    .cp-regis-form-container{
+
+    }
+    .cp-regis-stairs{
+        bottom: -25%;
+    }
+    .under-stair{
+        bottom: -45%;
+    }
+}
 @media (max-width: 1366px) and (max-height: 1024px) {
     .cp-regis-main-wrapper-container{
-        min-height: 100vh;
+        min-height: 120vh;
     }
     .cp-regis-background-img-container{
     }
@@ -620,45 +657,9 @@
         bottom: -55%;
     }
 }
-@media (max-width: 1366px) and (max-height: 768px) {
-     .cp-regis-main-wrapper-container{
-        min-height: 140vh;
-    }
-    .cp-regis-background-img-container{
-    }
-    .cp-competition-text{
-        margin-top: 10%;
-        width: 40%;
-    }
-    .cp-regis-gradient-light-bg{
-        height: 60rem;
-         bottom: 5%;
-    }
-    .cp-regis-front-light-gradient{
-        bottom: -15%;
-    }
-    .cp-regis-light-middle{
-        bottom: -25%;
-    }
-    .cp-regis-blue-building{
-        bottom: -25%;
-    }
-    .cp-regis-purple-building{
-        bottom: -25%;
-    }
-    .cp-regis-form-container{
-
-    }
-    .cp-regis-stairs{
-        bottom: -25%;
-    }
-    .under-stair{
-        bottom: -45%;
-    }
-}
 @media (max-width: 1366px) and (max-height: 791px) {
      .cp-regis-main-wrapper-container{
-        min-height: 120vh;
+        min-height: 160vh;
     }
     .cp-regis-background-img-container{
     }
@@ -694,7 +695,7 @@
 }
 @media (max-width: 1280px) and (max-height: 800px) {
      .cp-regis-main-wrapper-container{
-        min-height: 130vh;
+        min-height: 160vh;
     }
     .cp-regis-background-img-container{
     }
@@ -731,7 +732,7 @@
 }
 @media (max-width: 1280px) and (max-height: 678px) {
      .cp-regis-main-wrapper-container{
-        min-height: 100vh;
+        min-height: 200vh;
     }
     .cp-regis-background-img-container{
     }
@@ -768,7 +769,7 @@
 }
 @media (max-width: 1280px) and (max-height: 551px) {
     .cp-regis-main-wrapper-container{
-        min-height: 170vh;
+        min-height: 220vh;
     }
     .cp-regis-background-img-container{
     }
@@ -806,7 +807,7 @@
 }
 @media (max-width: 1024px) and (max-height: 1366px) and (orientation: portrait) {
     .cp-regis-main-wrapper-container{
-        min-height: 100vh;
+        min-height: 130vh;
     }
     .cp-regis-background-img-container{
         min-height: 100vh;
@@ -844,7 +845,7 @@
 }
 @media (max-width: 1024px) and (max-height: 600px) {
     .cp-regis-main-wrapper-container{
-        min-height: 160vh;
+        min-height: 200vh;
     }
     .cp-regis-background-img-container{
     }
@@ -885,7 +886,7 @@
 }
 @media (max-width: 912px) and (max-height: 1368px) and (orientation: portrait) {
     .cp-regis-main-wrapper-container{
-        min-height: 10vh;
+        min-height: 110vh;
     }
     .cp-regis-background-img-container{
     }
@@ -919,7 +920,7 @@
 }
 @media (max-width: 853px) and (max-height: 1280px) and (orientation: portrait) {
     .cp-regis-main-wrapper-container{
-        min-height: 10vh;
+        min-height: 110vh;
     }
     .cp-regis-background-img-container{
     }
@@ -955,7 +956,7 @@
 }
 @media (max-width: 820px) and (max-height: 1180px) {
     .cp-regis-main-wrapper-container{
-        min-height: 10vh;
+        min-height: 100vh;
     }
     .cp-competition-text{
         width: 60%;
@@ -992,7 +993,7 @@
 }
 @media (max-width: 768px) and (max-height: 1024px) and (orientation: portrait) {
     .cp-regis-main-wrapper-container{
-        min-height: 10vh;
+        min-height: 120vh;
     }
     .cp-regis-background-img-container{
     }
@@ -1034,7 +1035,7 @@
 }
 @media (max-width: 540px) and (max-height: 720px) and (orientation: portrait) {
     .cp-regis-main-wrapper-container{
-        min-height: 100vh;
+        min-height: 120vh;
     }
     .cp-regis-background-img-container{
         min-height: 100vh;
@@ -1073,7 +1074,7 @@
 }
 @media (max-width: 430px) and (max-height: 932px) and (orientation: portrait) {
     .cp-regis-main-wrapper-container{
-        min-height: 10vh;
+        min-height: 100vh;
     }
     .cp-regis-background-img-container{
     }
@@ -1111,7 +1112,7 @@
 }
 @media (max-width: 414px) and (max-height: 915px) and (orientation: portrait){
     .cp-regis-main-wrapper-container{
-        min-height: 10vh;
+        min-height: 100vh;
     }
     .cp-regis-background-img-container{
     }
@@ -1147,6 +1148,9 @@
     
 }
 @media (max-width: 412px) and (max-height: 915px) and (orientation: portrait){
+     .cp-regis-main-wrapper-container{
+        min-height: 100vh;
+    }
     .cp-competition-text{
         margin-top: 40%;
         width: 75%;
@@ -1190,7 +1194,7 @@
 }
 @media (max-width: 390px) and (max-height: 844px) and (orientation: portrait) {
     .cp-regis-main-wrapper-container{
-        min-height: 10vh;
+        min-height: 100vh;
     }
     .cp-regis-background-img-container{
     }
@@ -1225,7 +1229,7 @@
 }
 @media (max-width: 375px) and (max-height: 667px) and (orientation: portrait) {
     .cp-regis-main-wrapper-container{
-        min-height: 10vh;
+        min-height: 120vh;
     }
     .cp-regis-background-img-container{
     }
@@ -1260,7 +1264,7 @@
 }
 @media (max-width: 360px) and (max-height: 740px) and (orientation: portrait) {
     .cp-regis-main-wrapper-container{
-        min-height: 10vh;
+        min-height: 100vh;
     }
     .cp-competition-text{
         margin-top: 45%;
@@ -1299,7 +1303,7 @@
 }
 @media (max-width: 344px) and (max-height: 882px) and (orientation: portrait) {
     .cp-regis-main-wrapper-container{
-        min-height: 10vh;
+        min-height: 100vh;
     }
     .cp-competition-text{
         margin-top: 60%;
