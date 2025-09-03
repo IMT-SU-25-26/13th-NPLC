@@ -72,6 +72,7 @@ export default function BusinessPlanRegistrationForm({
       }
     } finally {
       setPending(false);
+      toast.success("Registration Success!", {duration: 5000})
       setTimeout(() => {
         window.location.href = "/competition-details";
       }, 3000);
