@@ -27,7 +27,7 @@ export default async function Page() {
     );
 
   if (alreadyRegisteredForCompetitiveProgramming) {
-    redirect("/registered/already-registered-at-competitive-programming");
+    redirect("/register/already-registered-at-competitive-programming");
   }
 
   if (alreadyRegistered) {

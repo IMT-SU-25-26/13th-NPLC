@@ -20,11 +20,11 @@ export default async function Page() {
     session.user.id,
     competitionId
   );
-  
+
   const alreadyRegisteredForCompetitiveProgramming = await checkCompetitionPageAccess(session.user.id, "cmegpb4cl0000hke9j8b2vg3f");
   
   if (alreadyRegisteredForCompetitiveProgramming) {
-    redirect("/registered/already-registered-at-competitive-programming");
+    redirect("/register/already-registered-at-competitive-programming");
   }
 
   if (alreadyRegistered) {
