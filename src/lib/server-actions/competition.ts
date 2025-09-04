@@ -32,12 +32,12 @@ export async function registerForCompetition(formData: FormData, competitionId: 
     
     const result =  await registerServerSide({}, newFormData, competitionId);
     if (!result || !result.success) {
-      throw new Error(result?.errorMessage || "Registration failed");
+      return { success:false,  errorMessage: result?.errorMessage || "Registration failed" };
     }
     // 3. Kembalikan token ke client (PLAIN OBJECT, not NextResponse)
     return { success: true };
   } catch (error) {
     console.error("Registration error:", error);
-    throw error;
+    return { success:false,  errorMessage: error || "Registration failed" };
   }
 }

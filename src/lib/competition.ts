@@ -36,7 +36,7 @@ export async function getRegistrationIdByCompetitionAndUser(
     return registration.length > 0 ? registration[0].id : null;
   } catch (error) {
     console.error("Error fetching registration ID:", error);
-    throw error;
+    return { success: false, errorMessage: "Error fetching registration ID", data: null };
   }
 }
 
@@ -73,7 +73,7 @@ export async function getRegistrationStatus(competition_id: string, team_name: s
     return registration ? registration.registration_status : null;
   } catch (error) {
     console.error("Error fetching registration status:", error);
-    throw error;
+    return { success: false, errorMessage: "Error fetching registration status", data: null };
   }
 }
 
@@ -85,7 +85,7 @@ export async function updatePaymentProof(competition_id: string, team_name: stri
     });
   } catch (error) {
     console.error("Error updating payment proof:", error);
-    throw error;
+    return { success: false, errorMessage: "Error updating payment proof", data: null };
   }
 }
 
@@ -99,7 +99,7 @@ export async function updateIsPaid(competition_id: string, team_name: string, is
       
     } catch (error) {
       console.error("Error updating is_paid:", error);
-      throw error;
+      return { success: false, errorMessage: "Error updating is_paid", data: null };
     }
   } else {
     try {
@@ -109,7 +109,7 @@ export async function updateIsPaid(competition_id: string, team_name: string, is
       });
     } catch (error) {
       console.error("Error updating is_paid:", error);
-      throw error;
+      return { success: false, errorMessage: "Error updating is_paid", data: null };
     }
   }
 }
@@ -121,6 +121,6 @@ export async function cancelRegistration(competition_id: string, user_id: string
     });
   } catch (error) {
     console.error("Error canceling registration:", error);
-    throw error;
+    return { success: false, errorMessage: "Error canceling registration", data: null };
   }
 }

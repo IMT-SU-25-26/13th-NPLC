@@ -166,9 +166,7 @@ export async function registerForACompetition(
       nisnArr.map((nisnItem, index) => {
         const user = users[index];
         if (!user) {
-          throw new Error(
-            `User with NISN ${nisnItem} not found during registration`
-          );
+          return { success: false, errorMessage: `User with NISN ${nisnItem} not found during registration` };
         }
 
         return prisma.competitionRegistration.create({
