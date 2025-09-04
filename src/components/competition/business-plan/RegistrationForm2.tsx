@@ -55,8 +55,10 @@ export default function BusinessPlanForm({
       if (!registration_id) {
         if (!regis || !regis.success) {
           toast.error(regis?.errorMessage?.toString() || "Registration failed");
+          return;
         } else {
           toast.error("Failed to get registration ID.");
+          return;
         }
       }
       toast.success("Registration Success!", { duration: 5000 });
