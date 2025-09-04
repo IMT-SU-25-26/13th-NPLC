@@ -621,6 +621,43 @@
         bottom: -45%;
     }
 }
+@media (max-width: 1432px) and (max-height: 774px) {
+    .cp-regis-main-wrapper-container{
+        min-height: 180vh;
+    }
+    .cp-regis-background-img-container{
+
+    }
+    .cp-competition-text{
+        margin-top: 10%;
+        width: 40%;
+    }
+    .cp-regis-gradient-light-bg{
+        height: 70rem;
+         bottom: 0%;
+    }
+    .cp-regis-front-light-gradient{
+        bottom: -15%;
+    }
+    .cp-regis-light-middle{
+        bottom: -25%;
+    }
+    .cp-regis-blue-building{
+        bottom: -25%;
+    }
+    .cp-regis-purple-building{
+        bottom: -25%;
+    }
+    .cp-regis-form-container{
+
+    }
+    .cp-regis-stairs{
+        bottom: -25%;
+    }
+    .under-stair{
+        bottom: -45%;
+    }
+}
 @media (max-width: 1366px) and (max-height: 1024px) {
     .cp-regis-main-wrapper-container{
         min-height: 100vh;
