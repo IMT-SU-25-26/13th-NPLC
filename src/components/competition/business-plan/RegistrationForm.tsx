@@ -56,6 +56,11 @@ export default function BusinessPlanRegistrationForm({
         toast.error("You must be logged in to register.");
         return;
       }
+
+      toast.success("Registration Success!", { duration: 5000 });
+      setTimeout(() => {
+        window.location.href = "/competition-details";
+      }, 3000);
     } catch (error) {
       console.error(error);
 
@@ -72,10 +77,6 @@ export default function BusinessPlanRegistrationForm({
       }
     } finally {
       setPending(false);
-      toast.success("Registration Success!", {duration: 5000})
-      setTimeout(() => {
-        window.location.href = "/competition-details";
-      }, 3000);
     }
   };
 
@@ -235,7 +236,7 @@ export default function BusinessPlanRegistrationForm({
           />
 
           <UploadWidget
-            useDefaultClass = {false}
+            useDefaultClass={false}
             onUploadSuccess={(url, publicId) => {
               setUploadedFileUrl(url);
               setUploadedFilePublicId(publicId || "");
@@ -245,12 +246,15 @@ export default function BusinessPlanRegistrationForm({
             folder="payment-proofs"
             allowedFormats={["jpg", "jpeg", "png"]}
             label={
-            <>
-              Price: Rp 40.000<br />
-              Transfer to 008674351649 (Blu by BCA)<br />
-              a/n Chrisensia Abigail Gani<br />
-              Berita: (Team Name_CompetitionName)
-            </>
+              <>
+                Price: Rp 40.000
+                <br />
+                Transfer to 008674351649 (Blu by BCA)
+                <br />
+                a/n Chrisensia Abigail Gani
+                <br />
+                Berita: (Team Name_CompetitionName)
+              </>
             }
             name="bukti_transfer"
             required={true}

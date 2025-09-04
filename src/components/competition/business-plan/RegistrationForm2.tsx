@@ -56,6 +56,10 @@ export default function BusinessPlanForm({
         toast.error("Failed to get registration ID.");
         return;
       }
+      toast.success("Registration Success!", {duration: 5000})
+      setTimeout(() => {
+        window.location.href = "/competition-details";
+      }, 3000);
     } catch (error) {
       console.error(error);
 
@@ -72,10 +76,6 @@ export default function BusinessPlanForm({
       }
     } finally {
       setPending(false);
-      toast.success("Registration Success!", {duration: 5000})
-      setTimeout(() => {
-        window.location.href = "/competition-details";
-      }, 3000);
     }
   };
 

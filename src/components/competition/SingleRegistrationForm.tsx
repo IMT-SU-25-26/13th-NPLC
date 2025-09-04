@@ -56,6 +56,11 @@ export default function SingleRegistrationForm({
         toast.error("You must be logged in to register.");
         return;
       }
+      
+      toast.success("Registration Success!", { duration: 5000 });
+      setTimeout(() => {
+        window.location.href = "/competition-details";
+      }, 3000);
     } catch (error) {
       console.error(error);
 
@@ -72,10 +77,6 @@ export default function SingleRegistrationForm({
       }
     } finally {
       setPending(false);
-      toast.success("Registration Success!", {duration: 5000})
-      setTimeout(() => {
-        window.location.href = "/competition-details";
-      }, 3000);
     }
   };
 
@@ -238,20 +239,23 @@ export default function SingleRegistrationForm({
             setUploadedFilePublicId(publicId || "");
             toast.success("Payment proof uploaded successfully!");
             console.log("File uploaded:", url, publicId);
-            }}
-            folder="payment-proofs"
-            allowedFormats={["jpg", "jpeg", "png"]}
-            label={
+          }}
+          folder="payment-proofs"
+          allowedFormats={["jpg", "jpeg", "png"]}
+          label={
             <>
-              Price: Rp 25.000<br />
-              Transfer to 008674351649 (Blu by BCA)<br />
-              a/n Chrisensia Abigail Gani<br />
+              Price: Rp 25.000
+              <br />
+              Transfer to 008674351649 (Blu by BCA)
+              <br />
+              a/n Chrisensia Abigail Gani
+              <br />
               Berita: (Team Name_CompetitionName)
             </>
-            }
-            name="bukti_transfer"
-            required={true}
-          />
+          }
+          name="bukti_transfer"
+          required={true}
+        />
 
         {/* Show upload status */}
         {uploadedFileUrl && (
