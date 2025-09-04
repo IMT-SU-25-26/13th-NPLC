@@ -6,20 +6,6 @@ import { redirect } from "next/navigation";
 import { updateNisn, updateUserRole } from "./user";
 import { State } from "@/types/form";
 import { PrismaClient } from "@prisma/client";
-import { z } from "zod";
-
-// Define validation schemas
-const signUpSchema = z.object({
-  email: z.string().trim().email("Invalid email format"),
-  password: z.string().trim().min(6, "Password must be at least 6 characters long"),
-  fullname: z.string().trim().min(1, "Fullname is required"),
-  nisn: z.string().trim().min(1, "NISN is required"),
-});
-
-const signInSchema = z.object({
-  email: z.string().trim().email("Invalid email format"),
-  password: z.string().trim().min(1, "Password is required"),
-});
 
 export async function signUp(prevState: State, formData: FormData) {
   const prisma = new PrismaClient();
@@ -30,38 +16,32 @@ export async function signUp(prevState: State, formData: FormData) {
     nisn: formData.get("nisn") as string,
   };
 
-  // Validate with Zod
-  const validationResult = signUpSchema.safeParse({
-    email: rawFormData.email.replace(/\s+/g, ""),
-    password: rawFormData.password.replace(/\s+/g, ""),
-    fullname: rawFormData.fullname.replace(/\s+/g, ""),
-    nisn: rawFormData.nisn.replace(/\s+/g, ""),
-  });
+  const { email, password, fullname, nisn } = rawFormData;
+  // Trim and remove spaces from email, password, fullname, and nisn
+  const trimmedEmail = email.replace(/\s+/g, "");
+  const trimmedPassword = password.replace(/\s+/g, "");
+  const trimmedFullname = fullname.replace(/\s+/g, "");
+  const trimmedNisn = nisn.replace(/\s+/g, "");
 
-  if (!validationResult.success) {
-    return { 
-      errorMessage: validationResult.error.issues[0].message,
-      success: false 
-    };
+  if (trimmedPassword.length < 6) {
+    return { errorMessage: "Password must be at least 6 characters long" };
   }
 
-  const { email, password, fullname, nisn } = validationResult.data;
-
   const existingUser = await prisma.user.findUnique({
-    where: { nomor_induk_siswa_nasional: nisn },
+    where: { nomor_induk_siswa_nasional: trimmedNisn },
   });
 
   if (existingUser) {
-    return { errorMessage: "User already exists", success: false };
+    return { errorMessage: "User already exists" };
   }
 
   try {
     // Signup user
     const result = await auth.api.signUpEmail({
       body: {
-        name: fullname,
-        email: email,
-        password: password,
+        name: `${trimmedFullname}`,
+        email: `${trimmedEmail}`,
+        password: `${trimmedPassword}`,
       },
     });
 
@@ -108,27 +88,16 @@ export async function signIn(prevState: State, formData: FormData) {
     password: formData.get("password") as string,
   };
 
-  // Validate with Zod
-  const validationResult = signInSchema.safeParse({
-    email: rawFormData.email.replace(/\s+/g, ""),
-    password: rawFormData.password.replace(/\s+/g, ""),
-  });
-
-  if (!validationResult.success) {
-    return { 
-      errorMessage: validationResult.error.issues[0].message,
-      success: false 
-    };
-  }
-
-  const { email, password } = validationResult.data;
+  const { email, password } = rawFormData;
+  const trimmedEmail = email.replace(/\s+/g, "");
+  const trimmedPassword = password.replace(/\s+/g, "");
 
   try {
-    // Signin user
+    // Signup user
     await auth.api.signInEmail({
       body: {
-        email: email,
-        password: password,
+        email: `${trimmedEmail}`,
+        password: `${trimmedPassword}`,
       },
     });
     return { success: true, redirect: "/" };
@@ -138,13 +107,13 @@ export async function signIn(prevState: State, formData: FormData) {
       switch (error.status) {
         case "UNAUTHORIZED":
           console.error("Invalid email or password");
-          return { errorMessage: "Invalid email or password", success: false };
+          return { errorMessage: "Invalid email or password" };
         case "BAD_REQUEST":
           console.error("Invalid Email");
-          return { errorMessage: "Invalid Email", success: false };
+          return { errorMessage: "Invalid Email" };
         default:
           console.error("Something went wrong");
-          return { errorMessage: "Something went wrong", success: false };
+          return { errorMessage: "Something went wrong" };
       }
     }
 
@@ -157,15 +126,14 @@ export async function signIn(prevState: State, formData: FormData) {
         "message" in error &&
         String(error.message).includes("User not found"))
     ) {
-      return { errorMessage: "User not found", success: false };
+      return { errorMessage: "User not found" };
     }
 
     // Generic error
     console.error("Error signing in:", error);
     return {
-      errorMessage: "Error signing in due to connection issues. Please try again.",
-      success: false
+      errorMessage:
+        "Error signing in due to connection issues. Please try again.",
     };
   }
 }
-

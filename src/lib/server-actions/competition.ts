@@ -2,14 +2,6 @@
 "use server";
 
 import { registerForACompetition as registerServerSide } from "@/lib/user";
-import { z } from "zod";
-
-// Define validation schema
-const registrationSchema = z.object({
-  success: z.boolean(),
-  errorMessage: z.string().optional(),
-});
-
 export async function registerForCompetition(formData: FormData, competitionId: string) {
   try {
     // Convert form fields from fullname1, nisn1 format to arrays
@@ -38,27 +30,14 @@ export async function registerForCompetition(formData: FormData, competitionId: 
       }
     }
     
-    const result = await registerServerSide({}, newFormData, competitionId);
-    
-    // Validate result using Zod
-    const validatedResult = registrationSchema.safeParse(result);
-    
-    if (!validatedResult.success || (validatedResult.data && !validatedResult.data.success)) {
-      return {
-        success: false,
-        errorMessage: validatedResult.success 
-          ? validatedResult.data.errorMessage || "Registration failed" 
-          : "Invalid registration response"
-      };
+    const result =  await registerServerSide({}, newFormData, competitionId);
+    if (!result || !result.success) {
+      throw new Error(result?.errorMessage || "Registration failed");
     }
-    
-    // 3. Return success response
+    // 3. Kembalikan token ke client (PLAIN OBJECT, not NextResponse)
     return { success: true };
   } catch (error) {
     console.error("Registration error:", error);
-    return { 
-      success: false, 
-      errorMessage: error instanceof Error ? error.message : "An unexpected error occurred" 
-    };
+    throw error;
   }
 }

@@ -1,102 +1,28 @@
 "use server";
 
 import prisma from "./prisma";
-import { z } from "zod";
+// import { revalidatePath } from "next/cache";
+// import { ActionResult } from "@/types/action";
+import { Competition } from "@/types/competition";
 
-// Define response schemas
-const competitionSchema = z
-  .object({
-    id: z.string(),
-    title: z.string(),
-    description: z.string(),
-    max_participants: z.number(),
-    registration_fee: z.number(),
-    // Add other fields as needed
-  })
-  .array();
-
-const singleCompetitionSchema = competitionSchema.element.nullable();
-
-const registrationIdSchema = z.object({
-  id: z.string(),
-}).nullable();
-
-const registrationStatusSchema = z
-  .enum(["pending", "accepted", "failed"])
-  .nullable();
-
-const operationResultSchema = z.object({
-  success: z.boolean(),
-  message: z.string().optional(),
-  data: z.any().optional(),
-});
-
-export async function getCompetitions(): Promise<
-  z.infer<typeof operationResultSchema>
-> {
-  try {
-    const competitions = await prisma.competition.findMany({
-      orderBy: { id: "desc" },
-    });
-
-    const validationResult = competitionSchema.safeParse(competitions);
-
-    if (!validationResult.success) {
-      return {
-        success: false,
-        message: "Invalid competition data format",
-      };
-    }
-
-    return {
-      success: true,
-      data: validationResult.data,
-    };
-  } catch (error) {
-    return {
-      success: false,
-      message:
-        error instanceof Error
-          ? error.message
-          : "Failed to fetch competitions",
-    };
-  }
+export async function getCompetitions(): Promise<Competition[]> {
+  return await prisma.competition.findMany({
+    orderBy: { id: "desc" },
+  });
 }
 
 export async function getCompetitionById(
   id: string
-): Promise<z.infer<typeof operationResultSchema>> {
-  try {
-    const competition = await prisma.competition.findUnique({
-      where: { id },
-    });
-
-    const validationResult = singleCompetitionSchema.safeParse(competition);
-
-    if (!validationResult.success) {
-      return {
-        success: false,
-        message: "Invalid competition data format",
-      };
-    }
-
-    return {
-      success: true,
-      data: validationResult.data,
-    };
-  } catch (error) {
-    return {
-      success: false,
-      message:
-        error instanceof Error ? error.message : "Failed to fetch competition",
-    };
-  }
+): Promise<Competition | null> {
+  return await prisma.competition.findUnique({
+    where: { id },
+  });
 }
 
 export async function getRegistrationIdByCompetitionAndUser(
   competitionId: string,
   userId: string
-): Promise<z.infer<typeof operationResultSchema>> {
+) {
   try {
     const registration = await prisma.competitionRegistration.findMany({
       where: {
@@ -107,34 +33,33 @@ export async function getRegistrationIdByCompetitionAndUser(
         id: true,
       },
     });
-
-    const result = registration.length > 0 ? registration[0] : null;
-    const validationResult = registrationIdSchema.safeParse(result);
-
-    if (!validationResult.success) {
-      return {
-        success: false,
-        message: "Invalid registration data format",
-      };
-    }
-
-    return {
-      success: true,
-      data: validationResult.data?.id || null,
-    };
+    return registration.length > 0 ? registration[0].id : null;
   } catch (error) {
-    return {
-      success: false,
-      message:
-        error instanceof Error ? error.message : "Failed to fetch registration ID",
-    };
+    console.error("Error fetching registration ID:", error);
+    throw error;
   }
 }
 
-export async function getRegistrationStatus(
-  competition_id: string,
-  team_name: string
-): Promise<z.infer<typeof operationResultSchema>> {
+// export async function updateRegistrationMidtransToken(
+//   team_name: string,
+//   competition_id: string,
+//   mid_token: string
+// ) {
+//   try {
+//     await prisma.competitionRegistration.updateMany({
+//       where: { team_name: team_name, competition_id: competition_id },
+//       data: {
+//         registration_midtrans_token: mid_token,
+//         registration_status: "pending",
+//       },
+//     });
+//   } catch (error) {
+//     console.error("Error updating registration Midtrans token:", error);
+//     throw error;
+//   }
+// }
+
+export async function getRegistrationStatus(competition_id: string, team_name: string) {
   try {
     const registration = await prisma.competitionRegistration.findFirst({
       where: {
@@ -145,158 +70,57 @@ export async function getRegistrationStatus(
         registration_status: true,
       },
     });
-
-    const validationResult = registrationStatusSchema.safeParse(
-      registration ? registration.registration_status : null
-    );
-
-    if (!validationResult.success) {
-      return {
-        success: false,
-        message: "Invalid registration status format",
-      };
-    }
-
-    return {
-      success: true,
-      data: validationResult.data,
-    };
+    return registration ? registration.registration_status : null;
   } catch (error) {
-    return {
-      success: false,
-      message:
-        error instanceof Error ? error.message : "Failed to fetch registration status",
-    };
+    console.error("Error fetching registration status:", error);
+    throw error;
   }
 }
 
-export async function updatePaymentProof(
-  competition_id: string,
-  team_name: string,
-  payment_proof: string
-): Promise<z.infer<typeof operationResultSchema>> {
+export async function updatePaymentProof(competition_id: string, team_name: string, payment_proof: string) {
   try {
-    // Input validation
-    const inputSchema = z.object({
-      competition_id: z.string().min(1, "Competition ID is required"),
-      team_name: z.string().min(1, "Team name is required"),
-      payment_proof: z.string().min(1, "Payment proof is required"),
-    });
-
-    const validationResult = inputSchema.safeParse({
-      competition_id,
-      team_name,
-      payment_proof,
-    });
-
-    if (!validationResult.success) {
-      return {
-        success: false,
-        message: validationResult.error.issues[0].message,
-      };
-    }
-
     await prisma.competitionRegistration.updateMany({
       where: { team_name: team_name, competition_id: competition_id },
       data: { imageUrl: payment_proof, registration_status: "pending" },
     });
-
-    return {
-      success: true,
-      message: "Payment proof updated successfully",
-    };
   } catch (error) {
-    return {
-      success: false,
-      message:
-        error instanceof Error ? error.message : "Failed to update payment proof",
-    };
+    console.error("Error updating payment proof:", error);
+    throw error;
   }
 }
 
-export async function updateIsPaid(
-  competition_id: string,
-  team_name: string,
-  is_paid: boolean
-): Promise<z.infer<typeof operationResultSchema>> {
-  try {
-    // Input validation
-    const inputSchema = z.object({
-      competition_id: z.string().min(1, "Competition ID is required"),
-      team_name: z.string().min(1, "Team name is required"),
-      is_paid: z.boolean(),
-    });
-
-    const validationResult = inputSchema.safeParse({
-      competition_id,
-      team_name,
-      is_paid,
-    });
-
-    if (!validationResult.success) {
-      return {
-        success: false,
-        message: validationResult.error.issues[0].message,
-      };
+export async function updateIsPaid(competition_id: string, team_name: string, is_paid: boolean) {
+  if (is_paid) {
+    try {
+      await prisma.competitionRegistration.updateMany({
+        where: { team_name: team_name, competition_id: competition_id },
+        data: { registration_status: "accepted" },
+      });
+      
+    } catch (error) {
+      console.error("Error updating is_paid:", error);
+      throw error;
     }
-
-    const status = is_paid ? "accepted" : "failed";
-
-    await prisma.competitionRegistration.updateMany({
-      where: { team_name: team_name, competition_id: competition_id },
-      data: { registration_status: status },
-    });
-
-    return {
-      success: true,
-      message: `Registration marked as ${status}`,
-    };
-  } catch (error) {
-    return {
-      success: false,
-      message:
-        error instanceof Error ? error.message : "Failed to update payment status",
-    };
+  } else {
+    try {
+      await prisma.competitionRegistration.updateMany({
+        where: { team_name: team_name, competition_id: competition_id },
+        data: { registration_status: "failed" },
+      });
+    } catch (error) {
+      console.error("Error updating is_paid:", error);
+      throw error;
+    }
   }
 }
 
-export async function cancelRegistration(
-  competition_id: string,
-  user_id: string
-): Promise<z.infer<typeof operationResultSchema>> {
+export async function cancelRegistration(competition_id: string, user_id: string) {
   try {
-    // Input validation
-    const inputSchema = z.object({
-      competition_id: z.string().min(1, "Competition ID is required"),
-      user_id: z.string().min(1, "User ID is required"),
-    });
-
-    const validationResult = inputSchema.safeParse({
-      competition_id,
-      user_id,
-    });
-
-    if (!validationResult.success) {
-      return {
-        success: false,
-        message: validationResult.error.issues[0].message,
-      };
-    }
-
     await prisma.competitionRegistration.deleteMany({
       where: { competition_id: competition_id, user_id: user_id },
     });
-
-    return {
-      success: true,
-      message: "Registration canceled successfully",
-    };
   } catch (error) {
-    return {
-      success: false,
-      message:
-        error instanceof Error ? error.message : "Failed to cancel registration",
-    };
+    console.error("Error canceling registration:", error);
+    throw error;
   }
 }
-
