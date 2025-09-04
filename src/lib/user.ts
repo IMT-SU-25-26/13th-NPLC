@@ -205,3 +205,12 @@ export async function checkRoleAccess(userId: string, acceptedRole: string) {
 
   return user?.role === acceptedRole;
 }
+
+export async function checkCanRegisterForCompetitiveProgramming(userId: string) {
+  const userRegistrations = await prisma.competitionRegistration.findMany({
+    where: { user_id: userId },
+  });
+
+  // User can register for competitive programming only if they are not registered in any competition
+  return userRegistrations.length === 0;
+}

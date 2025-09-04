@@ -4,8 +4,8 @@ import "@/styles/competitive-programming.css";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth/auth";
 import { headers } from "next/headers";
-import { checkCompetitionPageAccess } from "@/lib/user";
-
+import { checkCanRegisterForCompetitiveProgramming, checkCompetitionPageAccess } from "@/lib/user";
+import Restrictions from "@/components/utils/Restrictions";
 export default async function Page() {
   const competitionId = "cmegpb4cl0000hke9j8b2vg3f";
   const session = await auth.api.getSession({
@@ -26,6 +26,12 @@ export default async function Page() {
       "cmegpb4cl0000hke9j8b2vg3f"
     );
 
+  const alreadyRegisteredForOtherCompetition = await checkCanRegisterForCompetitiveProgramming(session.user.id);
+
+  if (alreadyRegisteredForOtherCompetition === false && !alreadyRegisteredForCompetitiveProgramming) {
+    return(<Restrictions restrictionDescription="You are already registered for another competition!" />)
+  }
+  
   if (alreadyRegisteredForCompetitiveProgramming) {
     redirect("/register/already-registered-at-competitive-programming");
   }
