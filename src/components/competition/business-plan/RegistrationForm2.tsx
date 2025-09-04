@@ -46,10 +46,7 @@ export default function BusinessPlanForm({
       const form = e.target as HTMLFormElement;
       const formData = new FormData(form);
 
-      const regis = await registerForCompetition(formData, competitionId);
-      if (!regis || !regis.success) {
-        toast.error(regis.errorMessage?.toString() || "Registration failed");
-      }
+      await registerForCompetition(formData, competitionId);
       const registration_id = (await getRegistrationIdByCompetitionAndUser(
         competitionId,
         userId
@@ -59,7 +56,7 @@ export default function BusinessPlanForm({
         toast.error("Failed to get registration ID.");
         return;
       }
-      toast.success("Registration Success!", { duration: 5000 });
+      toast.success("Registration Success!", {duration: 5000})
       setTimeout(() => {
         window.location.href = "/competition-details";
       }, 3000);
@@ -246,15 +243,12 @@ export default function BusinessPlanForm({
             folder="payment-proofs"
             allowedFormats={["jpg", "jpeg", "png"]}
             label={
-              <>
-                Price: Rp 40.000
-                <br />
-                Transfer to 008674351649 (Blu by BCA)
-                <br />
-                a/n Chrisensia Abigail Gani
-                <br />
-                Berita: (Team Name_CompetitionName)
-              </>
+            <>
+              Price: Rp 40.000<br />
+              Transfer to 008674351649 (Blu by BCA)<br />
+              a/n Chrisensia Abigail Gani<br />
+              Berita: (Team Name_CompetitionName)
+            </>
             }
             name="bukti_transfer"
             required={true}

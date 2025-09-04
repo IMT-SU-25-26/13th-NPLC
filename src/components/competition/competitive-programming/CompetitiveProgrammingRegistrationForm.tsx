@@ -46,10 +46,7 @@ export default function CompetitiveProgrammingForm({
       const form = e.target as HTMLFormElement;
       const formData = new FormData(form);
 
-      const regis = await registerForCompetition(formData, competitionId);
-      if (!regis || !regis.success) {
-        toast.error(regis.errorMessage?.toString() || "Registration failed");
-      }
+      await registerForCompetition(formData, competitionId);
       const registration_id = (await getRegistrationIdByCompetitionAndUser(
         competitionId,
         userId

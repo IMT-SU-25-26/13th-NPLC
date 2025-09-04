@@ -63,6 +63,12 @@ export async function registerForACompetition(
 
   const trimmedFullnames = (rawFormData.fullname as string[]).map((name) => name.replace(/\s/g, ''));
   const trimmedNisns = (rawFormData.nisn as string[]).map((nisn) => nisn.replace(/\s/g, ''));
+  const trimmedLinkTwiboon = link_twiboon.replace(/\s/g, '');
+  const trimmedSchoolName = school_name.replace(/\s/g, '');
+  const trimmedContactPersonNumber = contact_person_number.replace(/\s/g, '');
+  const trimmedTeamName = team_name.replace(/\s/g, '');
+  const trimmedImageUrl = imageUrl.replace(/\s/g, '');
+  const trimmedImagePublicId = imagePublicId.replace(/\s/g, '');
 
   // Normalize inputs to arrays
   const nisnArr = Array.isArray(trimmedNisns) ? trimmedNisns : [trimmedNisns];
