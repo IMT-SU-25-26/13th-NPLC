@@ -244,7 +244,7 @@ export default function BusinessPlanForm({
             onUploadSuccess={(url, publicId) => {
               setUploadedFileUrl(url);
               setUploadedFilePublicId(publicId || "");
-              toast.success("Payment proof uploaded successfully!");
+              toast.success("Payment proof uploaded successfully!", { duration: 4000 });
               console.log("File uploaded:", url, publicId);
             }}
             folder="payment-proofs"
@@ -264,25 +264,7 @@ export default function BusinessPlanForm({
             required={true}
           />
 
-          {/* Show upload status */}
-          {uploadedFileUrl && (
-            <div className="text-[#75E8F0] text-sm mt-2 flex items-center gap-2">
-              <svg
-                className="w-5 h-5 text-green-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-              Payment proof uploaded successfully
-            </div>
-          )}
+         
 
           <button
             type="submit"
