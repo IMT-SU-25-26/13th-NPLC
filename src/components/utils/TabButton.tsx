@@ -94,7 +94,7 @@ export default function TabButton({
               className="group-hover:fill-[#000000] transition-colors duration-200"
             />
           </svg>
-        ) : buttonName === "Prompt GPT" ? (
+        ) : buttonName === "AI Prompt" ? (
           <svg
             width="108"
             height="112"
