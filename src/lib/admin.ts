@@ -24,7 +24,7 @@ export async function getAllCompetitionRegistrations() {
     return registrations;
   } catch (error) {
     console.error("Error fetching registrations:", error);
-    throw new Error("Failed to fetch registrations");
+    return { success: false, errorMessage: "Error fetching registrations", data: null };
   }
 }
 
@@ -51,7 +51,7 @@ export async function getCompetitionRegistrationById(id: string) {
     return registration;
   } catch (error) {
     console.error("Error fetching registration:", error);
-    throw new Error("Failed to fetch registration");
+    return { success: false, errorMessage: "Error fetching registration", data: null };
   }
 }
 
@@ -70,6 +70,6 @@ export async function updateRegistrationStatus(
     return updatedRegistration;
   } catch (error) {
     console.error("Error updating registration status:", error);
-    throw new Error("Failed to update registration status");
+    return { success: false, errorMessage: "Error updating registration status", data: null };
   }
 }
