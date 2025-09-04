@@ -81,7 +81,7 @@ export default async function RegistrationDetail({
           Registration Details
         </h1>
         <p className="text-[#FCF551] text-lg">
-          Team: {registration.team_name}
+          Team: {registration.data?.team_name}
         </p>
       </div>
 
@@ -97,28 +97,28 @@ export default async function RegistrationDetail({
               <label className="text-[#FCF551] text-sm font-semibold mb-1">
                 Team Name
               </label>
-              <p className="text-white text-lg">{registration.team_name}</p>
+              <p className="text-white text-lg">{registration.data?.team_name}</p>
             </div>
             
             <div className="flex flex-col">
               <label className="text-[#FCF551] text-sm font-semibold mb-1">
                 Competition
               </label>
-              <p className="text-white text-lg">{registration.competition.name}</p>
+              <p className="text-white text-lg">{registration.data?.competition.name}</p>
             </div>
             
             <div className="flex flex-col">
               <label className="text-[#FCF551] text-sm font-semibold mb-1">
                 School Name
               </label>
-              <p className="text-white text-lg">{registration.school_name}</p>
+              <p className="text-white text-lg">{registration.data?.school_name}</p>
             </div>
             
             <div className="flex flex-col">
               <label className="text-[#FCF551] text-sm font-semibold mb-1">
                 Contact Person
               </label>
-              <p className="text-white text-lg">{registration.contact_person_number}</p>
+              <p className="text-white text-lg">{registration.data?.contact_person_number}</p>
             </div>
             
             <div className="flex flex-col">
@@ -126,12 +126,12 @@ export default async function RegistrationDetail({
                 Twibon Link
               </label>
               <a
-                href={registration.link_twiboon}
+                href={registration.data?.link_twiboon}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#75E8F0] hover:text-[#FCF551] transition-colors break-all"
               >
-                {registration.link_twiboon}
+                {registration.data?.link_twiboon}
               </a>
             </div>
             
@@ -140,7 +140,7 @@ export default async function RegistrationDetail({
                 Registration Date
               </label>
               <p className="text-white text-lg">
-                {new Date(registration.createdAt).toLocaleString()}
+                {registration.data?.createdAt ? new Date(registration.data.createdAt).toLocaleString() : "N/A"}
               </p>
             </div>
           </div>
@@ -159,10 +159,10 @@ export default async function RegistrationDetail({
               </label>
               <span
                 className={`inline-flex w-fit px-4 py-2 rounded-lg text-sm font-semibold uppercase border ${getStatusColor(
-                  registration.registration_status
+                  registration.data?.registration_status || "pending"
                 )}`}
               >
-                {registration.registration_status}
+                {registration.data?.registration_status}
               </span>
             </div>
             
@@ -172,22 +172,22 @@ export default async function RegistrationDetail({
               </label>
               <div className="space-y-3">
                 <StatusUpdateButton
-                  registrationId={registration.id}
-                  currentStatus={registration.registration_status}
+                  registrationId={registration.data?.id || ""}
+                  currentStatus={registration.data?.registration_status || "pending"}
                   newStatus="pending"
                   buttonText="Set as Pending"
                   buttonColor="bg-yellow-500/20 hover:bg-yellow-500/30 border-yellow-500 text-yellow-400"
                 />
                 <StatusUpdateButton
-                  registrationId={registration.id}
-                  currentStatus={registration.registration_status}
+                  registrationId={registration.data?.id || ""}
+                  currentStatus={registration.data?.registration_status || "pending"}
                   newStatus="accepted"
                   buttonText="Accept Registration"
                   buttonColor="bg-green-500/20 hover:bg-green-500/30 border-green-500 text-green-400"
                 />
                 <StatusUpdateButton
-                  registrationId={registration.id}
-                  currentStatus={registration.registration_status}
+                  registrationId={registration.data?.id || ""}
+                  currentStatus={registration.data?.registration_status || "pending"}
                   newStatus="failed"
                   buttonText="Reject Registration"
                   buttonColor="bg-red-500/20 hover:bg-red-500/30 border-red-500 text-red-400"
@@ -208,14 +208,14 @@ export default async function RegistrationDetail({
               <label className="text-[#FCF551] text-sm font-semibold mb-1">
                 Name
               </label>
-              <p className="text-white text-lg">{registration.user.name}</p>
+              <p className="text-white text-lg">{registration.data?.user.name}</p>
             </div>
             
             <div className="flex flex-col">
               <label className="text-[#FCF551] text-sm font-semibold mb-1">
                 Email
               </label>
-              <p className="text-white text-lg">{registration.user.email}</p>
+              <p className="text-white text-lg">{registration.data?.user.email}</p>
             </div>
             
             <div className="flex flex-col">
@@ -223,14 +223,14 @@ export default async function RegistrationDetail({
                 NISN
               </label>
               <p className="text-white text-lg">
-                {registration.user.nomor_induk_siswa_nasional || "N/A"}
+                {registration.data?.user.nomor_induk_siswa_nasional || "N/A"}
               </p>
             </div>
           </div>
         </div>
 
         {/* Payment Proof */}
-        {registration.imageUrl && (
+        {registration.data?.imageUrl && (
           <div className="bg-[#18182a]/80 border-2 border-[#FCF551] rounded-lg p-6">
             <h2 className="text-2xl font-bold text-[#75E8F0] [text-shadow:_0_0_15px_rgba(117,232,240,0.8)] mb-6">
               Payment Proof
@@ -239,7 +239,7 @@ export default async function RegistrationDetail({
             <div className="space-y-4">
               <div className="border-2 border-[#FCF551]/30 rounded-lg p-4">
                 <Image
-                  src={registration.imageUrl}
+                  src={registration.data?.imageUrl}
                   alt="Payment Proof"
                   width={400}
                   height={300}
@@ -247,7 +247,7 @@ export default async function RegistrationDetail({
                 />
               </div>
               <a
-                href={registration.imageUrl}
+                href={registration.data?.imageUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-4 py-2 bg-[#75E8F0]/20 hover:bg-[#75E8F0]/30 

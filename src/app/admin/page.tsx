@@ -57,7 +57,7 @@ export default async function AdminDashboard() {
               Total Registrations
             </h3>
             <p className="text-3xl font-bold text-[#75E8F0] [text-shadow:_0_0_15px_rgba(117,232,240,0.8)]">
-              {registrations.length}
+              {registrations.data?.length}
             </p>
           </div>
           <div className="bg-[#18182a]/80 border-2 border-green-400 p-6 rounded-lg">
@@ -66,7 +66,7 @@ export default async function AdminDashboard() {
             </h3>
             <p className="text-3xl font-bold text-green-400 [text-shadow:_0_0_15px_rgba(34,197,94,0.8)]">
               {
-                registrations.filter(
+                registrations.data?.filter(
                   (r) => r.registration_status === "accepted"
                 ).length
               }
@@ -76,7 +76,7 @@ export default async function AdminDashboard() {
             <h3 className="text-red-400 text-lg font-semibold mb-2">Pending</h3>
             <p className="text-3xl font-bold text-red-400 [text-shadow:_0_0_15px_rgba(248,113,113,0.8)]">
               {
-                registrations.filter((r) => r.registration_status === "pending")
+                registrations.data?.filter((r) => r.registration_status === "pending")
                   .length
               }
             </p>
@@ -113,7 +113,7 @@ export default async function AdminDashboard() {
                 </tr>
               </thead>
               <tbody>
-                {registrations.map((registration) => (
+                {registrations.data?.map((registration) => (
                   <tr
                     key={registration.id}
                     className="hover:bg-[#FCF551]/5 transition-colors border-b border-[#FCF551]/10"
@@ -152,7 +152,7 @@ export default async function AdminDashboard() {
             </table>
           </div>
 
-          {registrations.length === 0 && (
+          {registrations.data?.length === 0 && (
             <div className="p-12 text-center">
               <div className="text-6xl mb-4 text-[#FCF551]/20">📋</div>
               <h3 className="text-xl font-semibold text-[#75E8F0] mb-2">

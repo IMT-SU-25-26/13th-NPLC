@@ -1,4 +1,5 @@
 import prisma from "@/lib/prisma";
+import { success } from "better-auth";
 
 export async function getAllCompetitionRegistrations() {
   try {
@@ -21,10 +22,10 @@ export async function getAllCompetitionRegistrations() {
       },
     });
 
-    return registrations;
+    return {success: true, data:registrations};
   } catch (error) {
     console.error("Error fetching registrations:", error);
-    return { success: false, errorMessage: "Error fetching registrations", data: null };
+    return { success: false, errorMessage: "Error fetching registrations"};
   }
 }
 
@@ -48,7 +49,7 @@ export async function getCompetitionRegistrationById(id: string) {
       },
     });
 
-    return registration;
+    return {success: true, data: registration};
   } catch (error) {
     console.error("Error fetching registration:", error);
     return { success: false, errorMessage: "Error fetching registration", data: null };
