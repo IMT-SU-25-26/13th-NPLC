@@ -41,7 +41,10 @@ export default function SingleRegistrationForm({
       const form = e.target as HTMLFormElement;
       const formData = new FormData(form);
 
-      await registerForCompetition(formData, competitionId);
+      const regis = await registerForCompetition(formData, competitionId);
+      if (!regis || !regis.success) {
+        toast.error(regis.errorMessage?.toString() || "Registration failed");
+      }
       const registration_id = (await getRegistrationIdByCompetitionAndUser(
         competitionId,
         userId
@@ -56,7 +59,7 @@ export default function SingleRegistrationForm({
         toast.error("You must be logged in to register.");
         return;
       }
-      
+
       toast.success("Registration Success!", { duration: 5000 });
       setTimeout(() => {
         window.location.href = "/competition-details";
