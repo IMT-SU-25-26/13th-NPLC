@@ -33,7 +33,7 @@ export default function CompetitionDetail({ teams}: { teams: Team[]; }) {
         ? "cmegpb4cl0000hke9j8b2vg3f"
         : activeTab === "Business Plan"
         ? "cmegpbi5m0001hke9buhvhrw4"
-        : activeTab === "Prompt GPT"
+        : activeTab === "AI Prompt"
         ? "cmegpc6sx0002hke9gxo7hd6u"
         : activeTab === "Typeracer"
         ? "cmegpd01h0003hke91ea54m7c"
@@ -102,9 +102,9 @@ export default function CompetitionDetail({ teams}: { teams: Team[]; }) {
             compeittion_id="cmegpbi5m0001hke9buhvhrw4"
           />
           <TabButton
-            buttonName="Prompt GPT"
-            isActive={activeTab === "Prompt GPT"}
-            onClick={() => handleTabClick("Prompt GPT")}
+            buttonName="AI Prompt"
+            isActive={activeTab === "AI Prompt"}
+            onClick={() => handleTabClick("AI Prompt")}
             compeittion_id="cmegpc6sx0002hke9gxo7hd6u"
           />
           <TabButton
