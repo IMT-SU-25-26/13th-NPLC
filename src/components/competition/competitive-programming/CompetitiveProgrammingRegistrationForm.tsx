@@ -210,6 +210,8 @@ export default function CompetitiveProgrammingForm({
                   id={`nisn${i}`}
                   type="number"
                   name={`nisn${i}`}
+                  inputMode="numeric"
+                  onWheel={(e) => (e.target as HTMLInputElement).blur()}
                   className="cursor-target px-[2.5%] multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
                   text-sm w-full sm:text-base md:text-base lg:text-base
                   text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 

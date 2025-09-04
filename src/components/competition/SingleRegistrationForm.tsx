@@ -215,6 +215,8 @@ export default function SingleRegistrationForm({
                                 placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
                 placeholder={`Enter NISN`}
                 required={i === 1} // Only first member is required
+                inputMode="numeric"
+                onWheel={(e) => (e.target as HTMLInputElement).blur()}
                 onKeyDown={(e) => {
                   if (
                     e.key === "e" ||

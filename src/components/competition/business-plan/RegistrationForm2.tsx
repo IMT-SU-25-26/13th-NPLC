@@ -208,6 +208,8 @@ export default function BusinessPlanForm({
                 <input
                   id={`nisn${i}`}
                   type="number"
+                  inputMode="numeric"
+                  onWheel={(e) => (e.target as HTMLInputElement).blur()}
                   name={`nisn${i}`}
                   className="cursor-target px-[2.5%] multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
                   text-sm w-full sm:text-base md:text-base lg:text-base

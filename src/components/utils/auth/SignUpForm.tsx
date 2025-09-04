@@ -85,7 +85,9 @@ export default function SignUpForm() {
               id="nisn"
               type="number"
               name="nisn"
+              inputMode="numeric"
             required
+            onWheel={(e) => (e.target as HTMLInputElement).blur()}
             onKeyDown={(e) => {
               if (
                 e.key === 'e' ||
