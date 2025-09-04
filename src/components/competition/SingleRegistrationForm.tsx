@@ -285,6 +285,7 @@ export default function SingleRegistrationForm({
                 pending ? "" : "group-hover:fill-[#000000] "
               } transition-colors duration-200`}
             />
+            {/* aaa */}
             <path
               d="M98.49 0L0 38.8754V85.6927L64.3021 117.09H309.815L408.305 78.2145V0H98.49Z"
               fill="#661109"
