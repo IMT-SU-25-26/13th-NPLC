@@ -30,5 +30,6 @@ interface TeamMember {
 export interface Team {
   competition_id: string;
   team_name: string;
+  school_name: string;
   members: TeamMember[];
 }

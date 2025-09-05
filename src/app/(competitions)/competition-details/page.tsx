@@ -15,7 +15,7 @@ export default async function Page() {
 
   if (!session?.user?.id) {
     return (
-      <Restrictions restrictionDescription="You must be logged in to view this page." />
+      <Restrictions restrictionDescription="You musYou are not logged in into an account!"  />
     );
   }
 
@@ -47,6 +47,7 @@ export default async function Page() {
       return {
         competition_id: registration.competition_id,
         team_name: registration.team_name,
+        school_name: registration.school_name,
         members: teamMembers,
       };
     })

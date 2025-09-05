@@ -159,7 +159,7 @@ export default function BusinessPlanForm({
                 className="regis-label text-left w-full font-ropasans-regular tefxt-2xl"
                 htmlFor="link_twiboon"
               >
-                Twibon Link <Link className="underline" target="_blank" href="https://drive.google.com/drive/u/1/folders/18KHSP5Na7wal4sr-HEPvAtCPSvQ3LG8m">Link template</Link>
+                Twibon Link <Link className="underline" target="_blank" href="https://drive.google.com/drive/u/1/folders/18KHSP5Na7wal4sr-HEPvAtCPSvQ3LG8m">{`(Link template)`}</Link>
               </label>
               <input
                 id="link_twiboon"
