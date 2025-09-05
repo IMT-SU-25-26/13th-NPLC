@@ -63,7 +63,7 @@ export default function TabButton({
               className="group-hover:fill-[#110C25]"
             />
           </svg>
-        ) : buttonName === "Competitive Programming" ? (
+        ) : buttonName === "Programming" ? (
           <svg
             width="108"
             height="104"

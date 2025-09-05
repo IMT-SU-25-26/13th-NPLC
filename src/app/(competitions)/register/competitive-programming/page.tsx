@@ -71,7 +71,7 @@ export default async function Page() {
           <CompetitiveProgrammingForm
             competitionId={competitionId}
             userId={session.user.id}
-            competitionTitle="Competitive Programming"
+            competitionTitle="Programming"
           />
         </div>
         <Image

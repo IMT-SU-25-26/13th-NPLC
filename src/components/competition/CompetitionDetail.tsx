@@ -16,7 +16,7 @@ const generateStars = (count: number) => {
 
 export default function CompetitionDetail({ teams}: { teams: Team[]; }) {
   const [stars, setStars] = useState<Star[]>([]);
-  const [activeTab, setActiveTab] = useState("Competitive Programming");
+  const [activeTab, setActiveTab] = useState("Programming");
 
   const handleTabClick = (tabName: string) => {
     setActiveTab(tabName);
@@ -29,7 +29,7 @@ export default function CompetitionDetail({ teams}: { teams: Team[]; }) {
   const activeTeam = teams.find(
     (team) =>
       team.competition_id ===
-      (activeTab === "Competitive Programming"
+      (activeTab === "Programming"
         ? "cmegpb4cl0000hke9j8b2vg3f"
         : activeTab === "Business Plan"
         ? "cmegpbi5m0001hke9buhvhrw4"
@@ -90,9 +90,9 @@ export default function CompetitionDetail({ teams}: { teams: Team[]; }) {
         />
         <div className="details-tab-button-container relative backdrop-blur-lg z-[11] w-[45%] grid grid-cols-4 place-items-center justify-items-center gap-8 border-[8px] border-[#FCE551] rounded-lg p-[4rem]">
           <TabButton
-            buttonName="Competitive Programming"
-            isActive={activeTab === "Competitive Programming"}
-            onClick={() => handleTabClick("Competitive Programming")}
+            buttonName="Programming"
+            isActive={activeTab === "Programming"}
+            onClick={() => handleTabClick("Programming")}
             compeittion_id="cmegpb4cl0000hke9j8b2vg3f"
           />
           <TabButton

@@ -10,6 +10,7 @@ import {
   // updateRegistrationMidtransToken,
 } from "@/lib/competition";
 import { UploadWidget } from "@/components/CloudinaryWidget";
+import Link from "next/link";
 
 interface SingleRegistrationFormProps {
   competitionId: string;
@@ -158,7 +159,7 @@ export default function SingleRegistrationForm({
               className="regis-label text-left w-full font-ropasans-regular text-2xl"
               htmlFor="link_twiboon"
             >
-              Twibon Link
+              Twibon Link <Link className="underline" href="https://drive.google.com/drive/u/1/folders/18KHSP5Na7wal4sr-HEPvAtCPSvQ3LG8m">Link template</Link>
             </label>
             <input
               id="link_twiboon"

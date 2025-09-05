@@ -30,7 +30,7 @@ export default async function page() {
 
   return (
     <div className="flex min-h-screen w-screen bg-[#111114] pt-[7vh]">
-      Welcome to the competitive programming page!
+      Welcome to the programming page!
     </div>
   );
 }

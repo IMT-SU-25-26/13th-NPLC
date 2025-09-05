@@ -6,9 +6,9 @@ import Link from "next/link";
 
 // Tab data structure with description and registration links
 const tabData = {
-  "Competitive Programming": {
+  "Programming": {
     description:
-      "Competitive programming is a contest that tests how well participants can solve problems using logic, algorithms, and coding skills. They are given a set of problems, from easy to difficult, that require clear thinking, analysis, and efficient coding.",
+      "Programming is a contest that tests how well participants can solve problems using logic, algorithms, and coding skills. They are given a set of problems, from easy to difficult, that require clear thinking, analysis, and efficient coding.",
     registerLink: "/register/competitive-programming",
   },
   Typeracer: {
@@ -29,7 +29,7 @@ const tabData = {
 };
 
 function TabButtonContainer() {
-  const [activeTab, setActiveTab] = useState("Competitive Programming");
+  const [activeTab, setActiveTab] = useState("Programming");
 
   const handleTabClick = (tabName: string) => {
     setActiveTab(tabName);
@@ -39,9 +39,9 @@ function TabButtonContainer() {
     <div className="relative z-[20] tab-button-container w-full flex flex-col justify-center items-center">
       <div className="tab-button-grid w-[65%] grid grid-cols-2 sm:grid-cols-4 gap-12 justify-items-center place-items-center">
         <TabButton
-          buttonName="Competitive Programming"
-          isActive={activeTab === "Competitive Programming"}
-          onClick={() => handleTabClick("Competitive Programming")}
+          buttonName="Programming"
+          isActive={activeTab === "Programming"}
+          onClick={() => handleTabClick("Programming")}
         />
         <TabButton
           buttonName="Business Plan"

@@ -31,7 +31,7 @@ export default async function page() {
 
   return (
     <div className="flex min-h-screen w-screen bg-white pt-[7vh]">
-      Welcome to the prompt gpt page!
+      Welcome to the AI prompt page!
     </div>
   );
 }

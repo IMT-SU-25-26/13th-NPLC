@@ -114,7 +114,7 @@ export async function registerForACompetition(
 
     if (isRegisteredForCP) {
       return {
-        errorMessage: `User with NISN ${nisnArr[i]} is already registered for a competitive programming`,
+        errorMessage: `User with NISN ${nisnArr[i]} is already registered for a programming`,
         success: false,
       };
     }
@@ -134,7 +134,7 @@ export async function registerForACompetition(
 
       if (isAlreadyRegisteredForOtherCompetition) {
         return {
-          errorMessage: `User with NISN ${nisnArr[i]} is already registered for another competition, If you want to register for competitive programming, you have to not be registered at any other competition!`,
+          errorMessage: `User with NISN ${nisnArr[i]} is already registered for another competition, If you want to register for programming, you have to not be registered at any other competition!`,
           success: false,
         };
       }
@@ -211,6 +211,6 @@ export async function checkCanRegisterForCompetitiveProgramming(userId: string) 
     where: { user_id: userId },
   });
 
-  // User can register for competitive programming only if they are not registered in any competition
+  // User can register for programming only if they are not registered in any competition
   return userRegistrations.length === 0;
 }
