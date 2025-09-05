@@ -69,7 +69,7 @@ export default async function Page() {
           />
         </div>
         <Image
-          className="z-[10] absolute w-full bottom-[-1%] h-auto"
+          className="z-[8] absolute w-full bottom-[-1%] h-auto"
           src={"/backgrounds/Stairs.svg"}
           width={1000}
           height={1000}

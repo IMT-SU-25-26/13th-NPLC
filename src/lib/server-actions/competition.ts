@@ -20,7 +20,7 @@ export async function registerForCompetition(formData: FormData, competitionId: 
     if (imagePublicId) newFormData.append("imagePublicId", imagePublicId);
     
     // Handle numbered fields
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 1; i <= 4; i++) {
       const name = formData.get(`fullname${i}`) as string;
       const nisn = formData.get(`nisn${i}`) as string;
       

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { updateRegistrationStatusAction } from "./actions";
 import { useRouter } from "next/navigation";
+import { getRegistrationDetailById } from "@/lib/competition";
 
 interface StatusUpdateButtonProps {
   registrationId: string;
@@ -22,8 +23,14 @@ export default function StatusUpdateButton({
 }: StatusUpdateButtonProps) {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-
   const handleStatusUpdate = async () => {
+    const registrationDetails = await getRegistrationDetailById(registrationId);
+
+    if (!registrationDetails.success || !registrationDetails.data) {
+      toast.error("Failed to fetch registration details");
+      return;
+    }
+
     if (currentStatus === newStatus) {
       toast.info(`Registration is already ${newStatus}`);
       return;
@@ -31,7 +38,7 @@ export default function StatusUpdateButton({
 
     setIsLoading(true);
     try {
-      await updateRegistrationStatusAction(registrationId, newStatus);
+      await updateRegistrationStatusAction(registrationDetails?.data.team_name, registrationDetails?.data.competition_id, newStatus);
       toast.success(`Registration status updated to ${newStatus}`);
       router.refresh();
     } catch (error) {

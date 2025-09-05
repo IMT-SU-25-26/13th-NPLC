@@ -57,12 +57,13 @@ export async function getCompetitionRegistrationById(id: string) {
 }
 
 export async function updateRegistrationStatus(
-  id: string,
+  team_name: string,
+  competition_id: string,
   status: "pending" | "accepted" | "failed"
 ) {
   try {
-    const updatedRegistration = await prisma.competitionRegistration.update({
-      where: { id },
+    const updatedRegistration = await prisma.competitionRegistration.updateMany({
+      where: { team_name, competition_id },
       data: {
         registration_status: status,
       },

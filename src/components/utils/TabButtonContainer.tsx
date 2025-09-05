@@ -6,7 +6,7 @@ import Link from "next/link";
 
 // Tab data structure with description and registration links
 const tabData = {
-  "Programming": {
+  Programming: {
     description:
       "Programming is a contest that tests how well participants can solve problems using logic, algorithms, and coding skills. They are given a set of problems, from easy to difficult, that require clear thinking, analysis, and efficient coding.",
     registerLink: "/register/competitive-programming",
@@ -61,49 +61,90 @@ function TabButtonContainer() {
       </div>
       <div className="competition-tab-container relative flex flex-col items-center justify-between bg-[url('/home/MobileTabPanel.svg')] sm:bg-[url('/home/competition-tab.webp')] bg-contain bg-center bg-no-repeat">
         <div className="flex flex-col gap-4 p-4 w-full h-full justify-center items-center">
-          <h1 className={"font-rubik-glitch relative text-[#FFFFFF] text-center competition-tab-title"}>
+          <h1
+            className={
+              "font-rubik-glitch relative text-[#FFFFFF] text-center competition-tab-title"
+            }
+          >
             {activeTab}
           </h1>
-          <h1 className={`font-space-mono relative text-[#FFFFFF] text-center competition-tab-description`}>
+          <h1
+            className={`font-space-mono relative text-[#FFFFFF] text-center competition-tab-description`}
+          >
             {tabData[activeTab as keyof typeof tabData].description}
           </h1>
         </div>
-        <div className="flex w-full h-full justify-center items-center">
-        <Link
-          href={tabData[activeTab as keyof typeof tabData].registerLink}
-          className={`flex items-center justify-center group register-button`}
-        >
-          <svg
-            width="100%"
-            height="100%"
-            viewBox="0 0 462 93"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+        <div className="flex w-[85%] gap-4 h-full justify-center items-center">
+          <Link
+            href={tabData[activeTab as keyof typeof tabData].registerLink}
+            className={`flex items-center justify-center group register-button`}
           >
-            <path
-              opacity="0.25"
-              d="M111.442 0.983887L0 31.4417V68.122L72.7583 92.7208H350.558L462 62.263V0.983887H111.442Z"
-              fill="black"
-              className="group-hover:fill-[#FCF551] opacity-25 group-hover:opacity-100"
-            />
-            <path
-              d="M111.442 0.983887L0 31.4417V68.122L72.7583 92.7208H350.558L462 62.263V0.983887H111.442ZM455.119 61.2734L346.998 89.7802H77.4667L6.88097 66.7579V32.4257L115.002 3.92457H455.127V61.2734H455.119Z"
-              fill="#FCF551"
-            />
-            <text
-              x="250"
-              y="50"
-              textAnchor="middle"
-              dominantBaseline="middle"
-              fill="currentColor"
-              fontSize="18"
-              fontWeight="500"
-              className="text-[#FCF551] text-4xl sm:text-2xl md:text-4xl lg:text-4xl font-rubik-glitch group-hover:text-[#661108]"
+            <svg
+              width="100%"
+              height="100%"
+              viewBox="0 0 462 93"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              Register_
-            </text>
-          </svg>
-        </Link>
+              <path
+                opacity="0.25"
+                d="M111.442 0.983887L0 31.4417V68.122L72.7583 92.7208H350.558L462 62.263V0.983887H111.442Z"
+                fill="black"
+                className="group-hover:fill-[#FCF551] opacity-25 group-hover:opacity-100"
+              />
+              <path
+                d="M111.442 0.983887L0 31.4417V68.122L72.7583 92.7208H350.558L462 62.263V0.983887H111.442ZM455.119 61.2734L346.998 89.7802H77.4667L6.88097 66.7579V32.4257L115.002 3.92457H455.127V61.2734H455.119Z"
+                fill="#FCF551"
+              />
+              <text
+                x="250"
+                y="50"
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fill="currentColor"
+                fontSize="18"
+                fontWeight="500"
+                className="text-[#FCF551] text-4xl sm:text-2xl md:text-4xl lg:text-4xl font-rubik-glitch group-hover:text-[#661108]"
+              >
+                Guidebook_
+              </text>
+            </svg>
+          </Link>
+          <Link
+            href={tabData[activeTab as keyof typeof tabData].registerLink}
+            className={`flex items-center justify-center group register-button`}
+          >
+            <svg
+              width="100%"
+              height="100%"
+              viewBox="0 0 462 93"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                opacity="0.25"
+                d="M111.442 0.983887L0 31.4417V68.122L72.7583 92.7208H350.558L462 62.263V0.983887H111.442Z"
+                fill="black"
+                className="group-hover:fill-[#FCF551] opacity-25 group-hover:opacity-100"
+              />
+              <path
+                d="M111.442 0.983887L0 31.4417V68.122L72.7583 92.7208H350.558L462 62.263V0.983887H111.442ZM455.119 61.2734L346.998 89.7802H77.4667L6.88097 66.7579V32.4257L115.002 3.92457H455.127V61.2734H455.119Z"
+                fill="#FCF551"
+              />
+              <text
+                x="250"
+                y="50"
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fill="currentColor"
+                fontSize="18"
+                fontWeight="500"
+                className="text-[#FCF551] text-4xl sm:text-2xl md:text-4xl lg:text-4xl font-rubik-glitch group-hover:text-[#661108]"
+              >
+                Register_
+              </text>
+            </svg>
+          </Link>
         </div>
       </div>
     </div>

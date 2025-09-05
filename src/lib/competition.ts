@@ -58,7 +58,17 @@ export async function getRegistrationIdByCompetitionAndUser(
 //     throw error;
 //   }
 // }
-
+export async function getRegistrationDetailById(registration_id: string) {
+  try {
+    const registration = await prisma.competitionRegistration.findUnique({
+      where: { id: registration_id },
+    });
+    return { success: true, data: registration };
+  } catch (error) {
+    console.error("Error fetching registration detail:", error);
+    return { success: false, errorMessage: "Error fetching registration detail", data: null };
+  }
+}
 export async function getRegistrationStatus(competition_id: string, team_name: string) {
   try {
     const registration = await prisma.competitionRegistration.findFirst({
