@@ -90,14 +90,13 @@ export default function BusinessPlanRegistrationForm({
     <>
       <form
         onSubmit={handleSubmit}
-        className="w-[21rem] sm:w-[30rem] md:w-[40rem] lg:w-[40rem] xl:w-[35rem] 2xl:w-[40rem] md:mb-30 lg:mb-40 p-2 py-16 md:py-[6rem] sm:py-auto sm:p-5 md:p-5 lg:p-10 xl:p-10 flex backdrop-blur-lg flex-col items-center justify-center gap-1.5 sm:gap-2 md:gap-2 lg:gap-6 rounded-xl shadow-lg bg-[url('/register/MultipleformBG2-extraSmall.svg')] sm:bg-[url('/register/MultipleformBG2-small.svg')] md:bg-[url('/register/MultipleformBG2.svg')] lg:bg-[url('/register/MultipleformBG2.svg')] bg-contain bg-center bg-no-repeat
-        "
+        className="relative z-[10] backdrop-blur-2xl flex w-[80%] md:w-[70%] lg:w-[70%] xl:w-[45%] flex-col items-center justify-center gap-4 lg:gap-6 p-6 lg:p-12 rounded-xl shadow-lg border-[8px] border-[#FCE551]"
       >
-        <h2 className="font-RopoSans-Regular text-lg md:text-3xl lg:text-3xl font-bold text-center text-white">
+        <h2 className="font-RopoSans-Regular multiple-regis-title text-lg md:text-3xl lg:text-3xl font-bold text-center text-white">
           {competitionTitle}
         </h2>
 
-        <div className="gap-2 sm:gap-4 flex flex-col justify-center items-center w-[85%]">
+        <div className="multiple-regis-input-container gap-2 sm:gap-4 flex flex-col justify-center items-center w-[90%]">
           <div className="flex flex-col w-full">
             <label
               className="regis-label text-left w-full font-ropasans-regular text-2xl"
@@ -109,7 +108,7 @@ export default function BusinessPlanRegistrationForm({
               id="team_name"
               type="text"
               name="team_name"
-              className="cursor-target px-[2.5%] w-full bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+              className="cursor-target px-[2.5%] w-full multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
               text-sm sm:text-base md:text-base lg:text-base
               text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                             placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
@@ -128,7 +127,7 @@ export default function BusinessPlanRegistrationForm({
               id="school_name"
               type="text"
               name="school_name"
-              className="cursor-target px-[2.5%] w-full  bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+              className="cursor-target px-[2.5%] w-full multiple-all-input  bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
               text-sm sm:text-base md:text-base lg:text-base
               text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                             placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
@@ -148,7 +147,7 @@ export default function BusinessPlanRegistrationForm({
                 id="contact_person_number"
                 type="text"
                 name="contact_person_number"
-                className="cursor-target px-[2.5%] w-full bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                className="cursor-target px-[2.5%] w-full multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
               text-sm sm:text-base md:text-base lg:text-base
               text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                             placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
@@ -156,31 +155,13 @@ export default function BusinessPlanRegistrationForm({
                 required
               />
             </div>
-            <div className="flex flex-col w-full">
-              <label
-                className="regis-label text-left w-full font-ropasans-regular text-2xl"
-                htmlFor="link_twiboon"
-              >
-                Twibon Link <Link className="underline" target="_blank" href="https://drive.google.com/drive/u/1/folders/18KHSP5Na7wal4sr-HEPvAtCPSvQ3LG8m">{`(Link template)`}</Link>
-              </label>
-              <input
-                id="link_twiboon"
-                type="url"
-                name="link_twiboon"
-                className="cursor-target px-[2.5%] w-full bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
-                  text-sm sm:text-base md:text-base lg:text-base
-                  text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
-                                placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
-                placeholder="Enter Twibon link"
-                required
-              />
-            </div>
           </div>
           {[1, 2, 3, 4].map((i) => (
             <div
               key={i}
-              className="multiple-regis-name-nisn-container flex w-full justify-center gap-1 sm:gap-4"
+              className="multiple-regis-name-nisn-container flex flex-col w-full justify-center gap-1 sm:gap-4"
             >
+              <div className="flex w-full gap-1 sm:gap-2">
               <div className="flex flex-col w-full">
                 <label
                   className="regis-label text-left w-full font-ropasans-regular text-2xl"
@@ -192,7 +173,7 @@ export default function BusinessPlanRegistrationForm({
                   id={`fullname${i}`}
                   type="text"
                   name={`fullname${i}`}
-                  className="cursor-target px-[2.5%] bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                  className="cursor-target px-[2.5%] multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
                   text-sm w-full sm:text-base md:text-base lg:text-base
                   text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                                 placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
@@ -211,10 +192,10 @@ export default function BusinessPlanRegistrationForm({
                 <input
                   id={`nisn${i}`}
                   type="number"
+                  name={`nisn${i}`}
                   inputMode="numeric"
                   onWheel={(e) => (e.target as HTMLInputElement).blur()}
-                  name={`nisn${i}`}
-                  className="cursor-target px-[2.5%] bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                  className="cursor-target px-[2.5%] multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
                   text-sm w-full sm:text-base md:text-base lg:text-base
                   text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                                 placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
@@ -232,6 +213,26 @@ export default function BusinessPlanRegistrationForm({
                   }}
                 />
               </div>
+              </div>
+              <div className="flex flex-col w-full">
+              <label
+                className="regis-label text-left w-full font-ropasans-regular tefxt-2xl"
+                htmlFor="link_twiboon"
+              >
+                Twibon Link <Link className="underline" target="_blank" href="https://drive.google.com/drive/u/1/folders/18KHSP5Na7wal4sr-HEPvAtCPSvQ3LG8m">{`[Link template]`}</Link>
+              </label>
+              <input
+                id="link_twiboon"
+                type="url"
+                name="link_twiboon"
+                className="cursor-target px-[2.5%] w-full multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                  text-sm sm:text-base md:text-base lg:text-base
+                  text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
+                                placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
+                placeholder={`Enter Twibon link member ${i}`}
+                required={i === 1} // Only first member is required
+              />
+            </div>
             </div>
           ))}
 
@@ -244,7 +245,6 @@ export default function BusinessPlanRegistrationForm({
           />
 
           <UploadWidget
-            useDefaultClass={false}
             onUploadSuccess={(url, publicId) => {
               setUploadedFileUrl(url);
               setUploadedFilePublicId(publicId || "");
@@ -267,6 +267,26 @@ export default function BusinessPlanRegistrationForm({
             name="bukti_transfer"
             required={true}
           />
+          
+          {/* Show upload status */}
+          {/* {uploadedFileUrl && (
+            <div className="text-[#75E8F0] text-sm mt-2 flex items-center gap-2">
+              <svg
+                className="w-5 h-5 text-green-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              Payment proof uploaded successfully
+            </div>
+          )} */}
 
           <button
             type="submit"

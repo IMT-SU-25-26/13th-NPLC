@@ -90,13 +90,13 @@ export default function CompetitiveProgrammingForm({
     <>
       <form
         onSubmit={handleSubmit}
-        className="multiple-regis-form flex backdrop-blur-lg flex-col items-center justify-center gap-1.5 sm:gap-2 md:gap-2 lg:gap-6 rounded-xl shadow-lg bg-[url('/register/MultipleformBG.svg')] sm:bg-[url('/register/MultipleformBG.svg')] bg-contain bg-center bg-no-repeat"
+        className="relative z-[10] backdrop-blur-2xl flex w-[80%] md:w-[70%] lg:w-[70%] xl:w-[45%] flex-col items-center justify-center gap-4 lg:gap-6 p-6 lg:p-12 rounded-xl shadow-lg border-[8px] border-[#FCE551]"
       >
         <h2 className="font-RopoSans-Regular multiple-regis-title text-lg md:text-3xl lg:text-3xl font-bold text-center text-white">
           {competitionTitle}
         </h2>
 
-        <div className="multiple-regis-input-container gap-2 sm:gap-4 flex flex-col justify-center items-center w-[85%]">
+        <div className="multiple-regis-input-container gap-2 sm:gap-4 flex flex-col justify-center items-center w-[90%]">
           <div className="flex flex-col w-full">
             <label
               className="regis-label text-left w-full font-ropasans-regular text-2xl"
@@ -155,31 +155,13 @@ export default function CompetitiveProgrammingForm({
                 required
               />
             </div>
-            <div className="flex flex-col w-full">
-              <label
-                className="regis-label text-left w-full font-ropasans-regular tefxt-2xl"
-                htmlFor="link_twiboon"
-              >
-                Twibon Link <Link className="underline" target="_blank" href="https://drive.google.com/drive/u/1/folders/18KHSP5Na7wal4sr-HEPvAtCPSvQ3LG8m">{`(Link template)`}</Link>
-              </label>
-              <input
-                id="link_twiboon"
-                type="url"
-                name="link_twiboon"
-                className="cursor-target px-[2.5%] w-full multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
-                  text-sm sm:text-base md:text-base lg:text-base
-                  text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
-                                placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
-                placeholder="Enter Twibon link"
-                required
-              />
-            </div>
           </div>
           {[1, 2, 3].map((i) => (
             <div
               key={i}
-              className="multiple-regis-name-nisn-container flex w-full justify-center gap-1 sm:gap-4"
+              className="multiple-regis-name-nisn-container flex flex-col w-full justify-center gap-1 sm:gap-4"
             >
+              <div className="flex w-full gap-1 sm:gap-2">
               <div className="flex flex-col w-full">
                 <label
                   className="regis-label text-left w-full font-ropasans-regular text-2xl"
@@ -231,6 +213,26 @@ export default function CompetitiveProgrammingForm({
                   }}
                 />
               </div>
+              </div>
+              <div className="flex flex-col w-full">
+              <label
+                className="regis-label text-left w-full font-ropasans-regular tefxt-2xl"
+                htmlFor="link_twiboon"
+              >
+                Twibon Link <Link className="underline" target="_blank" href="https://drive.google.com/drive/u/1/folders/18KHSP5Na7wal4sr-HEPvAtCPSvQ3LG8m">{`[Link template]`}</Link>
+              </label>
+              <input
+                id="link_twiboon"
+                type="url"
+                name="link_twiboon"
+                className="cursor-target px-[2.5%] w-full multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                  text-sm sm:text-base md:text-base lg:text-base
+                  text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
+                                placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
+                placeholder={`Enter Twibon link member ${i}`}
+                required={i === 1} // Only first member is required
+              />
+            </div>
             </div>
           ))}
 

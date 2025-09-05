@@ -11,7 +11,6 @@ export async function registerForCompetition(formData: FormData, competitionId: 
     newFormData.append("team_name", formData.get("team_name") as string);
     newFormData.append("school_name", formData.get("school_name") as string);
     newFormData.append("contact_person_number", formData.get("contact_person_number") as string);
-    newFormData.append("link_twiboon", formData.get("link_twiboon") as string);
     
     // Copy image fields
     const imageUrl = formData.get("imageUrl") as string;
@@ -23,10 +22,12 @@ export async function registerForCompetition(formData: FormData, competitionId: 
     for (let i = 1; i <= 4; i++) {
       const name = formData.get(`fullname${i}`) as string;
       const nisn = formData.get(`nisn${i}`) as string;
+      const link_twiboon = formData.get(`link_twiboon${i}`) as string;
       
       if (name && nisn) {
         newFormData.append("fullname", name);
         newFormData.append("nisn", nisn);
+        newFormData.append("link_twiboon", link_twiboon);
       }
     }
     

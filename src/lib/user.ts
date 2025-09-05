@@ -42,7 +42,7 @@ export async function registerForACompetition(
   const rawFormData = {
     fullname: formData.getAll("fullname") as string[],
     nisn: formData.getAll("nisn") as string[],
-    link_twiboon: formData.get("link_twiboon") as string,
+    link_twiboon: formData.getAll("link_twiboon") as string[],
     school_name: formData.get("school_name") as string,
     contact_person_number: formData.get("contact_person_number") as string,
     team_name: formData.get("team_name") as string,
@@ -51,7 +51,6 @@ export async function registerForACompetition(
   };
 
   const {
-    link_twiboon,
     school_name,
     contact_person_number,
     team_name,
@@ -65,8 +64,39 @@ export async function registerForACompetition(
   // Normalize inputs to arrays
   const nisnArr = Array.isArray(trimmedNisns) ? trimmedNisns : [trimmedNisns];
   const fullnameArr = Array.isArray(trimmedFullnames) ? trimmedFullnames : [trimmedFullnames];
+  const link_twiboonArr = Array.isArray(rawFormData.link_twiboon)
+    ? rawFormData.link_twiboon
+    : [rawFormData.link_twiboon];
 
   // Cek semua user dan validasi sebelum update
+
+  // Check for duplicate NISN entries
+  const uniqueNisns = new Set(nisnArr);
+  if (uniqueNisns.size !== nisnArr.length) {
+    return {
+      errorMessage: "Duplicate NISN detected. Each team member must have a unique NISN.",
+      success: false,
+    };
+  }
+
+  // Check for duplicate names
+  const uniqueNames = new Set(fullnameArr);
+  if (uniqueNames.size !== fullnameArr.length) {
+    return {
+      errorMessage: "Duplicate names detected. Each team member must be unique.",
+      success: false,
+    };
+  }
+
+  // Check for duplicate twiboon links
+  const uniqueLinks = new Set(link_twiboonArr.filter(link => link.trim() !== ''));
+  if (uniqueLinks.size !== link_twiboonArr.filter(link => link.trim() !== '').length) {
+    return {
+      errorMessage: "Duplicate links detected. Each team member must provide a unique link.",
+      success: false,
+    };
+  }
+
   const users = await Promise.all(
     nisnArr.map((nisnItem) =>
       prisma.user.findUnique({
@@ -167,7 +197,7 @@ export async function registerForACompetition(
             competition_id: competition_id,
             team_name: team_name,
             school_name: school_name,
-            link_twiboon: link_twiboon,
+            link_twiboon: link_twiboonArr[index],
             contact_person_number: contact_person_number,
             imageUrl: imageUrl,
             imagePublicId: imagePublicId,

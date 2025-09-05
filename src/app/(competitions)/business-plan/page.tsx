@@ -113,9 +113,8 @@ export default async function page() {
 
                 </div>
                 </div>
-            <div className="under-stair bg-[#090A1E] absolute w-dvw h-[20rem] bottom-[-10%] z-[9]"></div>
               <Image
-                className="cp-regis-stairs absolute z-[10] w-full bottom-[28%] sm:bottom-[20%] lg:bottom-[-8%] h-auto"
+                className="z-[10] w-full mb-[-1%] h-auto"
                 src={"/backgrounds/Stairs.svg"}
                 width={1000}
                 height={1000}
