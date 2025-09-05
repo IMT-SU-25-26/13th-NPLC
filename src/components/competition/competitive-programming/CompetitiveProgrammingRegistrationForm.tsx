@@ -90,7 +90,7 @@ export default function CompetitiveProgrammingForm({
     <>
       <form
         onSubmit={handleSubmit}
-        className="relative z-[10] backdrop-blur-2xl flex w-[80%] md:w-[70%] lg:w-[70%] xl:w-[45%] flex-col items-center justify-center gap-4 lg:gap-6 p-6 lg:p-12 rounded-xl shadow-lg border-[8px] border-[#FCE551]"
+        className="relative z-[10] backdrop-blur-2xl flex w-[90%] md:w-[70%] lg:w-[70%] xl:w-[45%] flex-col items-center justify-center gap-4 lg:gap-6 p-6 lg:p-12 rounded-xl shadow-lg border-[8px] border-[#FCE551]"
       >
         <h2 className="font-RopoSans-Regular multiple-regis-title text-lg md:text-3xl lg:text-3xl font-bold text-center text-white">
           {competitionTitle}
