@@ -214,7 +214,7 @@ export default function CompetitiveProgrammingForm({
                 />
               </div>
               </div>
-              <div className="flex flex-col w-full">
+              <div className="flex flex-col gap-1 sm:gap-2 w-full">
               <label
                 className="regis-label text-left w-full font-ropasans-regular tefxt-2xl"
                 htmlFor="link_twiboon"

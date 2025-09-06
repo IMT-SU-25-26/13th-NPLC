@@ -3711,6 +3711,77 @@
     height: auto;
   }
 }
+@media (max-width: 360px) and (max-height: 692px) and (orientation: portrait) {
+    .up-container {
+    height: 50vh;
+  }
+  .dimensional-rift {
+    display: none;
+  }
+  .gradient-light-bg {
+    bottom: 22.5%;
+  }
+  .light-middle {
+    bottom: 45.5%;
+  }
+  .front-light-gradient {
+    bottom: 0;
+  }
+  .timeline-container {
+    margin-top: 20%;
+  }
+  .timeline-text {
+    margin-top: 0%;
+    width: 15rem;
+  }
+  .timeline {
+    width: 20.5rem;
+  }
+ 
+  .upmost-ground {
+    bottom: 0rem;
+  }
+  .waves {
+    bottom: 0%;
+  }
+  .light-waves {
+    bottom: 0%;
+  }
+  .stairs {
+    top: -15%;
+  }
+
+  .tab-button-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 10%;
+    width: 85%;
+    gap: 1rem;
+  }
+ 
+  .tab-button-container {
+    padding-bottom: 2.5rem;
+  }
+  .competition-tab-container {
+    margin-top: 5%;
+    width: 85%;
+    height: 16rem;
+    margin-bottom: 0;
+  }
+  .competition-tab-title {
+    margin-top: 2.5%;
+    font-size: 1.25rem;
+  }
+  .competition-tab-description {
+    margin-top: -2%;
+    font-size: 0.7rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: -15%;
+    width: 60%;
+    height: auto;
+  }
+}
 @media (max-width: 344px) and (max-height: 882px) and (orientation: portrait) {
   .up-container {
     height: 50vh;

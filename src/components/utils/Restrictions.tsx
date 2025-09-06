@@ -87,7 +87,7 @@ export default function Restrictions({
             <h1 className="text-center restriction-title">
               This page is restricted
             </h1>
-            <p className="text-center restriction-description">
+            <p className="text-center w-[80%] restriction-description">
               {restrictionDescription}
             </p>
             {/* Use the dynamic 'buttonLink' variable for the href */}

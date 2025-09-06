@@ -41,7 +41,7 @@ export default function CompetitionDetail({ teams}: { teams: Team[]; }) {
   );
   return (
     <div className="min-h-screen w-screen overflow-hidden bg-gradient-to-b from-[#111114] to-[#090A1E]">
-      <div className=" relative flex lg:gap-8 flex-col justify-start items-center w-full h-screen">
+      <div className="relative flex lg:gap-8 flex-col justify-start items-center w-full h-[90vw] lg:h-[60vh] xl:h-screen">
         {stars.map((star, index) => (
           <Image
             key={`star-${index}`}
