@@ -95,7 +95,7 @@ export default function SingleRegistrationForm({
         {competitionTitle}
       </h2>
 
-      <div className="single-regis-input-container gap-2 sm:gap-4 flex flex-col justify-center items-center w-[85%]">
+      <div className="single-regis-input-container gap-2 sm:gap-4 flex flex-col justify-center items-center w-[80%] sm:w-[85%]">
         <div className="flex flex-col w-full">
           <label
             className="regis-label text-left w-full font-ropasans-regular text-2xl"

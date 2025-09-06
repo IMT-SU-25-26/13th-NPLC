@@ -54,10 +54,10 @@ export default function CompetitiveProgrammingForm({
       )) as string;
 
       if (!registration_id) {
-        if(!regis || !regis.success){
+        if (!regis || !regis.success) {
           toast.error(regis?.errorMessage?.toString() || "Registration failed");
           return;
-        }else{
+        } else {
           toast.error("Failed to get registration ID.");
           return;
         }
@@ -161,78 +161,85 @@ export default function CompetitiveProgrammingForm({
               key={i}
               className="multiple-regis-name-nisn-container flex flex-col w-full justify-center gap-1 sm:gap-4"
             >
-              <div className="flex w-full gap-1 sm:gap-2">
-              <div className="flex flex-col w-full">
-                <label
-                  className="regis-label text-left w-full font-ropasans-regular text-2xl"
-                  htmlFor={`fullname${i}`}
-                >
-                  Full Name
-                </label>
-                <input
-                  id={`fullname${i}`}
-                  type="text"
-                  name={`fullname${i}`}
-                  className="cursor-target px-[2.5%] multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+              <div className="flex-col flex w-full gap-1 sm:gap-2">
+                <div className="flex space-x-1 sm:space-x-2">
+                  <div className="flex flex-col w-full">
+                    <label
+                      className="regis-label text-left w-full font-ropasans-regular text-2xl"
+                      htmlFor={`fullname${i}`}
+                    >
+                      Full Name
+                    </label>
+                    <input
+                      id={`fullname${i}`}
+                      type="text"
+                      name={`fullname${i}`}
+                      className="cursor-target px-[2.5%] multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
                   text-sm w-full sm:text-base md:text-base lg:text-base
                   text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                                 placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
-                  placeholder={`Enter full name ${i}`}
-                  required={i === 1} // Only first member is required
-                />
-              </div>
+                      placeholder={`Enter full name ${i}`}
+                      required={i === 1} // Only first member is required
+                    />
+                  </div>
 
-              <div className="flex flex-col w-full">
-                <label
-                  className="regis-label text-left w-full font-ropasans-regular text-2xl"
-                  htmlFor={`nisn${i}`}
-                >
-                  NISN
-                </label>
-                <input
-                  id={`nisn${i}`}
-                  type="number"
-                  name={`nisn${i}`}
-                  inputMode="numeric"
-                  onWheel={(e) => (e.target as HTMLInputElement).blur()}
-                  className="cursor-target px-[2.5%] multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                  <div className="flex flex-col w-full">
+                    <label
+                      className="regis-label text-left w-full font-ropasans-regular text-2xl"
+                      htmlFor={`nisn${i}`}
+                    >
+                      NISN
+                    </label>
+                    <input
+                      id={`nisn${i}`}
+                      type="number"
+                      name={`nisn${i}`}
+                      inputMode="numeric"
+                      onWheel={(e) => (e.target as HTMLInputElement).blur()}
+                      className="cursor-target px-[2.5%] multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
                   text-sm w-full sm:text-base md:text-base lg:text-base
                   text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                                 placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
-                  placeholder={`Enter NISN ${i}`}
-                  required={i === 1} // Only first member is required
-                  onKeyDown={(e) => {
-                    if (
-                      e.key === "e" ||
-                      e.key === "E" ||
-                      e.key === "+" ||
-                      e.key === "-"
-                    ) {
-                      e.preventDefault();
-                    }
-                  }}
-                />
-              </div>
-              </div>
-              <div className="flex flex-col gap-1 sm:gap-2 w-full">
-              <label
-                className="regis-label text-left w-full font-ropasans-regular tefxt-2xl"
-                htmlFor="link_twiboon"
-              >
-                Twibon Link <Link className="regis-label underline" target="_blank" href="https://drive.google.com/drive/u/1/folders/18KHSP5Na7wal4sr-HEPvAtCPSvQ3LG8m">{`[Link template]`}</Link>
-              </label>
-              <input
-                id={`link_twiboon${i}`}
-                type="url"
-                name={`link_twiboon${i}`}
-                className="cursor-target px-[2.5%] w-full multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                      placeholder={`Enter NISN ${i}`}
+                      required={i === 1} // Only first member is required
+                      onKeyDown={(e) => {
+                        if (
+                          e.key === "e" ||
+                          e.key === "E" ||
+                          e.key === "+" ||
+                          e.key === "-"
+                        ) {
+                          e.preventDefault();
+                        }
+                      }}
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col w-full">
+                  <label
+                    className="regis-label text-left w-full font-ropasans-regular tefxt-2xl"
+                    htmlFor="link_twiboon"
+                  >
+                    Twibon Link{" "}
+                    <Link
+                      className="regis-label underline"
+                      target="_blank"
+                      href="https://drive.google.com/drive/u/1/folders/18KHSP5Na7wal4sr-HEPvAtCPSvQ3LG8m"
+                    >{`[Link template]`}</Link>
+                  </label>
+                  <input
+                    id={`link_twiboon${i}`}
+                    type="url"
+                    name={`link_twiboon${i}`}
+                    className="cursor-target px-[2.5%] w-full multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
                   text-sm sm:text-base md:text-base lg:text-base
                   text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                                 placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
-                placeholder={`Enter Twibon link member ${i}`}
-                required={i === 1} // Only first member is required
-              />
-            </div>
+                    placeholder={`Enter Twibon link member ${i}`}
+                    required={i === 1} // Only first member is required
+                  />
+                </div>
+              </div>
             </div>
           ))}
 
@@ -248,7 +255,9 @@ export default function CompetitiveProgrammingForm({
             onUploadSuccess={(url, publicId) => {
               setUploadedFileUrl(url);
               setUploadedFilePublicId(publicId || "");
-              toast.success("Payment proof uploaded successfully!", { duration: 4000 });
+              toast.success("Payment proof uploaded successfully!", {
+                duration: 4000,
+              });
               console.log("File uploaded:", url, publicId);
             }}
             folder="payment-proofs"
@@ -267,7 +276,7 @@ export default function CompetitiveProgrammingForm({
             name="bukti_transfer"
             required={true}
           />
-          
+
           {/* Show upload status */}
           {/* {uploadedFileUrl && (
             <div className="text-[#75E8F0] text-sm mt-2 flex items-center gap-2">
