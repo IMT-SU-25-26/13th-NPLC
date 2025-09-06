@@ -222,9 +222,9 @@ export default function CompetitiveProgrammingForm({
                 Twibon Link <Link className="underline" target="_blank" href="https://drive.google.com/drive/u/1/folders/18KHSP5Na7wal4sr-HEPvAtCPSvQ3LG8m">{`[Link template]`}</Link>
               </label>
               <input
-                id="link_twiboon"
+                id={`link_twiboon${i}`}
                 type="url"
-                name="link_twiboon"
+                name={`link_twiboon${i}`}
                 className="cursor-target px-[2.5%] w-full multiple-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
                   text-sm sm:text-base md:text-base lg:text-base
                   text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
