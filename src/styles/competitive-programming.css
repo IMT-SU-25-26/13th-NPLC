@@ -1494,10 +1494,6 @@
     .cp-regis-main-wrapper-container{
         min-height: 100vh;
     }
-    .cp-competition-text{
-        margin-top: 45%;
-        width: 75%;
-    }
     .cp-regis-background-img-container{
     }
     .cp-regis-front-light-gradient{
@@ -1536,10 +1532,6 @@
 @media (max-width: 344px) and (max-height: 882px) and (orientation: portrait) {
     .cp-regis-main-wrapper-container{
         min-height: 90vh;
-    }
-    .cp-competition-text{
-        margin-top: 60%;
-        width: 75%;
     }
     .cp-regis-background-img-container{
     }
