@@ -70,6 +70,19 @@ export async function registerForACompetition(
 
   // Cek semua user dan validasi sebelum update
 
+  // START: Pengecekan Link Twiboon Kosong
+  // Memastikan setiap peserta, baik individu maupun tim, mengisi link twiboon.
+  for (let i = 0; i < link_twiboonArr.length; i++) {
+    const link = link_twiboonArr[i];
+    if (!link || link.trim() === '') {
+      const memberIdentifier = fullnameArr[i] || `peserta ke-${i + 1}`;
+      return {
+        errorMessage: `Link twiboon untuk ${memberIdentifier} tidak boleh kosong.`,
+        success: false,
+      };
+    }
+  }
+
   // Check for duplicate NISN entries
   const uniqueNisns = new Set(nisnArr);
   if (uniqueNisns.size !== nisnArr.length) {

@@ -193,18 +193,6 @@ export default function CompetitionDetailsDisplay({
               key={index}
               className="flex w-full flex-col justify-center gap-4"
             >
-              <div className="flex flex-col w-full">
-                <label className="competition-detail-label text-left w-full font-ropasans-regular text-md md:text-2xl">
-                  Link Twibbon
-                </label>
-                <div
-                  className="competition-detail-data px-[2.5%] text-md md:text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
-                text-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
-                  overflow-x-auto whitespace-nowrap"
-                >
-                  {member.link_twiboon || "-"}
-                </div>
-              </div>
               <div className="flex w-full flex-col sm:flex-row justify-center gap-4">
                 <div className="flex flex-col w-full">
                   <label className="competition-detail-label text-left w-full font-ropasans-regular text-md md:text-2xl">
@@ -230,6 +218,18 @@ export default function CompetitionDetailsDisplay({
                   >
                     {member.user.nomor_induk_siswa_nasional || "-"}
                   </div>
+                </div>
+              </div>
+              <div className="flex flex-col w-full">
+                <label className="competition-detail-label text-left w-full font-ropasans-regular text-md md:text-2xl">
+                  Link Twibbon
+                </label>
+                <div
+                  className="competition-detail-data px-[2.5%] text-md md:text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                text-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
+                  overflow-x-auto whitespace-nowrap"
+                >
+                  {member.link_twiboon || "-"}
                 </div>
               </div>
             </div>
@@ -401,7 +401,9 @@ export default function CompetitionDetailsDisplay({
                     </svg>
                   </button>
                 </div>
-                <h1 className="text-center text-xl sm:text-2xl font-bold text-[#75E8F0] [text-shadow:_0_0_15px_rgba(117,232,240,0.8)] mb-2">Click pay now to update your payment proof</h1>
+                <h1 className="text-center text-xl sm:text-2xl font-bold text-[#75E8F0] [text-shadow:_0_0_15px_rgba(117,232,240,0.8)] mb-2">
+                  Click pay now to update your payment proof
+                </h1>
               </div>
             )}
           </div>
