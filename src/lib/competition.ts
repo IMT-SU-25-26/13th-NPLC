@@ -124,10 +124,10 @@ export async function updateIsPaid(competition_id: string, team_name: string, is
   }
 }
 
-export async function cancelRegistration(competition_id: string, user_id: string) {
+export async function cancelRegistration(competition_id: string, team_name: string) {
   try {
     await prisma.competitionRegistration.deleteMany({
-      where: { competition_id: competition_id, user_id: user_id },
+      where: { competition_id: competition_id, team_name: team_name },
     });
   } catch (error) {
     console.error("Error canceling registration:", error);

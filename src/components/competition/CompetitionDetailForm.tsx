@@ -114,7 +114,7 @@ export default function CompetitionDetailsDisplay({
       // Loop untuk memastikan anggota tim yang benar yang membatalkan
       for (const member of teams.members) {
         if (member.user.id === session.user.id) {
-          await cancelRegistration(member.competition_id, member.user.id);
+          await cancelRegistration(member.competition_id, member.team_name);
           break; // Keluar dari loop setelah pembatalan berhasil
         }
       }

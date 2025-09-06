@@ -77,7 +77,7 @@ export async function registerForACompetition(
     if (!link || link.trim() === '') {
       const memberIdentifier = fullnameArr[i] || `peserta ke-${i + 1}`;
       return {
-        errorMessage: `Link twiboon untuk ${memberIdentifier} tidak boleh kosong.`,
+        errorMessage: `Link twibbon ${memberIdentifier} can not be empty.`,
         success: false,
       };
     }
