@@ -447,7 +447,7 @@
 
     }
     .cp-competition-text{
-        margin-top: 25%;
+        margin-top: 18%;
         width: 40%;
     }
     .cp-regis-gradient-light-bg{
@@ -1188,7 +1188,7 @@
     }
     .cp-competition-text{
         width: 60%;
-        margin-top: 20%;
+        margin-top: 14%;
     }
     .cp-regis-front-light-gradient{
         bottom: 0;
@@ -1269,7 +1269,7 @@
     }
     .cp-competition-text{
         width: 60%;
-        margin-top: 40%;
+        margin-top: 20%;
     }
     .cp-regis-front-light-gradient{
         bottom: 0;
@@ -1341,7 +1341,7 @@
         min-height: 100vh;
     }
     .cp-competition-text{
-        margin-top: 40%;
+        margin-top: 18%;
         width: 75%;
     }
 }
