@@ -340,6 +340,7 @@ export default function CompetitionDetailsDisplay({
                     </svg>
                   </button>
                   <button
+                  type="button"
                     onClick={deleteRegistration}
                     className="multiple-regis-button group flex 
               w-[60%] sm:w-[45%] lg:w-[40%] sm:mt-[-1rem] md:mt-[0rem] lg:mt-[0rem]"
