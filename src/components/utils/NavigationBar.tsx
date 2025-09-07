@@ -224,7 +224,7 @@ export default function NavigationBar() {
                     fontWeight="500"
                     className="text-[#FCF551] text-xl sm:text-xl md:text-2xl group-hover:text-[#661108]"
                   >
-                    Competition Details
+                    My Competitions
                   </text>
                   <defs>
                     <clipPath id="bgblur_0_784_144_clip_path">
