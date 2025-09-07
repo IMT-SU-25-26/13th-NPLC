@@ -15,7 +15,7 @@ export default async function Page() {
 
   if (!session?.user?.id) {
     return (
-      <Restrictions restrictionDescription="You musYou are not logged in into an account!"  />
+      <Restrictions restrictionDescription="You are not logged in into an account!"  />
     );
   }
 
