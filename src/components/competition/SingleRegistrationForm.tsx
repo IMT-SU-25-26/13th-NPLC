@@ -140,7 +140,7 @@ export default function SingleRegistrationForm({
               className="regis-label text-left w-full font-ropasans-regular text-2xl"
               htmlFor="contact_person_number"
             >
-              Contact Person Number
+              Contact Person Line ID
             </label>
             <input
               id="contact_person_number"

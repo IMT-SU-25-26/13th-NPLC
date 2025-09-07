@@ -187,6 +187,14 @@ export default function CompetitionDetailsDisplay({
               {teams.school_name || "-"}
             </div>
           </div>
+          <div className="flex flex-col w-full">
+            <label className="competition-detail-label text-left w-full font-ropasans-regular text-md md:text-2xl">
+              Contact Person Line ID
+            </label>
+            <div className="competition-detail-data px-[2.5%] text-md md:text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none text-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] overflow-x-auto whitespace-nowrap">
+              {teams.members[0]?.contact_person_number || "-"}
+            </div>
+          </div>
           {/* ... Fields lainnya seperti School Name, Contact, etc. */}
           {teams.members.map((member, index) => (
             <div

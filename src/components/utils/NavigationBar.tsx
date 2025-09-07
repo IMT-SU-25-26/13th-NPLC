@@ -371,7 +371,7 @@ export default function NavigationBar() {
               onClick={() => setMenuOpen(false)}
             >
               <span className="text-2xl pointer-events-auto text-[#FCF551] font-bold">
-                Competition Details
+                My Competitions
               </span>
             </Link>
             {!isLoggedIn ? (
