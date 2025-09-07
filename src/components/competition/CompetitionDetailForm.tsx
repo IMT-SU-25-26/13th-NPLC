@@ -174,30 +174,31 @@ export default function CompetitionDetailsDisplay({
           {statusText}
         </div>
 
-        {registrationStatus === "accepted" && (
-          <div className="w-full text-center text-white [text-shadow:_0_0_15px_rgba(255,255,255,0.8)]">
-            Please make sure you join this groups
+        <div className="gap-4 flex flex-col justify-center items-center w-full">
+
+          {registrationStatus === "accepted" && (
+           <div className="cursor-target w-full px-[2.5%] text-md md:text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none text-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] overflow-x-auto whitespace-nowrap">
+            <p>Please make sure you join this groups</p>
 
             <Link
               href={`https://line.me/R/ti/g/J6Snx2gGFM`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#75E8F0] underline"
+              className="target-cursor text-[#75E8F0] underline"
             >
               Join 13th NPLC LINE Group
             </Link>
+            <br />
             <Link
               href={line_links[competitionTitle]}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#75E8F0] underline"
+              className="target-cursor text-[#75E8F0] underline"
             >
               {`Join ${competitionTitle} LINE Group`}
             </Link>
           </div>
         )}
-
-        <div className="gap-4 flex flex-col justify-center items-center w-full">
           {/* ... Tampilan detail tim lainnya tetap sama ... */}
           <div className="flex flex-col w-full">
             <label className="competition-detail-label text-left w-full font-ropasans-regular text-md md:text-2xl">
