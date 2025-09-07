@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import LogoutButton from "./auth/LogoutButton";
+import AccountButton from "./auth/AccountButton";
 import { useSession } from "@/lib/auth/auth_client";
 import Image from "next/image";
-import MobileAuthButtonClient from "./auth/MobileLogoutButton";
+import MobileAccountButton from "./auth/MobileAccountButton";
 import TargetCursor from "./TargetCursor/TargetCursor";
 export default function NavigationBar() {
   const {
@@ -352,7 +352,7 @@ export default function NavigationBar() {
                   </Link>
                 ) : (
                   <div className="">
-                    <LogoutButton />
+                    <AccountButton />
                   </div>
                 )}
               </div>
@@ -362,7 +362,7 @@ export default function NavigationBar() {
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <div className="fixed top-0 left-0 w-full h-full bg-[#090A1E]/95 z-[55] flex flex-col items-center justify-center gap-8 sm:hidden transition-all">
+          <div className="z-[55] fixed top-0 left-0 w-full h-full bg-[#090A1E]/95 flex flex-col items-center justify-center gap-8 sm:hidden transition-all">
             <Link href="/" onClick={() => setMenuOpen(false)}>
               <span className="text-2xl pointer-events-auto text-[#FCF551] font-bold">Home</span>
             </Link>
@@ -379,9 +379,9 @@ export default function NavigationBar() {
                 <span className="text-2xl pointer-events-auto text-[#FCF551] font-bold">Login</span>
               </Link>
             ) : (
-              <div>
-                <MobileAuthButtonClient />
-              </div>
+               <Link href="/account" onClick={() => setMenuOpen(false)}>
+                <span className="text-2xl pointer-events-auto text-[#FCF551] font-bold">Account</span>
+              </Link>
             )}
           </div>
         )}

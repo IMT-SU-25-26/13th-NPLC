@@ -257,3 +257,10 @@ export async function checkCanRegisterForCompetitiveProgramming(userId: string) 
   // User can register for programming only if they are not registered in any competition
   return userRegistrations.length === 0;
 }
+
+export async function getUserData(userId: string) {
+  const userData = await prisma.user.findUnique({
+    where: { id: userId },
+  });
+  return userData;
+}
