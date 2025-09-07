@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import "@/styles/competitive-programming-multiple-regis.css";
 import { Team } from "@/types/competition";
@@ -14,10 +14,12 @@ export default function CompetitionDetailsDisplay({
   teams,
   competitionTitle,
   competition_id,
+  line_links
 }: {
   teams: Team;
   competitionTitle: string;
   competition_id: string;
+  line_links: Record<string, string>;
 }) {
   const [uploadedFileUrl, setUploadedFileUrl] = useState<string>("");
   const [uploadedFilePublicId, setUploadedFilePublicId] = useState<string>("");
@@ -171,6 +173,29 @@ export default function CompetitionDetailsDisplay({
         >
           {statusText}
         </div>
+
+        {registrationStatus === "accepted" && (
+          <div className="w-full text-center text-white [text-shadow:_0_0_15px_rgba(255,255,255,0.8)]">
+            Please make sure you join this groups
+
+            <Link
+              href={`https://line.me/R/ti/g/J6Snx2gGFM`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#75E8F0] underline"
+            >
+              Join 13th NPLC LINE Group
+            </Link>
+            <Link
+              href={line_links[competitionTitle]}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#75E8F0] underline"
+            >
+              {`Join ${competitionTitle} LINE Group`}
+            </Link>
+          </div>
+        )}
 
         <div className="gap-4 flex flex-col justify-center items-center w-full">
           {/* ... Tampilan detail tim lainnya tetap sama ... */}
