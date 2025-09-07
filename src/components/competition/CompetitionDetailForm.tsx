@@ -118,8 +118,11 @@ export default function CompetitionDetailsDisplay({
           break; // Keluar dari loop setelah pembatalan berhasil
         }
       }
-      toast.success("Registration cancelled successfully!");
-      window.location.reload();
+      toast.success("Registration cancelled successfully!", { duration: 3000 });
+      // Add a timeout of 1.5 seconds before reloading
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
     } catch (error) {
       console.error(error);
       toast.error("Failed to cancel registration. Please try again.");
