@@ -10,21 +10,25 @@ const tabData = {
     description:
       "Programming is a contest that tests how well participants can solve problems using logic, algorithms, and coding skills. They are given a set of problems, from easy to difficult, that require clear thinking, analysis, and efficient coding.",
     registerLink: "/register/competitive-programming",
+    guideBook: "https://drive.google.com/file/d/1pDoa2aNSdex1w-QWbZXfe4UTXw6lx4Zr/view?usp=share_link",
   },
   Typeracer: {
     description:
       "Compete individually in our live Typeracer Competition. You will race against other typists to be the first to finish a given text passage. Your typing speed (WPM) determines how fast it moves. The first to the finish line wins. All participants must bring their own laptops.",
     registerLink: "/register/type-racer",
+    guideBook: 'https://drive.google.com/file/d/12edB019_32MYzFpsxxquuB1KZo8YjAF9/view?usp=share_link',
   },
   "Business Plan": {
     description:
       "A competitive event that assesses participants' skills in creating a structured business proposal, covering market analysis, marketing strategy, financial planning, and sustainability. The goal is to evaluate the creativity, innovation, and feasibility of the proposed business idea.",
     registerLink: "/register/business-plan",
+    guideBook: 'https://drive.google.com/file/d/19G3jioaPJyBN4Y4tgQOIpb-uI6Blk5sj/view?usp=share_link',
   },
   "AI Prompt": {
     description:
       "Compete individually in the timed AI Prompt Competition, where you'll use Gemini to solve creative and logical challenges and be judged on your prompt's creativity, logic, and impact. Just be sure to bring your own laptop.",
     registerLink: "/register/ai-prompt",
+    guideBook:'https://drive.google.com/file/d/17Tu0YIO70PkOmmvKwEihpZe02TaTOpXq/view?usp=share_link',
   },
 };
 
@@ -76,7 +80,7 @@ function TabButtonContainer() {
         </div>
         <div className="flex w-[85%] gap-4 h-full justify-center items-center">
           <Link
-            href={tabData[activeTab as keyof typeof tabData].registerLink}
+            href={tabData[activeTab as keyof typeof tabData].guideBook}
             className={`flex items-center justify-center group register-button`}
           >
             <svg
