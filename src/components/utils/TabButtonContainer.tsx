@@ -82,6 +82,7 @@ function TabButtonContainer() {
           <Link
             href={tabData[activeTab as keyof typeof tabData].guideBook}
             className={`flex items-center justify-center group register-button`}
+            target="_blank"
           >
             <svg
               width="100%"
