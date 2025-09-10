@@ -98,7 +98,7 @@ export default function SingleRegistrationForm({
       <div className="single-regis-input-container gap-2 sm:gap-4 flex flex-col justify-center items-center w-[80%] sm:w-[85%]">
         <div className="flex flex-col w-full">
           <label
-            className="regis-label text-left w-full font-ropasans-regular text-2xl"
+            className="hidden regis-label text-left w-full font-ropasans-regular text-2xl"
             htmlFor="team_name"
           >
             Team Name
@@ -107,11 +107,13 @@ export default function SingleRegistrationForm({
             id="team_name"
             type="text"
             name="team_name"
-            className="cursor-target px-[2.5%] w-full single-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+            className="hidden cursor-target px-[2.5%] w-full single-all-input bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
               text-sm sm:text-base md:text-base lg:text-base
               text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                             placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
             placeholder="Enter your team name"
+            value={"Individual " + session?.user?.name}
+            readOnly
             required
           />
         </div>

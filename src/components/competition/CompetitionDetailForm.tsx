@@ -200,7 +200,7 @@ export default function CompetitionDetailsDisplay({
           </div>
         )}
           {/* ... Tampilan detail tim lainnya tetap sama ... */}
-          <div className="flex flex-col w-full">
+          <div className={`flex flex-col w-full ${(competitionTitle === "Business Plan" || competitionTitle === "Programming") ? '' : 'hidden'}`}>
             <label className="competition-detail-label text-left w-full font-ropasans-regular text-md md:text-2xl">
               Team Name
             </label>
