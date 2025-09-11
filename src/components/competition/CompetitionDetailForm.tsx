@@ -9,17 +9,20 @@ import { toast } from "sonner";
 import { getRegistrationStatus } from "@/lib/competition";
 import { UploadWidget } from "@/components/CloudinaryWidget";
 import { updatePaymentProof } from "@/lib/competition";
+import Image from "next/image";
 
 export default function CompetitionDetailsDisplay({
   teams,
   competitionTitle,
   competition_id,
-  line_links
+  line_links,
+  imageURL
 }: {
   teams: Team;
   competitionTitle: string;
   competition_id: string;
   line_links: Record<string, string>;
+  imageURL: Record<string, string>;
 }) {
   const [uploadedFileUrl, setUploadedFileUrl] = useState<string>("");
   const [uploadedFilePublicId, setUploadedFilePublicId] = useState<string>("");
@@ -178,22 +181,53 @@ export default function CompetitionDetailsDisplay({
 
           {registrationStatus === "accepted" && (
            <div className="cursor-target w-full px-[2.5%] text-md md:text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none text-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] overflow-x-auto whitespace-nowrap">
-            <p>Please make sure you join this groups</p>
+            <p className="text-center">Please make sure you join this groups</p>
+
+            {/* QR Code Image */}
+            {imageURL[competitionTitle] && (
+              <div>
+                <div className="flex flex-col sm:flex-row justify-center items-center gap-4 my-4">
+                <Image 
+                  src={"/competition-detail/grup-besar-nplc.jpg"}
+                  width={900}
+                  height={900} 
+                  alt={`${competitionTitle} QR Code`}
+                  className="w-48 h-48 md:w-64 md:h-64 object-contain bg-white rounded-lg p-2"
+                />
+                <Image 
+                  src={imageURL[competitionTitle]}
+                  width={900}
+                  height={900} 
+                  alt={`${competitionTitle} QR Code`}
+                  className="w-48 h-48 md:w-64 md:h-64 object-contain bg-white rounded-lg p-2"
+                />
+                </div>
+                  <p className="text-center">Scan the QR code above</p>
+              </div>
+              
+            )}
+
+            <div className="text-center my-2">
+              <div className="flex gap-1 sm:gap-2 items-center justify-center">
+                  <div className="h-0.5 w-full bg-[#75E8F0]"></div>
+                  <span className="text-center text-lg font-bold">OR</span>
+                  <div className="h-0.5 w-full bg-[#75E8F0]"></div>
+              </div>
+            </div>
 
             <Link
               href={`https://line.me/R/ti/g/J6Snx2gGFM`}
               target="_blank"
               rel="noopener noreferrer"
-              className="target-cursor text-[#75E8F0] underline"
+              className="target-cursor text-[#75E8F0] underline block mb-2 text-center"
             >
               Join 13th NPLC LINE Group
             </Link>
-            <br />
             <Link
               href={line_links[competitionTitle]}
               target="_blank"
               rel="noopener noreferrer"
-              className="target-cursor text-[#75E8F0] underline"
+              className="target-cursor text-[#75E8F0] underline block text-center"
             >
               {`Join ${competitionTitle} LINE Group`}
             </Link>

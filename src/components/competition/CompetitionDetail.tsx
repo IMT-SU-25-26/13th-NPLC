@@ -46,6 +46,12 @@ export default function CompetitionDetail({ teams}: { teams: Team[]; }) {
     "AI Prompt": "https://line.me/R/ti/g/qTWxqbN8Lm",
     "Typeracer": "https://line.me/R/ti/g/z_zU3rENHT"
   };
+  const imageURL = {
+    "Programming": "/competition-detail/grup-programming.jpg",
+    "Business Plan": "/competition-detail/grup-bisnis.jpg",
+    "AI Prompt": "/competition-detail/grup-ai.jpg",
+    "Typeracer": "/competition-detail/grup-typeracer.jpg"
+  }
   return (
     <div className="min-h-screen w-screen overflow-hidden bg-gradient-to-b from-[#111114] to-[#090A1E]">
       <div className="relative flex lg:gap-8 flex-col justify-start items-center w-full h-[90vw] lg:h-[60vh] xl:h-screen">
@@ -171,7 +177,8 @@ export default function CompetitionDetail({ teams}: { teams: Team[]; }) {
           line_links={lineLinks}
           competition_id={activeTeam.competition_id}
           competitionTitle={activeTab}
-          teams={activeTeam} // <-- Kirim satu objek `team` dalam array `teams`
+          teams={activeTeam}
+          imageURL = {imageURL} // <-- Kirim satu objek `team` dalam array `teams`
           // is_paid={is_paid}
         />
       ) : (
