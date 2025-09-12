@@ -181,7 +181,7 @@ export default function CompetitionDetailsDisplay({
 
           {registrationStatus === "accepted" && (
            <div className="cursor-target w-full px-[2.5%] text-md md:text-2xl py-2 bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none text-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] overflow-x-auto whitespace-nowrap">
-            <p className="text-center">Please make sure you join this groups</p>
+            <p className="text-center">Please make sure you join these groups</p>
 
             {/* QR Code Image */}
             {imageURL[competitionTitle] && (
