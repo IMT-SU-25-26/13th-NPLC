@@ -7,7 +7,7 @@ import { useState } from "react";
 export default function Page() {
     const [pending, setPending] = useState(false);
     return (
-        <form className="relative backdrop-blur-2xl z-[11] w-[90%] sm:w-[80%] lg:w-[45%] flex flex-col gap-1 sm:gap-4 place-items-center justify-items-center border-[8px] border-[#FCE551] rounded-lg p-[1rem] sm:p-[2rem] lg:p-[4rem]">
+        <form className="form-wrapper relative backdrop-blur-2xl z-[11] w-[90%] sm:w-[80%] lg:w-[45%] flex flex-col gap-1 sm:gap-4 place-items-center justify-items-center border-[8px] border-[#FCE551] rounded-lg p-[1rem] sm:p-[2rem] lg:p-[4rem]">
             {/* Business Plan Header */}
             <div className="w-full text-center mb-6">
                 <h1 className="text-white text-3xl sm:text-5xl lg:text-7xl font-bold mb-4">
