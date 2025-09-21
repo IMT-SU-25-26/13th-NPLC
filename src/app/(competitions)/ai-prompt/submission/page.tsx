@@ -7,7 +7,7 @@ import { checkCompetitionPageAccess } from '@/lib/user';
 import { getCompetitionById } from '@/lib/competition';
 import { redirect } from 'next/navigation';
 import Image from "next/image";
-import BusinessPlanSubmissionForm from "@/components/competition/business-plan/BusinessPlanSubmissionForm";
+import AIPromptSubmissionForm from "@/components/competition/ai-prompt/AIPromptSubmissionForm";
 
 
 
@@ -24,13 +24,13 @@ export default async function Page() {
         );
     }
 
-    const hasAccess = await checkCompetitionPageAccess(session.user.id, "cmegpbi5m0001hke9buhvhrw4");
+    const hasAccess = await checkCompetitionPageAccess(session.user.id, "cmegpc6sx0002hke9gxo7hd6u");
 
     if (!hasAccess) {
         redirect("/not-registered");
     }
 
-    const competitionData = await getCompetitionById("cmegpbi5m0001hke9buhvhrw4");
+    const competitionData = await getCompetitionById("cmegpc6sx0002hke9gxo7hd6u");
     if (!competitionData) {
         redirect("/not-found");
     }
@@ -73,7 +73,7 @@ export default async function Page() {
                         height={100}
                         alt="submission-title-text"
                     />
-                    <BusinessPlanSubmissionForm />
+                    <AIPromptSubmissionForm />
                 </div>
                 <div className="bg-[#090A1E] absolute bottom-0 w-full h-full"></div>
             </div>

@@ -4,14 +4,14 @@ import { useState } from "react";
 
 
 
-export default function Page() {
+export default function AIPromptSubmissionForm() {
     const [pending, setPending] = useState(false);
     return (
         <form className="form-wrapper relative backdrop-blur-2xl z-[11] w-[90%] sm:w-[80%] lg:w-[45%] flex flex-col gap-1 sm:gap-4 place-items-center justify-items-center border-[8px] border-[#FCE551] rounded-lg p-[1rem] sm:p-[2rem] lg:p-[4rem]">
             {/* Business Plan Header */}
             <div className="w-full text-center mb-6">
                 <h1 className="text-white text-3xl sm:text-5xl lg:text-7xl font-bold mb-4">
-                    Business Plan
+                    AI Prompt
                 </h1>
                 <div className="text-white text-sm sm:text-base lg:text-2xl">
                     <p>
@@ -29,26 +29,8 @@ export default function Page() {
                 }}
                 folder="business-plans"
                 allowedFormats={["image/png", "image/jpeg"]}
-                label="Proposal"
-                name="proposal"
-            />
-            <BusinessPlanFileSubmit
-                onUploadSuccess={(url, publicId) => {
-                    console.log("File uploaded successfully:", url, publicId);
-                }}
-                folder="business-plans"
-                allowedFormats={["image/png", "image/jpeg"]}
-                label="Surat Pernyataan Orisinalitas"
-                name="surat_pernyataan_orisinalitas"
-            />
-            <BusinessPlanFileSubmit
-                onUploadSuccess={(url, publicId) => {
-                    console.log("File uploaded successfully:", url, publicId);
-                }}
-                folder="business-plans"
-                allowedFormats={["image/png", "image/jpeg"]}
-                label="Link Figma"
-                name="link_figma"
+                label="Link AI Chat"
+                name="link_ai_chat"
             />
             {/* Login Button */}
             <div className="flex justify-center mt-3">
