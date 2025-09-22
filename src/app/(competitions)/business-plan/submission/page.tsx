@@ -67,7 +67,7 @@ export default async function Page() {
                         className="z-[10] submission-stairs absolute w-screen h-auto bottom-[-1rem]"
                     />
                     <Image
-                        className="submission-title-text z-[6] sm:w-[30rem] w-[20rem] lg:w-[40rem] mb-3 lg:-mb-5 h-auto"
+                        className="submission-title-text z-[6] sm:w-[30rem] w-[20rem] lg:w-[40rem] mb-3 lg:-mb-5 mt-0 h-auto"
                         src={"/submission/Soal.svg"}
                         width={100}
                         height={100}

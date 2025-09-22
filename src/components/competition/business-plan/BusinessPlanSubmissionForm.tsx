@@ -10,10 +10,10 @@ export default function BusinessPlanSubmissionForm() {
         <form className="form-wrapper relative backdrop-blur-2xl z-[11] w-[90%] sm:w-[80%] lg:w-[45%] flex flex-col gap-1 sm:gap-4 place-items-center justify-items-center border-[8px] border-[#FCE551] rounded-lg p-[1rem] sm:p-[2rem] lg:p-[4rem]">
             {/* Business Plan Header */}
             <div className="w-full text-center mb-6">
-                <h1 className="text-white text-3xl sm:text-5xl lg:text-7xl font-bold mb-4">
+                <h1 className="text-white business-plan text-3xl sm:text-5xl lg:text-7xl font-bold mb-4">
                     Business Plan
                 </h1>
-                <div className="text-white text-sm sm:text-base lg:text-2xl">
+                <div className="text-white time text-sm sm:text-base lg:text-2xl">
                     <p>
                         <span className="font-semibold">Opened:</span> Sunday, 28 September 2025
                     </p>
@@ -54,7 +54,7 @@ export default function BusinessPlanSubmissionForm() {
             <div className="flex justify-center mt-3">
                 <button
                     type="submit"
-                    className="all-button cursor-target group flex 
+                    className="submission-submit-button cursor-target group flex 
               w-[70%] sm:w-[85%] lg:w-full sm:mt-[-1rem] lg:mt-[0rem]"
                     disabled={pending}
                     aria-disabled={pending}
