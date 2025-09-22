@@ -1,5 +1,5 @@
 import React from "react";
-import "@/styles/business-plan-submission.css";
+import "@/styles/ai-prompt-submission.css";
 import Restrictions from "@/components/utils/Restrictions";
 import { auth } from "@/lib/auth/auth";
 import { headers } from "next/headers";
