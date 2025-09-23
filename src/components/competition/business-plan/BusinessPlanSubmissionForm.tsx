@@ -27,7 +27,7 @@ export default function BusinessPlanSubmissionForm() {
                 onUploadSuccess={(url, publicId) => {
                     console.log("File uploaded successfully:", url, publicId);
                 }}
-                folder="business-plans"
+                folder="business-plan"
                 allowedFormats={["image/png", "image/jpeg"]}
                 label="Proposal"
                 name="proposal"
@@ -36,7 +36,7 @@ export default function BusinessPlanSubmissionForm() {
                 onUploadSuccess={(url, publicId) => {
                     console.log("File uploaded successfully:", url, publicId);
                 }}
-                folder="business-plans"
+                folder="business-plan"
                 allowedFormats={["image/png", "image/jpeg"]}
                 label="Surat Pernyataan Orisinalitas"
                 name="surat_pernyataan_orisinalitas"
@@ -45,7 +45,7 @@ export default function BusinessPlanSubmissionForm() {
                 onUploadSuccess={(url, publicId) => {
                     console.log("File uploaded successfully:", url, publicId);
                 }}
-                folder="business-plans"
+                folder="business-plan"
                 allowedFormats={["image/png", "image/jpeg"]}
                 label="Link Figma"
                 name="link_figma"

@@ -255,7 +255,7 @@ export default function BusinessPlanRegistrationForm({
             allowedFormats={["jpg", "jpeg", "png"]}
             label={
               <>
-                Price: Rp 50.000
+                Price: Rp 40.000
                 <br />
                 Transfer to 008674351649 (Blu by BCA)
                 <br />

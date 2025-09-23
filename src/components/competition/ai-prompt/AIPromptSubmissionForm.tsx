@@ -40,9 +40,6 @@ export default function AIPromptSubmissionForm() {
               text-sm sm:text-base md:text-base lg:text-base
               text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                             placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
-          onChange={(e) => {
-            console.log("Link updated:", e.target.value);
-          }}
         />
       </div>
       {/* Login Button */}
