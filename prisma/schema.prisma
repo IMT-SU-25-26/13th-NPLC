@@ -13,6 +13,10 @@ model Competition {
   is_started   Boolean                   @default(false)
   is_paused    Boolean                   @default(false)
   Registration CompetitionRegistration[]
+
+  AIPromptSubmission AIPromptSubmission[]
+
+  BusinessPlanSubmission BusinessPlanSubmission[]
 }
 
 model Question {
@@ -81,27 +85,29 @@ model User {
   CompetitionRegistration    CompetitionRegistration[]
   accounts                   Account[]
   sessions                   Session[]
+  AIPromptSubmission         AIPromptSubmission[]
+  BusinessPlanSubmission     BusinessPlanSubmission[]
 
   @@map("user")
 }
 
 model CompetitionRegistration {
-  id                          String             @id @default(cuid())
-  team_name                   String
-  link_twiboon                String
-  school_name                 String
-  contact_person_number       String
-  competition_id              String
-  user_id                     String
-  submission_link             String?
-  imageUrl                    String
-  imagePublicId               String
+  id                    String             @id @default(cuid())
+  team_name             String
+  link_twiboon          String
+  school_name           String
+  contact_person_number String
+  competition_id        String
+  user_id               String
+  submission_link       String?
+  imageUrl              String
+  imagePublicId         String
   // is_paid                     Boolean            @default(false)
-  registration_status         RegistrationStatus @default(pending)
+  registration_status   RegistrationStatus @default(pending)
   // registration_midtrans_token String?
-  competition                 Competition        @relation(fields: [competition_id], references: [id])
-  user                        User               @relation(fields: [user_id], references: [id])
-  createdAt                  DateTime @default(now())
+  competition           Competition        @relation(fields: [competition_id], references: [id])
+  user                  User               @relation(fields: [user_id], references: [id])
+  createdAt             DateTime           @default(now())
 }
 
 model Session {
@@ -146,6 +152,30 @@ model Verification {
   updatedAt  DateTime?
 
   @@map("verification")
+}
+
+model AIPromptSubmission {
+  id             String      @id @default(cuid())
+  user_id        String
+  team_name      String
+  competition_id String
+  ai_chat_link   String
+  submittedAt    DateTime    @default(now())
+  user           User        @relation(fields: [user_id], references: [id])
+  competition    Competition @relation(fields: [competition_id], references: [id])
+}
+
+model BusinessPlanSubmission {
+  id                            String      @id @default(cuid())
+  user_id                       String
+  team_name                     String
+  competition_id                String
+  proposal                      String
+  surat_pernyataan_orisinalitas String
+  figma_link                    String
+  submittedAt                   DateTime    @default(now())
+  user                          User        @relation(fields: [user_id], references: [id])
+  competition                   Competition @relation(fields: [competition_id], references: [id])
 }
 
 enum Roles {

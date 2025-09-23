@@ -1,6 +1,6 @@
 @media (max-width: 3840px) and (max-height: 2160px) {
     .form-wrapper {
-        width: 80%;
+        width: 40%;
     }
 }
 
@@ -10,7 +10,7 @@
     }
 
     .form-wrapper {
-        width: 80%;
+        width: 40%;
     }
 }
 
@@ -20,7 +20,7 @@
     }
 
     .form-wrapper {
-        width: 80%;
+        width: 40%;
     }
 }
 
@@ -30,13 +30,13 @@
     }
 
     .form-wrapper {
-        width: 80%;
+        width: 40%;
     }
 }
 
 @media (max-width: 2048px) and (max-height: 1158px) {
     .form-wrapper {
-        width: 80%;
+        width: 40%;
     }
 
     .submission-top-container {
@@ -67,7 +67,7 @@
     }
 
     .form-wrapper {
-        width: 80%;
+        width: 40%;
     }
 }
 
@@ -88,7 +88,7 @@
     }
 
     .form-wrapper {
-        width: 80%;
+        width: 40%;
     }
 }
 
@@ -143,9 +143,31 @@
     }
 
     .form-wrapper {
-        width: 80%;
+        width: 50%;
     }
 }
+
+@media (max-width: 1536px) and (max-height: 864px) {
+    .submission-top-container {
+        height: 185vh;
+    }
+
+    .competition-glitch-text {
+        margin-top: 10%;
+    }
+
+    .details-tab-button-container {
+        width: 50%;
+        border-width: 4px;
+        gap: 24px;
+        padding: 2rem
+    }
+
+    .form-wrapper {
+        width: 45%;
+    }
+}
+
 
 @media (max-width: 1536px) and (max-height: 791px) {
     .submission-top-container {
@@ -182,6 +204,9 @@
         border-width: 4px;
         gap: 24px;
         padding: 2rem
+    }
+    .form-wrapper {
+        width: 50%;
     }
 }
 
@@ -236,7 +261,7 @@
     }
 
     .form-wrapper {
-        width: 80%;
+        width: 50%;
     }
 }
 
@@ -257,7 +282,7 @@
     }
 
     .form-wrapper {
-        width: 80%;
+        width: 50%;
     }
 }
 
@@ -330,7 +355,7 @@
     }
 
     .form-wrapper {
-        width: 80%;
+        width: 50%;
     }
 
     .business-plan {

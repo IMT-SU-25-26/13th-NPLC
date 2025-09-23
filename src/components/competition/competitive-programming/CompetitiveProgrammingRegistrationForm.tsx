@@ -264,7 +264,7 @@ export default function CompetitiveProgrammingForm({
             allowedFormats={["jpg", "jpeg", "png"]}
             label={
               <>
-                Price: Rp 40.000
+                Price: Rp 50.000
                 <br />
                 Transfer to 008674351649 (Blu by BCA)
                 <br />

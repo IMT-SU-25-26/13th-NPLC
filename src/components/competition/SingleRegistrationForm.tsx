@@ -254,7 +254,7 @@ export default function SingleRegistrationForm({
           allowedFormats={["jpg", "jpeg", "png"]}
           label={
             <>
-              Price: Rp 25.000
+              Price: Rp 30.000
               <br />
               Transfer to 008674351649 (Blu by BCA)
               <br />
