@@ -33,3 +33,21 @@ export interface Team {
   school_name: string;
   members: TeamMember[];
 }
+
+export interface Registration {
+  id: string;
+  team_name: string;
+  registration_status: string;
+  createdAt: Date;
+  competition: {
+    name: string;
+  };
+}
+
+export interface AdminDashboardClientProps {
+  initialRegistrations: {
+    success: boolean;
+    data: Registration[] | null;
+    errorMessage?: string;
+  };
+}

@@ -1,127 +1,85 @@
-import React from 'react'
+import React from "react";
+import "@/styles/business-plan-submission.css";
+import Restrictions from "@/components/utils/Restrictions";
 import { auth } from "@/lib/auth/auth";
-import { headers } from 'next/headers';
+import { headers } from "next/headers";
 import { checkCompetitionPageAccess } from '@/lib/user';
 import { getCompetitionById } from '@/lib/competition';
 import { redirect } from 'next/navigation';
-import Image from 'next/image';
-import ClientPageSubmission from '@/components/businessPlan/ClientPageSubmission';
+import Image from "next/image";
+import BusinessPlanSubmissionForm from "@/components/competition/business-plan/BusinessPlanSubmissionForm";
 
-export default async function page() {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
-  
-  if(!session) {
+
+
+
+export default async function Page() {
+    // Get current session
+    const session = await auth.api.getSession({
+        headers: await headers(),
+    });
+
+    if (!session?.user?.id) {
+        return (
+            <Restrictions restrictionDescription="You are not logged in into an account!" />
+        );
+    }
+
+    const hasAccess = await checkCompetitionPageAccess(session.user.id, "cmegpbi5m0001hke9buhvhrw4");
+
+    if (!hasAccess) {
+        redirect("/not-registered");
+    }
+
+    const competitionData = await getCompetitionById("cmegpbi5m0001hke9buhvhrw4");
+    if (!competitionData) {
+        redirect("/not-found");
+    }
+
+    if (competitionData.is_started == false) {
+        redirect("/page-restricted");
+    }
+
     return (
-      <div>You must make an account to access this page!</div>
-    )
-  }
-
-  const hasAccess = await checkCompetitionPageAccess(session.user.id, "cmegpbi5m0001hke9buhvhrw4");
-
-  if (!hasAccess) {
-    redirect("/not-registered");
-  }
-
-  const competitionData = await getCompetitionById("cmegpbi5m0001hke9buhvhrw4");
-  if(!competitionData){
-    redirect("/not-found");
-  }
-  
-  if(competitionData.is_started == false) {
-     redirect("/page-restricted");
-  }
-
-  return(
-    <>
-      <div className="cp-regis-main-wrapper-container overflow-hidden max-h-dvh">
-            <div className="cp-regis-background-img-container w-full overflow-hidden bg-gradient-to-b from-[#111114] to-[#090A1E] relative">
-              <Image
-                className="cp-regis-gradient-light-bg absolute z-[1] w-full bottom-[40%%] sm:bottom-[40%] lg:bottom-[-30%] h-[35rem] sm:h-auto"
-                src={"/backgrounds/GradientLightBG.webp"}
-                width={1000}
-                height={1000}
-                alt="background-gradient"
-              />
-              <Image
-                className="cp-regis-light-middle  absolute z-[2] w-full bottom-[40%] sm:bottom-[35%] lg:bottom-[20%] h-auto"
-                src={"/backgrounds/LightTengah.webp"}
-                width={1000}
-                height={1000}
-                alt="light-tengah"
-              />
-              <Image
-                className="cp-regis-blue-building absolute z-[3] bottom-[40%] sm:bottom-[35%] lg:bottom-[-4%] w-screen h-auto"
-                src={"/backgrounds/BangunanBelakangBiru.svg"}
-                width={100}
-                height={100}
-                alt="bagunan-biru"
-              />
-              <Image
-                className="cp-regis-purple-building absolute z-[4] bottom-[35%] sm:bottom-[30%] lg:bottom-[-4%] w-screen h-auto"
-                src={"/backgrounds/BangunanDepanUngu.svg"}
-                width={100}
-                height={100}
-                alt="bangunan-ungu"
-              />
-              <Image
-                className="cp-regis-front-light-gradient absolute z-[5] bottom-[30%] sm:bottom-[25%] lg:bottom-0 w-screen h-auto"
-                src={"/backgrounds/FrontGradientLightBG.svg"}
-                width={100}
-                height={100}
-                alt="front-light"
-              />
-
-              <div className="cp-regis-form-container relative mt-30 z-10 flex gap-4 flex-col items-center justify-start min-h-[92vh] sm:min-h-[88vh] w-dvw">
-                <div className='w-full flex flex-col items-center justify-center h-[60vh]'>
-                  <Image
-                    className="cp-competition-text z-[10] w-[60%] sm:w-1/3 h-auto"
-                    src={"/submission/submission-text.webp"}
-                    width={1000}
-                    height={1000}
-                    alt="background-gradient"
-                  />
-
-                  {/* content */}
-                  <div className="relative w-[98vw] sm:w-[90vw] min-w-[250px] max-w-[453px] sm:min-w-[35rem] md:max-w-[50rem] h-auto">
-                    {/* The original border PNG on top */}
+        <div className="overflow-hidden">
+            <div className="min-h-screen w-screen overflow-hidden bg-gradient-to-b from-[#111114] to-[#090A1E]">
+                <div className="submission-top-container relative flex lg:gap-8 flex-col justify-center items-center w-full h-screen">
+                    <div className="z-[5] absolute w-full h-full bg-gradient-to-b from-[0%] from-[#2a0335]/50 via-[43%] via-[#6258D1]/50 to-[100%] to-[#00CBC1]/50 blue-light-top"></div>
+                    <div className="submission-detail-purple-light-middle absolute bottom-[-5rem] bg-[#97156A] w-[1100px] h-[900px] rounded-full blur-[100px] z-[0]"></div>
                     <Image
-                      src="submission/bg-submission.svg"
-                      className="relative w-full h-auto backdrop-blur-lg hidden md:block"
-                      alt="border"
-                      width={100}
-                      height={100}
+                        src={"/backgrounds/BangunanBelakangBiru.svg"}
+                        alt="Background"
+                        width={100}
+                        height={100}
+                        className="z-[1] submission-blue-building absolute w-screen h-auto bottom-[0rem]"
                     />
                     <Image
-                      src="submission/bg-submission-mobile.svg"
-                      className="relative w-full h-auto backdrop-blur-lg hidden sm:block md:hidden"
-                      alt="border"
-                      width={100}
-                      height={100}
+                        src={"/backgrounds/BangunanDepanUngu.svg"}
+                        alt="Background"
+                        width={100}
+                        height={100}
+                        className="z-[2] submission-purple-building absolute w-screen h-auto bottom-[0rem]"
                     />
                     <Image
-                      src="submission/bg-submission-mobile-small.svg"
-                      className="relative w-full h-auto backdrop-blur-lg sm:hidden"
-                      alt="border"
-                      width={100}
-                      height={100}
+                        src={"/backgrounds/Stairs.svg"}
+                        alt="Stairs"
+                        width={100}
+                        height={100}
+                        className="z-[10] submission-stairs absolute w-screen h-auto bottom-[-1rem]"
                     />
-
-                    <ClientPageSubmission />
-                  </div>
-
+                    <Image
+                        className="submission-title-text z-[6] sm:w-[30rem] w-[20rem] lg:w-[40rem] mb-3 lg:-mb-5 mt-0 h-auto"
+                        src={"/submission/Soal.svg"}
+                        width={100}
+                        height={100}
+                        alt="submission-title-text"
+                    />
+                    <BusinessPlanSubmissionForm />
                 </div>
-                </div>
-              <Image
-                className="z-[10] w-full mb-[-1%] h-auto"
-                src={"/backgrounds/Stairs.svg"}
-                width={1000}
-                height={1000}
-                alt="background-gradient"
-              />
+                <div className="bg-[#090A1E] absolute bottom-0 w-full h-full"></div>
             </div>
-          </div>
-    </>
-  )
+        </div>
+    );
+
+
 }
+

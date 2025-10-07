@@ -4,7 +4,6 @@ import Link from "next/link";
 import AccountButton from "./auth/AccountButton";
 import { useSession } from "@/lib/auth/auth_client";
 import Image from "next/image";
-import MobileAccountButton from "./auth/MobileAccountButton";
 import TargetCursor from "./TargetCursor/TargetCursor";
 export default function NavigationBar() {
   const {

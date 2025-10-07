@@ -35,9 +35,9 @@ export default async function Page() {
         redirect("/not-found");
     }
 
-    if (competitionData.is_started == false) {
-        redirect("/page-restricted");
-    }
+    // if (competitionData.is_started == false) {
+    //     redirect("/page-restricted");
+    // }
 
     return (
         <div className="overflow-hidden">

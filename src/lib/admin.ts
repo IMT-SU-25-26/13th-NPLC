@@ -1,5 +1,4 @@
 import prisma from "@/lib/prisma";
-import { success } from "better-auth";
 
 export async function getAllCompetitionRegistrations() {
   try {
@@ -22,10 +21,134 @@ export async function getAllCompetitionRegistrations() {
       },
     });
 
-    return {success: true, data:registrations};
+    return { success: true, data: registrations };
   } catch (error) {
     console.error("Error fetching registrations:", error);
-    return { success: false, errorMessage: "Error fetching registrations"};
+    return { success: false, errorMessage: "Error fetching registrations", data: null };
+  }
+}
+
+export async function getAllProgrammingRegistrations() {
+  try {
+    const registrations = await prisma.competitionRegistration.findMany({
+      where: {
+        competition_id: "cmegpb4cl0000hke9j8b2vg3f"
+      },
+      include: {
+        competition: {
+          select: {
+            name: true,
+          },
+        },
+        user: {
+          select: {
+            name: true,
+            email: true,
+          },
+        },
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+
+    return { success: true, data: registrations };
+  } catch (error) {
+    console.error("Error fetching registrations:", error);
+    return { success: false, errorMessage: "Error fetching registrations", data: null };
+  }
+}
+
+export async function getAllBPRegistrations() {
+  try {
+    const registrations = await prisma.competitionRegistration.findMany({
+      where: {
+        competition_id: "cmegpbi5m0001hke9buhvhrw4"
+      },
+      include: {
+        competition: {
+          select: {
+            name: true,
+          },
+        },
+        user: {
+          select: {
+            name: true,
+            email: true,
+          },
+        },
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+
+    return { success: true, data: registrations };
+  } catch (error) {
+    console.error("Error fetching registrations:", error);
+    return { success: false, errorMessage: "Error fetching registrations", data: null };
+  }
+}
+
+export async function getAllAIRegistrations() {
+  try {
+    const registrations = await prisma.competitionRegistration.findMany({
+      where: {
+        competition_id: "cmegpc6sx0002hke9gxo7hd6u"
+      },
+      include: {
+        competition: {
+          select: {
+            name: true,
+          },
+        },
+        user: {
+          select: {
+            name: true,
+            email: true,
+          },
+        },
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+
+    return { success: true, data: registrations };
+  } catch (error) {
+    console.error("Error fetching registrations:", error);
+    return { success: false, errorMessage: "Error fetching registrations", data: null };
+  }
+}
+
+export async function getAllTypeRacerRegistrations() {
+  try {
+    const registrations = await prisma.competitionRegistration.findMany({
+      where: {
+        competition_id: "cmegpd01h0003hke91ea54m7c"
+      },
+      include: {
+        competition: {
+          select: {
+            name: true,
+          },
+        },
+        user: {
+          select: {
+            name: true,
+            email: true,
+          },
+        },
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+
+    return { success: true, data: registrations };
+  } catch (error) {
+    console.error("Error fetching registrations:", error);
+    return { success: false, errorMessage: "Error fetching registrations", data: null };
   }
 }
 
@@ -49,7 +172,7 @@ export async function getCompetitionRegistrationById(id: string) {
       },
     });
 
-    return {success: true, data: registration};
+    return { success: true, data: registration };
   } catch (error) {
     console.error("Error fetching registration:", error);
     return { success: false, errorMessage: "Error fetching registration", data: null };

@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import prisma from "./prisma";
 // import { revalidatePath } from "next/cache";
 // import { ActionResult } from "@/types/action";
@@ -176,14 +177,68 @@ export async function cancelRegistration(
   }
 }
 
+export async function checkAIPromptSubmission(
+  team_name: string,
+  competition_id: string
+): Promise<boolean> {
+  try {
+    const submission = await prisma.aIPromptSubmission.findFirst({
+      where: {
+        team_name: team_name,
+        competition_id: competition_id
+      }
+    });
+    return submission ? true : false;
+  } catch (error) {
+    console.error("Error checking submission:", error);
+    return false;
+  }
+}
+
+export async function findTeam(user_id: string, competition_id: string): Promise<string> {
+  try {
+    const registration = await prisma.competitionRegistration.findFirst({
+      where: {
+        user_id: user_id,
+        competition_id: competition_id
+      },
+      select: {
+        team_name: true
+      }
+    });
+    return registration?.team_name || "";
+  } catch (error) {
+    console.error("Error finding team by user ID:", error);
+    return "";
+  }
+}
+
 export async function submitAIPrompt(
   user_id: string,
-  team_name: string,
   competition_id: string,
   ai_chat_link: string
 ) {
+  const registration = await prisma.competitionRegistration.findFirst({
+    where: {
+      user_id: user_id,
+      competition_id: competition_id
+    },
+    select: {
+      team_name: true
+    }
+  });
+  
+  if (!registration) {
+    return {
+      success: false,
+      errorMessage: "User is not registered for this competition",
+      data: null
+    };
+  }
+  
+  const team_name = registration.team_name;
   try {
-    await prisma.aIPromptSubmission.create({
+    const submission = await prisma.aIPromptSubmission.create({
       data: {
         user_id,
         team_name,
@@ -192,7 +247,17 @@ export async function submitAIPrompt(
         submittedAt: new Date(),
       },
     });
+
+    revalidatePath(`/competition/`);
+    
+    // Add this return statement for success case
+    return {
+      success: true,
+      message: "AI Prompt submitted successfully",
+      data: submission
+    };
   } catch (error) {
+    revalidatePath(`/competition/`);
     console.error("Error submitting AI Prompt:", error);
     return {
       success: false,

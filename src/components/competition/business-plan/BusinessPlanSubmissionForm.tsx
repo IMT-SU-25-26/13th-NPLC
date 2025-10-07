@@ -5,7 +5,7 @@ import { useState } from "react";
 
 
 export default function BusinessPlanSubmissionForm() {
-    const [pending, setPending] = useState(false);
+    const [pending] = useState(false);
     return (
         <form className="form-wrapper relative backdrop-blur-2xl z-[11] w-[90%] sm:w-[80%] lg:w-[45%] flex flex-col gap-1 sm:gap-4 place-items-center justify-items-center border-[8px] border-[#FCE551] rounded-lg p-[1rem] sm:p-[2rem] lg:p-[4rem]">
             {/* Business Plan Header */}

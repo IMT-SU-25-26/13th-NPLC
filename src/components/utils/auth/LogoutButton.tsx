@@ -3,7 +3,7 @@ import React from "react";
 import { signOut } from "@/lib/auth/auth_client";
 import { useState } from "react";
 
-export default function AuthButtonClient(width: { width?: string }) {
+export default function AuthButtonClient() {
   const [pending, setPending] = useState(false);
   const handleLogout = async () => {
     setPending(true);
