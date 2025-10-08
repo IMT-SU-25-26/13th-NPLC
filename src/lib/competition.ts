@@ -195,6 +195,24 @@ export async function checkAIPromptSubmission(
   }
 }
 
+export async function checkBPSubmission(
+  team_name: string,
+  competition_id: string
+): Promise<boolean> {
+  try {
+    const submission = await prisma.businessPlanSubmission.findFirst({
+      where: {
+        team_name: team_name,
+        competition_id: competition_id
+      }
+    });
+    return submission ? true : false;
+  } catch (error) {
+    console.error("Error checking submission:", error);
+    return false;
+  }
+}
+
 export async function findTeam(user_id: string, competition_id: string): Promise<string> {
   try {
     const registration = await prisma.competitionRegistration.findFirst({
@@ -269,7 +287,7 @@ export async function submitAIPrompt(
 
 export async function submitBusinessPlan(user_id: string, team_name: string, competition_id: string, proposal: string, surat_pernyataan_orisinalitas: string, figma_link: string) {
   try {
-    await prisma.businessPlanSubmission.create({
+    const submission = await prisma.businessPlanSubmission.create({
       data: {
         user_id,
         team_name,
@@ -280,13 +298,22 @@ export async function submitBusinessPlan(user_id: string, team_name: string, com
         submittedAt: new Date(),
       },
     });
+
+    revalidatePath(`/competition/`);
+    
+    // Add this return statement for success case
+    return {
+      success: true,
+      message: "Datas submitted successfully",
+      data: submission
+    };
   } catch (error) {
-    console.error("Error submitting Business Plan:", error);
+    revalidatePath(`/competition/`);
+    console.error("Error submitting:", error);
     return {
       success: false,
-      errorMessage: "Error submitting Business Plan",
+      errorMessage: "Error submitting",
       data: null,
     };
   }
-
 }

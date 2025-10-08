@@ -235,7 +235,7 @@ export async function checkCompetitionPageAccess(
   competitionId: string
 ) {
   const competitionRegistrationData = await prisma.competitionRegistration.findFirst({
-    where: { user_id: userId, competition_id: competitionId },
+    where: { user_id: userId, competition_id: competitionId, registration_status: "accepted" },
   });
 
   return competitionRegistrationData;
