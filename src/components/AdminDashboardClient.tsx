@@ -53,6 +53,23 @@ export default function AdminDashboardClient({ initialRegistrations }: AdminDash
     }
   };
 
+  // Function to count unique teams
+  const getUniqueTeamsCount = (data: typeof registrations.data) => {
+    if (!data || !Array.isArray(data)) return 0;
+    
+    const uniqueTeams = new Set(data.map(registration => registration.team_name));
+    return uniqueTeams.size;
+  };
+
+  // Function to count unique teams by status
+  const getUniqueTeamsByStatus = (data: typeof registrations.data, status: string) => {
+    if (!data || !Array.isArray(data)) return 0;
+    
+    const filteredData = data.filter(r => r.registration_status === status);
+    const uniqueTeams = new Set(filteredData.map(registration => registration.team_name));
+    return uniqueTeams.size;
+  };
+
   return (
     <div className="pt-[7vh] overflow-hidden">
       <div className="min-h-screen bg-[#090A1E] text-white p-6">
@@ -87,7 +104,7 @@ export default function AdminDashboardClient({ initialRegistrations }: AdminDash
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-[#18182a]/80 border-2 border-[#FCF551] p-6 rounded-lg">
             <h3 className="text-[#FCF551] text-lg font-semibold mb-2">
               Total Registrations
@@ -96,25 +113,26 @@ export default function AdminDashboardClient({ initialRegistrations }: AdminDash
               {registrations.data?.length || 0}
             </p>
           </div>
+          <div className="bg-[#18182a]/80 border-2 border-[#FCF551] p-6 rounded-lg">
+            <h3 className="text-[#FCF551] text-lg font-semibold mb-2">
+              Total Teams
+            </h3>
+            <p className="text-3xl font-bold text-[#75E8F0] [text-shadow:_0_0_15px_rgba(117,232,240,0.8)]">
+              {getUniqueTeamsCount(registrations.data)}
+            </p>
+          </div>
           <div className="bg-[#18182a]/80 border-2 border-green-400 p-6 rounded-lg">
             <h3 className="text-green-400 text-lg font-semibold mb-2">
-              Accepted
+              Accepted Teams
             </h3>
             <p className="text-3xl font-bold text-green-400 [text-shadow:_0_0_15px_rgba(34,197,94,0.8)]">
-              {
-                registrations.data?.filter(
-                  (r) => r.registration_status === "accepted"
-                ).length || 0
-              }
+              {getUniqueTeamsByStatus(registrations.data, "accepted")}
             </p>
           </div>
           <div className="bg-[#18182a]/80 border-2 border-yellow-400 p-6 rounded-lg">
-            <h3 className="text-yellow-400 text-lg font-semibold mb-2">Pending</h3>
+            <h3 className="text-yellow-400 text-lg font-semibold mb-2">Pending Teams</h3>
             <p className="text-3xl font-bold text-yellow-400 [text-shadow:_0_0_15px_rgba(234,179,8,0.8)]">
-              {
-                registrations.data?.filter((r) => r.registration_status === "pending")
-                  .length || 0
-              }
+              {getUniqueTeamsByStatus(registrations.data, "pending")}
             </p>
           </div>
         </div>
