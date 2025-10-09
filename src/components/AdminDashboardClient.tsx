@@ -5,6 +5,7 @@ import { AdminDashboardClientProps } from "@/types/competition";
 
 export default function AdminDashboardClient({ initialRegistrations }: AdminDashboardClientProps) {
   const [activeTab, setActiveTab] = useState<string>("All");
+  const [activeStatusFilter, setActiveStatusFilter] = useState<string>("All");
   const [registrations, setRegistrations] = useState(initialRegistrations);
   const [loading, setLoading] = useState(false);
 
@@ -14,6 +15,13 @@ export default function AdminDashboardClient({ initialRegistrations }: AdminDash
     { name: "Business Plan", label: "Business Plan" },
     { name: "AI Prompt", label: "AI Prompt" },
     { name: "Typeracer", label: "Type Racer" }
+  ];
+
+  const statusFilters = [
+    { name: "All", label: "All Status" },
+    { name: "accepted", label: "Accepted" },
+    { name: "pending", label: "Pending" },
+    { name: "failed", label: "Failed" }
   ];
 
   const fetchRegistrations = async (tabName: string) => {
@@ -41,6 +49,10 @@ export default function AdminDashboardClient({ initialRegistrations }: AdminDash
     await fetchRegistrations(tabName);
   };
 
+  const handleStatusFilterClick = (statusName: string) => {
+    setActiveStatusFilter(statusName);
+  };
+
   const getStatusColor = (status: string) => {
     switch (status.toLowerCase()) {
       case "accepted":
@@ -51,6 +63,19 @@ export default function AdminDashboardClient({ initialRegistrations }: AdminDash
       default:
         return "text-yellow-400 bg-yellow-400/20";
     }
+  };
+
+  // Function to filter registrations by status
+  const getFilteredRegistrations = () => {
+    if (!registrations.data || !Array.isArray(registrations.data)) return [];
+    
+    if (activeStatusFilter === "All") {
+      return registrations.data;
+    }
+    
+    return registrations.data.filter(registration => 
+      registration.registration_status === activeStatusFilter
+    );
   };
 
   // Function to count unique teams
@@ -70,12 +95,14 @@ export default function AdminDashboardClient({ initialRegistrations }: AdminDash
     return uniqueTeams.size;
   };
 
+  const filteredRegistrations = getFilteredRegistrations();
+
   return (
     <div className="pt-[7vh] overflow-hidden">
       <div className="min-h-screen bg-[#090A1E] text-white p-6">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-[#75E8F0] [text-shadow:_0_0_20px_rgba(117,232,240,1)] font-rubik-glitch mb-2">
+          <h1 className="text-4xl font-bold text-[#75E8F0] font-rubik-glitch mb-2">
             Admin Dashboard
           </h1>
           <p className="text-[#FCF551] text-lg">
@@ -84,7 +111,8 @@ export default function AdminDashboardClient({ initialRegistrations }: AdminDash
         </div>
 
         {/* Competition Filter Tabs */}
-        <div className="mb-8">
+        <div className="mb-6">
+          <h3 className="text-[#FCF551] text-lg font-semibold mb-3">Competition Filter</h3>
           <div className="flex flex-wrap gap-2 sm:gap-4 justify-center sm:justify-start">
             {tabs.map((tab) => (
               <button
@@ -98,6 +126,38 @@ export default function AdminDashboardClient({ initialRegistrations }: AdminDash
                 } ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
               >
                 {loading && activeTab === tab.name ? "Loading..." : tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Status Filter */}
+        <div className="mb-8">
+          <h3 className="text-[#75E8F0] text-lg font-semibold mb-3">Status Filter</h3>
+          <div className="flex flex-wrap gap-2 sm:gap-4 justify-center sm:justify-start">
+            {statusFilters.map((filter) => (
+              <button
+                key={filter.name}
+                onClick={() => handleStatusFilterClick(filter.name)}
+                className={`px-4 py-2 rounded-lg font-semibold transition-all duration-300 ${
+                  activeStatusFilter === filter.name
+                    ? filter.name === "accepted" 
+                      ? "bg-green-400 text-[#090A1E] shadow-lg"
+                      : filter.name === "pending"
+                      ? "bg-yellow-400 text-[#090A1E] shadow-lg"
+                      : filter.name === "failed"
+                      ? "bg-red-400 text-[#090A1E] shadow-lg"
+                      : "bg-[#75E8F0] text-[#090A1E] shadow-lg"
+                    : filter.name === "accepted"
+                    ? "bg-[#18182a]/80 border-2 border-green-400 text-green-400 hover:bg-green-400/20"
+                    : filter.name === "pending"
+                    ? "bg-[#18182a]/80 border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400/20"
+                    : filter.name === "failed"
+                    ? "bg-[#18182a]/80 border-2 border-red-400 text-red-400 hover:bg-red-400/20"
+                    : "bg-[#18182a]/80 border-2 border-[#75E8F0] text-[#75E8F0] hover:bg-[#75E8F0]/20"
+                }`}
+              >
+                {filter.label}
               </button>
             ))}
           </div>
@@ -142,6 +202,11 @@ export default function AdminDashboardClient({ initialRegistrations }: AdminDash
           <div className="p-6 border-b border-[#FCF551]/30">
             <h2 className="text-2xl font-bold text-[#75E8F0] [text-shadow:_0_0_15px_rgba(117,232,240,0.8)]">
               {activeTab === "All" ? "All Competition Registrations" : `${activeTab} Registrations`}
+              {activeStatusFilter !== "All" && (
+                <span className="text-lg text-[#FCF551] ml-2">
+                  - {activeStatusFilter.charAt(0).toUpperCase() + activeStatusFilter.slice(1)} Only
+                </span>
+              )}
             </h2>
           </div>
 
@@ -173,7 +238,7 @@ export default function AdminDashboardClient({ initialRegistrations }: AdminDash
                   </tr>
                 </thead>
                 <tbody>
-                  {registrations.data?.map((registration) => (
+                  {filteredRegistrations?.map((registration) => (
                     <tr
                       key={registration.id}
                       className="hover:bg-[#FCF551]/5 transition-colors border-b border-[#FCF551]/10"
@@ -213,16 +278,18 @@ export default function AdminDashboardClient({ initialRegistrations }: AdminDash
             )}
           </div>
 
-          {!loading && registrations.data?.length === 0 && (
+          {!loading && filteredRegistrations?.length === 0 && (
             <div className="p-12 text-center">
               <div className="text-6xl mb-4 text-[#FCF551]/20">📋</div>
               <h3 className="text-xl font-semibold text-[#75E8F0] mb-2">
                 No registrations found
               </h3>
               <p className="text-gray-400">
-                {activeTab === "All" 
-                  ? "Competition registrations will appear here once submitted."
-                  : `No ${activeTab} registrations found.`
+                {activeStatusFilter !== "All" 
+                  ? `No ${activeStatusFilter} registrations found for ${activeTab === "All" ? "any competition" : activeTab}.`
+                  : activeTab === "All" 
+                    ? "Competition registrations will appear here once submitted."
+                    : `No ${activeTab} registrations found.`
                 }
               </p>
             </div>
