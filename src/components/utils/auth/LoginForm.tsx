@@ -50,11 +50,9 @@ export default function LoginForm() {
           className="relative w-[85%] sm:w-[85%] md:w-[85%] lg:w-[85%] 
         -mt-[6rem] sm:-mt-[6rem] md:-mt-[6rem] lg:-mt-[6rem]"
         >
-          <div
-            className="absolute inset-0 flex flex-col justify-center 
+          <div className="absolute inset-0 flex flex-col justify-center 
         py-8 sm:py-20 md:py-20 lg:py-20 
-        px-4 sm:px-8 md:px-12 lg:px-16"
-          >
+        px-4 sm:px-8 md:px-12 lg:px-16">
             {/* Mobile Title */}
             <h1 className="flex sm:hidden text-xl md:text-2xl justify-center font-bold text-white mb-2 mt-8 sm:mt-5">
               Login
@@ -194,11 +192,21 @@ export default function LoginForm() {
               </button>
             </div>
 
+            {/* Add Forgot Password Link */}
+            <div className="text-center mt-2">
+              <Link
+                href="/forget-password"
+                className="cursor-target text-[#75E8F0] hover:underline text-sm [text-shadow:_0_0_20px_rgba(0,255,255,1)]"
+              >
+                Forgot Password?
+              </Link>
+            </div>
+
             {/* Register Link */}
-            <div className="text-container text-center pt-0.5 sm:pt-[-1rem] lg:pt-[1rem]">
-               <Link
+            <div className="text-center mt-2">
+              <Link
                 href="/register"
-                className="all-text cursor-target text-[#75E8F0] hover:underline font-semibold text-sm sm:text-base [text-shadow:_0_0_20px_rgba(0,255,255,1)] "
+                className="cursor-target text-[#75E8F0] hover:underline font-semibold text-sm sm:text-base [text-shadow:_0_0_20px_rgba(0,255,255,1)]"
               >
                 {"Don't have an account? Register"}
               </Link>

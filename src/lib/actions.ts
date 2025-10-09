@@ -6,7 +6,6 @@ import { redirect } from "next/navigation";
 import { updateNisn, updateUserRole } from "./user";
 import { State } from "@/types/form";
 import { PrismaClient } from "@prisma/client";
-
 export async function signUp(prevState: State, formData: FormData) {
   const prisma = new PrismaClient();
   const rawFormData = {
@@ -135,5 +134,102 @@ export async function signIn(prevState: State, formData: FormData) {
       errorMessage:
         "Error signing in due to connection issues. Please try again.",
     };
+  }
+}
+
+export async function forgetPassword(prevState: State, formData: FormData) {
+  const rawFormData = {
+    email: formData.get("email") as string,
+  };
+
+  const { email } = rawFormData;
+  const trimmedEmail = email.replace(/\s+/g, "");
+
+  // Add validation logging
+  console.log("Original email:", email);
+  console.log("Trimmed email:", trimmedEmail);
+  console.log("Email validation:", /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail));
+
+  // Basic email format validation
+  if (!trimmedEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
+    return { errorMessage: "Please enter a valid email address", success: false };
+  }
+
+  try {
+    console.log("Attempting to send reset email to:", trimmedEmail);
+    
+    await auth.api.forgetPassword({
+      body: {
+        email: trimmedEmail,
+        redirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/reset-password`,
+      },
+    });
+
+    return {
+      success: true,
+      message: "If an account with that email exists, we've sent a password reset link.",
+    };
+  } catch (error) {
+    console.error("Detailed error:", error);
+    
+    if (error instanceof APIError) {
+      console.error("API Error status:", error.status);
+      console.error("API Error message:", error.message);
+      
+      switch (error.status) {
+        case "BAD_REQUEST":
+          return { errorMessage: "Invalid email address format", success: false };
+        case "NOT_FOUND":
+          // Don't reveal if user exists or not for security
+          return {
+            success: true,
+            message: "If an account with that email exists, we've sent a password reset link.",
+          };
+        default:
+          return { errorMessage: "Something went wrong. Please try again.", success: false };
+      }
+    }
+    return { errorMessage: "Failed to send reset email. Please try again.", success: false };
+  }
+}
+
+export async function resetPassword(prevState: State, formData: FormData) {
+  const rawFormData = {
+    token: formData.get("token") as string,
+    password: formData.get("password") as string,
+  };
+
+  const { token, password } = rawFormData;
+  const trimmedPassword = password.replace(/\s+/g, "");
+
+  if (trimmedPassword.length < 6) {
+    return { errorMessage: "Password must be at least 6 characters long", success: false };
+  }
+
+  try {
+    await auth.api.resetPassword({
+      body: {
+        token,
+        newPassword: trimmedPassword,
+      },
+    });
+
+    return {
+      success: true,
+      message: "Password reset successfully! You can now log in with your new password.",
+    };
+  } catch (error) {
+    console.error("Error resetting password:", error);
+    if (error instanceof APIError) {
+      switch (error.status) {
+        case "BAD_REQUEST":
+          return { errorMessage: "Invalid or expired reset token", success: false };
+        case "NOT_FOUND":
+          return { errorMessage: "Invalid or expired reset token", success: false };
+        default:
+          return { errorMessage: "Something went wrong", success: false };
+      }
+    }
+    return { errorMessage: "Failed to reset password. Please try again.", success: false };
   }
 }
