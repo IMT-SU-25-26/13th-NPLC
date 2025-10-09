@@ -99,6 +99,7 @@ export default function AdminDashboardClient({ initialRegistrations }: AdminDash
 
   return (
     <div className="pt-[7vh] overflow-hidden">
+      <nav className='fixed w-screen h-[10vh] bg-[#090A1E] top-0'></nav>
       <div className="min-h-screen bg-[#090A1E] text-white p-6">
         {/* Header */}
         <div className="mb-8">
