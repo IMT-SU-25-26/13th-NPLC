@@ -196,7 +196,7 @@ export default function LoginForm() {
             <div className="text-center mt-1">
               <Link
                 href="/forget-password"
-                className="cursor-target text-[#75E8F0] hover:underline text-xs sm:text-sm [text-shadow:_0_0_20px_rgba(0,255,255,1)]"
+                className="cursor-target text-[#75E8F0] hover:underline password font-semibold text-xs sm:text-base [text-shadow:_0_0_20px_rgba(0,255,255,1)]"
               >
                 Forgot Password?
               </Link>
@@ -206,7 +206,7 @@ export default function LoginForm() {
             <div className="text-center mt-1">
               <Link
                 href="/register"
-                className="cursor-target text-[#75E8F0] mb-0 hover:underline font-semibold text-xs sm:text-base [text-shadow:_0_0_20px_rgba(0,255,255,1)]"
+                className="cursor-target text-[#75E8F0] mb-0 password hover:underline font-semibold text-xs sm:text-base [text-shadow:_0_0_20px_rgba(0,255,255,1)]"
               >
                 {"Don't have an account? Register"}
               </Link>
