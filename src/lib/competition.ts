@@ -253,6 +253,20 @@ export async function submitAIPrompt(
       data: null
     };
   }
+
+  const exsistingSubmission = await prisma.aIPromptSubmission.findFirst({
+    where: {
+      team_name: registration.team_name,
+      competition_id: competition_id
+    }
+  });
+  if (exsistingSubmission) {
+    return {
+      success: false,
+      errorMessage: "AI Prompt has already been submitted for this team",
+      data: null
+    };
+  }
   
   const team_name = registration.team_name;
   try {
@@ -286,6 +300,20 @@ export async function submitAIPrompt(
 }
 
 export async function submitBusinessPlan(user_id: string, team_name: string, competition_id: string, proposal: string, surat_pernyataan_orisinalitas: string, figma_link: string) {
+  const exsistingSubmission = await prisma.businessPlanSubmission.findFirst({
+    where: {
+      team_name: team_name,
+      competition_id: competition_id
+    }
+  });
+  if (exsistingSubmission) {
+    return {
+      success: false,
+      errorMessage: "you have already submitted the required documents for this team",
+      data: null
+    };
+  }
+  
   try {
     const submission = await prisma.businessPlanSubmission.create({
       data: {

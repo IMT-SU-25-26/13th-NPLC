@@ -79,12 +79,12 @@ export default function BusinessPlanSubmissionForm() {
 
       if (result && result.success !== false) {
         toast.success("Submission successful!", {
-          description: "Your datas has been submitted successfully.",
+          description: "You have successfully submitted the required documents for this competition.",
           duration: 4000,
         });
         setHasSubmitted(true);
       } else {
-        toast.error("Submission failed", {
+        toast.error("Submission failed due to", {
           description: result?.errorMessage || "Please try again later.",
           duration: 4000,
         });
