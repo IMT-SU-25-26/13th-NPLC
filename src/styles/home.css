@@ -70,59 +70,6 @@
     height: auto;
   }
 }
-@media (max-width: 2560px) and (max-height: 1600px) {
-  .up-container {
-    height: 100vh;
-  }
-  .dimensional-rift {
-    top: -16%;
-  }
-  .gradient-light-bg {
-    bottom: -10%;
-  }
-  .light-middle {
-    bottom: 5%;
-  }
-  
-  .timeline-container {
-    margin-top: 10%;
-  }
-  .timeline-text {
-    margin-top: 2.5%;
-    width: 50rem;
-  }
-  .timeline {
-    width: 110rem;
-  }
-  .upmost-ground {
-    bottom: 0rem;
-  }
-
-
-  .tab-button-grid {
-    gap: 6rem;
-  }
- 
-  .competition-tab-container {
-    margin-top: 5%;
-    width: 65%;
-    height: 50rem;
-  }
-  .competition-tab-title {
-    margin-top: 7.5%;
-    font-size: 5rem;
-  }
-  .competition-tab-description {
-    margin-top: 2.5%;
-    font-size: 2.5rem;
-    width: 90%;
-  }
-  .register-button {
-    margin-top: 0;
-    width: 30%;
-    height: auto;
-  }
-}
 @media (max-width: 2850px) and (max-height: 1800px) {
   .up-container {
     height: 100vh;
@@ -172,6 +119,59 @@
   .competition-tab-description {
     margin-top: 2.5%;
     font-size: 3rem;
+    width: 90%;
+  }
+  .register-button {
+    margin-top: 0;
+    width: 30%;
+    height: auto;
+  }
+}
+@media (max-width: 2560px) and (max-height: 1664px) {
+  .up-container {
+    height: 100vh;
+  }
+  .dimensional-rift {
+    top: -16%;
+  }
+  .gradient-light-bg {
+    bottom: -10%;
+  }
+  .light-middle {
+    bottom: 5%;
+  }
+  
+  .timeline-container {
+    margin-top: 10%;
+  }
+  .timeline-text {
+    margin-top: 2.5%;
+    width: 50rem;
+  }
+  .timeline {
+    width: 110rem;
+  }
+  .upmost-ground {
+    bottom: 0rem;
+  }
+
+
+  .tab-button-grid {
+    gap: 6rem;
+  }
+ 
+  .competition-tab-container {
+    margin-top: 5%;
+    width: 65%;
+    height: 50rem;
+  }
+  .competition-tab-title {
+    margin-top: 7.5%;
+    font-size: 5rem;
+  }
+  .competition-tab-description {
+    margin-top: 2.5%;
+    font-size: 2.5rem;
     width: 90%;
   }
   .register-button {
