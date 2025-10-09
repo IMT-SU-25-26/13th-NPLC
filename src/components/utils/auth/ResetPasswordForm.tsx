@@ -30,28 +30,12 @@ export default function ResetPasswordForm({ token }: ResetPasswordFormProps) {
 
   return (
     <div className="flex flex-col items-center justify-center w-full pb-20 sm:pb-12 gap-2">
-      <div
-        className="form-login overflow-hidden backdrop-blur-lg bg-[url('/login/loginpanelphone2.svg')] sm:bg-[url('/login/loginpanel.svg')] 
-      w-full max-w-[20rem] sm:max-w-[43rem] lg:max-w-[50rem] h-[18rem] 
-      sm:h-[23rem] lg:h-[26rem]
-      flex items-center justify-center z-[8] bg-no-repeat bg-center mx-auto"
-        style={{
-          backgroundSize: "contain",
-        }}
-      >
         <form
           action={formAction}
-          className="relative w-[85%] sm:w-[85%] md:w-[85%] lg:w-[85%] 
-        -mt-[4rem] sm:-mt-[4rem] md:-mt-[4rem] lg:-mt-[4rem]"
+          className="relative z-[10] backdrop-blur-2xl flex w-[80%] md:w-[70%] lg:w-[70%] xl:w-[45%] flex-col items-center justify-center gap-4 lg:gap-6 p-6 lg:p-12 rounded-xl shadow-lg border-[8px] border-[#FCE551]"
         >
           <input type="hidden" name="token" value={token} />
-          <div
-            className="absolute inset-0 flex flex-col justify-center 
-        py-8 sm:py-20 md:py-20 lg:py-20 
-        px-4 sm:px-8 md:px-12 lg:px-16"
-          >
-            {/* Title */}
-            <h1 className="flex text-xl md:text-2xl justify-center font-bold text-white mb-4 sm:mb-6">
+          <h1 className="flex text-xl md:text-2xl justify-center font-bold text-white mb-4 sm:mb-6">
               Set New Password
             </h1>
 
@@ -79,11 +63,11 @@ export default function ResetPasswordForm({ token }: ResetPasswordFormProps) {
             </div>
 
             {/* Submit Button */}
-            <div className="flex justify-center">
+            <div className="flex w-full justify-center">
               <button
                 type="submit"
-                className="all-button cursor-target group flex 
-              w-[60%] sm:w-[43%] lg:w-[40%] sm:mt-[-1rem] lg:mt-[0rem]"
+                className="cursor-target group flex 
+              w-[70%] sm:w-[43%] lg:w-[40%] sm:mt-[-1rem] lg:mt-[0rem]"
                 disabled={pending}
                 aria-disabled={pending}
               >
@@ -150,7 +134,7 @@ export default function ResetPasswordForm({ token }: ResetPasswordFormProps) {
                     fontWeight="500"
                     className="text-[#D787DF] text-5xl sm:text-2xl md:text-4xl lg:text-5xl font-rubik-glitch group-hover:text-[#D787DF]"
                   >
-                    {`${pending ? "Pending_" : "Login_"}`}
+                    {`${pending ? "Pending_" : "Confirm_"}`}
                   </text>
                   <text
                     x="210"
@@ -162,14 +146,12 @@ export default function ResetPasswordForm({ token }: ResetPasswordFormProps) {
                     fontWeight="500"
                     className="text-[#75E7F0] text-5xl sm:text-2xl md:text-4xl lg:text-5xl font-rubik-glitch group-hover:text-[#75E7F0]"
                   >
-                    {`${pending ? "Pending_" : "Login_"}`}
+                    {`${pending ? "Pending_" : "Confirm_"}`}
                   </text>
                 </svg>
               </button>
             </div>
-          </div>
         </form>
-      </div>
     </div>
   );
 }

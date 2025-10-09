@@ -20,27 +20,14 @@ export default function ForgetPasswordForm() {
   }, [state.errorMessage, state.success, state.message]);
 
   return (
-    <div className="flex flex-col items-center justify-center w-full pb-20 sm:pb-12 gap-2">
+    <div className="flex flex-col items-center justify-center w-full">
       <div
-        className="form-login overflow-hidden backdrop-blur-lg bg-[url('/login/loginpanelphone2.svg')] sm:bg-[url('/login/loginpanel.svg')] 
-      w-full max-w-[20rem] sm:max-w-[43rem] lg:max-w-[50rem] h-[15rem] 
-      sm:h-[20rem] lg:h-[23rem]
-      flex items-center justify-center z-[8] bg-no-repeat bg-center mx-auto"
-        style={{
-          backgroundSize: "contain",
-        }}
+        className="relative z-[10] backdrop-blur-2xl flex w-[80%] md:w-[70%] lg:w-[70%] xl:w-[45%] flex-col items-center justify-center gap-4 lg:gap-6 p-6 lg:p-12 rounded-xl shadow-lg border-[8px] border-[#FCE551]"
       >
         <form
           action={formAction}
-          className="relative w-[85%] sm:w-[85%] md:w-[85%] lg:w-[85%] 
-        -mt-[3rem] sm:-mt-[3rem] md:-mt-[3rem] lg:-mt-[3rem]"
+          className="relative w-full"
         >
-          <div
-            className="absolute inset-0 flex flex-col justify-center 
-        py-8 sm:py-20 md:py-20 lg:py-20 
-        px-4 sm:px-8 md:px-12 lg:px-16"
-          >
-            {/* Title */}
             <h1 className="flex text-xl md:text-2xl justify-center font-bold text-white mb-4 sm:mb-6">
               Reset Password
             </h1>
@@ -68,11 +55,11 @@ export default function ForgetPasswordForm() {
             </div>
 
             {/* Submit Button */}
-             <div className="flex justify-center">
+             <div className="mb-4 flex justify-center">
               <button
                 type="submit"
-                className="all-button cursor-target group flex 
-              w-[60%] sm:w-[43%] lg:w-[40%] sm:mt-[-1rem] lg:mt-[0rem]"
+                className="cursor-target group flex 
+              w-[70%] sm:w-[43%] lg:w-[40%] sm:mt-[-1rem] lg:mt-[0rem]"
                 disabled={pending}
                 aria-disabled={pending}
               >
@@ -161,12 +148,11 @@ export default function ForgetPasswordForm() {
             <div className="text-center">
               <Link
                 href="/login"
-                className="cursor-target text-[#75E8F0] hover:underline font-semibold text-sm sm:text-base [text-shadow:_0_0_20px_rgba(0,255,255,1)]"
+                className="cursor-target text-[#75E8F0] hover:underline font-semibold text-sm sm:text-lg [text-shadow:_0_0_20px_rgba(0,255,255,1)]"
               >
                 Back to Login
               </Link>
             </div>
-          </div>
         </form>
       </div>
     </div>
