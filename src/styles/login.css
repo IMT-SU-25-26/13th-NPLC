@@ -40,8 +40,8 @@
 
 @media (max-width: 360px) and (max-height: 740px) and (orientation: portrait) {
     .form-login {
-        max-width: 18rem !important;
-        height: 16rem !important;
+        max-width: 25rem !important;
+        height: 18rem !important;
     }
 
     .all-input {

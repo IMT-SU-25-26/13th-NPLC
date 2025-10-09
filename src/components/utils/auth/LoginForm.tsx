@@ -32,8 +32,8 @@ export default function LoginForm() {
       />
       <div
         className="form-login overflow-hidden backdrop-blur-lg bg-[url('/login/loginpanelphone2.svg')] sm:bg-[url('/login/loginpanel.svg')] 
-      w-full max-w-[20rem] sm:max-w-[43rem] lg:max-w-[50rem] h-[18rem] 
-      sm:h-[23.5rem] lg:h-[27rem]
+      w-full max-w-[20rem] sm:max-w-[45rem] lg:max-w-[50rem] h-[18rem] 
+      sm:h-[24.5rem] lg:h-[27rem]
       flex items-center justify-center z-[8] bg-no-repeat bg-center mx-auto"
         style={{
           backgroundSize: "contain",
@@ -47,22 +47,22 @@ export default function LoginForm() {
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
           }}
-          className="relative w-[85%] sm:w-[85%] md:w-[85%] lg:w-[85%] 
-        -mt-[6rem] sm:-mt-[6rem] md:-mt-[6rem] lg:-mt-[6rem]"
+          className="relative w-[90%] sm:w-[85%] md:w-[85%] lg:w-[85%] 
+        -mt-[4rem] sm:-mt-[6rem] md:-mt-[6rem] lg:-mt-[6rem]"
         >
           <div className="absolute inset-0 flex flex-col justify-center 
-        py-8 sm:py-20 md:py-20 lg:py-20 
-        px-4 sm:px-8 md:px-12 lg:px-16">
+        py-4 sm:py-20 md:py-20 lg:py-20 
+        px-3 sm:px-8 md:px-12 lg:px-16">
             {/* Mobile Title */}
-            <h1 className="flex sm:hidden text-xl md:text-2xl justify-center font-bold text-white mb-2 mt-8 sm:mt-5">
+            <h1 className="flex sm:hidden text-lg md:text-2xl justify-center font-bold text-white mb-1 mt-4 sm:mt-5">
               Login
             </h1>
 
             {/* Email Input */}
-            <div className="mb-1 sm:mb-2 w-full">
+            <div className="mb-1 sm:mb-1.5 w-full">
               <label
                 htmlFor="email"
-                className="all-text email-text block text-white font-medium mb-1 text-sm sm:text-base font-RopaSans-Regular"
+                className="all-text email-text block text-white font-medium mb-1 text-xs sm:text-base font-RopaSans-Regular"
               >
                 Email
               </label>
@@ -72,8 +72,8 @@ export default function LoginForm() {
                 name="email"
                 required
                 className="cursor-target all-input w-full  bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
-              px-3 py-2 sm:px-4 sm:py-3 md:px-4 md:py-3 lg:px-4 lg:py-3
-              text-sm sm:text-base md:text-base lg:text-base
+              px-2 py-1.5 sm:px-4 sm:py-3 md:px-4 md:py-3 lg:px-4 lg:py-3
+              text-xs sm:text-base md:text-base lg:text-base
               text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                             placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
                 placeholder="Email"
@@ -81,10 +81,10 @@ export default function LoginForm() {
             </div>
 
             {/* Password Input */}
-            <div className="mb-4 sm:mb-8 w-full">
+            <div className="mb-2 sm:mb-8 w-full">
               <label
                 htmlFor="password"
-                className="all-text password-text block text-white font-medium mb-2 text-sm sm:text-base font-RopaSans-Regular"
+                className="all-text password-text block text-white font-medium mb-1 text-xs sm:text-base font-RopaSans-Regular"
               >
                 Password
               </label>
@@ -94,8 +94,8 @@ export default function LoginForm() {
                 name="password"
                 required
                 className="cursor-target all-input w-full bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
-              px-3 py-2 sm:px-4 sm:py-3 md:px-4 md:py-3 lg:px-4 lg:py-3
-              text-sm sm:text-base md:text-base lg:text-base
+              px-2 py-1.5 sm:px-4 sm:py-3 md:px-4 md:py-3 lg:px-4 lg:py-3
+              text-xs sm:text-base md:text-base lg:text-base
               text-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
                             placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] placeholder-[#75E8F0] focus:outline-none focus:border-yellow-300 transition-colors"
                 placeholder="Password"
@@ -103,11 +103,11 @@ export default function LoginForm() {
             </div>
 
             {/* Login Button */}
-            <div className="flex justify-center">
+            <div className="flex justify-center mt-2 sm:mt-0">
               <button
                 type="submit"
                 className="all-button cursor-target group flex 
-              w-[60%] sm:w-[43%] lg:w-[40%] sm:mt-[-1rem] lg:mt-[0rem]"
+              w-[50%] sm:w-[43%] lg:w-[40%] sm:mt-[-1rem] lg:mt-[0rem]"
                 disabled={pending}
                 aria-disabled={pending}
               >
@@ -172,7 +172,7 @@ export default function LoginForm() {
                     fill="currentColor"
                     fontSize="18"
                     fontWeight="500"
-                    className="text-[#D787DF] text-5xl sm:text-2xl md:text-4xl lg:text-5xl font-rubik-glitch group-hover:text-[#D787DF]"
+                    className="text-[#D787DF] text-4xl sm:text-2xl md:text-4xl lg:text-5xl font-rubik-glitch group-hover:text-[#D787DF]"
                   >
                     {`${pending ? "Pending_" : "Login_"}`}
                   </text>
@@ -184,7 +184,7 @@ export default function LoginForm() {
                     fill="currentColor"
                     fontSize="18"
                     fontWeight="500"
-                    className="text-[#75E7F0] text-5xl sm:text-2xl md:text-4xl lg:text-5xl font-rubik-glitch group-hover:text-[#75E7F0]"
+                    className="text-[#75E7F0] text-2xl sm:text-2xl md:text-4xl lg:text-5xl font-rubik-glitch group-hover:text-[#75E7F0]"
                   >
                     {`${pending ? "Pending_" : "Login_"}`}
                   </text>
@@ -193,20 +193,20 @@ export default function LoginForm() {
             </div>
 
             {/* Add Forgot Password Link */}
-            <div className="text-center mt-2">
+            <div className="text-center mt-1">
               <Link
                 href="/forget-password"
-                className="cursor-target text-[#75E8F0] hover:underline text-sm [text-shadow:_0_0_20px_rgba(0,255,255,1)]"
+                className="cursor-target text-[#75E8F0] hover:underline text-xs sm:text-sm [text-shadow:_0_0_20px_rgba(0,255,255,1)]"
               >
                 Forgot Password?
               </Link>
             </div>
 
             {/* Register Link */}
-            <div className="text-center mt-2">
+            <div className="text-center mt-1">
               <Link
                 href="/register"
-                className="cursor-target text-[#75E8F0] hover:underline font-semibold text-sm sm:text-base [text-shadow:_0_0_20px_rgba(0,255,255,1)]"
+                className="cursor-target text-[#75E8F0] mb-0 hover:underline font-semibold text-xs sm:text-base [text-shadow:_0_0_20px_rgba(0,255,255,1)]"
               >
                 {"Don't have an account? Register"}
               </Link>
