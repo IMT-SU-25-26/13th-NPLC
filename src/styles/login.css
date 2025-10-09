@@ -473,8 +473,8 @@
 
 @media (min-width: 763px) and (max-width: 764px) and (min-height: 251px) and (max-height: 252px) and (orientation: landscape) {
     .form-login {
-        max-width: 32rem !important;
-        height: 17.3rem !important;
+        max-width: 37rem !important;
+        height: 20.3rem !important;
     }
 
     .all-input {
@@ -515,8 +515,8 @@
 
 @media (min-width: 769px) and (max-width: 770px) and (min-height: 302px) and (max-height: 303px) and (orientation: landscape) {
     .form-login {
-        max-width: 32rem !important;
-        height: 17.3rem !important;
+        max-width: 37rem !important;
+        height: 20.3rem !important;
     }
 
     .all-input {
@@ -557,8 +557,8 @@
 
 @media (min-width: 771px) and (max-width: 772px) and (min-height: 302px) and (max-height: 303px) and (orientation: landscape) {
     .form-login {
-        max-width: 32rem !important;
-        height: 17.3rem !important;
+        max-width: 37rem !important;
+        height: 20.3rem !important;
     }
 
     .all-input {
@@ -599,9 +599,8 @@
 
 @media (min-width: 822px) and (max-width: 823px) and (min-height: 358px) and (max-height: 359px) and (orientation: landscape) {
     .form-login {
-        max-width: 32rem !important;
-        height: 17.3rem !important;
-        margin-bottom: 0.8rem !important;
+        max-width: 37rem !important;
+        height: 20.3rem !important;
     }
 
     .all-input {
@@ -642,8 +641,8 @@
 
 @media (min-width: 1279px) and (max-width: 1280px) and (min-height: 549px) and (max-height: 551px) {
     .form-login {
-        max-width: 40rem !important;
-        height: 21.5rem !important;
+        max-width: 42rem !important;
+        height: 22.5rem !important;
     }
 
     .all-input {
