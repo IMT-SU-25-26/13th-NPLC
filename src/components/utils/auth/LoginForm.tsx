@@ -184,7 +184,7 @@ export default function LoginForm() {
                     fill="currentColor"
                     fontSize="18"
                     fontWeight="500"
-                    className="text-[#75E7F0] text-2xl sm:text-2xl md:text-4xl lg:text-5xl font-rubik-glitch group-hover:text-[#75E7F0]"
+                    className="text-[#75E7F0] text-4xl sm:text-2xl md:text-4xl lg:text-5xl font-rubik-glitch group-hover:text-[#75E7F0]"
                   >
                     {`${pending ? "Pending_" : "Login_"}`}
                   </text>
