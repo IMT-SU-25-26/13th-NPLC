@@ -79,11 +79,11 @@ export default function ResetPasswordForm({ token }: ResetPasswordFormProps) {
             </div>
 
             {/* Submit Button */}
-            <div className="flex justify-center mt-4">
+            <div className="flex justify-center">
               <button
                 type="submit"
                 className="all-button cursor-target group flex 
-              w-[70%] sm:w-[50%] lg:w-[45%]"
+              w-[60%] sm:w-[43%] lg:w-[40%] sm:mt-[-1rem] lg:mt-[0rem]"
                 disabled={pending}
                 aria-disabled={pending}
               >
@@ -108,6 +108,38 @@ export default function ResetPasswordForm({ token }: ResetPasswordFormProps) {
                       pending ? "" : "group-hover:fill-[#000000] "
                     } transition-colors duration-200`}
                   />
+                  <path
+                    d="M8.69482 126.217H50.0006L8.69482 106.044V126.217Z"
+                    fill={`${pending ? "#822020" : "#FCF551"}`}
+                    className={`${
+                      pending ? "" : "group-hover:fill-[#c651fc] "
+                    } transition-colors duration-200`}
+                  />
+                  <path
+                    d="M107.177 9.12653L8.69482 47.9947V94.8193L72.9969 126.216H318.51L417 87.341V9.12653H107.177Z"
+                    fill={`${pending ? "#822020" : "#FCF551"}`}
+                    className={`${
+                      pending ? "" : "group-hover:fill-[#c651fc] "
+                    } transition-colors duration-200`}
+                  />
+                  <path
+                    d="M72.6392 132.396H271.941V137.262H72.6392"
+                    fill={`${pending ? "#822020" : "#FCF551"}`}
+                    className={`${
+                      pending ? "" : "group-hover:fill-[#c651fc] "
+                    } transition-colors duration-200`}
+                  />
+                  <path
+                    d="M8.56348 132.396H49.8693V137.262H8.56348"
+                    fill={`${pending ? "#822020" : "#FCF551"}`}
+                    className={`${
+                      pending ? "" : "group-hover:fill-[#c651fc] "
+                    } transition-colors duration-200`}
+                  />
+                  <path
+                    d="M412.021 9.12653V87.1198V89.3034L417 87.341V87.1198V9.12653H412.021Z"
+                    fill="#75E8F0"
+                  />
                   <text
                     x="200"
                     y="75"
@@ -118,7 +150,19 @@ export default function ResetPasswordForm({ token }: ResetPasswordFormProps) {
                     fontWeight="500"
                     className="text-[#D787DF] text-5xl sm:text-2xl md:text-4xl lg:text-5xl font-rubik-glitch group-hover:text-[#D787DF]"
                   >
-                    {`${pending ? "Resetting_" : "Reset Password_"}`}
+                    {`${pending ? "Pending_" : "Login_"}`}
+                  </text>
+                  <text
+                    x="210"
+                    y="70"
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    fill="currentColor"
+                    fontSize="18"
+                    fontWeight="500"
+                    className="text-[#75E7F0] text-5xl sm:text-2xl md:text-4xl lg:text-5xl font-rubik-glitch group-hover:text-[#75E7F0]"
+                  >
+                    {`${pending ? "Pending_" : "Login_"}`}
                   </text>
                 </svg>
               </button>

@@ -38,7 +38,7 @@ export const auth = betterAuth({
     // Add proper forget password configuration
     forgotPassword: {
       enabled: true,
-      resetTokenExpirationMinutes: 60, // 60 minutes
+      resetTokenExpirationMinutes: 15, // 60 minutes
     },
     // Add email sending configuration
     sendResetPassword: async ({ user, url }) => {
@@ -59,7 +59,7 @@ export const auth = betterAuth({
               </div>
               <p>Or copy and paste this link in your browser:</p>
               <p style="word-break: break-all; color: #666;">${url}</p>
-              <p>This link will expire in 60 minutes for security reasons.</p>
+              <p>This link will expire in 15 minutes for security reasons.</p>
               <p>If you didn't request this password reset, you can safely ignore this email.</p>
               <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
               <p style="color: #666; font-size: 12px;">

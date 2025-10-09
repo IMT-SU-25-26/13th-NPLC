@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { updateNisn, updateUserRole } from "./user";
 import { State } from "@/types/form";
 import { PrismaClient } from "@prisma/client";
+import prisma from "./prisma";
 export async function signUp(prevState: State, formData: FormData) {
   const prisma = new PrismaClient();
   const rawFormData = {
@@ -148,16 +149,34 @@ export async function forgetPassword(prevState: State, formData: FormData) {
   // Add validation logging
   console.log("Original email:", email);
   console.log("Trimmed email:", trimmedEmail);
-  console.log("Email validation:", /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail));
+  console.log(
+    "Email validation:",
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)
+  );
 
   // Basic email format validation
   if (!trimmedEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
-    return { errorMessage: "Please enter a valid email address", success: false };
+    return {
+      errorMessage: "Please enter a valid email address",
+      success: false,
+    };
   }
 
   try {
     console.log("Attempting to send reset email to:", trimmedEmail);
-    
+
+    const userExist = await prisma.user.findFirst({
+      where: { email: trimmedEmail },
+    });
+
+    if (!userExist) {
+      return {
+        errorMessage: `User with the email ${trimmedEmail} does not exist`,
+        success: false,
+      };
+    }
+    // Call the forgetPassword API)
+
     await auth.api.forgetPassword({
       body: {
         email: trimmedEmail,
@@ -167,29 +186,37 @@ export async function forgetPassword(prevState: State, formData: FormData) {
 
     return {
       success: true,
-      message: "If an account with that email exists, we've sent a password reset link.",
+      message: "Password reset email sent successfully!",
     };
   } catch (error) {
     console.error("Detailed error:", error);
-    
+
     if (error instanceof APIError) {
       console.error("API Error status:", error.status);
       console.error("API Error message:", error.message);
-      
+
       switch (error.status) {
         case "BAD_REQUEST":
-          return { errorMessage: "Invalid email address format", success: false };
-        case "NOT_FOUND":
-          // Don't reveal if user exists or not for security
           return {
-            success: true,
-            message: "If an account with that email exists, we've sent a password reset link.",
+            errorMessage: "Invalid email address format",
+            success: false,
+          };
+        case "NOT_FOUND":
+          return {
+            errorMessage: `User with the email ${trimmedEmail} not found`,
+            success: false,
           };
         default:
-          return { errorMessage: "Something went wrong. Please try again.", success: false };
+          return {
+            errorMessage: "Something went wrong. Please try again.",
+            success: false,
+          };
       }
     }
-    return { errorMessage: "Failed to send reset email. Please try again.", success: false };
+    return {
+      errorMessage: "Failed to send reset email. Please try again.",
+      success: false,
+    };
   }
 }
 
@@ -203,7 +230,10 @@ export async function resetPassword(prevState: State, formData: FormData) {
   const trimmedPassword = password.replace(/\s+/g, "");
 
   if (trimmedPassword.length < 6) {
-    return { errorMessage: "Password must be at least 6 characters long", success: false };
+    return {
+      errorMessage: "Password must be at least 6 characters long",
+      success: false,
+    };
   }
 
   try {
@@ -216,20 +246,30 @@ export async function resetPassword(prevState: State, formData: FormData) {
 
     return {
       success: true,
-      message: "Password reset successfully! You can now log in with your new password.",
+      message:
+        "Password reset successfully! You can now log in with your new password.",
     };
   } catch (error) {
     console.error("Error resetting password:", error);
     if (error instanceof APIError) {
       switch (error.status) {
         case "BAD_REQUEST":
-          return { errorMessage: "Invalid or expired reset token", success: false };
+          return {
+            errorMessage: "Invalid or expired reset token",
+            success: false,
+          };
         case "NOT_FOUND":
-          return { errorMessage: "Invalid or expired reset token", success: false };
+          return {
+            errorMessage: "Invalid or expired reset token",
+            success: false,
+          };
         default:
           return { errorMessage: "Something went wrong", success: false };
       }
     }
-    return { errorMessage: "Failed to reset password. Please try again.", success: false };
+    return {
+      errorMessage: "Failed to reset password. Please try again.",
+      success: false,
+    };
   }
 }
