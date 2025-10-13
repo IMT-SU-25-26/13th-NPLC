@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_APP_PASSWORD, // Use App Password, not regular password
+    pass: process.env.GMAIL_APP_PASSWORD,
   },
 });
 
@@ -19,7 +19,7 @@ export const auth = betterAuth({
   trustedOrigins: [
     "http://localhost:3000",
     "https://nplc.ciputra.ac.id",
-    process.env.VERCEL_URL || "https://nplc.vercel.app"
+    process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://nplc.vercel.app"
   ],
   session: {
     cookieCache: {
