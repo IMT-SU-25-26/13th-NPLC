@@ -6,6 +6,7 @@ import { useSession } from "@/lib/auth/auth_client";
 import { FormEvent, useState, useEffect } from "react";
 import { toast } from "sonner";
 import Link from "next/link";
+import Image from "next/image";
 import {
   checkBPSubmission,
   findTeam,
@@ -14,6 +15,7 @@ import {
 } from "@/lib/competition";
 
 // Define a proper type for the submission data
+
 interface BusinessPlanSubmissionData {
   success: boolean;
   errorMessage?: string;
@@ -174,25 +176,13 @@ export default function BusinessPlanSubmissionForm() {
                 py-[0.1rem] sm:py-[1rem] flex items-center justify-start gap-2 hover:bg-[#18182a]/90`,
           "single-all-input multiple-all-input"
         )}>
-            <svg
-              className="w-5 h-5 text-green-400 flex-shrink-0"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
-            <div className="flex flex-col">
+            <div className="flex gap-1 sm:gap-2 text-sm sm:text-lg">
+              Upload Success.{" "}
               <Link
                 href={uploadedProposalFileUrl} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="underline hover:text-[#FCF551] text-lg"
+                className="underline hover:text-[#FCF551]"
               >
                 View file
               </Link>
@@ -231,25 +221,13 @@ export default function BusinessPlanSubmissionForm() {
                 py-[0.1rem] sm:py-[1rem] flex items-center justify-start gap-2 hover:bg-[#18182a]/90`,
           "single-all-input multiple-all-input"
         )}>
-            <svg
-              className="w-5 h-5 text-green-400 flex-shrink-0"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
-            <div className="flex flex-col">
+            <div className="flex gap-1 sm:gap-2 text-sm sm:text-lg">
+              Upload Success{" "}
               <Link 
                 href={uploadedSuratFileUrl} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="underline hover:text-[#FCF551] text-lg"
+                className="underline hover:text-[#FCF551]"
               >
                 View file
               </Link>
