@@ -161,7 +161,7 @@ export default function BusinessPlanSubmissionForm() {
                 py-[0.1rem] sm:py-[1rem] flex items-center justify-center gap-2 hover:bg-[#18182a]/90`,
           "single-all-input multiple-all-input"
         )}
-        placeholder={`Enter Twibbon link member`}
+        placeholder={`Enter Figma Link`}
         required // Only first member is required
       />
       {/* Login Button */}
