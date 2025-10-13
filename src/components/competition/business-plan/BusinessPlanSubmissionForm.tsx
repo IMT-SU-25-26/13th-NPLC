@@ -187,12 +187,11 @@ export default function BusinessPlanSubmissionForm() {
               />
             </svg>
             <div className="flex flex-col">
-              <span>File uploaded: {getFileName(uploadedProposalFileUrl)}</span>
               <Link
                 href={uploadedProposalFileUrl} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="underline hover:text-[#FCF551] text-xs"
+                className="underline hover:text-[#FCF551] text-lg"
               >
                 View file
               </Link>
@@ -207,7 +206,6 @@ export default function BusinessPlanSubmissionForm() {
               setProposalUploadedFileUrl(url);
               setUploadedProposalFilePublicId(publicId || "");
               toast.success("Proposal uploaded successfully!");
-              console.log("File uploaded:", url, publicId);
             }}
             folder="business-plan"
             allowedFormats={["pdf"]}
@@ -247,12 +245,11 @@ export default function BusinessPlanSubmissionForm() {
               />
             </svg>
             <div className="flex flex-col">
-              <span>File uploaded: {getFileName(uploadedSuratFileUrl)}</span>
               <Link 
                 href={uploadedSuratFileUrl} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="underline hover:text-[#FCF551] text-xs"
+                className="underline hover:text-[#FCF551] text-lg"
               >
                 View file
               </Link>
