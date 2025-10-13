@@ -13,18 +13,30 @@ import {
   getBusinessPlanSubmission,
 } from "@/lib/competition";
 
+// Define a proper type for the submission data
+interface BusinessPlanSubmissionData {
+  success: boolean;
+  errorMessage?: string;
+  data: {
+    id?: string;
+    user_id?: string;
+    team_name?: string;
+    competition_id?: string;
+    proposal?: string;
+    surat_pernyataan_orisinalitas?: string;
+    figma_link?: string;
+    submittedAt?: Date;
+  } | null;
+}
+
 export default function BusinessPlanSubmissionForm() {
   const [pending, setPending] = useState(false);
   const [team, setTeam] = useState<string>("");
   const [hasSubmitted, setHasSubmitted] = useState(false);
-  const [submissionData, setSubmissionData] = useState<any>(null);
+  const [submissionData, setSubmissionData] = useState<BusinessPlanSubmissionData | null>(null);
   const [uploadedProposalFileUrl, setProposalUploadedFileUrl] =
     useState<string>("");
   const [uploadedSuratFileUrl, setSuratUploadedFileUrl] = useState<string>("");
-  const [uploadedProposalFilePublicId, setUploadedProposalFilePublicId] =
-    useState<string>("");
-  const [uploadedSuratFilePublicId, setUploadedSuratFilePublicId] =
-    useState<string>("");
   const [figmaLink, setFigmaLink] = useState<string>("");
 
   const { data: session } = useSession();
@@ -46,10 +58,10 @@ export default function BusinessPlanSubmissionForm() {
         // If submitted, get submission data
         if (submissionStatus) {
           const data = await getBusinessPlanSubmission(team, "cmegpbi5m0001hke9buhvhrw4");
-          setSubmissionData(data);
+          setSubmissionData(data as BusinessPlanSubmissionData);
           
           // Set the submission data to display the files
-          if (data && data.success) {
+          if (data && data.success && data.data) {
             setProposalUploadedFileUrl(data.data.proposal || "");
             setSuratUploadedFileUrl(data.data.surat_pernyataan_orisinalitas || "");
             setFigmaLink(data.data.figma_link || "");
@@ -97,7 +109,6 @@ export default function BusinessPlanSubmissionForm() {
         setPending(false);
         return;
       }
-
       const result = await submitBusinessPlan(
         session.user.id,
         team,
@@ -113,7 +124,7 @@ export default function BusinessPlanSubmissionForm() {
           duration: 4000,
         });
         setHasSubmitted(true);
-        setSubmissionData(result);
+        setSubmissionData(result as BusinessPlanSubmissionData);
       } else {
         toast.error("Submission failed due to", {
           description: result?.errorMessage || "Please try again later.",
@@ -130,16 +141,6 @@ export default function BusinessPlanSubmissionForm() {
       setPending(false);
     }
   }
-
-  // Function to extract filename from URL
-  const getFileName = (url: string) => {
-    if (!url) return "";
-    const parts = url.split("/");
-    const fileWithParams = parts[parts.length - 1];
-    const filename = fileWithParams.split("?")[0];
-    // Decode any URL encoding
-    return decodeURIComponent(filename);
-  };
 
   return (
     <form onSubmit={handleSubmit} method="POST" className="form-wrapper relative backdrop-blur-2xl z-[11] w-[90%] sm:w-[80%] lg:w-[45%] flex flex-col gap-1 sm:gap-4 place-items-center justify-items-center border-[8px] border-[#FCE551] rounded-lg p-[1rem] sm:p-[2rem] lg:p-[4rem]">
@@ -204,7 +205,6 @@ export default function BusinessPlanSubmissionForm() {
           <BusinessPlanFileSubmit
             onUploadSuccess={(url, publicId) => {
               setProposalUploadedFileUrl(url);
-              setUploadedProposalFilePublicId(publicId || "");
               toast.success("Proposal uploaded successfully!");
             }}
             folder="business-plan"
@@ -262,7 +262,6 @@ export default function BusinessPlanSubmissionForm() {
           <BusinessPlanFileSubmit
             onUploadSuccess={(url, publicId) => {
               setSuratUploadedFileUrl(url);
-              setUploadedSuratFilePublicId(publicId || "");
               toast.success("Surat Pernyataan Orisinalitas proof uploaded successfully!");
               console.log("File uploaded:", url, publicId);
             }}
