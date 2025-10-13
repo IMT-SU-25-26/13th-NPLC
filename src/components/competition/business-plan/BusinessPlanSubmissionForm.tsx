@@ -218,7 +218,7 @@ export default function BusinessPlanSubmissionForm() {
       
       <div className="w-full">
         <label className="submission-label text-left w-full font-ropasans-regular text-sm sm:text-xl lg:text-2xl">
-          Surat Pernyataan Orisinalitas
+          Surat Pernyataan Orisinalitas <Link className="regis-label underline" target="_blank" href="https://docs.google.com/document/d/1JWcw_uA8RxkQjusjkJedLu1SQ47blBcSNvZ4L_4il_0/edit?usp=sharing">{`[Link template]`}</Link>
         </label>
         
         {/* Display uploaded surat file if exists */}
