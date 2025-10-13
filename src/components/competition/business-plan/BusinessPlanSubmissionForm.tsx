@@ -5,16 +5,19 @@ import "@/styles/business-plan-submission.css";
 import { useSession } from "@/lib/auth/auth_client";
 import { FormEvent, useState, useEffect } from "react";
 import { toast } from "sonner";
+import Link from "next/link";
 import {
   checkBPSubmission,
   findTeam,
   submitBusinessPlan,
+  getBusinessPlanSubmission,
 } from "@/lib/competition";
 
 export default function BusinessPlanSubmissionForm() {
   const [pending, setPending] = useState(false);
   const [team, setTeam] = useState<string>("");
   const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [submissionData, setSubmissionData] = useState<any>(null);
   const [uploadedProposalFileUrl, setProposalUploadedFileUrl] =
     useState<string>("");
   const [uploadedSuratFileUrl, setSuratUploadedFileUrl] = useState<string>("");
@@ -22,6 +25,7 @@ export default function BusinessPlanSubmissionForm() {
     useState<string>("");
   const [uploadedSuratFilePublicId, setUploadedSuratFilePublicId] =
     useState<string>("");
+  const [figmaLink, setFigmaLink] = useState<string>("");
 
   const { data: session } = useSession();
 
@@ -30,13 +34,27 @@ export default function BusinessPlanSubmissionForm() {
     const checkUserSubmission = async () => {
       if (!session?.user?.id) return;
       const team = await findTeam(session.user.id, "cmegpbi5m0001hke9buhvhrw4");
+      setTeam(team);
+      
       try {
         const submissionStatus = await checkBPSubmission(
           team,
           "cmegpbi5m0001hke9buhvhrw4"
         );
-        setTeam(team);
         setHasSubmitted(submissionStatus);
+        
+        // If submitted, get submission data
+        if (submissionStatus) {
+          const data = await getBusinessPlanSubmission(team, "cmegpbi5m0001hke9buhvhrw4");
+          setSubmissionData(data);
+          
+          // Set the submission data to display the files
+          if (data && data.success) {
+            setProposalUploadedFileUrl(data.data.proposal || "");
+            setSuratUploadedFileUrl(data.data.surat_pernyataan_orisinalitas || "");
+            setFigmaLink(data.data.figma_link || "");
+          }
+        }
       } catch (error) {
         console.error("Error checking submission status:", error);
       }
@@ -68,6 +86,18 @@ export default function BusinessPlanSubmissionForm() {
         return;
       }
 
+      if (!uploadedProposalFileUrl) {
+        toast.error("Please upload your proposal");
+        setPending(false);
+        return;
+      }
+
+      if (!uploadedSuratFileUrl) {
+        toast.error("Please upload your Surat Pernyataan Orisinalitas");
+        setPending(false);
+        return;
+      }
+
       const result = await submitBusinessPlan(
         session.user.id,
         team,
@@ -83,6 +113,7 @@ export default function BusinessPlanSubmissionForm() {
           duration: 4000,
         });
         setHasSubmitted(true);
+        setSubmissionData(result);
       } else {
         toast.error("Submission failed due to", {
           description: result?.errorMessage || "Please try again later.",
@@ -100,6 +131,16 @@ export default function BusinessPlanSubmissionForm() {
     }
   }
 
+  // Function to extract filename from URL
+  const getFileName = (url: string) => {
+    if (!url) return "";
+    const parts = url.split("/");
+    const fileWithParams = parts[parts.length - 1];
+    const filename = fileWithParams.split("?")[0];
+    // Decode any URL encoding
+    return decodeURIComponent(filename);
+  };
+
   return (
     <form onSubmit={handleSubmit} method="POST" className="form-wrapper relative backdrop-blur-2xl z-[11] w-[90%] sm:w-[80%] lg:w-[45%] flex flex-col gap-1 sm:gap-4 place-items-center justify-items-center border-[8px] border-[#FCE551] rounded-lg p-[1rem] sm:p-[2rem] lg:p-[4rem]">
       {/* Business Plan Header */}
@@ -109,40 +150,134 @@ export default function BusinessPlanSubmissionForm() {
         </h1>
         <div className="text-white time text-sm sm:text-base lg:text-2xl">
           <p>
-            <span className="font-semibold">Opened:</span> Sunday, 28 September
-            2025
+            <span className="font-semibold">Opened:</span> Monday, 13 October 2025
           </p>
           <p>
-            <span className="font-semibold">Due:</span> Monday, 28 September
-            2025
+            <span className="font-semibold">Due:</span> Monday, 20 October 2025
           </p>
         </div>
       </div>
 
-      <BusinessPlanFileSubmit
-        onUploadSuccess={(url, publicId) => {
-          setProposalUploadedFileUrl(url);
-          setUploadedProposalFilePublicId(publicId || "");
-          toast.success("Proposal uploaded successfully!");
-          console.log("File uploaded:", url, publicId);
-        }}
-        folder="business-plan"
-        allowedFormats={["pdf"]}
-        label="Proposal"
-        name="proposal"
-      />
-      <BusinessPlanFileSubmit
-        onUploadSuccess={(url, publicId) => {
-          setSuratUploadedFileUrl(url);
-          setUploadedSuratFilePublicId(publicId || "");
-          toast.success("Surat Pernyataan Orisinalitas proof uploaded successfully!");
-          console.log("File uploaded:", url, publicId);
-        }}
-        folder="business-plan"
-        allowedFormats={["pdf"]}
-        label="Surat Pernyataan Orisinalitas"
-        name="surat_pernyataan_orisinalitas"
-      />
+      <div className="w-full">
+        <label className="submission-label text-left w-full font-ropasans-regular text-sm sm:text-xl lg:text-2xl">
+          Proposal
+        </label>
+        
+        {/* Display uploaded proposal file if exists */}
+        {uploadedProposalFileUrl && (
+          <div  className={twMerge(
+          `cursor-target px-[3%] w-full min-h-[40px] bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                text-sm sm:text-base md:text-lg lg:text-lg
+                text-[#75E8F0] placeholder-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
+                placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors submission-widget
+                py-[0.1rem] sm:py-[1rem] flex items-center justify-start gap-2 hover:bg-[#18182a]/90`,
+          "single-all-input multiple-all-input"
+        )}>
+            <svg
+              className="w-5 h-5 text-green-400 flex-shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div className="flex flex-col">
+              <span>File uploaded: {getFileName(uploadedProposalFileUrl)}</span>
+              <Link
+                href={uploadedProposalFileUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="underline hover:text-[#FCF551] text-xs"
+              >
+                View file
+              </Link>
+            </div>
+          </div>
+        )}
+        
+        {/* Show the BusinessPlanFileSubmit only if not submitted */}
+        {!hasSubmitted && (
+          <BusinessPlanFileSubmit
+            onUploadSuccess={(url, publicId) => {
+              setProposalUploadedFileUrl(url);
+              setUploadedProposalFilePublicId(publicId || "");
+              toast.success("Proposal uploaded successfully!");
+              console.log("File uploaded:", url, publicId);
+            }}
+            folder="business-plan"
+            allowedFormats={["pdf"]}
+            label=""
+            name="proposal"
+            disabled={hasSubmitted}
+          />
+        )}
+      </div>
+      
+      <div className="w-full">
+        <label className="submission-label text-left w-full font-ropasans-regular text-sm sm:text-xl lg:text-2xl">
+          Surat Pernyataan Orisinalitas
+        </label>
+        
+        {/* Display uploaded surat file if exists */}
+        {uploadedSuratFileUrl && (
+          <div className={twMerge(
+          `cursor-target px-[3%] w-full min-h-[40px] bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+                text-sm sm:text-base md:text-lg lg:text-lg
+                text-[#75E8F0] placeholder-[#75E8F0] [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
+                placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors submission-widget
+                py-[0.1rem] sm:py-[1rem] flex items-center justify-start gap-2 hover:bg-[#18182a]/90`,
+          "single-all-input multiple-all-input"
+        )}>
+            <svg
+              className="w-5 h-5 text-green-400 flex-shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div className="flex flex-col">
+              <span>File uploaded: {getFileName(uploadedSuratFileUrl)}</span>
+              <Link 
+                href={uploadedSuratFileUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="underline hover:text-[#FCF551] text-xs"
+              >
+                View file
+              </Link>
+            </div>
+          </div>
+        )}
+        
+        {/* Show the BusinessPlanFileSubmit only if not submitted */}
+        {!hasSubmitted && (
+          <BusinessPlanFileSubmit
+            onUploadSuccess={(url, publicId) => {
+              setSuratUploadedFileUrl(url);
+              setUploadedSuratFilePublicId(publicId || "");
+              toast.success("Surat Pernyataan Orisinalitas proof uploaded successfully!");
+              console.log("File uploaded:", url, publicId);
+            }}
+            folder="business-plan"
+            allowedFormats={["pdf"]}
+            label=""
+            name="surat_pernyataan_orisinalitas"
+            disabled={hasSubmitted}
+          />
+        )}
+      </div>
+      
       <label
         className="submission-label text-left w-full font-ropasans-regular text-sm sm:text-xl lg:text-2xl"
         htmlFor="figma_link"
@@ -150,9 +285,11 @@ export default function BusinessPlanSubmissionForm() {
         Figma Link
       </label>
       <input
-        id={`figma_link`}
+        id="figma_link"
         type="url"
-        name={`figma_link`}
+        name="figma_link"
+        value={figmaLink}
+        onChange={(e) => setFigmaLink(e.target.value)}
         className={twMerge(
           `cursor-target px-[3%] w-full min-h-[40px] bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
                 text-sm sm:text-base md:text-lg lg:text-lg
@@ -161,10 +298,12 @@ export default function BusinessPlanSubmissionForm() {
                 py-[0.1rem] sm:py-[1rem] flex items-center justify-center gap-2 hover:bg-[#18182a]/90`,
           "single-all-input multiple-all-input"
         )}
-        placeholder={`Enter Figma Link`}
-        required // Only first member is required
+        placeholder="Enter Figma Link"
+        required
+        disabled={hasSubmitted}
       />
-      {/* Login Button */}
+      
+      {/* Submit Button */}
       <div className="flex justify-center mt-3">
         <button
           type="submit"

@@ -12,6 +12,7 @@ export async function getCompetitions(): Promise<Competition[]> {
   });
 }
 
+
 export async function getCompetitionById(
   id: string
 ): Promise<Competition | null> {
@@ -210,6 +211,28 @@ export async function checkBPSubmission(
   } catch (error) {
     console.error("Error checking submission:", error);
     return false;
+  }
+}
+export async function getBusinessPlanSubmission(team_name: string, competition_id: string) {
+  try {
+    const submission = await prisma.businessPlanSubmission.findFirst({
+      where: {
+        team_name,
+        competition_id,
+      },
+    });
+
+    return {
+      success: true,
+      data: submission,
+    };
+  } catch (error) {
+    console.error("Error fetching business plan submission:", error);
+    return {
+      success: false,
+      errorMessage: "Failed to fetch submission data",
+      data: null,
+    };
   }
 }
 
