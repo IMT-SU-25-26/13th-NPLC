@@ -42,8 +42,42 @@ export default function BusinessPlanSubmissionForm() {
     useState<string>("");
   const [uploadedSuratFileUrl, setSuratUploadedFileUrl] = useState<string>("");
   const [figmaLink, setFigmaLink] = useState<string>("");
+  const [timeRemaining, setTimeRemaining] = useState<string>("");
 
   const { data: session } = useSession();
+  const [canSubmit, setCanSubmit] = useState(true);
+
+  // Calculate time remaining until deadline
+  useEffect(() => {
+    const deadline = new Date("October 12, 2025 23:59:59");
+
+    const updateTimeRemaining = () => {
+      const now = new Date();
+      const diff = deadline.getTime() - now.getTime();
+
+      if (diff <= 0) {
+        setTimeRemaining("Submission deadline has passed");
+        setCanSubmit(false); // Disable submission when deadline has passed
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      setTimeRemaining(
+        `${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`
+      );
+    };
+
+    // Update immediately and then every second
+    updateTimeRemaining();
+    const timer = setInterval(updateTimeRemaining, 1000);
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(timer);
+  }, []);
 
   // Check if user has already submitted when component mounts or session changes
   useEffect(() => {
@@ -91,6 +125,13 @@ export default function BusinessPlanSubmissionForm() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    
+    // Check if submission is allowed (deadline hasn't passed)
+    if (!canSubmit && !hasSubmitted) {
+      toast.error("The submission deadline has passed");
+      return;
+    }
+    
     setPending(true);
     if (!hasSubmitted) {
       try {
@@ -150,7 +191,7 @@ export default function BusinessPlanSubmissionForm() {
       } finally {
         setPending(false);
       }
-    }else{
+    } else {
       // If already submitted, remove submission
       try {
         if (!session?.user?.id) {
@@ -210,6 +251,18 @@ export default function BusinessPlanSubmissionForm() {
           </p>
           <p>
             <span className="font-semibold">Due:</span> Monday, 20 October 2025
+          </p>
+          {/* Time remaining with warning if deadline passed */}
+          <p className="mt-2">
+            <span className="font-semibold">Time remaining:</span>{" "}
+            <span className={!canSubmit ? "text-red-500" : ""}>
+              {timeRemaining}
+            </span>
+            {!canSubmit && !hasSubmitted && (
+              <span className="block mt-1 text-red-500">
+                New submissions are no longer accepted
+              </span>
+            )}
           </p>
         </div>
       </div>
@@ -347,8 +400,8 @@ export default function BusinessPlanSubmissionForm() {
           type="submit"
           className="all-button cursor-target group flex 
               w-[70%] sm:w-[85%] lg:w-full sm:mt-[-1rem] lg:mt-[0rem]"
-          disabled={pending}
-          aria-disabled={pending}
+          disabled={pending || (!canSubmit && !hasSubmitted)}
+          aria-disabled={pending || (!canSubmit && !hasSubmitted)}
         >
           <svg
             width="100%"
@@ -361,7 +414,7 @@ export default function BusinessPlanSubmissionForm() {
               d="M0 117.09H41.3058L0 96.9246V117.09Z"
               fill="#661109"
               className={`${
-                pending
+                pending || !canSubmit
                   ? "fill-zinc-800"
                   : "group-hover:fill-[#000000] "
               } transition-colors duration-200`}
@@ -370,16 +423,16 @@ export default function BusinessPlanSubmissionForm() {
               d="M98.49 0L0 38.8754V85.6927L64.3021 117.09H309.815L408.305 78.2145V0H98.49Z"
               fill="#661109"
               className={`${
-                pending
+                pending || !canSubmit
                   ? "fill-zinc-800"
                   : "group-hover:fill-[#000000] "
               } transition-colors duration-200`}
             />
             <path
               d="M8.69482 126.217H50.0006L8.69482 106.044V126.217Z"
-              fill={`${pending ? "#822020" : "#FCF551"}`}
+              fill={`${pending || !canSubmit ? "#822020" : "#FCF551"}`}
               className={`${
-                pending
+                pending || !canSubmit
                   ? "fill-zinc-600"
                   : "group-hover:fill-[#c651fc] "
               } transition-colors duration-200`}
@@ -388,25 +441,25 @@ export default function BusinessPlanSubmissionForm() {
               d="M107.177 9.12653L8.69482 47.9947V94.8193L72.9969 126.216H318.51L417 87.341V9.12653H107.177Z"
               fill={`${pending ? "#822020" : "#FCF551"}`}
               className={`${
-                pending
+                pending || !canSubmit
                   ? "fill-zinc-600"
                   : "group-hover:fill-[#c651fc] "
               } transition-colors duration-200`}
             />
             <path
               d="M72.6392 132.396H271.941V137.262H72.6392"
-              fill={`${pending ? "#822020" : "#FCF551"}`}
+              fill={`${pending || !canSubmit ? "#822020" : "#FCF551"}`}
               className={`${
-                pending
+                pending || !canSubmit
                   ? "fill-zinc-800"
                   : "group-hover:fill-[#c651fc] "
               } transition-colors duration-200`}
             />
             <path
               d="M8.56348 132.396H49.8693V137.262H8.56348"
-              fill={`${pending ? "#822020" : "#FCF551"}`}
+              fill={`${pending || !canSubmit ? "#822020" : "#FCF551"}`}
               className={`${
-                pending
+                pending || !canSubmit
                   ? "fill-zinc-800"
                   : "group-hover:fill-[#c651fc] "
               } transition-colors duration-200`}
