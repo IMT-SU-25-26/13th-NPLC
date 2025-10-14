@@ -231,60 +231,6 @@ export default function NavigationBar() {
                     </clipPath>
                   </defs>
                 </svg>
-
-                {/* <svg
-                width="100%"
-                height="100%"
-                viewBox="0 0 240 68"
-                preserveAspectRatio="xMidYMid meet"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-24 sm:w-32 md:w-40 xl:w-[15rem]"
-              >
-                <foreignObject
-                  x="-153.676"
-                  y="-153.693"
-                  width="547.166"
-                  height="375.426"
-                >
-                  <div
-                    style={{
-                      backdropFilter: "blur(76.96px)",
-                      clipPath: "url(#bgblur_0_784_144_clip_path)",
-                      height: "100%",
-                      width: "100%",
-                    }}
-                  ></div>
-                </foreignObject>
-                <path
-                  data-figma-bg-blur-radius="153.923"
-                  d="M237.724 1.38428V19.2554L232.944 22.4683L232.433 22.811V48.1606L232.943 48.5034L238.412 52.1851V66.6558H23.3787L1.40112 51.8784V1.38428H237.724Z"
-                  fill="transparent"
-                  stroke="#FCF551"
-                  strokeWidth="2.30885"
-                  className="transition-colors duration-200 group-hover:fill-[#fcf551]"
-                />
-                <text
-                  x="120"
-                  y="38"
-                  textAnchor="middle"
-                  dominantBaseline="middle"
-                  fill="currentColor"
-                  fontSize="18"
-                  fontWeight="500"
-                  className="text-[#FCF551] text-xl sm:text-xl md:text-2xl group-hover:text-[#661108]"
-                >
-                  Competition
-                </text>
-                <defs>
-                  <clipPath
-                    id="bgblur_0_784_144_clip_path"
-                    transform="translate(153.676 153.693)"
-                  >
-                    <path d="M237.724 1.38428V19.2554L232.944 22.4683L232.433 22.811V48.1606L232.943 48.5034L238.412 52.1851V66.6558H23.3787L1.40112 51.8784V1.38428H237.724Z" />
-                  </clipPath>
-                </defs>
-              </svg> */}
               </span>
             </Link>
           </div>
