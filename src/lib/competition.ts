@@ -322,6 +322,39 @@ export async function submitAIPrompt(
   }
 }
 
+export async function removeBusinessPlanSubmission(team_name: string, competition_id: string) {
+  try {
+    const submission = await prisma.businessPlanSubmission.findFirst({
+      where: {
+        team_name,
+        competition_id,
+      },
+    });
+
+    if (submission) {
+      await prisma.businessPlanSubmission.delete({
+        where: {
+          id: submission.id,
+        },
+      });
+    }
+
+    revalidatePath(`/competition/`);
+
+    return {
+      success: true,
+      message: "Business plan submission removed successfully",
+    };
+  } catch (error) {
+    revalidatePath(`/competition/`);
+    console.error("Error removing business plan submission:", error);
+    return {
+      success: false,
+      errorMessage: "Failed to remove business plan submission",
+    };
+  }
+}
+
 export async function submitBusinessPlan(user_id: string, team_name: string, competition_id: string, proposal: string, surat_pernyataan_orisinalitas: string, figma_link: string) {
   const exsistingSubmission = await prisma.businessPlanSubmission.findFirst({
     where: {
