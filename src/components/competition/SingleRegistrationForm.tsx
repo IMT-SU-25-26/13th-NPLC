@@ -254,13 +254,9 @@ export default function SingleRegistrationForm({
           allowedFormats={["jpg", "jpeg", "png"]}
           label={
             <>
-              Price: Rp.30000
+              Price: Free
               <br />
-              Transfer to 008674351649 (Blu by BCA)
-              <br />
-              a/n Chrisensia Abigail Gani
-              <br />
-              Berita: (Team Name_CompetitionName)
+              Upload Random Image
             </>
           }
           name="bukti_transfer"
