@@ -256,7 +256,7 @@ export default function SingleRegistrationForm({
             <>
               Price: Free
               <br />
-              Upload Random Image
+              Upload Random Image for Payment Proof
             </>
           }
           name="bukti_transfer"
