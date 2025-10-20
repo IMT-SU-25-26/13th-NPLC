@@ -3,7 +3,7 @@ import { auth } from "@/lib/auth/auth";
 import { headers } from "next/headers";
 import { checkRoleAccess } from "@/lib/user";
 import Restrictions from "@/components/utils/Restrictions";
-import { getAllAIPromptSubmission, getAllBPSubmissions } from '@/lib/competition';
+import { getAllAIPromptSubmission } from '@/lib/competition';
 import { User } from 'better-auth';
 import Link from 'next/link';
 
