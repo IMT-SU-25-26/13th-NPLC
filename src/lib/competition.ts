@@ -5,6 +5,7 @@ import prisma from "./prisma";
 // import { revalidatePath } from "next/cache";
 // import { ActionResult } from "@/types/action";
 import { Competition } from "@/types/competition";
+import { username } from "better-auth/plugins";
 
 export async function getCompetitions(): Promise<Competition[]> {
   return await prisma.competition.findMany({
@@ -211,6 +212,46 @@ export async function checkBPSubmission(
   } catch (error) {
     console.error("Error checking submission:", error);
     return false;
+  }
+}
+export async function getAllBPSubmissions(competition_id: string) {
+  try {
+    const submissions = await prisma.businessPlanSubmission.findMany({
+      where: { competition_id },
+      include: { user: true },
+    });
+
+    return {
+      success: true,
+      data: submissions,
+    };
+  } catch (error) {
+    console.error("Error fetching all business plan submissions:", error);
+    return {
+      success: false,
+      errorMessage: "Failed to fetch submissions",
+      data: [],
+    };
+  }
+}
+export async function getAllAIPromptSubmission(competition_id: string) {
+  try {
+    const submissions = await prisma.AIPromptSubmission.findMany({
+      where: { competition_id },
+      include: { user: true },
+    });
+
+    return {
+      success: true,
+      data: submissions,
+    };
+  } catch (error) {
+    console.error("Error fetching all business plan submissions:", error);
+    return {
+      success: false,
+      errorMessage: "Failed to fetch submissions",
+      data: [],
+    };
   }
 }
 export async function getBusinessPlanSubmission(team_name: string, competition_id: string) {

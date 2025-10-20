@@ -18,6 +18,7 @@ export default async function Page() {
   if (!session) {
     redirect("/not-logged-in");
   }
+
   return (
     <div className="min-h-screen w-screen overflow-hidden bg-gradient-to-b from-[#111114] to-[#090A1E]">
       <div className="restriction-top-container relative flex lg:gap-8 flex-col justify-start items-center w-full h-screen">
