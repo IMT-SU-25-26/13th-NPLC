@@ -5,7 +5,6 @@ import prisma from "./prisma";
 // import { revalidatePath } from "next/cache";
 // import { ActionResult } from "@/types/action";
 import { Competition } from "@/types/competition";
-import { username } from "better-auth/plugins";
 
 export async function getCompetitions(): Promise<Competition[]> {
   return await prisma.competition.findMany({

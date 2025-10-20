@@ -6,7 +6,7 @@ import { useSession } from "@/lib/auth/auth_client";
 import { FormEvent, useState, useEffect } from "react";
 import { toast } from "sonner";
 import Link from "next/link";
-import Image from "next/image";
+
 import {
   checkBPSubmission,
   findTeam,
