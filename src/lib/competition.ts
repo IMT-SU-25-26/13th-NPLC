@@ -236,7 +236,7 @@ export async function getAllBPSubmissions(competition_id: string) {
 }
 export async function getAllAIPromptSubmission(competition_id: string) {
   try {
-    const submissions = await prisma.AIPromptSubmission.findMany({
+    const submissions = await prisma.aIPromptSubmission.findMany({
       where: { competition_id },
       include: { user: true },
     });
