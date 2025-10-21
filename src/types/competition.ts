@@ -1,4 +1,4 @@
-import { RegistrationStatus } from "@prisma/client"; // Pastikan untuk mengimpor enum dari prisma client
+import { RegistrationStatus, User } from "@prisma/client"; // Pastikan untuk mengimpor enum dari prisma client
 
 export interface Competition {
   id: string;
@@ -50,4 +50,12 @@ export interface AdminDashboardClientProps {
     data: Registration[] | null;
     errorMessage?: string;
   };
+}
+
+export interface aiPromptAdminSubmission{
+    id?: string;
+    user: User;
+    team_name: string;
+    ai_chat_link: string;
+    submittedAt?: string | Date | null;
 }

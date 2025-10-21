@@ -12,6 +12,34 @@ export async function main() {
             { id:"cmegpd01h0003hke91ea54m7c", name: "Type Racer" }
         ]
     });
+
+    await prisma.aIRound.createMany({
+        data: [{
+            id: "round1-batch1",
+            round: 1,
+            batch: 1,
+        },
+        {
+            id: "round1-batch2",
+            round: 1,
+            batch: 2,
+        },
+        {
+            id: "round2-batch1",
+            round: 2,
+            batch: 1,
+        },
+        {
+            id: "round3-batch1",
+            round: 3,
+            batch: 1,
+        },
+        {
+            id: "round4-batch1",
+            round: 4,
+            batch: 1,
+        }]
+    })
 }
 
 main()

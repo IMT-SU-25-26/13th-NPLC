@@ -8,6 +8,7 @@ import { getCompetitionById } from '@/lib/competition';
 import { redirect } from 'next/navigation';
 import Image from "next/image";
 import AIPromptSubmissionForm from "@/components/competition/ai-prompt/AIPromptSubmissionForm";
+import prisma from "@/lib/prisma";
 
 
 
@@ -33,6 +34,18 @@ export default async function Page() {
     const competitionData = await getCompetitionById("cmegpc6sx0002hke9gxo7hd6u");
     if (!competitionData) {
         redirect("/not-found");
+    }
+
+    const currentRound = await prisma.aIRound.findFirst({
+        where:{
+            status: "ongoing",
+        }
+    });
+
+    if(!currentRound){
+         return (
+            <Restrictions restrictionDescription="Round not started yet!" />
+        );
     }
 
     // if (competitionData.is_started == false) {
@@ -73,7 +86,7 @@ export default async function Page() {
                         height={100}
                         alt="submission-title-text"
                     />
-                    <AIPromptSubmissionForm />
+                    <AIPromptSubmissionForm currentRound={currentRound.id}/>
                 </div>
                 <div className="bg-[#090A1E] absolute bottom-0 w-full h-full"></div>
             </div>

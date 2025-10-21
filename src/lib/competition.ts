@@ -180,13 +180,15 @@ export async function cancelRegistration(
 
 export async function checkAIPromptSubmission(
   team_name: string,
-  competition_id: string
+  competition_id: string,
+  round_id: string
 ): Promise<boolean> {
   try {
     const submission = await prisma.aIPromptSubmission.findFirst({
       where: {
         team_name: team_name,
-        competition_id: competition_id
+        competition_id: competition_id,
+        round_id: round_id,
       }
     });
     return submission ? true : false;
@@ -297,7 +299,8 @@ export async function findTeam(user_id: string, competition_id: string): Promise
 export async function submitAIPrompt(
   user_id: string,
   competition_id: string,
-  ai_chat_link: string
+  ai_chat_link: string,
+  currentRound: string
 ) {
   const registration = await prisma.competitionRegistration.findFirst({
     where: {
@@ -330,12 +333,27 @@ export async function submitAIPrompt(
       data: null
     };
   }
+
+  const roundData = await prisma.aIRound.findFirst({
+    where: {
+      id: currentRound,
+    }
+  });
+
+  if(!roundData) {
+    return {
+      success: false,
+      errorMessage: "Round is already over or not started yet",
+      data: null
+    };
+  }
   
   const team_name = registration.team_name;
   try {
     const submission = await prisma.aIPromptSubmission.create({
       data: {
         user_id,
+        round_id: roundData.id,
         team_name,
         competition_id,
         ai_chat_link,

@@ -79,12 +79,14 @@ model User {
   image                      String?
   createdAt                  DateTime
   updatedAt                  DateTime
+  current_ai_round_id        String?
   nomor_induk_siswa_nasional String?                   @unique
   role                       Roles                     @default(viewer)
   Answer                     Answer[]
   CompetitionRegistration    CompetitionRegistration[]
   accounts                   Account[]
   sessions                   Session[]
+  AIRound            AIRound?                  @relation(fields: [current_ai_round_id], references: [id])
   AIPromptSubmission         AIPromptSubmission[]
   BusinessPlanSubmission     BusinessPlanSubmission[]
 
@@ -154,13 +156,23 @@ model Verification {
   @@map("verification")
 }
 
+model AIRound{
+  id           String   @id @default(cuid())
+  round         Int
+  batch         Int
+  status    RoundStatus  @default(not_started)
+  AIPromptSubmission                     AIPromptSubmission[]
+  user         User[]
+}
 model AIPromptSubmission {
   id             String      @id @default(cuid())
   user_id        String
+  round_id          String
   team_name      String
   competition_id String
   ai_chat_link   String
   submittedAt    DateTime    @default(now())
+  round             AIRound     @relation(fields: [round_id], references: [id])
   user           User        @relation(fields: [user_id], references: [id])
   competition    Competition @relation(fields: [competition_id], references: [id])
 }
@@ -182,6 +194,11 @@ enum Roles {
   admin
   participant
   viewer
+}
+enum RoundStatus{
+  not_started
+  ongoing
+  finished
 }
 
 enum RegistrationStatus {

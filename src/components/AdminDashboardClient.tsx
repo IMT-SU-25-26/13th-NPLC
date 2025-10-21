@@ -165,6 +165,20 @@ export default function AdminDashboardClient({
           </div>
         </div>
 
+        <div className="mb-6">
+          <h3 className="text-[#FCF551] text-lg font-semibold mb-3">
+            Competition Manager
+          </h3>
+          <div className="flex flex-wrap gap-2 sm:gap-4 justify-center sm:justify-start">
+            <Link
+              href="/admin/ai"
+              className="px-4 py-2 rounded-lg font-semibold transition-all duration-300 bg-[#18182a]/80 border-2 border-[#FCF551] text-[#FCF551] hover:text-black hover:bg-[#FCF551]"
+            >
+              AI Prompt
+            </Link>
+          </div>
+        </div>
+
         {/* Status Filter */}
         <div className="mb-8">
           <h3 className="text-[#75E8F0] text-lg font-semibold mb-3">

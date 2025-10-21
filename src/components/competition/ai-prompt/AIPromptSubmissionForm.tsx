@@ -6,7 +6,7 @@ import { findTeam } from "@/lib/competition";
 import { FormEvent, useState, useEffect } from "react";
 import { toast } from "sonner";
 
-export default function AIPromptSubmissionForm() {
+export default function AIPromptSubmissionForm({currentRound}: {currentRound: string}) {
   const [pending, setPending] = useState(false);
   const [hasSubmitted, setHasSubmitted] = useState(false);
   
@@ -22,7 +22,8 @@ export default function AIPromptSubmissionForm() {
       try {
         const submissionStatus = await checkAIPromptSubmission(
           team,
-          "cmegpc6sx0002hke9gxo7hd6u"
+          "cmegpc6sx0002hke9gxo7hd6u", 
+          currentRound
         );
         setHasSubmitted(submissionStatus);
       } catch (error) {
@@ -31,7 +32,7 @@ export default function AIPromptSubmissionForm() {
     };
     
     checkUserSubmission();
-  }, [session]);
+  }, [session, currentRound]); // Add currentRound here
 
   // Early return after all hooks have been called
   if (!session) {
@@ -56,7 +57,7 @@ export default function AIPromptSubmissionForm() {
         return;
       }
 
-      const result = await submitAIPrompt(session.user.id, "cmegpc6sx0002hke9gxo7hd6u", link);
+      const result = await submitAIPrompt(session.user.id, "cmegpc6sx0002hke9gxo7hd6u", link, currentRound);
       
       if (result && result.success !== false) {
         toast.success("Submission successful!", {
