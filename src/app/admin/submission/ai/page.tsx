@@ -105,7 +105,7 @@ export default async function page({
           </p>
         </div>
       ) : (
-        <Content submissions={submissions} />
+        <Content submissions={submissions} rounds={rounds} />
       )}
     </div>
   );

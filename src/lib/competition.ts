@@ -12,7 +12,6 @@ export async function getCompetitions(): Promise<Competition[]> {
   });
 }
 
-
 export async function getCompetitionById(
   id: string
 ): Promise<Competition | null> {
@@ -189,7 +188,7 @@ export async function checkAIPromptSubmission(
         team_name: team_name,
         competition_id: competition_id,
         round_id: round_id,
-      }
+      },
     });
     return submission ? true : false;
   } catch (error) {
@@ -206,8 +205,8 @@ export async function checkBPSubmission(
     const submission = await prisma.businessPlanSubmission.findFirst({
       where: {
         team_name: team_name,
-        competition_id: competition_id
-      }
+        competition_id: competition_id,
+      },
     });
     return submission ? true : false;
   } catch (error) {
@@ -255,7 +254,10 @@ export async function getAllAIPromptSubmission(competition_id: string) {
     };
   }
 }
-export async function getBusinessPlanSubmission(team_name: string, competition_id: string) {
+export async function getBusinessPlanSubmission(
+  team_name: string,
+  competition_id: string
+) {
   try {
     const submission = await prisma.businessPlanSubmission.findFirst({
       where: {
@@ -278,16 +280,19 @@ export async function getBusinessPlanSubmission(team_name: string, competition_i
   }
 }
 
-export async function findTeam(user_id: string, competition_id: string): Promise<string> {
+export async function findTeam(
+  user_id: string,
+  competition_id: string
+): Promise<string> {
   try {
     const registration = await prisma.competitionRegistration.findFirst({
       where: {
         user_id: user_id,
-        competition_id: competition_id
+        competition_id: competition_id,
       },
       select: {
-        team_name: true
-      }
+        team_name: true,
+      },
     });
     return registration?.team_name || "";
   } catch (error) {
@@ -305,49 +310,50 @@ export async function submitAIPrompt(
   const registration = await prisma.competitionRegistration.findFirst({
     where: {
       user_id: user_id,
-      competition_id: competition_id
+      competition_id: competition_id,
     },
     select: {
-      team_name: true
-    }
+      team_name: true,
+    },
   });
-  
+
   if (!registration) {
     return {
       success: false,
       errorMessage: "User is not registered for this competition",
-      data: null
+      data: null,
     };
   }
 
   const exsistingSubmission = await prisma.aIPromptSubmission.findFirst({
     where: {
       team_name: registration.team_name,
-      competition_id: competition_id
-    }
+      competition_id: competition_id,
+      round_id: currentRound
+    },
   });
   if (exsistingSubmission) {
     return {
       success: false,
       errorMessage: "AI Prompt has already been submitted for this team",
-      data: null
+      data: null,
     };
   }
 
   const roundData = await prisma.aIRound.findFirst({
     where: {
       id: currentRound,
-    }
+    },
   });
 
-  if(!roundData) {
+  if (!roundData) {
     return {
       success: false,
       errorMessage: "Round is already over or not started yet",
-      data: null
+      data: null,
     };
   }
-  
+
   const team_name = registration.team_name;
   try {
     const submission = await prisma.aIPromptSubmission.create({
@@ -362,12 +368,12 @@ export async function submitAIPrompt(
     });
 
     revalidatePath(`/competition/`);
-    
+
     // Add this return statement for success case
     return {
       success: true,
       message: "AI Prompt submitted successfully",
-      data: submission
+      data: submission,
     };
   } catch (error) {
     revalidatePath(`/competition/`);
@@ -380,7 +386,10 @@ export async function submitAIPrompt(
   }
 }
 
-export async function removeBusinessPlanSubmission(team_name: string, competition_id: string) {
+export async function removeBusinessPlanSubmission(
+  team_name: string,
+  competition_id: string
+) {
   try {
     const submission = await prisma.businessPlanSubmission.findFirst({
       where: {
@@ -413,21 +422,29 @@ export async function removeBusinessPlanSubmission(team_name: string, competitio
   }
 }
 
-export async function submitBusinessPlan(user_id: string, team_name: string, competition_id: string, proposal: string, surat_pernyataan_orisinalitas: string, figma_link: string) {
+export async function submitBusinessPlan(
+  user_id: string,
+  team_name: string,
+  competition_id: string,
+  proposal: string,
+  surat_pernyataan_orisinalitas: string,
+  figma_link: string
+) {
   const exsistingSubmission = await prisma.businessPlanSubmission.findFirst({
     where: {
       team_name: team_name,
-      competition_id: competition_id
-    }
+      competition_id: competition_id,
+    },
   });
   if (exsistingSubmission) {
     return {
       success: false,
-      errorMessage: "you have already submitted the required documents for this team",
-      data: null
+      errorMessage:
+        "you have already submitted the required documents for this team",
+      data: null,
     };
   }
-  
+
   try {
     const submission = await prisma.businessPlanSubmission.create({
       data: {
@@ -442,12 +459,12 @@ export async function submitBusinessPlan(user_id: string, team_name: string, com
     });
 
     revalidatePath(`/competition/`);
-    
+
     // Add this return statement for success case
     return {
       success: true,
       message: "Datas submitted successfully",
-      data: submission
+      data: submission,
     };
   } catch (error) {
     revalidatePath(`/competition/`);
