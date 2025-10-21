@@ -49,7 +49,7 @@ export default function BusinessPlanSubmissionForm() {
 
   // Calculate time remaining until deadline
   useEffect(() => {
-    const deadline = new Date("October 20, 2025 23:59:59");
+    const deadline = new Date("October 24, 2025 23:59:59");
 
     const updateTimeRemaining = () => {
       const now = new Date();
