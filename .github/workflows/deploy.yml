@@ -33,7 +33,7 @@ jobs:
             npm install
 
             echo "🗄️ Running database migrations..."
-            npm prisma migrate deploy
+            npx prisma migrate deploy
 
             echo "🔨 Building new version..."
             npm run build
