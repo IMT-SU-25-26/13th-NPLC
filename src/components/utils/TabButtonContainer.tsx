@@ -28,7 +28,7 @@ const tabData = {
     description:
       "Compete individually in the timed AI Prompt Competition, where you'll use Gemini to solve creative and logical challenges and be judged on your prompt's creativity, logic, and impact. Just be sure to bring your own laptop.",
     registerLink: "/register/ai-prompt",
-    guideBook:'https://drive.google.com/file/d/17Tu0YIO70PkOmmvKwEihpZe02TaTOpXq/view?usp=share_link',
+    guideBook:'https://drive.google.com/file/d/1k_7PiOGago938TbKEFn0ufQjCPGjR71W/view?usp=drive_link',
   },
 };
 
