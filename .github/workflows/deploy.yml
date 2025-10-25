@@ -30,13 +30,13 @@ jobs:
             git pull origin main
 
             echo "📦 Installing dependencies..."
-            pnpm install
+            npm install
 
             echo "🗄️ Running database migrations..."
-            pnpm prisma:deploy
+            npm prisma migrate deploy
 
             echo "🔨 Building new version..."
-            pnpm build
+            npm run build
 
             echo "🔄 Reloading application..."
             pm2 reload ${{ vars.PM2_APP_NAME }}
