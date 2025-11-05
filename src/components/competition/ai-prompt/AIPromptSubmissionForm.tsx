@@ -3,10 +3,11 @@ import { useSession } from "@/lib/auth/auth_client";
 import { submitAIPrompt } from "@/lib/competition";
 import { checkAIPromptSubmission } from "@/lib/competition";
 import { findTeam } from "@/lib/competition";
+import Link from "next/link";
 import { FormEvent, useState, useEffect } from "react";
 import { toast } from "sonner";
 
-export default function AIPromptSubmissionForm({currentRound}: {currentRound: string}) {
+export default function AIPromptSubmissionForm({currentRound, questionLink}: {currentRound: string, questionLink: string}) {
   const [pending, setPending] = useState(false);
   const [hasSubmitted, setHasSubmitted] = useState(false);
   
@@ -101,13 +102,29 @@ export default function AIPromptSubmissionForm({currentRound}: {currentRound: st
         </div>
       </div>
 
-      <div className="w-full"></div>
+      <div className="w-full text-xl hover:underline"><Link href={questionLink}>Click here to see the question here</Link></div>
       <div className="flex flex-col gap-1 sm:gap-2 lg:gap-2 w-full">
         <label
-          htmlFor="ai_chat_link"
+          htmlFor="trial_and_error_link"
           className="text-start w-full text-white text-lg sm:text-xl mb-2"
         >
-          Link AI Chat
+          Link Trial & Error
+        </label>
+        <input
+          type="url"
+          id="ai_chat_link"
+          name="link_ai_chat"
+          placeholder="https://example.com/your-ai-chat"
+          className="cursor-target px-[2.5%] py-5 w-full bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
+              text-sm sm:text-base md:text-base lg:text-base
+              text-[#75E8F0] placeholder-[#75E8F0]     [text-shadow:_0_0_20px_rgba(0,255,255,1)] 
+                            placeholder:[text-shadow:_0_0_8px_rgba(0,255,255,0.8)] focus:outline-none focus:border-yellow-300 transition-colors"
+        />
+        <label
+          htmlFor="trial_and_error_link"
+          className="text-start w-full text-white text-lg sm:text-xl mb-2"
+        >
+          Trial & Error Link
         </label>
         <input
           type="url"

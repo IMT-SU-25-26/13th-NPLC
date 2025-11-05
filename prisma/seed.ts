@@ -15,29 +15,28 @@ export async function main() {
 
     await prisma.aIRound.createMany({
         data: [{
-            id: "round1-batch1",
+            id: "round1",
             round: 1,
             batch: 1,
+            question_link:"https://docs.google.com/document/d/1WSOBKKxo-rE0VrSgsjiLlGyd78pHgA8L1sEeDwNLIi4/edit?usp=sharing"
         },
         {
-            id: "round1-batch2",
-            round: 1,
-            batch: 2,
-        },
-        {
-            id: "round2-batch1",
+            id: "round2",
             round: 2,
             batch: 1,
+            question_link:"https://docs.google.com/document/d/1x--9QvjTHw4mRRIk_6K0Z_2Y43pzrqro0PTJrqDyiNk/edit?usp=sharing"
         },
         {
-            id: "round3-batch1",
+            id: "round3",
             round: 3,
             batch: 1,
+            question_link:"https://docs.google.com/document/d/1dZRXS2KZSwHs8wt2s0AyI4Cmf3I016FtMak8s64s14c/edit?usp=sharing"
         },
         {
-            id: "round4-batch1",
+            id: "round4",
             round: 4,
             batch: 1,
+            question_link:"https://docs.google.com/document/d/1A8thI6DYw_fMAm_e44vrBvrTzWuyKr3SuIIgxvA_lOc/edit?usp=sharing"
         }]
     })
 }

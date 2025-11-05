@@ -161,6 +161,7 @@ model AIRound{
   round         Int
   batch         Int
   status    RoundStatus  @default(not_started)
+  question_link String @default("")
   AIPromptSubmission                     AIPromptSubmission[]
   user         User[]
 }
@@ -171,6 +172,7 @@ model AIPromptSubmission {
   team_name      String
   competition_id String
   ai_chat_link   String
+  trial_and_error_link String
   submittedAt    DateTime    @default(now())
   round             AIRound     @relation(fields: [round_id], references: [id])
   user           User        @relation(fields: [user_id], references: [id])

@@ -86,7 +86,7 @@ export default async function Page() {
                         height={100}
                         alt="submission-title-text"
                     />
-                    <AIPromptSubmissionForm currentRound={currentRound.id}/>
+                    <AIPromptSubmissionForm currentRound={currentRound.id} questionLink={currentRound.question_link}/>
                 </div>
                 <div className="bg-[#090A1E] absolute bottom-0 w-full h-full"></div>
             </div>
