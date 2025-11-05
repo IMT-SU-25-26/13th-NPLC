@@ -31,27 +31,22 @@ export default async function Page() {
   // Define the available rounds from your seed data
   const availableRounds = [
     {
-      id: "round1-batch1",
+      id: "round1",
       round: 1,
       batch: 1,
     },
     {
-      id: "round1-batch2",
-      round: 1,
-      batch: 2,
-    },
-    {
-      id: "round2-batch1",
+      id: "round2",
       round: 2,
       batch: 1,
     },
     {
-      id: "round3-batch1",
+      id: "round3",
       round: 3,
       batch: 1,
     },
     {
-      id: "round4-batch1",
+      id: "round4",
       round: 4,
       batch: 1,
     },
