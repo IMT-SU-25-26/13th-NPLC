@@ -93,8 +93,7 @@ export default function AIPromptSubmissionForm({currentRound, questionLink}: {cu
         </h1>
         <div className="text-white text-sm sm:text-base lg:text-2xl">
           <p>
-            <span className="font-semibold">Opened:</span> Sunday, 28 September
-            2025
+            <span className="font-semibold">Opened:</span> {currentRound}
           </p>
           <p>
             <span className="font-semibold">Due:</span> Monday, 28 September
