@@ -333,6 +333,7 @@ export async function submitAIPrompt(
       round_id: currentRound
     },
   });
+  
   if (exsistingSubmission) {
     return {
       success: false,
@@ -341,16 +342,18 @@ export async function submitAIPrompt(
     };
   }
 
+  // Check if round exists AND is ongoing
   const roundData = await prisma.aIRound.findFirst({
     where: {
       id: currentRound,
+      status: "ongoing", // Add this check to ensure round is active
     },
   });
 
   if (!roundData) {
     return {
       success: false,
-      errorMessage: "Round is already over or not started yet",
+      errorMessage: "Round is not currently active. Please wait for the round to start.",
       data: null,
     };
   }
@@ -371,7 +374,6 @@ export async function submitAIPrompt(
 
     revalidatePath(`/competition/`);
 
-    // Add this return statement for success case
     return {
       success: true,
       message: "AI Prompt submitted successfully",

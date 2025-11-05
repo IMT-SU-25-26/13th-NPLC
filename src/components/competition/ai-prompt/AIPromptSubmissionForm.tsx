@@ -59,7 +59,7 @@ export default function AIPromptSubmissionForm({currentRound, questionLink}: {cu
         return;
       }
 
-      const result = await submitAIPrompt(session.user.id, "cmegpc6sx0002hke9gxo7hd6u", link, currentRound, trial_and_error_link);
+      const result = await submitAIPrompt(session.user.id, "cmegpc6sx0002hke9gxo7hd6u", link,trial_and_error_link, currentRound);
       
       if (result && result.success !== false) {
         toast.success("Submission successful!", {

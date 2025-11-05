@@ -9,7 +9,6 @@ import { changeAIRoundStatus } from "@/lib/admin";
 import { revalidatePath } from "next/cache";
 import RoundStatusManager from "./RoundStatusManager";
 
-// Fix the issue by making sure the page is rendered as a Server Component
 export default async function Page() {
   const session = await auth.api.getSession({
     headers: await headers(),
@@ -28,31 +27,7 @@ export default async function Page() {
     );
   }
 
-  // Define the available rounds from your seed data
-  const availableRounds = [
-    {
-      id: "round1",
-      round: 1,
-      batch: 1,
-    },
-    {
-      id: "round2",
-      round: 2,
-      batch: 1,
-    },
-    {
-      id: "round3",
-      round: 3,
-      batch: 1,
-    },
-    {
-      id: "round4",
-      round: 4,
-      batch: 1,
-    },
-  ];
-
-  // Try to get the current status of rounds from the database
+  // Fetch rounds directly from database
   interface Round {
     id: string;
     round: number;
@@ -62,25 +37,22 @@ export default async function Page() {
 
   let roundsWithStatus: Round[] = [];
   try {
-    const dbRounds = await prisma.aIRound.findMany();
-
-    // Merge the status information with our predefined rounds
-    roundsWithStatus = availableRounds.map((round) => {
-      const dbRound = dbRounds.find((r) => r.id === round.id);
-      return {
-        ...round,
-        status:
-          (dbRound?.status as "not_started" | "ongoing" | "finished") ||
-          "not_started",
-      };
+    const dbRounds = await prisma.aIRound.findMany({
+      orderBy: {
+        round: "asc",
+      },
     });
+
+    roundsWithStatus = dbRounds.map((round) => ({
+      id: round.id,
+      round: round.round,
+      batch: round.batch,
+      status:
+        (round.status as "not_started" | "ongoing" | "finished") ||
+        "not_started",
+    }));
   } catch (error) {
     console.error("Error fetching rounds:", error);
-    // If there's an error, just use the rounds with default status
-    roundsWithStatus = availableRounds.map((round) => ({
-      ...round,
-      status: "not_started" as const,
-    }));
   }
 
   // Find current active round (if any)

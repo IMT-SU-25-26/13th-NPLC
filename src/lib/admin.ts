@@ -258,12 +258,30 @@ export async function changeAIRoundStatus(
   newStatus: "not_started" | "ongoing" | "finished"
 ) {
   try {
-    await prisma.aIRound.updateMany({
-      where: { status: "ongoing" },
-      data: {
-        status: "finished",
-      },
+    // First, check if the round exists
+    const roundExists = await prisma.aIRound.findUnique({
+      where: { id: roundId }
     });
+
+    if (!roundExists) {
+      return {
+        success: false,
+        errorMessage: `Round with ID ${roundId} not found`,
+        data: null,
+      };
+    }
+
+    // If setting to ongoing, finish all other ongoing rounds first
+    if (newStatus === "ongoing") {
+      await prisma.aIRound.updateMany({
+        where: { status: "ongoing" },
+        data: {
+          status: "finished",
+        },
+      });
+    }
+
+    // Update the selected round
     const updatedRound = await prisma.aIRound.update({
       where: { id: roundId },
       data: {

@@ -50,25 +50,25 @@ export default async function page({ params }: PageProps) {
   // Define the available rounds from your seed data
   const availableRounds = [
     {
-      id: "round1",
+      id: "1",
       round: 1,
       batch: 1,
       status: "not_started" 
     },
     {
-      id: "round2",
+      id: "2",
       round: 2,
       batch: 1,
       status: "not_started"
     },
     {
-      id: "round3",
+      id: "3",
       round: 3,
       batch: 1,
       status: "not_started"
     },
     {
-      id: "round4",
+      id: "4",
       round: 4,
       batch: 1,
       status: "not_started"
