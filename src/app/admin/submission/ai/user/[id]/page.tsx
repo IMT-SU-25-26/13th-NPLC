@@ -50,31 +50,25 @@ export default async function page({ params }: PageProps) {
   // Define the available rounds from your seed data
   const availableRounds = [
     {
-      id: "round1-batch1",
+      id: "round1",
       round: 1,
       batch: 1,
       status: "not_started" 
     },
     {
-      id: "round1-batch2",
-      round: 1,
-      batch: 2,
-      status: "not_started"
-    },
-    {
-      id: "round2-batch1",
+      id: "round2",
       round: 2,
       batch: 1,
       status: "not_started"
     },
     {
-      id: "round3-batch1",
+      id: "round3",
       round: 3,
       batch: 1,
       status: "not_started"
     },
     {
-      id: "round4-batch1",
+      id: "round4",
       round: 4,
       batch: 1,
       status: "not_started"
@@ -161,6 +155,7 @@ export default async function page({ params }: PageProps) {
                   <tr className="bg-[#FCF551]/10">
                     <th className="px-4 py-2 text-left text-[#FCF551]">Round</th>
                     <th className="px-4 py-2 text-left text-[#FCF551]">Batch</th>
+                    <th className="px-4 py-2 text-left text-[#FCF551]">Trial & Error</th>
                     <th className="px-4 py-2 text-left text-[#FCF551]">Submission Link</th>
                     <th className="px-4 py-2 text-left text-[#FCF551]">Date</th>
                   </tr>
@@ -170,6 +165,16 @@ export default async function page({ params }: PageProps) {
                     <tr key={sub.id} className="border-t border-[#FCF551]/10">
                       <td className="px-4 py-3 text-[#75E8F0]">{sub.round.round || 'Unknown'}</td>
                       <td className="px-4 py-3 text-[#75E8F0]">{sub.round.batch || 'Unknown'}</td>
+                       <td className="px-4 py-3">
+                        <a 
+                          href={sub.trial_and_error_link} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-[#FCF551] hover:underline"
+                        >
+                          View Trial & Error Link
+                        </a>
+                      </td>
                       <td className="px-4 py-3">
                         <a 
                           href={sub.ai_chat_link} 
