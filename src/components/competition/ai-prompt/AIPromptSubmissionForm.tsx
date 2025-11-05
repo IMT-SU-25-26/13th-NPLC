@@ -47,6 +47,7 @@ export default function AIPromptSubmissionForm({currentRound, questionLink}: {cu
     try {
       const formData = new FormData(event.currentTarget);
       const link = formData.get("link_ai_chat") as string;
+      const trial_and_error_link = formData.get("link_trial_and_error") as string;
 
       if (!session?.user?.id) {
         toast.error("You are not logged in!");
@@ -58,7 +59,7 @@ export default function AIPromptSubmissionForm({currentRound, questionLink}: {cu
         return;
       }
 
-      const result = await submitAIPrompt(session.user.id, "cmegpc6sx0002hke9gxo7hd6u", link, currentRound);
+      const result = await submitAIPrompt(session.user.id, "cmegpc6sx0002hke9gxo7hd6u", link, currentRound, trial_and_error_link);
       
       if (result && result.success !== false) {
         toast.success("Submission successful!", {
@@ -129,7 +130,7 @@ export default function AIPromptSubmissionForm({currentRound, questionLink}: {cu
         <input
           type="url"
           id="ai_chat_link"
-          name="link_ai_chat"
+          name="link_trial_and_error"
           placeholder="https://example.com/your-ai-chat"
           className="cursor-target px-[2.5%] py-5 w-full bg-[#18182a]/80 border-2 border-[#FCF551] rounded-none 
               text-sm sm:text-base md:text-base lg:text-base

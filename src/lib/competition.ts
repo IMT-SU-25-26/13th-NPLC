@@ -305,6 +305,7 @@ export async function submitAIPrompt(
   user_id: string,
   competition_id: string,
   ai_chat_link: string,
+  trial_and_error_link: string,
   currentRound: string
 ) {
   const registration = await prisma.competitionRegistration.findFirst({
@@ -360,6 +361,7 @@ export async function submitAIPrompt(
       data: {
         user_id,
         round_id: roundData.id,
+        trial_and_error_link: trial_and_error_link,
         team_name,
         competition_id,
         ai_chat_link,
