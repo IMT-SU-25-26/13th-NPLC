@@ -91,7 +91,7 @@ export default function AIPromptSubmissionForm({currentRound, questionLink}: {cu
         <h1 className="text-white text-3xl sm:text-5xl lg:text-7xl font-bold mb-4">
           AI Prompt
         </h1>
-        <div className="text-white text-sm sm:text-base lg:text-2xl">
+        {/* <div className="text-white text-sm sm:text-base lg:text-2xl">
           <p>
             <span className="font-semibold">Opened:</span> {currentRound}
           </p>
@@ -99,7 +99,7 @@ export default function AIPromptSubmissionForm({currentRound, questionLink}: {cu
             <span className="font-semibold">Due:</span> Monday, 28 September
             2025
           </p>
-        </div>
+        </div> */}
       </div>
 
       <div className="w-full text-xl hover:underline"><Link href={questionLink}>Click here to see the question here</Link></div>

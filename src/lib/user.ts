@@ -232,11 +232,40 @@ export async function registerForACompetition(
 
 export async function checkCompetitionPageAccess(
   userId: string,
-  competitionId: string
+  competitionId: string,
+  current_ai_round_id: string
 ) {
   const competitionRegistrationData = await prisma.competitionRegistration.findFirst({
     where: { user_id: userId, competition_id: competitionId, registration_status: "accepted" },
   });
+
+  if(competitionId == "cmegpc6sx0002hke9gxo7hd6u"){
+    const roundIsStarted = await prisma.aIRound.findFirst({
+      where: {
+        id: current_ai_round_id,
+        status: "ongoing"
+      }
+    });
+
+    if(!roundIsStarted){
+      return false;
+    }
+
+    if(current_ai_round_id == "1"){
+      return competitionRegistrationData;
+    }
+
+    const userHasAccessToTheRound = await prisma.user.findFirst({
+      where: {
+        id: userId,
+        current_ai_round_id: current_ai_round_id
+      }
+    });
+
+    if(!userHasAccessToTheRound){
+      return false;
+    }
+  }
 
   return competitionRegistrationData;
 }

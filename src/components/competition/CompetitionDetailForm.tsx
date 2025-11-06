@@ -65,6 +65,9 @@ export default function CompetitionDetailsDisplay({
     if (competition_id === "cmegpbi5m0001hke9buhvhrw4") {
       setSubmissionURL("/business-plan/submission");
     }
+    if(competition_id === "cmegpc6sx0002hke9gxo7hd6u"){
+      setSubmissionURL("/ai-prompt/submission");
+    }
   }, [competition_id]);
 
   if (!isLoggedIn) {

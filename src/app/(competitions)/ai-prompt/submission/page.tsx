@@ -25,12 +25,6 @@ export default async function Page() {
         );
     }
 
-    const hasAccess = await checkCompetitionPageAccess(session.user.id, "cmegpc6sx0002hke9gxo7hd6u");
-
-    if (!hasAccess) {
-        redirect("/not-registered");
-    }
-
     const competitionData = await getCompetitionById("cmegpc6sx0002hke9gxo7hd6u");
     if (!competitionData) {
         redirect("/not-found");
@@ -41,6 +35,12 @@ export default async function Page() {
             status: "ongoing",
         }
     });
+
+    const hasAccess = await checkCompetitionPageAccess(session.user.id, "cmegpc6sx0002hke9gxo7hd6u", currentRound.id);
+
+    if (!hasAccess) {
+        redirect("/not-registered");
+    }
 
     if(!currentRound){
          return (
