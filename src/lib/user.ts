@@ -58,12 +58,18 @@ export async function registerForACompetition(
     imagePublicId,
   } = rawFormData;
 
-  const trimmedFullnames = (rawFormData.fullname as string[]).map((name) => name.replace(/\s/g, ''));
-  const trimmedNisns = (rawFormData.nisn as string[]).map((nisn) => nisn.replace(/\s/g, ''));
+  const trimmedFullnames = (rawFormData.fullname as string[]).map((name) =>
+    name.replace(/\s/g, "")
+  );
+  const trimmedNisns = (rawFormData.nisn as string[]).map((nisn) =>
+    nisn.replace(/\s/g, "")
+  );
 
   // Normalize inputs to arrays
   const nisnArr = Array.isArray(trimmedNisns) ? trimmedNisns : [trimmedNisns];
-  const fullnameArr = Array.isArray(trimmedFullnames) ? trimmedFullnames : [trimmedFullnames];
+  const fullnameArr = Array.isArray(trimmedFullnames)
+    ? trimmedFullnames
+    : [trimmedFullnames];
   const link_twiboonArr = Array.isArray(rawFormData.link_twiboon)
     ? rawFormData.link_twiboon
     : [rawFormData.link_twiboon];
@@ -74,7 +80,7 @@ export async function registerForACompetition(
   // Memastikan setiap peserta, baik individu maupun tim, mengisi link twiboon.
   for (let i = 0; i < link_twiboonArr.length; i++) {
     const link = link_twiboonArr[i];
-    if (!link || link.trim() === '') {
+    if (!link || link.trim() === "") {
       const memberIdentifier = fullnameArr[i] || `peserta ke-${i + 1}`;
       return {
         errorMessage: `Link twibbon ${memberIdentifier} can not be empty.`,
@@ -87,7 +93,8 @@ export async function registerForACompetition(
   const uniqueNisns = new Set(nisnArr);
   if (uniqueNisns.size !== nisnArr.length) {
     return {
-      errorMessage: "Duplicate NISN detected. Each team member must have a unique NISN.",
+      errorMessage:
+        "Duplicate NISN detected. Each team member must have a unique NISN.",
       success: false,
     };
   }
@@ -96,16 +103,23 @@ export async function registerForACompetition(
   const uniqueNames = new Set(fullnameArr);
   if (uniqueNames.size !== fullnameArr.length) {
     return {
-      errorMessage: "Duplicate names detected. Each team member must be unique.",
+      errorMessage:
+        "Duplicate names detected. Each team member must be unique.",
       success: false,
     };
   }
 
   // Check for duplicate twiboon links
-  const uniqueLinks = new Set(link_twiboonArr.filter(link => link.trim() !== ''));
-  if (uniqueLinks.size !== link_twiboonArr.filter(link => link.trim() !== '').length) {
+  const uniqueLinks = new Set(
+    link_twiboonArr.filter((link) => link.trim() !== "")
+  );
+  if (
+    uniqueLinks.size !==
+    link_twiboonArr.filter((link) => link.trim() !== "").length
+  ) {
     return {
-      errorMessage: "Duplicate links detected. Each team member must provide a unique link.",
+      errorMessage:
+        "Duplicate links detected. Each team member must provide a unique link.",
       success: false,
     };
   }
@@ -201,7 +215,10 @@ export async function registerForACompetition(
       nisnArr.map((nisnItem, index) => {
         const user = users[index];
         if (!user) {
-          return { success: false, errorMessage: `User with NISN ${nisnItem} not found during registration` };
+          return {
+            success: false,
+            errorMessage: `User with NISN ${nisnItem} not found during registration`,
+          };
         }
 
         return prisma.competitionRegistration.create({
@@ -233,37 +250,44 @@ export async function registerForACompetition(
 export async function checkCompetitionPageAccess(
   userId: string,
   competitionId: string,
-  current_ai_round_id?: string
+  current_ai_round?: number,
+  current_round_id?: string
 ) {
-  const competitionRegistrationData = await prisma.competitionRegistration.findFirst({
-    where: { user_id: userId, competition_id: competitionId, registration_status: "accepted" },
-  });
+  const competitionRegistrationData =
+    await prisma.competitionRegistration.findFirst({
+      where: {
+        user_id: userId,
+        competition_id: competitionId,
+        registration_status: "accepted",
+      },
+    });
 
-  if(competitionId == "cmegpc6sx0002hke9gxo7hd6u"){
+  if (competitionId == "cmegpc6sx0002hke9gxo7hd6u") {
     const roundIsStarted = await prisma.aIRound.findFirst({
       where: {
-        id: current_ai_round_id,
-        status: "ongoing"
-      }
+        id: current_round_id,
+        round: current_ai_round,
+        status: "ongoing",
+      },
     });
 
-    if(!roundIsStarted){
+    if (!roundIsStarted) {
       return false;
     }
 
-    if(current_ai_round_id == "1"){
+    if (current_ai_round == 1) {
       return competitionRegistrationData;
-    }
+    } else {
+      const userHasAccessToTheRound = await prisma.user.findFirst({
+        where: {
+          id: userId,
+          current_ai_round_id: current_round_id,
+        },
+      });
 
-    const userHasAccessToTheRound = await prisma.user.findFirst({
-      where: {
-        id: userId,
-        current_ai_round_id: current_ai_round_id
+      if (!userHasAccessToTheRound) {
+        return false;
       }
-    });
-
-    if(!userHasAccessToTheRound){
-      return false;
     }
   }
 
@@ -278,7 +302,9 @@ export async function checkRoleAccess(userId: string, acceptedRole: string) {
   return user?.role === acceptedRole;
 }
 
-export async function checkCanRegisterForCompetitiveProgramming(userId: string) {
+export async function checkCanRegisterForCompetitiveProgramming(
+  userId: string
+) {
   const userRegistrations = await prisma.competitionRegistration.findMany({
     where: { user_id: userId },
   });

@@ -42,7 +42,7 @@ export default async function Page() {
         );
     }
 
-    const hasAccess = await checkCompetitionPageAccess(session.user.id, "cmegpc6sx0002hke9gxo7hd6u", currentRound.id);
+    const hasAccess = await checkCompetitionPageAccess(session.user.id, "cmegpc6sx0002hke9gxo7hd6u", currentRound.round, currentRound.id);
 
     if (!hasAccess) {
         redirect("/not-registered");
