@@ -36,6 +36,12 @@ export default async function Page() {
         }
     });
 
+    if(!currentRound){
+        return (
+            <Restrictions restrictionDescription="Round not started yet!" />
+        );
+    }
+
     const hasAccess = await checkCompetitionPageAccess(session.user.id, "cmegpc6sx0002hke9gxo7hd6u", currentRound.id);
 
     if (!hasAccess) {

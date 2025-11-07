@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import prisma from "./prisma";
+import type { RoundStatus } from "@prisma/client";
 // import { revalidatePath } from "next/cache";
 // import { ActionResult } from "@/types/action";
 import { Competition } from "@/types/competition";
@@ -19,6 +20,35 @@ export async function getCompetitionById(
     where: { id },
   });
 }
+
+export async function createRound(id: string, round: number, batch: number, question_link: string) {
+  return await prisma.aIRound.create({
+    data: {
+      id,
+      round,
+      batch,
+      question_link
+    },
+  });
+}
+export async function editRound(
+  id: string,
+  round: number,
+  batch: number,
+  question_link: string,
+  status: RoundStatus = "not_started"
+) {
+  return await prisma.aIRound.update({
+    where: { id },
+    data: {
+      round: round,
+      batch: batch,
+      question_link: question_link,
+      status: status,
+    },
+  });
+}
+
 
 export async function getRegistrationIdByCompetitionAndUser(
   competitionId: string,

@@ -233,7 +233,7 @@ export async function registerForACompetition(
 export async function checkCompetitionPageAccess(
   userId: string,
   competitionId: string,
-  current_ai_round_id: string
+  current_ai_round_id?: string
 ) {
   const competitionRegistrationData = await prisma.competitionRegistration.findFirst({
     where: { user_id: userId, competition_id: competitionId, registration_status: "accepted" },
