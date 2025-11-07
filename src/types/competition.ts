@@ -58,4 +58,5 @@ export interface aiPromptAdminSubmission{
     team_name: string;
     ai_chat_link: string;
     submittedAt?: string | Date | null;
+    trial_and_error_link: string;
 }

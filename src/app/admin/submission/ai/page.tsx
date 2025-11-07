@@ -57,6 +57,7 @@ export default async function page({
     user: sub.user,
     team_name: sub.team_name,
     ai_chat_link: sub.ai_chat_link,
+    trial_and_error_link: sub.trial_and_error_link,
     submittedAt: sub.submittedAt
   }));
 

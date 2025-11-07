@@ -69,6 +69,7 @@ export default function Content({ submissions, rounds }: ContentProps) {
               <tr>
                 <th className="px-4 py-3 text-left text-sm font-medium text-[#FCF551]">Team</th>
                 <th className="px-4 py-3 text-left text-sm font-medium text-[#FCF551]">User</th>
+                <th className="px-4 py-3 text-left text-sm font-medium text-[#FCF551]">Trial & Error Link</th>
                 <th className="px-4 py-3 text-left text-sm font-medium text-[#FCF551]">AI Chat Link</th>
                 <th className="px-4 py-3 text-left text-sm font-medium text-[#FCF551]">Submitted At</th>
                 <th className="px-4 py-3 text-left text-sm font-medium text-[#FCF551]">Advance User</th>
@@ -89,6 +90,13 @@ export default function Content({ submissions, rounds }: ContentProps) {
                       <Link href={`/admin/submission/ai/user/${item.user.id}`}>
                         {item.user.name || "Unknown"}
                       </Link>
+                    </td>
+                    <td className="px-4 py-3 text-left text-sm text-[#75E8F0] [text-shadow:_0_0_20px_rgba(117,232,240,1)]">
+                      {item.trial_and_error_link ? (
+                        <Link href={item.trial_and_error_link} target="_blank" rel="noopener noreferrer" className="underline">
+                          View Trial & Error
+                        </Link>
+                      ) : "-"}
                     </td>
                     <td className="px-4 py-3 text-left text-sm text-[#75E8F0] [text-shadow:_0_0_20px_rgba(117,232,240,1)]">
                       {item.ai_chat_link ? (
