@@ -124,7 +124,7 @@ export default function AIPromptSubmissionForm({currentRound, questionLink}: {cu
           htmlFor="trial_and_error_link"
           className="text-start w-full text-white text-lg sm:text-xl mb-2"
         >
-          Trial & Error Link
+          Masterprompt Link
         </label>
         <input
           type="url"

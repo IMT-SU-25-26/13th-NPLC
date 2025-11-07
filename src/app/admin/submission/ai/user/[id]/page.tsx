@@ -156,7 +156,7 @@ export default async function page({ params }: PageProps) {
                     <th className="px-4 py-2 text-left text-[#FCF551]">Round</th>
                     <th className="px-4 py-2 text-left text-[#FCF551]">Batch</th>
                     <th className="px-4 py-2 text-left text-[#FCF551]">Trial & Error</th>
-                    <th className="px-4 py-2 text-left text-[#FCF551]">Submission Link</th>
+                    <th className="px-4 py-2 text-left text-[#FCF551]">Masterprompt Link</th>
                     <th className="px-4 py-2 text-left text-[#FCF551]">Date</th>
                   </tr>
                 </thead>
@@ -182,7 +182,7 @@ export default async function page({ params }: PageProps) {
                           rel="noopener noreferrer"
                           className="text-[#FCF551] hover:underline"
                         >
-                          View Submission
+                          View Masterprompt
                         </a>
                       </td>
                       <td className="px-4 py-3 text-white">
